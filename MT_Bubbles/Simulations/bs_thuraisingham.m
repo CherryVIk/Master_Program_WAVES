@@ -1,0 +1,84 @@
+clear 
+close all
+
+kk=500;
+f_range = linspace(3.5e3,1e6,1000); % echosounder freq (Hz=1/s)
+a_range = linspace(1e-6,30e-3,1000);  % bubble radius (m)
+
+c = 1485; % speed of sound (m/s)
+rho_liq = 1025; % density of liquid (kg/m^3) [water]
+rho_air = 1.21;
+P_atm = 101.325e3; % atmospheric pressure
+g = 9.81; % gravitational acceleration (m/s^2)
+d = 250; % water depth (m)
+
+Mm = 0.016; % molar mass of the gas (kg/mol)
+tau0 = 0.0745; % surface tension of the gas bubbles (N/m)
+tau = 0.0745;
+
+mu_liq = 1.5e-3; %shear viscosity N/(m*s)
+gamma = 1.299; % heat ratio
+
+T = 281.29; % temperature (K) 
+p_v = 872; % vapor pressure of water (Pa)
+R = 8.31; %gas constant (m^2.kg.s^-2.K^-1.mol^-1)
+C_p = 2.191; % specific heat capacity at const pressure (kJ/kg.K)
+K_gas = 8e-2; % thermal conductivity of the gas (W/mK) 
+TS = zeros(length(f_range),length(a_range));
+
+for ff = 1:length(f_range)
+for aa = 1:length(a_range)
+
+f = f_range(ff);
+a = a_range(aa);
+w = 2*pi*f; % angular frequency (rad/s)
+k = w/c; % wavenumber (1/m)
+% k*a
+%% Thuraisingham model k*a << 1
+% Backscattering cross-section
+
+P_gas = P_atm + rho_liq * g * d + 2*tau/a - p_v; % gas pressure in bubble (Pa) 
+rho_gas = (Mm / (R*T)) * P_gas; % gas density
+D_p = K_gas/(rho_gas*C_p); % thermal diffusivity
+
+X = a*sqrt(2*w/D_p); 
+
+Gamma_nn = (1+1i) * X / 2;
+Gamma_n1 = Gamma_nn / tanh( Gamma_nn )  - 1;
+Gamma_n2 = 6*1i*(gamma - 1)/X^2;
+G = gamma / (1 - Gamma_n1 * Gamma_n2);
+
+beta_vis =  2*mu_liq / (rho_liq*a^2); % viscous damping (N*s/m)
+Sigma_sq = 3*(G*P_gas-2*tau/3/a) / (rho_liq*a^2);
+beta_th =  imag(Sigma_sq)/(2*w); % thermal damping (N*s/m)
+beta0 = beta_th + beta_vis;
+
+w0= sqrt(real(Sigma_sq));
+sigma_bs1 = ( (w0/w)^2 - 1 - 2*k*a*beta0/w )^2;
+sigma_bs2 = ( 2*beta0/w + k*a*(w0/w)^2 )^2;
+sigma_bs_denom = (sigma_bs1 + sigma_bs2);
+
+sigma_bs = a^2/ sigma_bs_denom * (sin(k * a)/k*a)^2/(1+(k*a)^2);
+
+% Target strength
+TS(ff, aa) = 10*log10(sigma_bs); %dB re 1 m^2
+end
+end
+%% Plot imagesc: freq x bubble radius x TS
+figure;
+imagesc(f_range,a_range,TS);
+set(gca, 'YDir', 'normal');
+xlabel('Frequency, HZ');ylabel('Radius, m')
+colormap('jet');colorbar;
+title('Range a=[1e-6,30e-3]')
+
+% saveas(gca, "imagesc_Freq-Radius-TS",'png')
+% clim([-400 -40])
+%% Plot ka x TS
+figure;
+ka = f_range'*a_range;
+figure
+semilogx(ka(:,kk), TS(:,kk));
+% semilogx(ka(kk,:), TS(kk,:));
+xlabel('ka');ylabel('TS (dB re 1 m^2)')
+% saveas(gca, "plot_ka-TS",'png')

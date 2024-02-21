@@ -1,5 +1,5 @@
 clear all;
-close all;
+% close all;
 %% SONAR Parameters
 % Speed of sound underwater
 cWater = 1500.0;
@@ -46,13 +46,13 @@ dTx = dRx;
 %% FFT-parameters
 nNextPow2 = nextpow2(nSig*2); % find nearest x so 2^x = nSig
 NFFT = 2^nNextPow2; % FFT-length as multiple of 2
-%NFFT = nSig;
+NFFT = nSig;
 NBins = NFFT / 2 + 1; % FFT-bins of pos. frequencies
 bins = 0:NBins-1; % Freq. bin support vector
 fBinRes= fs / NFFT;
 nfMin = floor(fMin/fBinRes);
 nfMax = ceil(fMax/fBinRes);
-f = linspace(-fs/2, fs/2, nSig);%NFFT
+f = linspace(-fs/2, fs/2, NFFT);%NFFT
 
 %% Generate transmit sequence
 % Bandpass filter design
@@ -76,7 +76,7 @@ if strcmp(eSignalType, eSignalTypes.blNoise)
     tx = filter(Hd, tx);
     %tx = filtfilt(Hd.sosMatrix, Hd.ScaleValues, tx);
     % Transform time to freq. domain signal
-    Tx = fft(tx, nSig);%NFFT
+    Tx = fft(tx, NFFT);%NFFT
     % Only save positive freq.
     %Tx = Tx(1:NBins, :);
 % The following has a commented out ideal (but impractical) bandpass filter
@@ -165,7 +165,7 @@ plot(f,logFs)
 ylim([-100 0])
 title("Log. frequency spectrum, with bubble ");
 grid on;
-% sigma_bs=1;
+sigma_bs=1;
 ii = 50;
 for iTx = 1:NTx
     for iRx = 1:NRx
@@ -198,8 +198,8 @@ for iTx = 1:NTx
 %             mixed_resp = Tx(:, iTx).*sigma_bs;
 %             mixed_resp = ifft(S_bs, nSig);
 %             mixed_resp = filter(Hd,mixed_resp);
-%             rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + tx(:, iTx) + mixed_resp(1:nSig, iTx);
-            rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + mixed_resp(1:nSig, iTx);
+            % rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + tx(:, iTx);
+           rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + mixed_resp(1:nSig, iTx);
 
 %% Insert custom freq. response here!   
 % As of now, the transmission signal is simply added to the receive signal
@@ -208,7 +208,7 @@ for iTx = 1:NTx
 % frequency domain, the spectrum of the transmission signal is multiplied
 % with the frequency response of the target.
 
-%  filter your Tx signal with this frequency response for a given bubble radius
+%  filter your Tx signal with this frequency response for a given bubble ?--radius
 
 %% Insert custom freq. response here!   
         end
@@ -242,14 +242,15 @@ plot(tSim, rx(:, 1));
 grid on;
 title('Received signal');
 subplot(212);
-plot(tLagInMeters, corr);
+semilogx(tLagInMeters, corr);
 hold on;
-plot(tLagInMeters(loc), pk, 'rx');
+semilogx(tLagInMeters(loc), pk, 'rx');
 grid on;
 title(['Crosscorrelation: Transmit- & receive signal']);
 
 %% Beamforming: Calculate array manifold vector (AMV)
 NFFT = 2^nextpow2(2 * nRxSeqLength); 
+% NFFT = nSig;
 % Frequency support vector: freq = bin*fs/FFT_size
 NBins = NFFT / 2 + 1; % FFT-bins of pos. frequencies
 bins = 0:NBins-1; % Freq. bin support vector

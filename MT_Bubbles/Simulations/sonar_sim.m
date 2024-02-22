@@ -1,3 +1,4 @@
+%%% NAME: Single bubble sonar simulation
 clear all;
 close all;
 %% SONAR Parameters
@@ -5,10 +6,10 @@ close all;
 cWater = 1500.0;
 % Number of transmitting projectors
 NTx = 1; % SIMO: Single-input
-centerTx = [0 0];
+centerTx = [0 0 0];
 % Number of receiving hydrophones
 NRx = 32; % SIMO: Multi-output
-centerRx = [0 0];
+centerRx = [0 0 0];
 % Beamforming angles
 angles = -90:2:90;
 % Number of beams
@@ -71,17 +72,16 @@ match  = 'stopband';  % Band to match exactly
 h  = fdesign.bandpass(Fstop1, Fpass1, Fpass2, Fstop2, Astop1, Apass, ...
                       Astop2, fs);
 Hd = design(h, 'cheby2');
-
+%%
+R = round(NFFT/nSig);
 if strcmp(eSignalType, eSignalTypes.blNoise)
-    % Generate Gaussian white noise
-    tx = randn(nSig, NTx);
+     tx = randn(nSig, NTx);
     tx = filter(Hd, tx);
     %tx = filtfilt(Hd.sosMatrix, Hd.ScaleValues, tx);
     % Transform time to freq. domain signal
-    Tx = fft(tx, NFFT);%NFFT
-    tx_ifft=ifft(Tx, NFFT);
+    Tx = fft(tx, NFFT);
     % Only save positive freq.
-    %Tx = Tx(1:NBins, :);
+    % Tx = Tx(1:NBins, :);
 % The following has a commented out ideal (but impractical) bandpass filter
     % Bandpass
     %Tx(1:nfMin, :) = 0;
@@ -92,19 +92,7 @@ if strcmp(eSignalType, eSignalTypes.blNoise)
 % End of ideal bandpass example
 end
 
-%% Plot transmit sequence
-figure;
-subplot(211);
-%t = linspace(0,tSig,NFFT);
-plot(t, tx(:,1));
-title("Time domain signal");
-grid on;
-subplot(212);
-logTx = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
-plot(f, logTx);
-title("Log. frequency spectrum ");
-grid on;
-
+% Plot transmit sequence
 % figure;
 % subplot(211);
 % %t = linspace(0,tSig,NFFT);
@@ -112,13 +100,13 @@ grid on;
 % title("Time domain signal");
 % grid on;
 % subplot(212);
-% %logTx = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
-% plot(t, tx_ifft);
+% logTx = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
+% plot(f, logTx);
 % title("Log. frequency spectrum ");
 % grid on;
 
 %% Environment settings
-posTar = [0 40 -10 ;10 20 0]; % [x y z]
+posTar = [0 40 -10 ; -60 20 -10 ;10 20 0]; % [x y z]
 NTargets = size(posTar, 1);
 bDirectSound = 0;
 
@@ -127,8 +115,8 @@ bDirectSound = 0;
 % around array center (spaced on x-axis)
 rxCenterElement = (NRx + 1) / 2;
 txCenterElement = (NTx + 1) / 2;
-turnRx = [cosd(0) sind(0)];
-turnTx = [cosd(0) sind(0)];
+turnRx = [cosd(0) sind(0) sind(0)];
+turnTx = [cosd(0) sind(0) sind(0)];
 posRx = (((1:NRx) - rxCenterElement) .* dRx)' .*turnRx+ centerRx;
 posTx = (((1:NTx) - txCenterElement) .* dTx)' .*turnTx+ centerTx;
 
@@ -162,11 +150,11 @@ rx = zeros(nRxSeqLength, NRx);
 
 radius_b = 2e-2;% Oscillations, bubble radius (m)
 f_range = linspace(fMax,fMin,NFFT); % echosounder freq (Hz=1/s)
-% sigma_bs = bubble_response(f,radius_b);
 sigma_bs = bubble_response(f,radius_b);
-%% 
 f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs;
-% t_sigma_bs = ifft(f_sigma_bs, nSig);
+t_sigma_bs = ifft(f_sigma_bs, NFFT);
+t_sigma_bs = t_sigma_bs(1:nSig);
+
 figure;
 subplot(211);
 logBs = 10*log10(sigma_bs(:,1));
@@ -179,8 +167,12 @@ logFs = 20*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
 % logFs = 10*log10(f_sigma_bs(:,1));
 plot(f,logFs)
 ylim([-100 0])
-title("Log. frequency spectrum, with bubble ");
+title("frequency spectrum, with bubble ");
 grid on;
+figure
+plot(t, real(t_sigma_bs));
+title('Time of the Ts+sigma_bs')
+%%
 % sigma_bs=1;
 ii = 50;
 for iTx = 1:NTx
@@ -194,7 +186,8 @@ for iTx = 1:NTx
             f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs;
             angle_rs = angle(Tx(:, iTx));
             mixed_resp = f_sigma_bs.*exp(1j*angle_rs);
-            mixed_resp = ifft(mixed_resp, nSig);
+            mixed_resp = ifft(mixed_resp, NFFT);
+            mixed_resp = real(mixed_resp(1:nSig));
             if ii == 100
                 %% Plot transmit sequence
                 figure;
@@ -210,11 +203,6 @@ for iTx = 1:NTx
             end
 %             idea: to add phase shift (imag part of the Tx to the mixed
 %             freq resp)
-            
-%             mixed_resp = Tx(:, iTx).*sigma_bs;
-%             mixed_resp = ifft(S_bs, nSig);
-%             mixed_resp = filter(Hd,mixed_resp);
-            % rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + tx(:, iTx);
            rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + mixed_resp(1:nSig, iTx);
 
 %% Insert custom freq. response here!   
@@ -337,7 +325,7 @@ r = 0:dMax/size(ppi,2):dMax-1/size(ppi,2);
 [A,B] = pol2cart(THETA,RR);
 surf(A,B,ppi.');
 colormap('jet');
-view(0,90);
+% view(0,90);
 xlabel('x [m]');
 ylabel('y [m]');
 daspect([1 1 1]);

@@ -48,7 +48,7 @@ dTx = dRx;
 nNextPow2 = nextpow2(nSig*2); % find nearest x so 2^x = nSig
 NFFT = 2^nNextPow2; % FFT-length as multiple of 2
 %t_ifft = linspace(0, tSig, NFFT);
-NFFT = nSig;
+% NFFT = nSig;
 NBins = NFFT / 2 + 1; % FFT-bins of pos. frequencies
 bins = 0:NBins-1; % Freq. bin support vector
 fBinRes= fs / NFFT;
@@ -79,7 +79,7 @@ if strcmp(eSignalType, eSignalTypes.blNoise)
     %tx = filtfilt(Hd.sosMatrix, Hd.ScaleValues, tx);
     % Transform time to freq. domain signal
     Tx = fft(tx, NFFT);%NFFT
-    %tx_ifft=ifft(Tx, NFFT);
+    tx_ifft=ifft(Tx, NFFT);
     % Only save positive freq.
     %Tx = Tx(1:NBins, :);
 % The following has a commented out ideal (but impractical) bandpass filter
@@ -118,7 +118,7 @@ grid on;
 % grid on;
 
 %% Environment settings
-posTar = [0 40;10 20]; % [x y]
+posTar = [0 40 -10 ;10 20 0]; % [x y z]
 NTargets = size(posTar, 1);
 bDirectSound = 0;
 

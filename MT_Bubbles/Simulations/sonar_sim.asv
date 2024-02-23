@@ -1,14 +1,14 @@
 clear all;
-% close all;
+close all;
 %% SONAR Parameters
 % Speed of sound underwater
 cWater = 1500.0;
 % Number of transmitting projectors
 NTx = 1; % SIMO: Single-input
-centerTx = [0 0];
+centerTx = [0 0 0];
 % Number of receiving hydrophones
 NRx = 32; % SIMO: Multi-output
-centerRx = [0 0];
+centerRx = [0 0 0];
 % Beamforming angles
 angles = -90:2:90;
 % Number of beams
@@ -31,6 +31,7 @@ nPing = tPing * fs; % in samples
 tSig = 0.05; % in seconds
 nSig = tSig * fs; % in samples
 t = linspace(0, tSig, nSig);
+
 % Signal types
 eSignalTypes.CW = 'CW';
 eSignalTypes.blNoise = 'blNoise';
@@ -46,7 +47,8 @@ dTx = dRx;
 %% FFT-parameters
 nNextPow2 = nextpow2(nSig*2); % find nearest x so 2^x = nSig
 NFFT = 2^nNextPow2; % FFT-length as multiple of 2
-NFFT = nSig;
+%t_ifft = linspace(0, tSig, NFFT);
+% NFFT = nSig;
 NBins = NFFT / 2 + 1; % FFT-bins of pos. frequencies
 bins = 0:NBins-1; % Freq. bin support vector
 fBinRes= fs / NFFT;
@@ -69,14 +71,38 @@ match  = 'stopband';  % Band to match exactly
 h  = fdesign.bandpass(Fstop1, Fpass1, Fpass2, Fstop2, Astop1, Apass, ...
                       Astop2, fs);
 Hd = design(h, 'cheby2');
+info(Hd);
+%%
+Hd_filt = designfilt('bandpassiir', ...       % Response type  
+       'StopbandFrequency1',Fstop1, ...    % Frequency constraints
+       'PassbandFrequency1',Fpass1, ...
+       'PassbandFrequency2',Fpass2, ...
+       'StopbandFrequency2',Fstop2, ...
+       'StopbandAttenuation1',Astop1, ...   % Magnitude constraints
+       'PassbandRipple',Apass, ...
+       'StopbandAttenuation2',Astop2, ...
+       'DesignMethod','cheby2', ...      % Design method
+       'MatchExactly',match, ...   % Design method options
+       'SampleRate',fs);
+info(Hd_filt);
 
+%%
+R = NFFT/nSig;
 if strcmp(eSignalType, eSignalTypes.blNoise)
     % Generate Gaussian white noise
     tx = randn(nSig, NTx);
-    tx = filter(Hd, tx);
-    %tx = filtfilt(Hd.sosMatrix, Hd.ScaleValues, tx);
+    tx_filt1 = filter(Hd, tx);
+    tx_filt = filtfilt(Hd_filt, tx);
+    % tx = filtfilt(Hd.sosMatrix, Hd.ScaleValues, tx);
     % Transform time to freq. domain signal
-    Tx = fft(tx, NFFT);%NFFT
+    Tx_filt1 = (fft(tx_filt1, NFFT));
+    Tx_filt = (fft(tx_filt, NFFT));
+
+    Tx_decimated = decimate(Tx_filt, R);
+
+    tx_ifft1=ifft(Tx_filt1, nSig);
+    tx_ifft=ifft(Tx_filt, nSig);
+    
     % Only save positive freq.
     %Tx = Tx(1:NBins, :);
 % The following has a commented out ideal (but impractical) bandpass filter
@@ -89,20 +115,53 @@ if strcmp(eSignalType, eSignalTypes.blNoise)
 % End of ideal bandpass example
 end
 
-%% Plot transmit sequence
+% Plot transmit sequence
+% figure;
+% subplot(211);
+% %t = linspace(0,tSig,NFFT);
+% plot(t, tx_filt1(:,1));
+% title("Time domain signal");
+% grid on;
+% subplot(212);
+% logTx = 20*log10(abs(Tx_filt1(:,1))./max(abs(Tx_filt1(:,1))));
+% plot(f, logTx);
+% title("Log. frequency spectrum ");
+% grid on;
+
 figure;
 subplot(211);
-plot(t, tx(:,1));
-title("Time domain signal");
+logTx1 = 20*log10(abs(Tx_filt1(:,1))./max(abs(Tx_filt1(:,1))));
+plot(f, logTx1);
+title("Log. frequency spectrum 1");
 grid on;
 subplot(212);
-logTx = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
+logTx = 20*log10(abs(Tx_filt(:,1))./max(abs(Tx_filt(:,1))));
 plot(f, logTx);
 title("Log. frequency spectrum ");
 grid on;
 
+figure;
+subplot(211);
+plot(t, tx_filt1(:,1));
+title("Time domain signal 1");
+grid on;
+subplot(212);
+plot(t, tx_filt);
+title("Time domain signal");
+grid on;
+
+figure;
+subplot(211);
+plot(t, tx_ifft1(:,1));
+title("Time domain signal after ifft 1");
+grid on;
+subplot(212);
+plot(t, tx_ifft);
+title("Time domain signal after ifft");
+grid on;
+
 %% Environment settings
-posTar = [0 40;10 20]; % [x y]
+posTar = [0 40 -10 ;10 20 0]; % [x y z]
 NTargets = size(posTar, 1);
 bDirectSound = 0;
 
@@ -111,8 +170,8 @@ bDirectSound = 0;
 % around array center (spaced on x-axis)
 rxCenterElement = (NRx + 1) / 2;
 txCenterElement = (NTx + 1) / 2;
-turnRx = [cosd(0) sind(0)];
-turnTx = [cosd(0) sind(0)];
+turnRx = [cosd(0) sind(0) sind(0)];
+turnTx = [cosd(0) sind(0) sind(0)];
 posRx = (((1:NRx) - rxCenterElement) .* dRx)' .*turnRx+ centerRx;
 posTx = (((1:NTx) - txCenterElement) .* dTx)' .*turnTx+ centerTx;
 
@@ -146,11 +205,9 @@ rx = zeros(nRxSeqLength, NRx);
 
 radius_b = 2e-2;% Oscillations, bubble radius (m)
 f_range = linspace(fMax,fMin,NFFT); % echosounder freq (Hz=1/s)
-% sigma_bs = bubble_response(f,radius_b);
 sigma_bs = bubble_response(f,radius_b);
-%% 
 f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs;
-% t_sigma_bs = ifft(f_sigma_bs, nSig);
+t_sigma_bs = ifft(f_sigma_bs, nSig);
 figure;
 subplot(211);
 logBs = 10*log10(sigma_bs(:,1));
@@ -159,13 +216,17 @@ ylim([-100 0])
 title("Log. frequency spectrum, bubble");
 grid on;
 subplot(212);
-logFs = 20*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
-% logFs = 10*log10(f_sigma_bs(:,1));
+% logFs = 20*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
+logFs = 10*log10(f_sigma_bs(:,1));
 plot(f,logFs)
 ylim([-100 0])
-title("Log. frequency spectrum, with bubble ");
+title("frequency spectrum, with bubble ");
 grid on;
-sigma_bs=1;
+figure
+plot(t, t_sigma_bs);
+title('Time of the Ts+sigma_bs')
+%%
+% sigma_bs=1;
 ii = 50;
 for iTx = 1:NTx
     for iRx = 1:NRx
@@ -250,7 +311,7 @@ title(['Crosscorrelation: Transmit- & receive signal']);
 
 %% Beamforming: Calculate array manifold vector (AMV)
 NFFT = 2^nextpow2(2 * nRxSeqLength); 
-% NFFT = nSig;
+%NFFT = nSig;
 % Frequency support vector: freq = bin*fs/FFT_size
 NBins = NFFT / 2 + 1; % FFT-bins of pos. frequencies
 bins = 0:NBins-1; % Freq. bin support vector

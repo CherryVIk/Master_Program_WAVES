@@ -48,8 +48,6 @@ dTx = dRx;
 %% FFT-parameters
 nNextPow2 = nextpow2(nSig*2); % find nearest x so 2^x = nSig
 NFFT = 2^nNextPow2; % FFT-length as multiple of 2
-%t_ifft = linspace(0, tSig, NFFT);
-% NFFT = nSig;
 NBins = NFFT / 2 + 1; % FFT-bins of pos. frequencies
 bins = 0:NBins-1; % Freq. bin support vector
 fBinRes= fs / NFFT;
@@ -75,7 +73,7 @@ Hd = design(h, 'cheby2');
 %%
 R = round(NFFT/nSig);
 if strcmp(eSignalType, eSignalTypes.blNoise)
-     tx = randn(nSig, NTx);
+    tx = randn(nSig, NTx);
     tx = filter(Hd, tx);
     %tx = filtfilt(Hd.sosMatrix, Hd.ScaleValues, tx);
     % Transform time to freq. domain signal
@@ -152,8 +150,6 @@ radius_b = 2e-2;% Oscillations, bubble radius (m)
 f_range = linspace(fMax,fMin,NFFT); % echosounder freq (Hz=1/s)
 sigma_bs = bubble_response(f,radius_b);
 f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs;
-t_sigma_bs = ifft(f_sigma_bs, NFFT);
-t_sigma_bs = t_sigma_bs(1:nSig);
 
 figure;
 subplot(211);
@@ -164,46 +160,25 @@ title("Log. frequency spectrum, bubble");
 grid on;
 subplot(212);
 logFs = 20*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
-% logFs = 10*log10(f_sigma_bs(:,1));
 plot(f,logFs)
 ylim([-100 0])
 title("frequency spectrum, with bubble ");
 grid on;
-figure
-plot(t, real(t_sigma_bs));
-title('Time of the Ts+sigma_bs')
 %%
-% sigma_bs=1;
-ii = 50;
 for iTx = 1:NTx
     for iRx = 1:NRx
         for iTar = 1:NTargets + bDirectSound
-            ii=ii+10;
-            iStart = floor(tPropagationTime(iTx, iTar, iRx))+1;
-            iEnd = floor(iStart + length(tx(:, iTx))) - 1;
             % Add reflected tx-signal at delay time to rx_-
 %             rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) +  tx(:, iTx);
             f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs;
             angle_rs = angle(Tx(:, iTx));
-            mixed_resp = f_sigma_bs.*exp(1j*angle_rs);
+            mixed_resp = f_sigma_bs.*exp(i*angle_rs);
             mixed_resp = ifft(mixed_resp, NFFT);
-            mixed_resp = real(mixed_resp(1:nSig));
-            if ii == 100
-                %% Plot transmit sequence
-                figure;
-                subplot(211);
-                plot(t, tx(:,1));
-                title("Time domain signal");
-                grid on;
-                subplot(212);
-%                 logTx = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
-                plot(t, mixed_resp);
-                title("Time domain signal changed ");
-                grid on;
-            end
-%             idea: to add phase shift (imag part of the Tx to the mixed
-%             freq resp)
-           rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + mixed_resp(1:nSig, iTx);
+            mixed_resp = mixed_resp(1:nSig);
+            % add phase shift (imag part of the Tx to the mixed freq resp)
+            iStart = floor(tPropagationTime(iTx, iTar, iRx))+1;
+            iEnd = floor(iStart + length(tx(:, iTx))) - 1;
+            rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + mixed_resp(:, iTx);
 
 %% Insert custom freq. response here!   
 % As of now, the transmission signal is simply added to the receive signal

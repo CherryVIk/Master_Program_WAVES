@@ -38,7 +38,8 @@ eSignalTypes.CW = 'CW';
 eSignalTypes.blNoise = 'blNoise';
 eSignalTypes.HFM = 'HFM';
 eSignalType = eSignalTypes.blNoise;
-bRandomSeed = 42;
+bRandomSeed = 42;%42
+rng(bRandomSeed)
 
 %% Adaption of SONAR-system wrt. signal design
 % Set array element distance to half of wavelength of max freq.
@@ -154,20 +155,20 @@ radius_b = 2e-2;% Oscillations, bubble radius (m)
 sigma_bs = bubble_response(f,radius_b);
 %% 
 % Plot --------------------------------------------------------------------
-% f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins);
-% figure(10);
-% subplot(211);
-% logBs = 10*log10(sigma_bs(1:NBins,1));
-% plot(f(1:NBins), logBs);
-% ylim([-100 0])
-% title("Log. frequency spectrum, bubble");
-% grid on;
-% subplot(212);
-% logFs = 20*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
-% plot(f(1:NBins),logFs)
-% ylim([-100 0])
-% title("Log. frequency spectrum, with bubble ");
-% grid on;
+f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins);
+figure(10);
+subplot(211);
+logBs = 10*log10(sigma_bs(1:NBins,1));
+plot(f(1:NBins), logBs);
+ylim([-100 0])
+title("Log. frequency spectrum, bubble");
+grid on;
+subplot(212);
+logFs = 20*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
+plot(f(1:NBins),logFs)
+ylim([-100 0])
+title("Log. frequency spectrum, with bubble ");
+grid on;
 % sigma_bs=1;
 for iTx = 1:NTx
     for iRx = 1:NRx
@@ -220,17 +221,17 @@ locShortest = min(squeeze(tPropagationTime(round(NTx/2), :, round(NRx/2))));
 % Calculate time vector
 tSim = linspace(0, nRxSeqLength/fs, nRxSeqLength);
 % Plot --------------------------------------------------------------------
-% figure(50);
-% subplot(211);
-% plot(tSim, rx(:, 1));
-% grid on;
-% title('Received signal');
-% subplot(212);
-% semilogx(tLagInMeters, corr);
-% hold on;
-% semilogx(tLagInMeters(loc), pk, 'rx');
-% grid on;
-% title('Crosscorrelation: Transmit- & receive signal');
+figure(50);
+subplot(211);
+plot(tSim, rx(:, 1));
+grid on;
+title('Received signal');
+subplot(212);
+semilogx(tLagInMeters, corr);
+hold on;
+semilogx(tLagInMeters(loc), pk, 'rx');
+grid on;
+title('Crosscorrelation: Transmit- & receive signal');
 
 %% Beamforming: Calculate array manifold vector (AMV)
 NFFT = 2^nextpow2(2 * nRxSeqLength); 

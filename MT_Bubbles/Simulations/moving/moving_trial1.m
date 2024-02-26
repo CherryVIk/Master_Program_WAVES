@@ -1,5 +1,4 @@
 [X,Y] = meshgrid(linspace(-5, 5, 50));
-[x,y,z] = sphere(3);
 % bubble starts from 
 fcn = @(x,y,k) (x-1)^2 + (y-1)^2*k;
 v = [1:-0.05:-1;  -1:0.05:1];

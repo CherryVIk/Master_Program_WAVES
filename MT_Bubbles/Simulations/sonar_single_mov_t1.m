@@ -1,19 +1,21 @@
 clear all;
-% close all;
+close all;
 %% SONAR Parameters
 % Speed of sound underwater
 cWater = 1500.0;
 % Number of transmitting projectors
 NTx = 1; % SIMO: Single-input
-centerTx = [0 0];
+centerTx = [0 0 0];
 % Number of receiving hydrophones
 NRx = 32; % SIMO: Multi-output
-centerRx = [0 0];
+centerRx = [0 0 0];
 % Beamforming angles
 angles = -90:2:90;
 % Number of beams
 NBeams = length(angles);
 
+filename = 'MyAnimation.gif';
+for move_ii = 150
 %% Signal Parameters
 % Sample frequency
 fs = 192000;
@@ -91,19 +93,21 @@ if strcmp(eSignalType, eSignalTypes.blNoise)
 end
 
 %% Plot transmit sequence
-figure;
-subplot(211);
-plot(t, tx(:,1));
-title("Time domain signal");
-grid on;
-subplot(212);
-logTx = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
-plot(f(1:NBins), logTx);
-title("Log. frequency spectrum ");
-grid on;
+% figure(10);
+% subplot(211);
+% plot(t, tx(:,1));
+% title("Time domain signal");
+% grid on;
+% subplot(212);
+% logTx = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
+% plot(f(1:NBins), logTx);
+% title("Log. frequency spectrum ");
+% grid on;
 
 %% Environment settings
-posTar = [0 40;10 20]; % [x y]
+
+zcoord = -50 + move_ii;
+posTar = [0 40 zcoord;10 20 0]; % [x y]
 NTargets = size(posTar, 1);
 bDirectSound = 0;
 
@@ -112,8 +116,8 @@ bDirectSound = 0;
 % around array center (spaced on x-axis)
 rxCenterElement = (NRx + 1) / 2;
 txCenterElement = (NTx + 1) / 2;
-turnRx = [cosd(0) sind(0)];
-turnTx = [cosd(0) sind(0)];
+turnRx = [cosd(0) sind(0) 0];
+turnTx = [cosd(0) sind(0) 0];
 posRx = (((1:NRx) - rxCenterElement) .* dRx)' .*turnRx+ centerRx;
 posTx = (((1:NTx) - txCenterElement) .* dTx)' .*turnTx+ centerTx;
 
@@ -149,20 +153,21 @@ rx = zeros(nRxSeqLength, NRx);
 radius_b = 2e-2;% Oscillations, bubble radius (m)
 sigma_bs = bubble_response(f,radius_b);
 %% 
-f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins);
-figure;
-subplot(211);
-logBs = 10*log10(sigma_bs(1:NBins,1));
-plot(f(1:NBins), logBs);
-ylim([-100 0])
-title("Log. frequency spectrum, bubble");
-grid on;
-subplot(212);
-logFs = 20*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
-plot(f(1:NBins),logFs)
-ylim([-100 0])
-title("Log. frequency spectrum, with bubble ");
-grid on;
+% Plot --------------------------------------------------------------------
+% f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins);
+% figure(10);
+% subplot(211);
+% logBs = 10*log10(sigma_bs(1:NBins,1));
+% plot(f(1:NBins), logBs);
+% ylim([-100 0])
+% title("Log. frequency spectrum, bubble");
+% grid on;
+% subplot(212);
+% logFs = 20*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
+% plot(f(1:NBins),logFs)
+% ylim([-100 0])
+% title("Log. frequency spectrum, with bubble ");
+% grid on;
 % sigma_bs=1;
 for iTx = 1:NTx
     for iRx = 1:NRx
@@ -215,17 +220,17 @@ locShortest = min(squeeze(tPropagationTime(round(NTx/2), :, round(NRx/2))));
 % Calculate time vector
 tSim = linspace(0, nRxSeqLength/fs, nRxSeqLength);
 % Plot --------------------------------------------------------------------
-figure;
-subplot(211);
-plot(tSim, rx(:, 1));
-grid on;
-title('Received signal');
-subplot(212);
-semilogx(tLagInMeters, corr);
-hold on;
-semilogx(tLagInMeters(loc), pk, 'rx');
-grid on;
-title('Crosscorrelation: Transmit- & receive signal');
+% figure(50);
+% subplot(211);
+% plot(tSim, rx(:, 1));
+% grid on;
+% title('Received signal');
+% subplot(212);
+% semilogx(tLagInMeters, corr);
+% hold on;
+% semilogx(tLagInMeters(loc), pk, 'rx');
+% grid on;
+% title('Crosscorrelation: Transmit- & receive signal');
 
 %% Beamforming: Calculate array manifold vector (AMV)
 NFFT = 2^nextpow2(2 * nRxSeqLength); 
@@ -241,11 +246,11 @@ tTau = (sind(angles) .* posRx(:,1)) / cWater;
 
 % Compute the array manifold vector
 % Repeat the frequency vector for all [beams, freqs, NRx]
-F=repmat(f,[NBeams, 1,NRx]);
+Frame=repmat(f,[NBeams, 1,NRx]);
 % Reshape to [beams, NRx, freqs]
-F = permute(F, [1 3 2]);
+Frame = permute(Frame, [1 3 2]);
 % Multiply tau with freq. supports
-tauTimesf = bsxfun(@times,tTau', F);
+tauTimesf = bsxfun(@times,tTau', Frame);
 % Create exponential terms: e^(j2pi*tau*f)
 AMV = exp(1j * 2 * pi *tauTimesf);
 AMV = permute(AMV, [2 3 1]);
@@ -288,8 +293,8 @@ for iResize = NResized:-1:1
 end
 
 %% Plot results as PPI (plan position indicator) plot
-figure;
 % Log of correlated output
+sonar_fig=figure(100);
 ppi = 20*log10(abs(mfbfsmall)+eps);
 ppi(ppi<-40) = -40;
 % Maximum distance (single path) = Half of max sequence travel distance
@@ -312,3 +317,19 @@ set(gca,'LooseInset',get(gca,'TightInset'));
 set(gcf, 'units', 'pixels', 'position', [100 40 1500 900]);
 hold on;
 hold off;
+ % Capture the plot as an image 
+Frame = getframe(sonar_fig);
+% make_gif(Frame, move_ii, filename)
+end
+
+%% Functions
+function make_gif(Frame, ii, filename)
+    im = frame2im(Frame); 
+    [imind, CM] = rgb2ind(im,256); 
+    % Write the animation to the gif File: MYGIF 
+    if ii == 0 
+      imwrite(imind, CM,filename,'gif', 'Loopcount',inf); 
+    else 
+      imwrite(imind, CM,filename,'gif','WriteMode','append'); 
+    end 
+end

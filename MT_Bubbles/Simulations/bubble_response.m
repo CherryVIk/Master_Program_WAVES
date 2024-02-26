@@ -77,7 +77,7 @@ end
 % colormap("jet")
 % colorbar;
 %% Plot ka x TS
-figure;
+figure(56);
 ka = f_range'*a_range;
 semilogx(ka(:,1), TS(:,1));
 xlabel('ka');ylabel('TS (dB re 1 m^2)')

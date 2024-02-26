@@ -15,7 +15,7 @@ angles = -90:2:90;
 NBeams = length(angles);
 
 filename = 'MyAnimation';
-for move_ii = 0:10:100
+for move_ii = 0;%0:5:100
 %% Signal Parameters
 % Sample frequency
 fs = 192000;
@@ -153,6 +153,7 @@ rx = zeros(nRxSeqLength, NRx);
 radius_b = 2e-2;% Oscillations, bubble radius (m)
 sigma_bs = bubble_response(f,radius_b);
 %% 
+% Plot --------------------------------------------------------------------
 % f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins);
 % figure(10);
 % subplot(211);
@@ -219,17 +220,17 @@ locShortest = min(squeeze(tPropagationTime(round(NTx/2), :, round(NRx/2))));
 % Calculate time vector
 tSim = linspace(0, nRxSeqLength/fs, nRxSeqLength);
 % Plot --------------------------------------------------------------------
-figure(50);
-subplot(211);
-plot(tSim, rx(:, 1));
-grid on;
-title('Received signal');
-subplot(212);
-semilogx(tLagInMeters, corr);
-hold on;
-semilogx(tLagInMeters(loc), pk, 'rx');
-grid on;
-title('Crosscorrelation: Transmit- & receive signal');
+% figure(50);
+% subplot(211);
+% plot(tSim, rx(:, 1));
+% grid on;
+% title('Received signal');
+% subplot(212);
+% semilogx(tLagInMeters, corr);
+% hold on;
+% semilogx(tLagInMeters(loc), pk, 'rx');
+% grid on;
+% title('Crosscorrelation: Transmit- & receive signal');
 
 %% Beamforming: Calculate array manifold vector (AMV)
 NFFT = 2^nextpow2(2 * nRxSeqLength); 
@@ -293,6 +294,7 @@ end
 
 %% Plot results as PPI (plan position indicator) plot
 % Log of correlated output
+sonar_fig=figure(100);
 ppi = 20*log10(abs(mfbfsmall)+eps);
 ppi(ppi<-40) = -40;
 % Maximum distance (single path) = Half of max sequence travel distance
@@ -303,7 +305,7 @@ r = 0:dMax/size(ppi,2):dMax-1/size(ppi,2);
 [A,B] = pol2cart(THETA,RR);
 surf(A,B,ppi.');
 colormap('jet');
-view(0,90);
+view(-20,20);
 xlabel('x [m]');
 ylabel('y [m]');
 daspect([1 1 1]);
@@ -317,7 +319,7 @@ hold on;
 hold off;
  % Capture the plot as an image 
 Frame = getframe(sonar_fig);
-make_gif(Frame, move_ii, filename)
+% make_gif(Frame, move_ii, filename)
 end
 
 %% Functions
@@ -325,7 +327,7 @@ function make_gif(Frame, ii, filename)
     im = frame2im(Frame); 
     [imind, CM] = rgb2ind(im,256); 
     % Write the animation to the gif File: MYGIF 
-    if ii == 1 
+    if ii == 0 
       imwrite(imind, CM,filename,'gif', 'Loopcount',inf); 
     else 
       imwrite(imind, CM,filename,'gif','WriteMode','append'); 

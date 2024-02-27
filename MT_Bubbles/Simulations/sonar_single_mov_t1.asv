@@ -1,5 +1,5 @@
 clear all;
-% close all;
+close all;
 %% SONAR Parameters
 % Speed of sound underwater
 cWater = 1500.0;
@@ -14,8 +14,8 @@ angles = -90:2:90;
 % Number of beams
 NBeams = length(angles);
 
-filename = 'MyAnimation';
-for move_ii = 0;%0:5:100
+filename = 'MyAnimation.gif';
+for move_ii = 150
 %% Signal Parameters
 % Sample frequency
 fs = 192000;
@@ -38,7 +38,8 @@ eSignalTypes.CW = 'CW';
 eSignalTypes.blNoise = 'blNoise';
 eSignalTypes.HFM = 'HFM';
 eSignalType = eSignalTypes.blNoise;
-bRandomSeed = 42;
+bRandomSeed = 42;%42
+rng(bRandomSeed)
 
 %% Adaption of SONAR-system wrt. signal design
 % Set array element distance to half of wavelength of max freq.
@@ -73,10 +74,15 @@ h  = fdesign.bandpass(Fstop1, Fpass1, Fpass2, Fstop2, Astop1, Apass, ...
                       Astop2, fs);
 Hd = design(h, 'cheby2');
 
+
+
 if strcmp(eSignalType, eSignalTypes.blNoise)
     % Generate Gaussian white noise
     tx = randn(nSig, NTx);
     tx = filter(Hd, tx);
+    % an amplitude for that noise that is 10% of the noise-free signal at every element.
+    noise_add = 0.1 * tx .* randn(nSig, NTx);  
+    tx = tx + noise_add;
     %tx = filtfilt(Hd.sosMatrix, Hd.ScaleValues, tx);
     % Transform time to freq. domain signal
     Tx = fft(tx, NFFT);%NFFT
@@ -154,21 +160,21 @@ radius_b = 2e-2;% Oscillations, bubble radius (m)
 sigma_bs = bubble_response(f,radius_b);
 %% 
 % Plot --------------------------------------------------------------------
-% f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins);
-% figure(10);
-% subplot(211);
-% logBs = 10*log10(sigma_bs(1:NBins,1));
-% plot(f(1:NBins), logBs);
-% ylim([-100 0])
-% title("Log. frequency spectrum, bubble");
-% grid on;
-% subplot(212);
-% logFs = 20*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
-% plot(f(1:NBins),logFs)
-% ylim([-100 0])
-% title("Log. frequency spectrum, with bubble ");
-% grid on;
-% sigma_bs=1;
+f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins);
+figure(10);
+subplot(211);
+logBs = 10*log10(sigma_bs(1:NBins,1));
+plot(f(1:NBins), logBs);
+ylim([-100 0])
+title("Log. frequency spectrum, bubble");
+grid on;
+subplot(212);
+logFs = 20*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
+plot(f(1:NBins),logFs)
+ylim([-100 0])
+title("Log. frequency spectrum, with bubble ");
+grid on;
+sigma_bs=1;
 for iTx = 1:NTx
     for iRx = 1:NRx
         for iTar = 1:NTargets + bDirectSound
@@ -220,17 +226,17 @@ locShortest = min(squeeze(tPropagationTime(round(NTx/2), :, round(NRx/2))));
 % Calculate time vector
 tSim = linspace(0, nRxSeqLength/fs, nRxSeqLength);
 % Plot --------------------------------------------------------------------
-% figure(50);
-% subplot(211);
-% plot(tSim, rx(:, 1));
-% grid on;
-% title('Received signal');
-% subplot(212);
-% semilogx(tLagInMeters, corr);
-% hold on;
-% semilogx(tLagInMeters(loc), pk, 'rx');
-% grid on;
-% title('Crosscorrelation: Transmit- & receive signal');
+figure(50);
+subplot(211);
+plot(tSim, rx(:, 1));
+grid on;
+title('Received signal');
+subplot(212);
+semilogx(tLagInMeters, corr);
+hold on;
+semilogx(tLagInMeters(loc), pk, 'rx');
+grid on;
+title('Crosscorrelation: Transmit- & receive signal');
 
 %% Beamforming: Calculate array manifold vector (AMV)
 NFFT = 2^nextpow2(2 * nRxSeqLength); 
@@ -305,7 +311,7 @@ r = 0:dMax/size(ppi,2):dMax-1/size(ppi,2);
 [A,B] = pol2cart(THETA,RR);
 surf(A,B,ppi.');
 colormap('jet');
-view(-20,20);
+view(0,90);
 xlabel('x [m]');
 ylabel('y [m]');
 daspect([1 1 1]);

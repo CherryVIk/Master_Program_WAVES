@@ -15,7 +15,7 @@ angles = -90:2:90;
 NBeams = length(angles);
 
 filename = 'MyAnimation.gif';
-for move_ii = 150
+for move_ii = 100
 %% Signal Parameters
 % Sample frequency
 fs = 192000;
@@ -74,10 +74,15 @@ h  = fdesign.bandpass(Fstop1, Fpass1, Fpass2, Fstop2, Astop1, Apass, ...
                       Astop2, fs);
 Hd = design(h, 'cheby2');
 
+
+
 if strcmp(eSignalType, eSignalTypes.blNoise)
     % Generate Gaussian white noise
     tx = randn(nSig, NTx);
+    % an amplitude for that noise is 10% of the noise-free signal at every element.
+    noise_add = 0.1 * tx .* randn(nSig, NTx);  
     tx = filter(Hd, tx);
+    tx = tx + noise_add;
     %tx = filtfilt(Hd.sosMatrix, Hd.ScaleValues, tx);
     % Transform time to freq. domain signal
     Tx = fft(tx, NFFT);%NFFT
@@ -94,16 +99,16 @@ if strcmp(eSignalType, eSignalTypes.blNoise)
 end
 
 %% Plot transmit sequence
-% figure(10);
-% subplot(211);
-% plot(t, tx(:,1));
-% title("Time domain signal");
-% grid on;
-% subplot(212);
-% logTx = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
-% plot(f(1:NBins), logTx);
-% title("Log. frequency spectrum ");
-% grid on;
+figure(10);
+subplot(211);
+plot(t, tx(:,1));
+title("Time domain signal");
+grid on;
+subplot(212);
+logTx = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
+plot(f(1:NBins), logTx);
+title("Log. frequency spectrum ");
+grid on;
 
 %% Environment settings
 
@@ -146,7 +151,7 @@ tPropagationTime = tPropagationTime .* fs; % in samples
 %% Calculate received signals
 % Geometric spreading loss damping
 % geoSpreadLoss = 0;
-geoSpreadLoss = 1/( norm(posTar(iTar, :) - posTx(iTx, :))^3 ); % 1/r^x power loss
+geoSpreadLoss = 1/( norm(posTar(iTar, :) - posTx(iTx, :))^2 ); % 1/r^x power loss
 % Max rx. sequence length (signal duration + max propagation time)
 nRxSeqLength = nSig + ceil(max(tPropagationTime(:)));
 rx = zeros(nRxSeqLength, NRx);
@@ -155,21 +160,21 @@ radius_b = 2e-2;% Oscillations, bubble radius (m)
 sigma_bs = bubble_response(f,radius_b);
 %% 
 % Plot --------------------------------------------------------------------
-f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins);
-figure(10);
-subplot(211);
-logBs = 10*log10(sigma_bs(1:NBins,1));
-plot(f(1:NBins), logBs);
-ylim([-100 0])
-title("Log. frequency spectrum, bubble");
-grid on;
-subplot(212);
-logFs = 20*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
-plot(f(1:NBins),logFs)
-ylim([-100 0])
-title("Log. frequency spectrum, with bubble ");
-grid on;
-% sigma_bs=1;
+% f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins);
+% figure(10);
+% subplot(211);
+% logBs = 10*log10(sigma_bs(1:NBins,1));
+% plot(f(1:NBins), logBs);
+% ylim([-100 0])
+% title("Log. frequency spectrum, bubble");
+% grid on;
+% subplot(212);
+% logFs = 20*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
+% plot(f(1:NBins),logFs)
+% ylim([-100 0])
+% title("Log. frequency spectrum, with bubble ");
+% grid on;
+sigma_bs=ones(NBins,NTx);
 for iTx = 1:NTx
     for iRx = 1:NRx
         for iTar = 1:NTargets + bDirectSound

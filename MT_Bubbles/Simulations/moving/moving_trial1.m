@@ -1,15 +1,15 @@
-[X,Y] = meshgrid(linspace(-5, 5, 50));
-% bubble starts from 
-fcn = @(x,y,k) (x-1)^2 + (y-1)^2*k;
-v = [1:-0.05:-1;  -1:0.05:1];
-for k1 = 1:2
-    for k2 = v(k1,:)
-        surfc(X, Y, fcn(X,Y,k2))
-        axis([-5  5    -5  5    -30  50])
-        drawnow
-        pause(0.1)
-    end
-end
+% [X,Y] = meshgrid(linspace(-5, 5, 50));
+% % bubble starts from 
+% fcn = @(x,y,k) (x-1)^2 + (y-1)^2*k;
+% v = [1:-0.05:-1;  -1:0.05:1];
+% for k1 = 1:2
+%     for k2 = v(k1,:)
+%         surfc(X, Y, fcn(X,Y,k2))
+%         axis([-5  5    -5  5    -30  50])
+%         drawnow
+%         pause(0.1)
+%     end
+% end
 
 %% Moving red dot in 2D
  % code

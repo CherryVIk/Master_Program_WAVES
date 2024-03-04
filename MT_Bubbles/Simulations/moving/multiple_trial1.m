@@ -10,32 +10,43 @@ bubble_step = 0.1; % one step of bubble moving
 bubble_Dist = 1; % maximum distance
 
 % posTar = [0 40;10 20]; % [x y]
-%% Initialise data
-
-a=-5;
-b=5;
-% Generate values from the uniform distribution on the
-%        interval (a, b).
+%%  a bivariate normal distribution
+mu = [1 2];  %mean vector
+Sigma = [1 .5; .5 2]; R = chol(Sigma); %covariance vector
+z = repmat(mu,100,1) + randn(100,2)*R;
+%% uniform distribution
+% Generate integer values from the uniform distribution on the set 
 % rng(bubble_seed);
-x = a + (b-a).*rand(Nbubbles,1);
-y = a + (b-a).*rand(Nbubbles,1);
-z = zeros(Nbubbles, 1);
+%  constrains a, b
+a=30;
+b=35;
+Nbubbles=10;
+posTar = randi([a,b],Nbubbles,3);
+% posTar(:,3) = posTar(:,3) + move_ii;
+move_ii = 10;
+posTar = posTar + move_ii*ones(Nbubbles, 3);
+NTargets = size(posTar, 1);
+bDirectSound = 0;
 
-figure(1)
+x = posTar(:,1);
+y = posTar(:,2);
+z = posTar(:,3);
+figure
 plot3(x,y,z, '-ok')
-% axis([a b a b a b])
 grid on
-
-%% Move points vertically 
-figure(2);
-hold on
-for jj=0:bubble_step:bubble_Dist
-%     x = x + jj;
-%     y = y + jj;
-    z = z + jj;
-    plot3(x,y,z, '-ok')
-    grid on
-    pause(0.05)
-    drawnow
+%% Generate N random uniformly distributed points in a specific area
+N=200; %number of points
+n=1;   %Iterator
+x_range=[-1 1]; %Range of width
+mid_point=[mean(x_range),mean(x_range)]; %Center of box
+radius=1;   %Radius of circle
+point_arr=zeros(N,2); %This will hold the point
+while n<=N
+    temp_xy = (x_range(2)-x_range(1)).*rand(1,2) + x_range(1); %Generate 2 random numbers x and y
+    d = sqrt(sum((temp_xy-mid_point).^2)); %Find distance between the point generated and the middle
+    if d>radius %If the distance is smaller than the radius, discard it, else accept it
+        point_arr(n,:)=temp_xy;
+        n=n+1;
+    end
 end
-hold off
+scatter (point_arr(:,1),point_arr(:,2))

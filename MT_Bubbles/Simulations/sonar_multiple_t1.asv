@@ -175,8 +175,8 @@ noise_add = randn(nRxSeqLength, NRx) * noise_level_linear;
 rx = rx + noise_add;
 
 radius_b = 585e-6;% Oscillations, bubble radius (m)
-a_range = linspace(8e-6,1000e-6,NTargets);
-% a_range = linspace(585e-6,1000e-6,NTargets);
+a_range = linspace(585e-6,1000e-6,NTargets);
+a_range = linspace(585e-6,1000e-6,NTargets);
 sigma_bs = bubble_response(f,a_range);
 %% 
 % Plot --------------------------------------------------------------------

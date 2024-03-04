@@ -15,7 +15,8 @@ angles = -90:2:90;
 NBeams = length(angles);
 
 filename = 'MyAnimation.gif';
-for move_ii = 0:50:150
+moveBubble_step = 10;
+for time_step = 1:3
 %% Signal Parameters
 % Sample frequency
 fs = 192000;
@@ -116,9 +117,14 @@ grid on;
 a=30;
 b=35;
 Nbubbles=10;
-posTar = randi([a,b],Nbubbles,3);
-% posTar(:,3) = posTar(:,3) + move_ii;
-posTar = posTar + move_ii*ones(Nbubbles, 3);
+if time_step == 1
+    posTar = randi([a,b],Nbubbles,3);
+else
+    rng(43)
+    posTarNew = randi([a,b],Nbubbles,3);
+    posTar = posTar + moveBubble_step*ones(Nbubbles, 3);
+    posTar = [posTar; posTarNew];
+end
 NTargets = size(posTar, 1);
 bDirectSound = 0;
 
@@ -190,8 +196,6 @@ for sb_i = 1: NTargets
     ylim([-200 0])
     title("Log. frequency spectrum, bubble");
     grid on;
-    
-    
     hold off
 end
     % subplot(212);
@@ -357,7 +361,7 @@ hold on;
 hold off;
  % Capture the plot as an image 
 Frame = getframe(sonar_fig);
-make_gif(Frame, move_ii, filename);
+make_gif(Frame, time_step, filename);
 end
 
 %% Functions

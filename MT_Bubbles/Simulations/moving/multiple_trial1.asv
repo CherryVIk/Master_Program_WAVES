@@ -51,8 +51,7 @@ while n<=N
 end
 scatter (point_arr(:,1),point_arr(:,2))
 % https://de.mathworks.com/matlabcentral/answers/460216-generate-n-random-uniformly-distributed-points-in-a-specific-area
-%% with rand intervals as rectangles around???
-figure(30)
+%%
 a=rand(2,100)*5;
 scatter(a(1,:),a(2,:))
 %% Generate N random uniformly distributed points in a square  frame

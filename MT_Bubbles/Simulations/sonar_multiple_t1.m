@@ -14,13 +14,15 @@ angles = -90:2:90;
 % Number of beams
 NBeams = length(angles);
 
+filename = 'MyAnimation.gif';
+for move_ii = 0:50:150
 %% Signal Parameters
 % Sample frequency
 fs = 192000;
 % Signal bandwidth
 fB = 20000;
 % Center frequency
-fC = 50000;
+fC = 75000;
 % Min & max frequencies
 fMin = fC - fB/2;
 fMax = fC + fB/2;
@@ -31,13 +33,13 @@ nPing = tPing * fs; % in samples
 tSig = 0.05; % in seconds
 nSig = tSig * fs; % in samples
 t = linspace(0, tSig, nSig);
-
 % Signal types
 eSignalTypes.CW = 'CW';
 eSignalTypes.blNoise = 'blNoise';
 eSignalTypes.HFM = 'HFM';
 eSignalType = eSignalTypes.blNoise;
-bRandomSeed = 42;
+bRandomSeed = 42;%42
+rng(bRandomSeed)
 
 %% Adaption of SONAR-system wrt. signal design
 % Set array element distance to half of wavelength of max freq.
@@ -47,7 +49,6 @@ dTx = dRx;
 %% FFT-parameters
 nNextPow2 = nextpow2(nSig*2); % find nearest x so 2^x = nSig
 NFFT = 2^nNextPow2; % FFT-length as multiple of 2
-%t_ifft = linspace(0, tSig, NFFT);
 % NFFT = nSig;
 NBins = NFFT / 2 + 1; % FFT-bins of pos. frequencies
 bins = 0:NBins-1; % Freq. bin support vector
@@ -55,13 +56,14 @@ fBinRes= fs / NFFT;
 nfMin = floor(fMin/fBinRes);
 nfMax = ceil(fMax/fBinRes);
 f = linspace(-fs/2, fs/2, NFFT);%NFFT
+% f = linspace(0, fs/2, NBins);%NFFT
 
 %% Generate transmit sequence
 % Bandpass filter design
-Fstop1 = 39900;       % First Stopband Frequency
-Fpass1 = 40000;       % First Passband Frequency
-Fpass2 = 60000;       % Second Passband Frequency
-Fstop2 = 60100;       % Second Stopband Frequency
+Fstop1 = fMin-100;       % First Stopband Frequency
+Fpass1 = fMin;       % First Passband Frequency
+Fpass2 = fMax;       % Second Passband Frequency
+Fstop2 = fMax+100;       % Second Stopband Frequency
 Astop1 = 100;          % First Stopband Attenuation (dB)
 Apass  = 1;           % Passband Ripple (dB)
 Astop2 = 100;          % Second Stopband Attenuation (dB)
@@ -71,16 +73,22 @@ match  = 'stopband';  % Band to match exactly
 h  = fdesign.bandpass(Fstop1, Fpass1, Fpass2, Fstop2, Astop1, Apass, ...
                       Astop2, fs);
 Hd = design(h, 'cheby2');
-%%
-R = round(NFFT/nSig);
+
+
+
 if strcmp(eSignalType, eSignalTypes.blNoise)
-     tx = randn(nSig, NTx);
+    % Generate Gaussian white noise
+    tx = randn(nSig, NTx);
+    % an amplitude for that noise is 10% of the noise-free signal at every element.
+     % noise_add = 
+   
     tx = filter(Hd, tx);
+    % tx = tx + noise_add;
     %tx = filtfilt(Hd.sosMatrix, Hd.ScaleValues, tx);
     % Transform time to freq. domain signal
-    Tx = fft(tx, NFFT);
+    Tx = fft(tx, NFFT);%NFFT
     % Only save positive freq.
-    % Tx = Tx(1:NBins, :);
+    Tx = Tx(1:NBins, :);
 % The following has a commented out ideal (but impractical) bandpass filter
     % Bandpass
     %Tx(1:nfMin, :) = 0;
@@ -91,31 +99,43 @@ if strcmp(eSignalType, eSignalTypes.blNoise)
 % End of ideal bandpass example
 end
 
-% Plot transmit sequence
-% figure;
-% subplot(211);
-% %t = linspace(0,tSig,NFFT);
-% plot(t, tx(:,1));
-% title("Time domain signal");
-% grid on;
-% subplot(212);
-% logTx = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
-% plot(f, logTx);
-% title("Log. frequency spectrum ");
-% grid on;
+%% Plot transmit sequence
+figure(10);
+subplot(211);
+plot(t, tx(:,1));
+title("Time domain signal");
+grid on;
+subplot(212);
+logTx = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
+plot(f(end/2:end), logTx);
+title("Log. frequency spectrum ");
+grid on;
 
-%% Environment settings
-posTar = [0 40 -10 ; -60 20 -10 ;10 20 0]; % [x y z]
+%% Bubble environment settings
+%  constrains a, b
+a=30;
+b=35;
+Nbubbles=10;
+posTar = randi([a,b],Nbubbles,3);
+% posTar(:,3) = posTar(:,3) + move_ii;
+posTar = posTar + move_ii*ones(Nbubbles, 3);
 NTargets = size(posTar, 1);
 bDirectSound = 0;
+
+x = posTar(:,1);
+y = posTar(:,2);
+z = posTar(:,3);
+figure
+plot3(x,y,z, '-ok')
+grid on
 
 %% SONAR-sytem element positions (line arrays)
 % Uniform line array element equidistant element spacing 
 % around array center (spaced on x-axis)
 rxCenterElement = (NRx + 1) / 2;
 txCenterElement = (NTx + 1) / 2;
-turnRx = [cosd(0) sind(0) sind(0)];
-turnTx = [cosd(0) sind(0) sind(0)];
+turnRx = [cosd(0) sind(0) 0];
+turnTx = [cosd(0) sind(0) 0];
 posRx = (((1:NRx) - rxCenterElement) .* dRx)' .*turnRx+ centerRx;
 posTx = (((1:NTx) - txCenterElement) .* dTx)' .*turnTx+ centerTx;
 
@@ -142,67 +162,64 @@ tPropagationTime = tPropagationTime .* fs; % in samples
 
 %% Calculate received signals
 % Geometric spreading loss damping
-geoSpreadLoss = 0; % 1/r^x power loss
+% geoSpreadLoss = 0;
+geoSpreadLoss = 1/( norm(posTar(iTar, :) - posTx(iTx, :))^2 ); % 1/r^x power loss
 % Max rx. sequence length (signal duration + max propagation time)
 nRxSeqLength = nSig + ceil(max(tPropagationTime(:)));
 rx = zeros(nRxSeqLength, NRx);
 
-radius_b = 2e-2;% Oscillations, bubble radius (m)
-f_range = linspace(fMax,fMin,NFFT); % echosounder freq (Hz=1/s)
-sigma_bs = bubble_response(f,radius_b);
-f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs;
-t_sigma_bs = ifft(f_sigma_bs, NFFT);
-t_sigma_bs = t_sigma_bs(1:nSig);
+%% Background noise
+noise_level_dB = -60;
+noise_level_linear = 10^(noise_level_dB/10);
+noise_add = randn(nRxSeqLength, NRx) * noise_level_linear; 
+rx = rx + noise_add;
 
-figure;
-subplot(211);
-logBs = 10*log10(sigma_bs(:,1));
-plot(f, logBs);
-ylim([-100 0])
-title("Log. frequency spectrum, bubble");
+radius_b = 585e-6;% Oscillations, bubble radius (m)
+a_range = linspace(8e-6,1000e-6,NTargets);
+% a_range = linspace(585e-6,1000e-6,NTargets);
+sigma_bs = bubble_response(f,a_range);
+%% 
+% Plot --------------------------------------------------------------------
+f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins,:);
+figure(20); 
+for sb_i = 1: NTargets
+    % subplot(211);
+    hold on 
+    logBs = 10*log10(sigma_bs(1:NBins,sb_i));
+    plot(f(end/2:end), logBs);
+    ylim([-200 0])
+    title("Log. frequency spectrum, bubble");
+    grid on;
+    
+    
+    hold off
+end
+    % subplot(212);
+figure; 
+logFs = 20*log10(abs(f_sigma_bs(:,sb_i))./max(abs(f_sigma_bs(:,sb_i))));
+plot(f(end/2:end),logFs)
+ylim([-200 0])
+title("Log. frequency spectrum, with bubble ");
 grid on;
-subplot(212);
-logFs = 20*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
-% logFs = 10*log10(f_sigma_bs(:,1));
-plot(f,logFs)
-ylim([-100 0])
-title("frequency spectrum, with bubble ");
-grid on;
-figure
-plot(t, real(t_sigma_bs));
-title('Time of the Ts+sigma_bs')
 %%
-% sigma_bs=1;
-ii = 50;
+% sigma_bs=ones(NBins,NTx);
 for iTx = 1:NTx
     for iRx = 1:NRx
         for iTar = 1:NTargets + bDirectSound
-            ii=ii+10;
             iStart = floor(tPropagationTime(iTx, iTar, iRx))+1;
             iEnd = floor(iStart + length(tx(:, iTx))) - 1;
             % Add reflected tx-signal at delay time to rx_-
 %             rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) +  tx(:, iTx);
-            f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs;
-            angle_rs = angle(Tx(:, iTx));
-            mixed_resp = f_sigma_bs.*exp(1j*angle_rs);
-            mixed_resp = ifft(mixed_resp, NFFT);
+            f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins,iTar);
+            theta = angle(Tx(:, iTx));
+            mixed_resp = f_sigma_bs.*exp(i*theta);
+            mixed_resp = ifft(mixed_resp, NFFT,'symmetric');
             mixed_resp = mixed_resp(1:nSig);
-            if ii == 100
-                %% Plot transmit sequence
-                figure;
-                subplot(211);
-                plot(t, tx(:,1));
-                title("Time domain signal");
-                grid on;
-                subplot(212);
-%                 logTx = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
-                plot(t, mixed_resp);
-                title("Time domain signal changed ");
-                grid on;
-            end
 %             idea: to add phase shift (imag part of the Tx to the mixed
 %             freq resp)
-           rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + mixed_resp(1:nSig, iTx);
+            rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + mixed_resp(1:nSig, iTx);
+
+            
 
 %% Insert custom freq. response here!   
 % As of now, the transmission signal is simply added to the receive signal
@@ -211,7 +228,7 @@ for iTx = 1:NTx
 % frequency domain, the spectrum of the transmission signal is multiplied
 % with the frequency response of the target.
 
-%  filter your Tx signal with this frequency response for a given bubble ?--radius
+%  filter your Tx signal with this frequency response for a given bubble radius
 
 %% Insert custom freq. response here!   
         end
@@ -239,7 +256,7 @@ locShortest = min(squeeze(tPropagationTime(round(NTx/2), :, round(NRx/2))));
 % Calculate time vector
 tSim = linspace(0, nRxSeqLength/fs, nRxSeqLength);
 % Plot --------------------------------------------------------------------
-figure;
+figure(50);
 subplot(211);
 plot(tSim, rx(:, 1));
 grid on;
@@ -249,11 +266,11 @@ semilogx(tLagInMeters, corr);
 hold on;
 semilogx(tLagInMeters(loc), pk, 'rx');
 grid on;
-title(['Crosscorrelation: Transmit- & receive signal']);
+title('Crosscorrelation: Transmit- & receive signal');
 
 %% Beamforming: Calculate array manifold vector (AMV)
 NFFT = 2^nextpow2(2 * nRxSeqLength); 
-%NFFT = nSig;
+% NFFT = nSig;
 % Frequency support vector: freq = bin*fs/FFT_size
 NBins = NFFT / 2 + 1; % FFT-bins of pos. frequencies
 bins = 0:NBins-1; % Freq. bin support vector
@@ -265,11 +282,11 @@ tTau = (sind(angles) .* posRx(:,1)) / cWater;
 
 % Compute the array manifold vector
 % Repeat the frequency vector for all [beams, freqs, NRx]
-F=repmat(f,[NBeams, 1,NRx]);
+Frame=repmat(f,[NBeams, 1,NRx]);
 % Reshape to [beams, NRx, freqs]
-F = permute(F, [1 3 2]);
+Frame = permute(Frame, [1 3 2]);
 % Multiply tau with freq. supports
-tauTimesf = bsxfun(@times,tTau', F);
+tauTimesf = bsxfun(@times,tTau', Frame);
 % Create exponential terms: e^(j2pi*tau*f)
 AMV = exp(1j * 2 * pi *tauTimesf);
 AMV = permute(AMV, [2 3 1]);
@@ -312,8 +329,8 @@ for iResize = NResized:-1:1
 end
 
 %% Plot results as PPI (plan position indicator) plot
-figure;
 % Log of correlated output
+sonar_fig=figure(100);
 ppi = 20*log10(abs(mfbfsmall)+eps);
 ppi(ppi<-40) = -40;
 % Maximum distance (single path) = Half of max sequence travel distance
@@ -324,9 +341,11 @@ r = 0:dMax/size(ppi,2):dMax-1/size(ppi,2);
 [A,B] = pol2cart(THETA,RR);
 surf(A,B,ppi.');
 colormap('jet');
-% view(0,90);
+view(0,90);
 xlabel('x [m]');
 ylabel('y [m]');
+xlim([-360 360]); 
+ylim([0 360])
 daspect([1 1 1]);
 axis tight
 shading interp;
@@ -336,3 +355,19 @@ set(gca,'LooseInset',get(gca,'TightInset'));
 set(gcf, 'units', 'pixels', 'position', [100 40 1500 900]);
 hold on;
 hold off;
+ % Capture the plot as an image 
+Frame = getframe(sonar_fig);
+make_gif(Frame, move_ii, filename);
+end
+
+%% Functions
+function make_gif(Frame, ii, filename)
+    im = frame2im(Frame); 
+    [imind, CM] = rgb2ind(im,256); 
+    % Write the animation to the gif File: MYGIF 
+    if ii == 0 
+      imwrite(imind, CM,filename,'gif', 'Loopcount',inf); 
+    else 
+      imwrite(imind, CM,filename,'gif','WriteMode','append'); 
+    end 
+end

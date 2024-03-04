@@ -5,7 +5,7 @@ function sigma_bs = bubble_response(f_range,a_range)
 %a_range = linspace(6e-6,2e-4,1000);  % Normal
 
 % [~, rr] = min(abs(a_range - radius));
-kk = 500; % at specific radius/freq
+
 
 c = 1485; % speed of sound (m/s)
 rho_liq = 1025; % density of liquid (kg/m^3) [water]
@@ -77,8 +77,9 @@ end
 % colormap("jet")
 % colorbar;
 %% Plot ka x TS
-figure;
+figure(56);
 ka = f_range'*a_range;
-semilogx(ka(:,1), TS(:,1));
+kk = 1; % 30, at specific radius/freq
+semilogx(ka(:,kk), TS(:,kk));
 xlabel('ka');ylabel('TS (dB re 1 m^2)')
 title("Inside function:  ka x TS")

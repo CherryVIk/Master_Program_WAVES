@@ -104,7 +104,7 @@ end
 % grid on;
 
 %% Environment settings
-posTar = [0 40 -10 ; -60 20 -10 ;10 20 0]; % [x y z]
+posTar = [0 40 0 ; -60 20 -10 ;10 20 0]; % [x y z]
 NTargets = size(posTar, 1);
 bDirectSound = 0;
 
@@ -174,11 +174,11 @@ for iTx = 1:NTx
             angle_rs = angle(Tx(:, iTx));
             mixed_resp = f_sigma_bs.*exp(i*angle_rs);
             mixed_resp = ifft(mixed_resp, NFFT);
-            mixed_resp = mixed_resp(1:nSig);
+            mixed_resp = mixed_resp(1:nSig,iTx);
             % add phase shift (imag part of the Tx to the mixed freq resp)
             iStart = floor(tPropagationTime(iTx, iTar, iRx))+1;
             iEnd = floor(iStart + length(tx(:, iTx))) - 1;
-            rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + mixed_resp(:, iTx);
+            rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + mixed_resp(1:nSig, iTx);
 
 %% Insert custom freq. response here!   
 % As of now, the transmission signal is simply added to the receive signal
@@ -300,7 +300,7 @@ r = 0:dMax/size(ppi,2):dMax-1/size(ppi,2);
 [A,B] = pol2cart(THETA,RR);
 surf(A,B,ppi.');
 colormap('jet');
-% view(0,90);
+view(0,90);
 xlabel('x [m]');
 ylabel('y [m]');
 daspect([1 1 1]);

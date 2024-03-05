@@ -16,14 +16,15 @@ NBeams = length(angles);
 
 filename = 'MyAnimation.gif';
 moveBubble_step = 10;
-for time_step = 1:3
+maxRadius = 1000e-6;
+for time_step = 1
 %% Signal Parameters
 % Sample frequency
 fs = 192000;
 % Signal bandwidth
 fB = 20000;
 % Center frequency
-fC = 75000;
+fC = 70000;
 % Min & max frequencies
 fMin = fC - fB/2;
 fMax = fC + fB/2;
@@ -113,16 +114,21 @@ title("Log. frequency spectrum ");
 grid on;
 
 %% Bubble environment settings
-%  constrains a, b
-a=30;
-b=35;
-Nbubbles=10;
+%  source location constrains a, b
+x_lims=[50 55];
+y_lims=[50 55];
+z_lims=[0 1];
+Nbubbles=100;
+minAllowableDistance = max([585e-6, 2 * maxRadius]);
 if time_step == 1
-    posTar = randi([a,b],Nbubbles,3);
+    posTarX = x_lims(1) + (x_lims(2)-x_lims(1))*rand(Nbubbles,1);
+    posTarY = y_lims(1) + (y_lims(2)-y_lims(1))*rand(Nbubbles,1);
+    posTarZ = z_lims(1) + (z_lims(2)-z_lims(1))*rand(Nbubbles,1);
+    posTar = [posTarX posTarY posTarZ];
 else
     rng(43)
-    posTarNew = randi([a,b],Nbubbles,3);
-    posTar = posTar + moveBubble_step*ones(Nbubbles, 3);
+    posTarNew = a + (b-a)*rand(Nbubbles,3);
+    posTar = posTar + moveBubble_step*ones(NTargets, 3);
     posTar = [posTar; posTarNew];
 end
 NTargets = size(posTar, 1);
@@ -180,8 +186,11 @@ noise_level_linear = 10^(noise_level_dB/10);
 noise_add = randn(nRxSeqLength, NRx) * noise_level_linear; 
 rx = rx + noise_add;
 
-radius_b = 585e-6;% Oscillations, bubble radius (m)
-a_range = linspace(8e-6,1000e-6,NTargets);
+% Generate values from a normal distribution with mean and standard deviation
+radius_std = 4.9600e-05;
+radius_mean = 5.0400e-04;
+a_range = radius_mean + radius_std.*randn(1,NTargets);
+% a_range = linspace(8e-6,1000e-6,NTargets);
 % a_range = linspace(585e-6,1000e-6,NTargets);
 sigma_bs = bubble_response(f,a_range);
 %% 
@@ -348,10 +357,11 @@ colormap('jet');
 view(0,90);
 xlabel('x [m]');
 ylabel('y [m]');
-xlim([-360 360]); 
-ylim([0 360])
+axis_limit = 150;
+xlim([-axis_limit axis_limit]); 
+ylim([0 axis_limit])
 daspect([1 1 1]);
-axis tight
+% axis tight
 shading interp;
 colorbar;
 ax = gca;

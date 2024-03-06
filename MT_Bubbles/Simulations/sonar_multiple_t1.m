@@ -111,20 +111,21 @@ end
 x_lims=[50 51];
 y_lims=[50 51];
 z_lims=[0 0];
-Nbubbles=10;
+Nbubbles=1;
 bubbleOsc_lims = [-1,1];
 maxRadius = 1000e-6;
 minAllowableDistance = max([585e-6, 2 * maxRadius]);
 if time_step == 1
     % Generate bubbles in some constrained space
-    posTar = set_bubble_source(x_lims, y_lims, z_lims, Nbubbles);
+    posTarNew = set_bubble_source(x_lims, y_lims, z_lims, Nbubbles);
+    posTar = posTarNew;
 else
     rng(time_step)
     % posTarNew = set_bubble_source(x_lims, y_lims, z_lims, Nbubbles);
     posTar(:,3) = posTar(:,3) + bubbleVelocity*ones(NTargets, 1);
-    bubbleOscillations = bubbleOsc_lims(1) + (bubbleOsc_lims(2) - bubbleOsc_lims(1))*rand(Nbubbles,2);
+    bubbleOscillations = bubbleOsc_lims(1) + (bubbleOsc_lims(2) - bubbleOsc_lims(1))*rand(NTargets,2);
     posTar(:,1:2) = posTar(:,1:2) + bubbleOscillations;
-    % posTar = [posTar; posTarNew];
+    posTar = [posTar; posTarNew];
 end
 NTargets = size(posTar, 1);
 bDirectSound = 0;
@@ -133,7 +134,7 @@ x = posTar(:,1);
 y = posTar(:,2);
 z = posTar(:,3);
 bubbles_mov = figure(10);
-hold on
+% hold on
 plot3(x,y,z, '-ok',"MarkerEdgeColor" ,	"#4DBEEE")
 axis_x = x_lims+bubbleOsc_lims*time_end*bubbleVelocity;
 axis([axis_x   axis_x     0 time_end*bubbleVelocity])
@@ -143,7 +144,7 @@ view([10  20])
 refreshdata
 drawnow
 Frame = getframe(bubbles_mov);
-make_gif(Frame, time_step, "Bubble_mov3.gif");
+make_gif(Frame, time_step, "Bubble_mov2.gif");
 %% SONAR-sytem element positions (line arrays)
 % Uniform line array element equidistant element spacing 
 % around array center (spaced on x-axis)
@@ -262,18 +263,18 @@ tLagInMeters = tLag(nRxSeqLength:end)./fs.*cWater;
 locShortest = min(squeeze(tPropagationTime(round(NTx/2), :, round(NRx/2))));
 % Calculate time vector
 tSim = linspace(0, nRxSeqLength/fs, nRxSeqLength);
-% Plot --------------------------------------------------------------------
-% figure(40);
-% subplot(211);
-% plot(tSim, rx(:, 1));
-% grid on;
-% title('Received signal');
-% subplot(212);
-% semilogx(tLagInMeters, corr);
-% hold on;
-% semilogx(tLagInMeters(loc), pk, 'rx');
-% grid on;
-% title('Crosscorrelation: Transmit- & receive signal');
+%% Plot --------------------------------------------------------------------
+figure(40);
+subplot(211);
+plot(tSim, rx(:, 1));
+grid on;
+title('Received signal');
+subplot(212);
+semilogx(tLagInMeters, corr);
+hold on;
+semilogx(tLagInMeters(loc), pk, 'rx');
+grid on;
+title('Crosscorrelation: Transmit- & receive signal');
 
 %% Beamforming: Calculate array manifold vector (AMV)
 NFFT = 2^nextpow2(2 * nRxSeqLength); 
@@ -365,7 +366,7 @@ set(gcf, 'units', 'pixels', 'position', [100 40 1500 900]);
 hold on;
 hold off;
  % Capture the plot as an image 
-filename = 'Sonar_Animation1.gif';
+filename = 'Sonar_Animation2.gif';
 Frame = getframe(sonar_fig);
 make_gif(Frame, time_step, filename);
 end

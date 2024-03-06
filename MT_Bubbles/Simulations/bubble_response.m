@@ -71,15 +71,16 @@ TS(ff, aa) = 10*log10(sigma_bs(ff, aa)); %dB re 1 m^2
 end
 end
 %% Plot imagesc: freq x bubble radius x TS
-figure;
-imagesc(f_range,a_range,TS);
-set(gca, 'YDir', 'normal');
-colormap("jet")
-colorbar;
+% figure;
+% imagesc(f_range,a_range,TS);
+% set(gca, 'YDir', 'normal');
+% colormap("jet")
+% colorbar;
 %% Plot ka x TS
-figure(56);
-ka = f_range'*a_range;
-kk = 1; % 30, at specific radius/freq
-semilogx(ka(:,kk), TS(:,kk));
-xlabel('ka');ylabel('TS (dB re 1 m^2)')
-title("Inside function:  ka x TS")
+% figure(56);
+% ka = f_range'*a_range;
+% kk = 1; % 30, at specific radius/freq
+% semilogx(ka(:,kk), TS(:,kk));
+% xlabel('ka');ylabel('TS (dB re 1 m^2)')
+% title("Inside function:  ka x TS")
+end

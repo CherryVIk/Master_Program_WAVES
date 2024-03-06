@@ -53,6 +53,7 @@ scatter (point_arr(:,1),point_arr(:,2))
 % https://de.mathworks.com/matlabcentral/answers/460216-generate-n-random-uniformly-distributed-points-in-a-specific-area
 %% with rand intervals as rectangles around???
 center = [0, 0];
+% side_in
 % x , y - set of coordinates with bubbles
 nsample = 100;
 x1 = 8 + 2*rand(nsample,1) ;
@@ -88,10 +89,7 @@ while nxy < nreq
   xypoints = (rand(nsample,2)*2 - 1)*side_x + center;
 
   % points in the vicinity of the center square are deleted
-  if xypoints(:,1) > side_x/2 + center(1) && xypoints(:,1) > center(1) - side_x/2
-      if xypoints(:,2) < side_y/2 + center(2) && xypoints(:,1) > center(2) - side_y/2
-      end
-  end
+
   % delete points inside the circle.
   xypoints(sum((xypoints - center).^2,2) <= side_x^2,:) = [];
   
@@ -109,7 +107,9 @@ grid on
 yline(0);
 xline(0);
 
-%% Initialization Steps.
+%% Generete bubbles with min distance and size
+% https://de.mathworks.com/matlabcentral/answers/158357-create-random-points-in-a-rectangular-domain-but-with-minimum-separation-distance
+%%% Initialization Steps.
 clc;    % Clear the command window.
 close all;  % Close all figures (except those of imtool.)
 clear;  % Erase all existing variables. Or clearvars if you want.
@@ -121,7 +121,7 @@ fontSize = 25;
 x = 100 * rand(1, 1000000);
 y = 100 * rand(1, 1000000);
 % Specify how many circles are desired.
-numberOfCircles = 300;
+numberOfCircles = 10;
 minRadius = 1;
 maxRadius = 5;
 % Specify how close the centers may be to each other.
@@ -155,7 +155,7 @@ for k = 2 : length(x)
 end
 % Plot a dot at the centers
 plot(keeperX, keeperY, 'b+', 'MarkerSize', 9);
-circle(keeperX(:), keeperY(:), radii);
+viscircles([keeperX(:), keeperY(:)], radii);
 grid on;
 axis equal
 numCirclesPlaced = length(keeperX);

@@ -13,9 +13,10 @@ centerRx = [0 0 0];
 angles = -90:2:90;
 % Number of beams
 NBeams = length(angles);
-time_end = 20;
-bubbleVelocity = 0.8; % v = 1m / 0.1s;
-for time_step = 1:time_end % can be assumed as 0.1s
+time_end = 5;
+bubbleTime = 0.2; % can be assumed as 0.1s
+bubbleVelocity = 1/bubbleTime; % v = 1m / 0.1s;
+for time_step = 1%:time_end 
 %% Signal Parameters
 % Sample frequency
 fs = 192000;
@@ -108,25 +109,26 @@ end
 
 %% Bubble environment settings
 %  source location constrains a, b
-x_lims=[50 51];
+x_lims=[0 1];
 y_lims=[50 51];
 z_lims=[0 0];
-Nbubbles=1;
+Nbubbles=50;
 bubbleOsc_lims = [-1,1];
 maxRadius = 1000e-6;
-minAllowableDistance = max([585e-6, 2 * maxRadius]);
-if time_step == 1
-    % Generate bubbles in some constrained space
-    posTarNew = set_bubble_source(x_lims, y_lims, z_lims, Nbubbles);
-    posTar = posTarNew;
-else
-    rng(time_step)
-    % posTarNew = set_bubble_source(x_lims, y_lims, z_lims, Nbubbles);
-    posTar(:,3) = posTar(:,3) + bubbleVelocity*ones(NTargets, 1);
-    bubbleOscillations = bubbleOsc_lims(1) + (bubbleOsc_lims(2) - bubbleOsc_lims(1))*rand(NTargets,2);
-    posTar(:,1:2) = posTar(:,1:2) + bubbleOscillations;
-    posTar = [posTar; posTarNew];
-end
+% minAllowableDistance = max([585e-6, 2 * maxRadius]);
+posTar = set_bubble_flare(x_lims, y_lims, z_lims, Nbubbles, bubbleVelocity, time_end, bubbleOsc_lims);
+% if time_step == 1
+%     % Generate bubbles in some constrained space
+%     posTarNew = set_bubble_source(x_lims, y_lims, z_lims, Nbubbles);
+%     posTar = posTarNew;
+% else
+%     rng(time_step)
+%     % posTarNew = set_bubble_source(x_lims, y_lims, z_lims, Nbubbles);
+%     posTar(:,3) = posTar(:,3) + bubbleVelocity*ones(NTargets, 1);
+%     bubbleOscillations = bubbleOsc_lims(1) + (bubbleOsc_lims(2) - bubbleOsc_lims(1))*rand(NTargets,2);
+%     posTar(:,1:2) = posTar(:,1:2) + bubbleOscillations;
+%     posTar = [posTar; posTarNew];
+% end
 NTargets = size(posTar, 1);
 bDirectSound = 0;
 
@@ -137,24 +139,25 @@ bubbles_mov = figure(10);
 % hold on
 plot3(x,y,z, '-ok',"MarkerEdgeColor" ,	"#4DBEEE")
 axis_x = x_lims+bubbleOsc_lims*time_end*bubbleVelocity;
-axis([axis_x   axis_x     0 time_end*bubbleVelocity])
+axis_y = y_lims+bubbleOsc_lims*time_end*bubbleVelocity;
+axis([axis_x   axis_y     0 time_end*bubbleVelocity])
 grid on
 % axis square
-view([10  20])
+% view([10  20])
 refreshdata
 drawnow
 Frame = getframe(bubbles_mov);
-make_gif(Frame, time_step, "Bubble_mov2.gif");
+% make_gif(Frame, time_step, "Bubble_mov2.gif");
 %% SONAR-sytem element positions (line arrays)
 % Uniform line array element equidistant element spacing 
 % around array center (spaced on x-axis)
 rxCenterElement = (NRx + 1) / 2;
 txCenterElement = (NTx + 1) / 2;
-turnRx = [cosd(0) sind(0) 0];
-turnTx = [cosd(0) sind(0) 0];
+turnRx = [cosd(0) sind(0) sind(0)];
+turnTx = [cosd(0) sind(0) sind(0)];
 posRx = (((1:NRx) - rxCenterElement) .* dRx)' .*turnRx+ centerRx;
 posTx = (((1:NTx) - txCenterElement) .* dTx)' .*turnTx+ centerTx;
-
+% figure;plot(posRx(:,1:2))
 %% Calculate propagation delays
 tPropagationDist = zeros(NTx, NTargets+bDirectSound, NRx);
 % Propagation distance: Tx -> target -> Rx
@@ -352,12 +355,12 @@ colormap('jet');
 view(0,90);
 xlabel('x [m]');
 ylabel('y [m]');
-axis_limit = 110;
-clim([-40 0])
-xlim([-axis_limit axis_limit]); 
-ylim([0 axis_limit])
+% axis_limit = 110;
+% clim([-40 0])
+% xlim([-axis_limit axis_limit]); 
+% ylim([0 axis_limit])
 daspect([1 1 1]);
-% axis tight
+axis tight
 shading interp;
 colorbar;
 ax = gca;
@@ -393,6 +396,21 @@ function posTar = set_bubble_source(x_lims, y_lims, z_lims, Nbubbles)
     posTarY = y_lims(1) + (y_lims(2)-y_lims(1))*rand(Nbubbles,1);
     posTarZ = z_lims(1) + (z_lims(2)-z_lims(1))*rand(Nbubbles,1);
     posTar = [posTarX posTarY posTarZ];
+end
+function posTar = set_bubble_flare(x_lims, y_lims, z_lims, Nbubbles, bubbleVelocity, time_end, bubbleOsc_lims)
+    for tt =1:time_end
+        rng(tt)
+        if tt == 1
+            posTarNew = set_bubble_source(x_lims, y_lims, z_lims, Nbubbles);
+            posTar = posTarNew;
+        else
+            NTargets = size(posTar, 1);
+            posTar(:,3) = posTar(:,3) + bubbleVelocity*ones(NTargets, 1);
+            bubbleOscillations = bubbleOsc_lims(1) + (bubbleOsc_lims(2) - bubbleOsc_lims(1))*rand(NTargets,2);
+            posTar(:,1:2) = posTar(:,1:2) + bubbleOscillations;
+            posTar = [posTar; posTarNew];
+        end
+    end
 end
 function make_gif(Frame, ii, filename)
     im = frame2im(Frame); 

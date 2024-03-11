@@ -109,7 +109,7 @@ end
 
 %% Bubble environment settings
 %  source location constrains a, b
-x_lims=[0 1];
+x_lims=[-1 1];
 y_lims=[50 51];
 z_lims=[0 0];
 Nbubbles=50;

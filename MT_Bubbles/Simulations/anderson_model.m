@@ -2,11 +2,15 @@
 %%% Date: 11.03.2024
 %%% Author: Viktoriia Boichenko
 
+clc
+clear
+close all
 % Computes an analytical solution for the scattered pressure 
 % from an incident plane wave impinging upon a fluid sphere following
 % Anderson, V. C., "Sound scattering from a fluid sphere", 
 % J. Acoust. Soc. America, 22 (4), pp 426-431, July 1950
 
+freqs = (0.1:0.1:300)*1000;
 f_range = linspace(10e3,1e6,1000); % echosounder freq (Hz=1/s)
 a_range = linspace(1e-6,30e-3,1000);  % Oscillations, bubble radius (m)
 
@@ -16,104 +20,115 @@ rho_liq = 1025; % density of liquid (kg/m^3) [water]
 rho_b = 0.66 * rho_liq;
 rho_c = rho_liq * c_w;
 Theta = 1.571;
+a = 3e-3;
+Range = 10;
 
-
+TS = zeros(length(freqs),1);
 % g = 9.81; % gravitational acceleration (m/s^2)
 % d = 220; % water depth (m)
 
-
-TS = zeros(length(f_range),length(a_range));
-sigma_bs = zeros(length(f_range),length(a_range));
-
-% for ff = 1:length(f_range)
-% for aa = 1:length(a_range)
-
-f = 200 * 1000; % f_range(ff); % acoustic frequency (Hz = s^-1)
+for ff = 1:length(freqs)
+f = freqs(ff); % acoustic frequency (Hz = s^-1)
 a = 3e-3; %a_range(aa); % bubble radius (m)
 w = 2*pi*f; % angular frequency (rad/s)
 K_ext = w/c_w; % wavenumber in water (1/m)
 K_int = w/c_b; % wavenumber in the bubble (1/m)
 lambda_w = c_w / f;
 
-Range = 10;
 kr = K_ext * Range;
 ka = K_ext * a;
 ka_p = K_int * a;
 
-g = rho_b / rho_liq;
-h = c_b / c_w;
+% Limits
+lim_conv = 1e-10;
+maxCount = 200;
+
+g = rho_b / rho_liq; % relative density
+h = c_b / c_w; % relative velocity
 % g = 1.0025; % density contrast
 % h = 1.0025; % sound velocity contrast
 
 %% Calculation
 m=0;
 cosTheta = cos(Theta);
+Done = false;
+count = 0;
+while Done == false
+    % compute spherical bessel fucntions with ka, k'a, kr, k'r
+    % Bessel functions 1st degree
+    jm_kr = sphbes(m, kr);
+    jm_ka = sphbes(m, ka);
+    jm_ka_p = sphbes(m, ka_p);
+    
+    % Bessel functions 2nd degree
+    nm_kr = sphbes2(m, kr);
+    nm_ka = sphbes2(m, ka);
+    
+    % 1st degree derivatives
+    alpham_ka_p = (2*m+1) * dbesselj(m, ka_p);
+    alpham_kr = (2*m+1) * dbesselj(m, kr);
+    alpham_ka = (2*m+1) * dbesselj(m, ka);
+    
+    % 2nd degree derivatives
+    betam_kr = (2*m+1) * dbesselj2(m, kr);
+    betam_ka = (2*m+1) * dbesselj2(m, ka);
+    
+    % Compute Legendre polynom
+    Pm = Legendre_pol(m, cosTheta);
+    
+    % Calculate Cm (no Theta)
+    Cm_1 = (alpham_ka_p / alpham_ka) * (nm_ka / jm_ka_p) - (betam_ka / alpham_ka) * g*h;
+    Cm_2 = (alpham_ka_p / alpham_ka) * (jm_ka / jm_ka_p) - g*h;
+    Cm = Cm_1 / Cm_2;
+    
+    % Calculate Am and Bm
+    Am = -(-1i)^m * (2*m+1) / (1 + 1i*Cm);
+    
+    % Calculate m-value scattered pressure distribution
+    Ps_n = -Am * Pm * ( jm_kr + 1i*nm_kr);
+    Pi_n = (-1i)^m * (2*m+1) * Pm * jm_kr;
+    Ts_n = (-1)^m * (2*m+1) / (1 + 1i*Cm);
+    
+    % Calculate exterior velocity
+    vel_n = (-1i / rho_c) * (Am / (2*m+1)) * Pm * (alpham_kr + 1j * betam_kr);
+    vel_n_inc = (-1i / rho_c) * ((-1j)^m) * Pm * alpham_kr;
+    if m == 0
+        Ps = Ps_n;
+        Pi = Pi_n;
+        Ts = Ts_n;
+        Vel = vel_n;
+        Vel_inc = vel_n_inc;
+    else
+        Ps = Ps_n + Ps;
+        Pi = Pi_n + Pi;
+        Ts = Ts_n + Ts;
+        Vel = vel_n + Vel;
+        Vel_inc = vel_n_inc + Vel_inc;
+    end
+    m = m + 1;
+    count = count + 1; 
+    
+    if max(abs(Ps_n)) < lim_conv && m > 10
+        Done = true;
+    elseif count > maxCount
+        Done = true;
+        disp('Error: too many iterations, FluidSphereScat')
+    end
+    isBad = isnan(Ps);
+    Ps(isBad) = 0;
+end
 
-% compute spherical bessel fucntions with ka, k'a, kr, k'r
-% Bessel functions 1st degree
-jm_kr = sphbes(m, kr);
-jm_ka = sphbes(m, ka);
-jm_ka_p = sphbes(m, ka_p);
+%  Calculate final TS
+TS_res = (2/ ka)^2 * abs(Ts)^2 * (pi * a^2);
+TS(ff) = 10 * log10(TS_res/(4*pi));
+end
+%% Plot ka x TS
+figure;
+plot(freqs/1000, TS);
+xlabel('Freq (kHz)');ylabel('TS (dB re 1 m^2)')
+titlename = "TS for a sphere with a=" + (a*100) + " cm @ range=" + Range +" m";
+title(titlename)
 
-% Bessel functions 2nd degree
-nm_kr = sphbes2(m, kr);
-nm_ka = sphbes2(m, ka);
-
-% 1st degree derivatives
-alpham_ka_p = (2*m+1) * dbesselj(m, ka_p);
-alpham_kr = (2*m+1) * dbesselj(m, kr);
-alpham_ka = (2*m+1) * dbesselj(m, ka);
-
-% 2nd degree derivatives
-betam_kr = (2*m+1) * dbesselj2(m, kr);
-betam_ka = (2*m+1) * dbesselj2(m, ka);
-
-% Compute Legendre polynom
-Pm = Legendre_pol(m, cosTheta);
-
-% Calculate Cm (no Theta)
-Cm_1 = (alpham_ka_p / alpham_ka) * (nm_ka / jm_ka_p) - (betam_ka / alpham_ka) * g*h;
-Cm_2 = (alpham_ka_p / alpham_ka) * (jm_ka / jm_ka_p) - g*h;
-Cm = Cm_1 / Cm_2;
-
-% Calculate Am and Bm
-Am = -(-1i)^m * (2*m+1) / (1 + 1i*Cm);
-
-% Calculate m-value scattered pressure distribution
-Ps_n = -Am * Pm * ( jm_kr + 1i*nm_kr);
-Pi_n = (-1i)^m * (2*m+1) * Pm * jm_kr;
-Ts_n = (-1)^m * (2*m+1) / (1 + 1i*Cm);
-
-% exterior domain particle velocity
-%         ThisVel = (-1j / rho_c) * (Am / (2 * m + 1)) * Pm * (Alpham_kr +\
-%                   1j * Betam_kr)
-%         ThisVel_Inc = (-1j / rho_c) * ((-1j)**m) * Pm * Alpham_kr
-%         if m == 0:
-%             Ps = ThisPs
-%             Pi = ThisPi
-%             TS = ThisTS
-%             Vel = ThisVel
-%             Vel_Inc = ThisVel_Inc
-%         else:
-%             Ps = Ps + ThisPs
-%             Pi = Pi + ThisPi
-%             TS = TS + ThisTS
-%             Vel = Vel + ThisVel
-%             Vel_Inc = Vel_Inc + ThisVel_Inc
-%         m += 1
-%         Count += 1
-%         if max(abs(ThisPs)) < ConvLim and m > 10:
-%               Done = True;
-%         elif Count > MaxCount:
-%               Done = True
-%               print('Convergence failure in FluidSphereScat')
-% 
-%         IsBad = np.isnan(Ps)
-%         Ps[IsBad] = 0
-% 
-%     #Calculate final TS after summation is complete
-%     TS = (2 / ka)**2 * abs(TS)**2 * (np.pi * Radius * Radius)
-%     TS = 10 * np.log10(TS / ( 4 * np.pi))
 %% Functions
 function js = sphbes(nu, x)
     % returns the spherical Bessel functions jnu(x)

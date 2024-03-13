@@ -1,0 +1,27 @@
+# Fdb version 4
+["pdflatex"] 1710323019 "/home/vboichenko/Documents/MATLAB/Master_Program_WAVES/Bibliography_review/Report_lit.tex" "Report_lit.pdf" "Report_lit" 1710323020 2
+  "/etc/texmf/web2c/texmf.cnf" 1707842525 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/home/vboichenko/Documents/MATLAB/Master_Program_WAVES/Bibliography_review/Report_lit.tex" 1710323018 22535 696ed35ea5507a43d9e67a1f054689a0 ""
+  "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1136768653 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
+  "/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf" 1496785618 7008 9ff5fdcc865b01beca2b0fe4a46231d4 ""
+  "/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty" 1683835899 146936 df7499eefac590ca39eafa78f2819a4b ""
+  "/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-en.ini" 1661803479 3966 caeee5a9e5771d4446aa1ca9015ba1b2 ""
+  "/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex" 1498512262 336 ed676b5e7dfd862bc78d634f6a973f37 ""
+  "/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def" 1674507072 6927 64b53e78feab932ab94f892bb5a5facf ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/article.cls" 1686341992 20144 fbcf51733730d8f1a62143512ff5b1fe ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo" 1686341992 8464 a4a9a859b7fd5b6c1450673c4d301348 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.sty" 1642282977 1656 7e824878bad4df5a3e8bba4e463d9126 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1681935207 29940 9473d58112bc8a88f5505b823a053dde ""
+  "/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty" 1686081984 6472 9e6aeddf55b322f60df6de19ab10537e ""
+  "/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty" 1675461949 6812 3c152a1c8d562d7b7291c4839b61a5c3 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1693172360 40357 c95f5d5e031b5c7040b426833c11f2e0 ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1693172360 40357 c95f5d5e031b5c7040b426833c11f2e0 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1710321206 6572905 12960cac8c7fd597c71e2b909b2719fe ""
+  "Report_lit.aux" 1710323019 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "Report_lit.tex" 1710323018 22535 696ed35ea5507a43d9e67a1f054689a0 ""
+  (generated)
+  "Report_lit.aux"
+  "Report_lit.log"
+  "Report_lit.pdf"
+  (rewritten before read)

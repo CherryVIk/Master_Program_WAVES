@@ -29,7 +29,7 @@ TS = zeros(length(freqs),1);
 
 for ff = 1:length(freqs)
 f = freqs(ff); % acoustic frequency (Hz = s^-1)
-a = 3e-3; %a_range(aa); % bubble radius (m)
+a = 9e-3; %a_range(aa); % bubble radius (m)
 w = 2*pi*f; % angular frequency (rad/s)
 K_ext = w/c_w; % wavenumber in water (1/m)
 K_int = w/c_b; % wavenumber in the bubble (1/m)

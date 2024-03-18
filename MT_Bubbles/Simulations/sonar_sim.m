@@ -91,17 +91,17 @@ if strcmp(eSignalType, eSignalTypes.blNoise)
 end
 
 % Plot transmit sequence
-% figure;
-% subplot(211);
-% %t = linspace(0,tSig,NFFT);
-% plot(t, tx(:,1));
-% title("Time domain signal");
-% grid on;
-% subplot(212);
-% logTx = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
-% plot(f, logTx);
-% title("Log. frequency spectrum ");
-% grid on;
+figure;
+subplot(211);
+%t = linspace(0,tSig,NFFT);
+plot(t, tx(:,1));
+title("Time domain signal");
+grid on;
+subplot(212);
+logTx = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
+plot(f, logTx);
+title("Log. frequency spectrum ");
+grid on;
 
 %% Environment settings
 posTar = [0 40 0 ; -60 20 -10 ;10 20 0]; % [x y z]

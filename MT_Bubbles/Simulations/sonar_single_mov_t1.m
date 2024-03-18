@@ -15,14 +15,14 @@ angles = -90:2:90;
 NBeams = length(angles);
 
 filename = 'MyAnimation.gif';
-for move_ii = 100
+% for move_ii = 100
 %% Signal Parameters
 % Sample frequency
 fs = 192000;
 % Signal bandwidth
 fB = 20000;
 % Center frequency
-fC = 15000;
+fC = 75000;
 % Min & max frequencies
 fMin = fC - fB/2;
 fMax = fC + fB/2;
@@ -113,8 +113,10 @@ grid on;
 
 %% Environment settings
 
-zcoord = -50 + move_ii;
-posTar = [0 40 zcoord;10 20 0]; % [x y]
+% zcoord = -50 + move_ii;
+zcoord = 0;
+% posTar = [0 10 zcoord; 20 10 0]; 
+posTar = [20 10 0]; 
 NTargets = size(posTar, 1);
 bDirectSound = 0;
 
@@ -151,8 +153,8 @@ tPropagationTime = tPropagationTime .* fs; % in samples
 
 %% Calculate received signals
 % Geometric spreading loss damping
-% geoSpreadLoss = 0;
-geoSpreadLoss = 1/( norm(posTar(iTar, :) - posTx(iTx, :))^2 ); % 1/r^x power loss
+geoSpreadLoss = 0;
+% geoSpreadLoss = 1/( norm(posTar(iTar, :) - posTx(iTx, :))^2 ); % 1/r^x power loss
 % Max rx. sequence length (signal duration + max propagation time)
 nRxSeqLength = nSig + ceil(max(tPropagationTime(:)));
 rx = zeros(nRxSeqLength, NRx);
@@ -336,7 +338,7 @@ hold off;
  % Capture the plot as an image 
 Frame = getframe(sonar_fig);
 % make_gif(Frame, move_ii, filename)
-end
+% end
 
 %% Functions
 function make_gif(Frame, ii, filename)

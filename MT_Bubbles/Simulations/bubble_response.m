@@ -77,10 +77,10 @@ end
 % colormap("jet")
 % colorbar;
 %% Plot ka x TS
-% figure(56);
-% ka = f_range'*a_range;
-% kk = 1; % 30, at specific radius/freq
-% semilogx(ka(:,kk), TS(:,kk));
-% xlabel('ka');ylabel('TS (dB re 1 m^2)')
-% title("Inside function:  ka x TS")
+figure(56);
+ka = 2*pi/c*f_range'*a_range;
+kk = 1; % 30, at specific radius/freq
+semilogx(ka(:,kk), TS(:,kk));
+xlabel('ka');ylabel('TS (dB re 1 m^2)')
+title("Inside function:  ka x TS")
 end

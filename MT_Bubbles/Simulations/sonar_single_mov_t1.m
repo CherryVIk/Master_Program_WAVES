@@ -163,7 +163,7 @@ rx = zeros(nRxSeqLength, NRx);
 noise_level_dB = -60;
 noise_level_linear = 10^(noise_level_dB/10);
 noise_add = randn(nRxSeqLength, NRx) * noise_level_linear; 
-rx = rx + noise_add;
+% rx = rx + noise_add;
 
 radius_b = 585e-6;% Oscillations, bubble radius (m)
 sigma_bs = bubble_response(f,radius_b);

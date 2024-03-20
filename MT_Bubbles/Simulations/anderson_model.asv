@@ -125,12 +125,12 @@ sigma_bs(ff, aa) = TS_res; % is it a sigma_bs here??? as a scattering cross-sect
 TS(ff,aa) = 10 * log10(TS_res);
 end
 end
-%% Plot freq x TS
-figure;
-plot(f_range/1000, TS);
-xlabel('Freq (kHz)');ylabel('TS (dB re 1 m^2)')
-titlename = "TS for a sphere with a=" + (a*100) + " cm @ range=" + Range +" m";
-title(titlename)
+% %% Plot freq x TS
+% figure;
+% plot(f_range/1000, TS);
+% xlabel('Freq (kHz)');ylabel('TS (dB re 1 m^2)')
+% titlename = "TS for a sphere with a=" + (a*100) + " cm @ range=" + Range +" m";
+% title(titlename)
 
 %% Functions
 function js = sphbes(nu, x)

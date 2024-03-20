@@ -37,7 +37,13 @@ figure;
 semilogx(ka(:,kk), TS_thur(:,kk))
 hold on
 semilogx(ka(:,kk), TS_and(:,kk))
-legend('Thuraisingham','Anderson' )
 xlabel('log(ka)');ylabel('TS (dB re 1 m^2)')
 titlename = "Plot ka x TS. TS for a sphere with a=" + (a*100) + " cm";
 title(titlename)
+subtitlename = "Thuraisingham ";
+subtitle(subtitlename)
+subplot(212)
+semilogx(ka(:,kk), TS_and(:,kk))
+xlabel('log(ka)');ylabel('TS (dB re 1 m^2)')
+subtitlename = "Anderson";
+subtitle(subtitlename)

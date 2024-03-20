@@ -1,4 +1,4 @@
-function sigma_bs = thuraisingham_model(f_range,a_range, Range, rho_w, rho_b, Theta, c_w, c_b);
+function sigma_bs = thuraisingham_model(f_range,a_range, rho_w, c_w);
 
 % f_range = linspace(10e3,1e6,1000); % echosounder freq (Hz=1/s)
 % a_range = linspace(1e-6,30e-3,1000);  % Oscillations, bubble radius (m)
@@ -32,8 +32,6 @@ for aa = 1:length(a_range)
 
 f = f_range(ff);
 a = a_range(aa);
-rho_b = rhoG0 * (1 + 2*tau / (Pst * a))*(1 + 0.1 * a);
-c_b = sqrt(gamma*Pst/rho_b);
 w = 2*pi*f; % angular frequency (rad/s)
 k = w/c_w; % wavenumber (1/m)
 %% Calculation according to Li2020

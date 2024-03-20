@@ -8,19 +8,22 @@ function sigma_bs = anderson_model(f_range,a_range, Range, rho_w, rho_b, Theta, 
 % J. Acoust. Soc. America, 22 (4), pp 426-431, July 1950
 
 % f_range = linspace(0.1,300,1000)*1000;
-% a_range = 3e-3; %a_range(aa); % bubble radius (m)
-% f_range = linspace(10e3,1e6,1000); % echosounder freq (Hz=1/s)
-% a_range = linspace(1e-6,30e-3,1000);  % Oscillations, bubble radius (m)
-% c_w = 1500; % speed of sound in water (m/s)
-% c_b = 1.0025*1500; % speed of sound inside bubble (m/s)
+% a_range = 3e-3; % bubble radius (m)
+% Range = 1;
 % rho_w = 1025; % density of liquid (kg/m^3) [water]
-% rho_b = 0.66 * rho_w;
-% rho_c = rho_w * c_w;
 % Theta = 1.571;
-% Range = 10;
-
+% c_w = 1500; % speed of sound in water (m/s)
+% rho_c = rho_w * c_w;
+% 
+% rhoG0 = 0.66; % atmospheric methan density
+% P_atm = 101.325e3; % atmospheric pressure
 % g = 9.81; % gravitational acceleration (m/s^2)
 % d = 20; % water depth (m)
+% Pst=P_atm+rho_w*g*d; % static pressure (Pa)
+% tau = 74.5e-3; % surface tension of the gas bubbles (N/m)
+% gamma = 1.299; % heat ratio
+% rho_b = rhoG0 * (1 + 2*tau / (Pst * a_range))*(1 + 0.1 * a_range);
+% c_b = sqrt(gamma*Pst/rho_b); % speed of sound inside bubble (m/s)
 
 TS = zeros(length(f_range),length(a_range));
 sigma_bs = zeros(length(f_range),length(a_range));
@@ -125,9 +128,10 @@ sigma_bs(ff, aa) = TS_res; % is it a sigma_bs here??? as a scattering cross-sect
 TS(ff,aa) = 10 * log10(TS_res);
 end
 end
-% %% Plot freq x TS
+%% Plot freq x TS
 % figure;
-% plot(f_range/1000, TS);
+% rad_ii = length(a_range);
+% semilogx(f_range/1000, TS(:,rad_ii));
 % xlabel('Freq (kHz)');ylabel('TS (dB re 1 m^2)')
 % titlename = "TS for a sphere with a=" + (a*100) + " cm @ range=" + Range +" m";
 % title(titlename)

@@ -14,7 +14,7 @@ c_w = 1500; % speed of sound in water (m/s)
 rhoG0 = 0.66; % atmospheric methan density
 P_atm = 101.325e3; % atmospheric pressure
 g = 9.81; % gravitational acceleration (m/s^2)
-d = 20; % water depth (m)
+d = 5; % water depth (m)
 tau = 74.5e-3; % surface tension of the gas bubbles (N/m)
 gamma = 1.299; % heat ratio
 

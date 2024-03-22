@@ -1,5 +1,5 @@
 clear all;
-close all;
+% close all;
 %% SONAR Parameters
 % Speed of sound underwater
 cWater = 1500.0;
@@ -371,7 +371,7 @@ hold off;
  % Capture the plot as an image 
 filename = 'Sonar_Animation2.gif';
 Frame = getframe(sonar_fig);
-make_gif(Frame, time_step, filename);
+% make_gif(Frame, time_step, filename);
 end
 
 %% Functions

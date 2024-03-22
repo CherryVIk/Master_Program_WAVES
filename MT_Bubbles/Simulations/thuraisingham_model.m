@@ -11,7 +11,7 @@ function sigma_bs = thuraisingham_model(f_range,a_range, rho_w, c_w);
 rhoG0 = 0.66; % atmospheric methan density
 P_atm = 101.325e3; % atmospheric pressure
 g = 9.81; % gravitational acceleration (m/s^2)
-d = 20; % water depth (m)
+d = 5; % water depth (m)
 
 Mm = 16.04e-3; % molar mass of the gas (methane) (kg/mol)
 tau = 74.5e-3; % surface tension of the gas bubbles (N/m)

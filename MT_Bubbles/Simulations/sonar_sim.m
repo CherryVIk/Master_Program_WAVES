@@ -179,7 +179,7 @@ for iTx = 1:NTx
             mixed_resp = mixed_resp(1:nSig);
 %             idea: to add phase shift (imag part of the Tx to the mixed
 %             freq resp)
-            rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + mixed_resp(1:nSig, iTx);
+            rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) ;% + mixed_resp(1:nSig, iTx);
 
 %% Insert custom freq. response here!   
 % As of now, the transmission signal is simply added to the receive signal

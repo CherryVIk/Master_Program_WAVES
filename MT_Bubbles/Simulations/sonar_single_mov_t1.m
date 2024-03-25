@@ -1,5 +1,5 @@
 clear all;
-close all;
+% close all;
 %% SONAR Parameters
 % Speed of sound underwater
 cWater = 1500.0;
@@ -116,7 +116,7 @@ grid on;
 % zcoord = -50 + move_ii;
 zcoord = 0;
 % posTar = [0 10 zcoord; 20 10 0]; 
-posTar = [0 40 0 ; -60 20 -10 ;10 20 0];
+posTar = [0 40 0];
 NTargets = size(posTar, 1);
 bDirectSound = 0;
 
@@ -170,6 +170,10 @@ sigma_bs = bubble_response(f,radius_b);
 %% 
 % Plot --------------------------------------------------------------------
 f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins);
+res_temp = f_sigma_bs./abs(Tx(:, iTx));
+figure(21);
+logRes_s = 10*log10(res_temp(1:NBins,1));
+plot(f(end/2:end), logRes_s);
 figure(20);
 subplot(211);
 logBs = 10*log10(sigma_bs(1:NBins,1));
@@ -178,7 +182,7 @@ ylim([-200 0])
 title("Log. frequency spectrum, bubble");
 grid on;
 subplot(212);
-logFs = 20*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
+logFs = 10*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
 plot(f(end/2:end),logFs)
 ylim([-200 0])
 title("Log. frequency spectrum, with bubble ");
@@ -199,6 +203,7 @@ for iTx = 1:NTx
             mixed_resp = mixed_resp(1:nSig);
 %             idea: to add phase shift (imag part of the Tx to the mixed
 %             freq resp)
+%           rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + tx(1:nSig, iTx);
             rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + mixed_resp(1:nSig, iTx);
 
             

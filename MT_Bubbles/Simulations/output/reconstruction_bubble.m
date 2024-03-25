@@ -18,7 +18,7 @@ NBins = 16385;
 Rx_noise = fft(rx(end-nSig+1:end, 1), NFFT);
 Rx_noise = Rx_noise(1:NBins, :);
 
-Rx_nonoise = fft(rx_nonoise(end-nSig+1:end, 1), NFFT);
+Rx_nonoise = fft(rx_nonoise(end-nSig+1:end, 25), NFFT);
 Rx_nonoise = Rx_nonoise(1:NBins, :);
 
 % Original signal

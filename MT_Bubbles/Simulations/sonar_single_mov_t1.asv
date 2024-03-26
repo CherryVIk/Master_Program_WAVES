@@ -1,5 +1,5 @@
 clear all;
-close all;
+% close all;
 %% SONAR Parameters
 % Speed of sound underwater
 cWater = 1500.0;
@@ -226,12 +226,9 @@ end
 Y = fft(rx, NFFT);
 Y = Y(1:NBins, :);
 
-[~,ff_s] = min(abs(f-Fstop1));
-[~,ff_e] = min(abs(f-Fstop2));
-% ff_s = ff_s - NBins;
-% ff_e = ff_e - NBins;
-ff_s = 10000;
-ff_e = 15000;
+[~,ff_s] = min(abs(f-fMin));
+[~,ff_e] = min(abs(f-fMax));
+
 % H_hat = R / T
 H_hat = zeros(NBins,1);
 H_hat(ff_s:ff_e) = abs(Y(ff_s:ff_e,1)) ./ abs(Tx(ff_s:ff_e,1));

@@ -13,7 +13,7 @@ centerRx = [0 0 0];
 angles = -90:2:90;
 % Number of beams
 NBeams = length(angles);
-time_end = 5;
+time_end = 1;
 bubbleTime = 0.2; % can be assumed as 0.1s
 bubbleVelocity = 1/bubbleTime; % v = 1m / 0.1s;
 for time_step = 1%:time_end 
@@ -112,7 +112,7 @@ end
 x_lims=[-1 1];
 y_lims=[50 51];
 z_lims=[0 0];
-Nbubbles=50;
+Nbubbles=5;
 bubbleOsc_lims = [-1,1];
 maxRadius = 1000e-6;
 % minAllowableDistance = max([585e-6, 2 * maxRadius]);
@@ -204,7 +204,7 @@ end
 a_range = radius_mean + radius_std.*randn(1,NTargets);
 % a_range = linspace(8e-6,1000e-6,NTargets);
 % a_range = linspace(585e-6,1000e-6,NTargets);
-sigma_bs = bubble_response(f,a_range);
+sigma_bs = bubble_response_model(f,a_range,2);
 %% 
 % Plot --------------------------------------------------------------------
 % f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins,:);

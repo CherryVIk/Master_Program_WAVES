@@ -19,8 +19,8 @@ tau = 74.5e-3; % surface tension of the gas bubbles (N/m)
 gamma = 1.299; % heat ratio
 
 Pst=P_atm+rho_w*g*d; % static pressure (Pa)
-rho_b = rhoG0 * (1 + 2*tau / (Pst * a_range))*(1 + 0.1 * a_range);
-c_b = sqrt(gamma*Pst/rho_b); % speed of sound inside bubble (m/s)
+rho_b = rhoG0 .* (1 + 2*tau ./ (Pst .* a_range)).*(1 + 0.1 .* a_range);
+c_b = sqrt(gamma*Pst./rho_b); % speed of sound inside bubble (m/s)
 
 if model == 1
     sigma_bs = thuraisingham_model(f_range,a_range, rho_w, c_w);

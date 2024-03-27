@@ -35,7 +35,7 @@ a = a_range(aa);
 f = f_range(ff); % acoustic frequency (Hz = s^-1)
 w = 2*pi*f; % angular frequency (rad/s)
 K_ext = w/c_w; % wavenumber in water (1/m)
-K_int = w/c_b; % wavenumber in the bubble (1/m)
+K_int = w/c_b(aa); % wavenumber in the bubble (1/m)
 lambda_w = c_w / f;
 
 kr = K_ext * Range;
@@ -47,8 +47,8 @@ lim_conv = 1e-10;
 maxCount = 200;
 
 
-g = rho_b / rho_w; % relative density
-h = c_b / c_w; % relative velocity
+g = rho_b(aa) / rho_w; % relative density
+h = c_b(aa) / c_w; % relative velocity
 rho_c = rho_w * c_w;
 
 %% Calculation

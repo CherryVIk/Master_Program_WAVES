@@ -4,17 +4,18 @@
 
 clc
 clear
-% close all
+close all
 
 f_range = linspace(0.1,300,3000)*1000;
-a_range = 4e-3; %a_range(aa); % bubble radius (m)
+a_range = linspace(8e-4,4e-3,10); % very slow for high number of radiuses
+% a_range = 4e-3; %a_range(aa); % bubble radius (m)
 TS_thur = 10*log10(bubble_response_model(f_range,a_range, 1));
 TS_and = 10*log10(bubble_response_model(f_range,a_range, 2));
 
 
 % Plot freq x TS
 a = a_range(1);
-figure(1);
+figure;
 subplot(211)
 hold on
 plot(f_range/1000, TS_thur);
@@ -34,7 +35,7 @@ subtitle(subtitlename)
 c=1500;
 ka = 2*pi/c*f_range'*a_range;
 kk = 1; % at specific radius
-figure(2);
+figure;
 % subplot(211)
 semilogx(ka(:,kk), TS_thur(:,kk))
 hold on

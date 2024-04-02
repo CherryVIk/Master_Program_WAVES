@@ -7,15 +7,15 @@ function sigma_bs = bubble_response_model(f_range,a_range, model)
 % f_range = linspace(0.1,300,1000)*1000;
 % a_range = 3e-3; % bubble radius (m)
 Range = 1;
-rho_w = 1025; % density of liquid (kg/m^3) [water]
+rho_w = 1026; % density of liquid (kg/m^3) [water]
 Theta = 1.571;
 c_w = 1500; % speed of sound in water (m/s)
 
 rhoG0 = 0.66; % atmospheric methan density
 P_atm = 101.325e3; % atmospheric pressure
-g = 9.81; % gravitational acceleration (m/s^2)
+g = 9.8; % gravitational acceleration (m/s^2)
 d = 5; % water depth (m)
-tau = 74.5e-3; % surface tension of the gas bubbles (N/m)
+tau = 74.e-3; % surface tension of the gas bubbles (N/m)
 gamma = 1.299; % heat ratio
 
 Pst=P_atm+rho_w*g*d; % static pressure (Pa)

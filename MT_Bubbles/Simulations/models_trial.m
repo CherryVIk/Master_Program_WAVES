@@ -7,8 +7,8 @@ clear
 close all
 
 f_range = linspace(0.1,300,3000)*1000;
-a_range = linspace(8e-4,4e-3,10); % very slow for high number of radiuses
-% a_range = 4e-3; %a_range(aa); % bubble radius (m)
+% % a_range = linspace(8e-4,4e-3,10); % very slow for high number of radiuses
+a_range = 2e-3; %a_range(aa); % bubble radius (m)
 TS_thur = 10*log10(bubble_response_model(f_range,a_range, 1));
 TS_and = 10*log10(bubble_response_model(f_range,a_range, 2));
 
@@ -37,9 +37,11 @@ ka = 2*pi/c*f_range'*a_range;
 kk = 1; % at specific radius
 figure;
 % subplot(211)
+
 semilogx(ka(:,kk), TS_thur(:,kk))
 hold on
 semilogx(ka(:,kk), TS_and(:,kk))
+ylim([-100 0])
 legend('Thuraisingham','Anderson' )
 xlabel('log(ka)');ylabel('TS (dB re 1 m^2)')
 titlename = "Plot ka x TS. TS for a sphere with a=" + (a*100) + " cm";

@@ -14,7 +14,7 @@ c_w = 1500; % speed of sound in water (m/s)
 rhoG0 = 0.66; % atmospheric methan density
 P_atm = 101.325e3; % atmospheric pressure
 g = 9.8; % gravitational acceleration (m/s^2)
-d = 5; % water depth (m)
+d = 20; % water depth (m)
 tau = 74.e-3; % surface tension of the gas bubbles (N/m)
 gamma = 1.299; % heat ratio
 
@@ -27,7 +27,7 @@ if model == 1
 elseif model == 2
     sigma_bs = anderson_model(f_range,a_range, Range, rho_w, rho_b, Theta, c_w, c_b);
 else
-    sigma_bs = 0;
+    sigma_bs = 1;
 end
 
 end

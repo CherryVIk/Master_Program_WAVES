@@ -28,7 +28,7 @@ Tx = fft(tx, NFFT);
 Tx = Tx(1:NBins, :);
 
 % H_hat = R / T
-H_hat = Rx_nonoise(:,1) ./ Tx;
+H_hat = Rx_noise(:,1) ./ Tx;
 % H_hat = Rx_nonoise(:,1) / Tx;
 % H_hat = Tx ./ Rx_nonoise(:,1);
 % h_hat = rx_nonoise(end-nSig+1:end, 1) ./ tx(:,1);

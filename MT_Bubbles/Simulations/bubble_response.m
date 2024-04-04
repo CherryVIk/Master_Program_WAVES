@@ -1,5 +1,4 @@
 function sigma_bs = bubble_response(f_range,a_range)
-
 % f_range = linspace(10e3,1e6,1000); % echosounder freq (Hz=1/s)
 % a_range = linspace(1e-6,30e-3,1000);  % Oscillations, bubble radius (m)
 %a_range = linspace(6e-6,2e-4,1000);  % Normal
@@ -78,8 +77,9 @@ end
 % colorbar;
 %% Plot ka x TS
 figure(56);
-ka = f_range'*a_range;
+ka = 2*pi/c*f_range'*a_range;
 kk = 1; % 30, at specific radius/freq
 semilogx(ka(:,kk), TS(:,kk));
 xlabel('ka');ylabel('TS (dB re 1 m^2)')
 title("Inside function:  ka x TS")
+end

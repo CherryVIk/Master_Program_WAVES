@@ -15,14 +15,14 @@ angles = -90:2:90;
 NBeams = length(angles);
 
 filename = 'MyAnimation.gif';
-for move_ii = 100
+% for move_ii = 100
 %% Signal Parameters
 % Sample frequency
 fs = 192000;
 % Signal bandwidth
 fB = 20000;
 % Center frequency
-fC = 15000;
+fC = 75000;
 % Min & max frequencies
 fMin = fC - fB/2;
 fMax = fC + fB/2;
@@ -113,8 +113,10 @@ grid on;
 
 %% Environment settings
 
-zcoord = -50 + move_ii;
-posTar = [0 40 zcoord;10 20 0]; % [x y]
+% zcoord = -50 + move_ii;
+zcoord = 0;
+% posTar = [0 10 zcoord; 20 10 0]; 
+posTar = [0 40 0];
 NTargets = size(posTar, 1);
 bDirectSound = 0;
 
@@ -151,8 +153,8 @@ tPropagationTime = tPropagationTime .* fs; % in samples
 
 %% Calculate received signals
 % Geometric spreading loss damping
-% geoSpreadLoss = 0;
-geoSpreadLoss = 1/( norm(posTar(iTar, :) - posTx(iTx, :))^2 ); % 1/r^x power loss
+geoSpreadLoss = 0;
+% geoSpreadLoss = 1/( norm(posTar(iTar, :) - posTx(iTx, :))^2 ); % 1/r^x power loss
 % Max rx. sequence length (signal duration + max propagation time)
 nRxSeqLength = nSig + ceil(max(tPropagationTime(:)));
 rx = zeros(nRxSeqLength, NRx);
@@ -161,13 +163,17 @@ rx = zeros(nRxSeqLength, NRx);
 noise_level_dB = -60;
 noise_level_linear = 10^(noise_level_dB/10);
 noise_add = randn(nRxSeqLength, NRx) * noise_level_linear; 
-rx = rx + noise_add;
+% rx = rx + noise_add;
 
-radius_b = 585e-6;% Oscillations, bubble radius (m)
+radius_b = 0.5e-3;%585e-6;% Oscillations, bubble radius (m)
 sigma_bs = bubble_response(f,radius_b);
 %% 
 % Plot --------------------------------------------------------------------
 f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins);
+res_temp = f_sigma_bs./abs(Tx(:, iTx));
+figure(21);
+logRes_s = 10*log10(res_temp(1:NBins,1));
+plot(f(end/2:end), logRes_s);
 figure(20);
 subplot(211);
 logBs = 10*log10(sigma_bs(1:NBins,1));
@@ -176,7 +182,7 @@ ylim([-200 0])
 title("Log. frequency spectrum, bubble");
 grid on;
 subplot(212);
-logFs = 20*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
+logFs = 10*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
 plot(f(end/2:end),logFs)
 ylim([-200 0])
 title("Log. frequency spectrum, with bubble ");
@@ -197,6 +203,7 @@ for iTx = 1:NTx
             mixed_resp = mixed_resp(1:nSig);
 %             idea: to add phase shift (imag part of the Tx to the mixed
 %             freq resp)
+%           rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + tx(1:nSig, iTx);
             rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + mixed_resp(1:nSig, iTx);
 
             
@@ -215,7 +222,43 @@ for iTx = 1:NTx
     end
 end
 
-% Apply damping: 1/r (linear), 1/r^2 (cylindrical), 1/r^3 (spherical)
+%% Reconstruction of the signal
+Y = fft(rx, NFFT);
+Y = Y(1:NBins, :);
+
+[~,ff_s] = min(abs(f-Fstop1));
+[~,ff_e] = min(abs(f-Fstop2));
+% ff_s = ff_s - NBins;
+% ff_e = ff_e - NBins;
+ff_s = 10000;
+ff_e = 15000;
+% H_hat = R / T
+H_hat = zeros(NBins,1);
+H_hat(ff_s:ff_e) = abs(Y(ff_s:ff_e,1)) ./ abs(Tx(ff_s:ff_e,1));
+H_hat = abs(H_hat);
+
+
+figure;
+subplot(311)
+% logRx_noB = X(:,1);
+logTx_noB = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
+plot(f(end/2:end), logTx_noB(:, 1));
+grid on;
+title('Target signal, freq');
+subplot(312)
+% logRx_withB = Y(:,1);
+logRx_withB = 20*log10(abs(Y(:,1))./max(abs(Y(:,1))));
+plot(f(end/2:end), logRx_withB(:, 1));
+grid on;
+hold on
+title('Target-bubble signal, freq');
+% subplot(313)
+% logH_hat = H_hat(:,1);
+logH_hat = 20*log10(abs(H_hat(:,1))./max(abs(H_hat(:,1))));
+plot(f(end/2:end), logH_hat(:, 1));
+% title('Extracted bubble signal, freq');
+
+%% Apply damping: 1/r (linear), 1/r^2 (cylindrical), 1/r^3 (spherical)
 propagationTimesPerSample = (0:nRxSeqLength)./ fs;
 propagationDistancePerSample = propagationTimesPerSample * cWater;
 damping = 1./propagationDistancePerSample.^geoSpreadLoss;
@@ -250,7 +293,6 @@ title('Crosscorrelation: Transmit- & receive signal');
 
 %% Beamforming: Calculate array manifold vector (AMV)
 NFFT = 2^nextpow2(2 * nRxSeqLength); 
-% NFFT = nSig;
 % Frequency support vector: freq = bin*fs/FFT_size
 NBins = NFFT / 2 + 1; % FFT-bins of pos. frequencies
 bins = 0:NBins-1; % Freq. bin support vector
@@ -336,7 +378,7 @@ hold off;
  % Capture the plot as an image 
 Frame = getframe(sonar_fig);
 % make_gif(Frame, move_ii, filename)
-end
+% end
 
 %% Functions
 function make_gif(Frame, ii, filename)

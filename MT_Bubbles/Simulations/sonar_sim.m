@@ -57,10 +57,10 @@ f = linspace(-fs/2, fs/2, NFFT);%NFFT
 
 %% Generate transmit sequence
 % Bandpass filter design
-Fstop1 = 39900;       % First Stopband Frequency
-Fpass1 = 40000;       % First Passband Frequency
-Fpass2 = 60000;       % Second Passband Frequency
-Fstop2 = 60100;       % Second Stopband Frequency
+Fstop1 = fMin-100;       % First Stopband Frequency
+Fpass1 = fMin;       % First Passband Frequency
+Fpass2 = fMax;       % Second Passband Frequency
+Fstop2 = fMax+100;       % Second Stopband Frequency
 Astop1 = 100;          % First Stopband Attenuation (dB)
 Apass  = 1;           % Passband Ripple (dB)
 Astop2 = 100;          % Second Stopband Attenuation (dB)
@@ -79,7 +79,7 @@ if strcmp(eSignalType, eSignalTypes.blNoise)
     % Transform time to freq. domain signal
     Tx = fft(tx, NFFT);
     % Only save positive freq.
-    % Tx = Tx(1:NBins, :);
+    Tx = Tx(1:NBins, :);
 % The following has a commented out ideal (but impractical) bandpass filter
     % Bandpass
     %Tx(1:nfMin, :) = 0;
@@ -91,17 +91,17 @@ if strcmp(eSignalType, eSignalTypes.blNoise)
 end
 
 % Plot transmit sequence
-% figure;
-% subplot(211);
-% %t = linspace(0,tSig,NFFT);
-% plot(t, tx(:,1));
-% title("Time domain signal");
-% grid on;
-% subplot(212);
-% logTx = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
-% plot(f, logTx);
-% title("Log. frequency spectrum ");
-% grid on;
+figure;
+subplot(211);
+%t = linspace(0,tSig,NFFT);
+plot(t, tx(:,1));
+title("Time domain signal");
+grid on;
+subplot(212);
+logTx = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
+plot(f(end/2:end), logTx);
+title("Log. frequency spectrum ");
+grid on;
 
 %% Environment settings
 posTar = [0 40 0 ; -60 20 -10 ;10 20 0]; % [x y z]
@@ -146,21 +146,21 @@ geoSpreadLoss = 0; % 1/r^x power loss
 nRxSeqLength = nSig + ceil(max(tPropagationTime(:)));
 rx = zeros(nRxSeqLength, NRx);
 
-radius_b = 2e-2;% Oscillations, bubble radius (m)
-f_range = linspace(fMax,fMin,NFFT); % echosounder freq (Hz=1/s)
+radius_b = 0.5e-3;% Oscillations, bubble radius (m)
 sigma_bs = bubble_response(f,radius_b);
-f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs;
+%%
+f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins);
 
 figure;
 subplot(211);
-logBs = 10*log10(sigma_bs(:,1));
-plot(f, logBs);
+logBs = 10*log10(sigma_bs(1:NBins,1));
+plot(f(end/2:end), logBs);
 ylim([-100 0])
 title("Log. frequency spectrum, bubble");
 grid on;
 subplot(212);
 logFs = 20*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
-plot(f,logFs)
+plot(f(end/2:end),logFs)
 ylim([-100 0])
 title("frequency spectrum, with bubble ");
 grid on;
@@ -168,17 +168,18 @@ grid on;
 for iTx = 1:NTx
     for iRx = 1:NRx
         for iTar = 1:NTargets + bDirectSound
-            % Add reflected tx-signal at delay time to rx_-
-%             rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) +  tx(:, iTx);
-            f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs;
-            angle_rs = angle(Tx(:, iTx));
-            mixed_resp = f_sigma_bs.*exp(i*angle_rs);
-            mixed_resp = ifft(mixed_resp, NFFT);
-            mixed_resp = mixed_resp(1:nSig,iTx);
-            % add phase shift (imag part of the Tx to the mixed freq resp)
             iStart = floor(tPropagationTime(iTx, iTar, iRx))+1;
             iEnd = floor(iStart + length(tx(:, iTx))) - 1;
-            rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + mixed_resp(1:nSig, iTx);
+            % Add reflected tx-signal at delay time to rx_-
+%             rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) +  tx(:, iTx);
+            f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins);
+            theta = angle(Tx(:, iTx));
+            mixed_resp = f_sigma_bs.*exp(i*theta);
+            mixed_resp = ifft(mixed_resp, NFFT,'symmetric');
+            mixed_resp = mixed_resp(1:nSig);
+%             idea: to add phase shift (imag part of the Tx to the mixed
+%             freq resp)
+            rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) ;% + mixed_resp(1:nSig, iTx);
 
 %% Insert custom freq. response here!   
 % As of now, the transmission signal is simply added to the receive signal

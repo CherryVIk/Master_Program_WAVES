@@ -253,7 +253,7 @@ grid on;
 hold on
 title('Target-bubble signal, freq');
 subplot(313)
-logH_hat = H_hat(:,1);
+% logH_hat = H_hat(:,1);
 logH_hat = 20*log10(abs(H_hat(:,1)./max(abs(H_hat(:,1)))));
 plot(f(end/2:end), logH_hat(:, 1));
 hold on

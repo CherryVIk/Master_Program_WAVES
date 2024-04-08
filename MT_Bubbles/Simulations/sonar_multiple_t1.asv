@@ -238,7 +238,7 @@ for iTx = 1:NTx
             theta = angle(Tx(:, iTx));
             mixed_resp = f_sigma_bs.*mixedResponsesFreq_init;
             mixed_resp = ifft(mixed_resp, NFFT,'symmetric');
-            mixed_resp = sum(mixed_resp(1:nSig,:),2);
+            mixed_resp = mixed_resp(1:nSig,);
 %             idea: to add phase shift (imag part of the Tx to the mixed
 %             freq resp)
             rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + mixedResponsesTime_init(:,iTar) + mixed_resp;

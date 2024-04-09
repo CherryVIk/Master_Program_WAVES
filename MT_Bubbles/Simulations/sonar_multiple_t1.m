@@ -13,7 +13,7 @@ centerRx = [0 0 0];
 angles = -90:2:90;
 % Number of beams
 NBeams = length(angles);
-time_end = 1;
+time_end = 10;
 bubbleTime = 0.2; % can be assumed as 0.1s
 bubbleVelocity = 1/bubbleTime; % v = 1m / 0.1s;
 for time_step = 1%:time_end 
@@ -98,7 +98,7 @@ end
 
 %% Plot transmit sequence
 
-% fig=figure(5);
+% fig=figure;
 % subplot(211);
 % grid on;
 % best_plot_ever(t, tx(:,1),"Time domain signal", fig)
@@ -117,6 +117,8 @@ bubbleOsc_lims = [-1,1];
 % minRadius = 1000e-6;
 % minAllowableDistance = max([585e-6, 2 * maxRadius]);
 posTar = set_bubble_flare(x_lims, y_lims, z_lims, Nbubbles, bubbleVelocity, time_end, bubbleOsc_lims);
+% posTar2 = set_bubble_flare([50 51], [30 32], [10 11], Nbubbles, bubbleVelocity, time_end, bubbleOsc_lims);
+% posTar = [posTar1; posTar2];
 % if time_step == 1
 %     % Generate bubbles in some constrained space
 %     posTarNew = set_bubble_source(x_lims, y_lims, z_lims, Nbubbles);
@@ -135,7 +137,7 @@ bDirectSound = 0;
 x = posTar(:,1);
 y = posTar(:,2);
 z = posTar(:,3);
-bubbles_mov = figure(10);
+bubbles_mov = figure;
 % hold on
 plot3(x,y,z, '-ok',"MarkerEdgeColor" ,	"#4DBEEE")
 axis_x = x_lims+bubbleOsc_lims*time_end*bubbleVelocity;
@@ -153,8 +155,10 @@ Frame = getframe(bubbles_mov);
 % around array center (spaced on x-axis)
 rxCenterElement = (NRx + 1) / 2;
 txCenterElement = (NTx + 1) / 2;
-turnRx = [cosd(0) sind(0) sind(0)];
+turnRx = [cosd(0) sind(90) sind(0)];
 turnTx = [cosd(0) sind(0) sind(0)];
+% turnRx = [cosd(0) sind(0) sind(0)];
+% turnTx = [cosd(0) sind(0) sind(0)];
 posRx = (((1:NRx) - rxCenterElement) .* dRx)' .*turnRx+ centerRx;
 posTx = (((1:NTx) - txCenterElement) .* dTx)' .*turnTx+ centerTx;
 % figure;plot(posRx(:,1:2))
@@ -181,8 +185,7 @@ tPropagationTime = tPropagationTime .* fs; % in samples
 
 %% Calculate received signals
 % Geometric spreading loss damping
-% geoSpreadLoss = 0;
-geoSpreadLoss = 1/( norm(posTar(iTar, :) - posTx(iTx, :))^2 ); % 1/r^x power loss
+geoSpreadLoss = 3;
 % Max rx. sequence length (signal duration + max propagation time)
 nRxSeqLength = nSig + ceil(max(tPropagationTime(:)));
 rx = zeros(nRxSeqLength, NRx);
@@ -212,20 +215,21 @@ mixedResponsesTime_init = mixedResponsesTime_init(1:nSig,:);
 %% 
 % Plot --------------------------------------------------------------------
 f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins,:);
-fig = figure(20); 
+fig = figure; 
+subplot(211);
 for sb_i = 1: NTargets
-    % subplot(211);
     hold on 
     logBs = 10*log10(sigma_bs(1:NBins,sb_i));
     best_plot_ever(f(end/2:end), logBs,"Log. frequency spectrum, only bubble", fig)
     ylim([-200 0])
     hold off
 end
-    % subplot(212);
-fig = figure(30); 
+subplot(212);
+% fig = figure; 
 logFs = 20*log10(abs(f_sigma_bs(:,sb_i))./max(abs(f_sigma_bs(:,sb_i))));
-ylim([-200 0])
+% ylim([-200 0])
 best_plot_ever(f(end/2:end), logFs,"Log. frequency spectrum, with bubble", fig)
+ylim([-200 0])
 %% Add bubble response to the received signal
 for iTx = 1:NTx
     for iRx = 1:NRx
@@ -238,6 +242,7 @@ for iTx = 1:NTx
             theta = angle(Tx(:, iTx));
             mixed_resp = f_sigma_bs.*mixedResponsesFreq_init;
             mixed_resp = ifft(mixed_resp, NFFT,'symmetric');
+            mixed_resp(:,iTar) = [];
             mixed_resp = sum(mixed_resp(1:nSig,:),2);
 %             idea: to add phase shift (imag part of the Tx to the mixed
 %             freq resp)
@@ -251,7 +256,15 @@ end
 %% Reconstruction of the signal
 Y = fft(rx, NFFT);
 Y = Y(1:NBins, :);
-H_hat = abs(Y(:,1)) ./ abs(Tx(:,1));
+
+H_hat = abs(Y(:,10)) ./ abs(Tx(:,1));
+
+figure;
+hold on
+% plot(abs(Y(:,1)))
+% plot(abs(Tx(:,1)))
+plot(abs(H_hat))
+%% 
 % H_hat = abs(H_hat);
 
 figure;
@@ -291,7 +304,7 @@ locShortest = min(squeeze(tPropagationTime(round(NTx/2), :, round(NRx/2))));
 % Calculate time vector
 tSim = linspace(0, nRxSeqLength/fs, nRxSeqLength);
 %% Plot --------------------------------------------------------------------
-figure(40);
+figure;
 subplot(211);
 plot(tSim, rx(:, 1));
 grid on;
@@ -365,7 +378,7 @@ end
 
 %% Plot results as PPI (plan position indicator) plot
 % Log of correlated output
-sonar_fig=figure(100);
+sonar_fig=figure;
 ppi = 20*log10(abs(mfbfsmall)+eps);
 ppi(ppi<-40) = -40;
 % Maximum distance (single path) = Half of max sequence travel distance

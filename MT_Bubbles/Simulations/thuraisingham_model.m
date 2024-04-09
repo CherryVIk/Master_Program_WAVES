@@ -1,4 +1,4 @@
-function sigma_bs = thuraisingham_model(f_range,a_range, rho_w, c_w);
+function sigma_bs = thuraisingham_model(f_range,a_range, rho_w, c_w)
 
 % f_range = linspace(10e3,1e6,1000); % echosounder freq (Hz=1/s)
 % a_range = linspace(1e-6,30e-3,1000);  % Oscillations, bubble radius (m)
@@ -70,10 +70,10 @@ TS(ff, aa) = 10*log10(sigma_bs(ff, aa)); %dB re 1 m^2
 end
 end
 %% Plot ka x TS
-figure;
-ka = 2*pi/c_w*f_range'*a_range;
-kk = 1; % at specific radius
-semilogx(ka(:,kk), TS(:,kk));
-xlabel('ka');ylabel('TS (dB re 1 m^2)')
-title("Inside function:  ka x TS")
+% figure;
+% ka = 2*pi/c_w*f_range'*a_range;
+% kk = 1; % at specific radius
+% semilogx(ka(:,kk), TS(:,kk));
+% xlabel('ka');ylabel('TS (dB re 1 m^2)')
+% title("Inside function:  ka x TS")
 end

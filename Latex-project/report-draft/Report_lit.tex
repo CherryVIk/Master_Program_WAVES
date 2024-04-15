@@ -2,8 +2,8 @@
 %Author: Viktoriia Boichenko
 %vik.boichenko@gmail.com
 
+% !TeX program = xelatex
 % !TEX encoding = UTF-8 Unicode
-% !TEX TS-program = xelatex
 
 \documentclass[11pt]{article}
 
@@ -23,7 +23,7 @@
 \usepackage{parskip}
 \setlength{\parindent}{0pt}
 
-% Useful packages
+% Useful packages 
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
@@ -35,8 +35,7 @@
 
 %Import the bibliography file
 \usepackage[backend=biber,style=ieee]{biblatex}
-\addbibresource{bibliography.bib} 
-
+\addbibresource{/bibliography.bib}
 
 \begin{document}
 
@@ -203,7 +202,7 @@ As this expectation can be difficult to evaluate in practice, it can be estimate
 
     The equation of motion of the single bubble is given below: 
     \begin{equation}
-        m\nu''(t)+b\nu#(t)+\kappa\nu(t)=-P_{inc}e^{-i\omega t}
+        m\nu''(t)+b\nu'(t)+\kappa\nu(t)=-P_{inc}e^{-i\omega t}
         \label{eqn:motion-bubble}
     \end{equation}
     which is a an ordinary differential equation representing a mass-spring system for $\nu$ the unknown bubble volume differential \cite{leighton_acoustic_2012}, which is time dependant. \\
@@ -242,8 +241,6 @@ where  $\mathcal{R}\{·\}$ denotes the real part of a complex number;\\
 	The backscattering cross-section of a single bubble can be presented as the target strength:
 \begin{equation}\label{eq:target_strength}
 	TS = 10\log{\sigma_{bs}}
- % \hline
- 
 \end{equation}
 
 % natural frequency provided by bubble, 
@@ -342,8 +339,6 @@ Simple approach is adapted at first. The same velocity is applied to all bubbles
 %
 %The difference between them can be explained with … (due to a manipulation error, protocol design, or the experimental principle) 
 
-
-\printbibliography
 \section*{Appendix: Figures}
 \begin{figure} [H] 
     \centering
@@ -428,5 +423,5 @@ Simple approach is adapted at first. The same velocity is applied to all bubbles
 %Don't forget to specify the nature and units. 
 %Use a scale that maximizes the use of the surface area.
 
-
+\printbibliography
 \end{document}

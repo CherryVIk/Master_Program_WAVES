@@ -1,0 +1,79 @@
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[style=ieee]{biblatex}
+\addbibresource{{cites/bibliography.bib}}
+
+\graphicspath{ {figures/} }
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+        \Huge
+        \textbf{Acoustic Frequency Response Modelling of Multi-Bubble Compounds}
+ 
+        \vspace{0.5cm}
+        \LARGE
+        %  Thesis Subtitle
+             
+        \vspace{1.5cm}
+ 
+        \textbf{Viktoriia Boichenko}
+ 
+        \vfill
+             
+        A thesis presented for the degree of \\ 
+        Master of Acoustic Engineering
+             
+        \vspace{0.8cm}
+      
+        % \includegraphics[width=0.4\textwidth]{university}
+        \Large
+        GEOMAR, DeepSeaMonitoring\\
+        Erasmus Mundus WAVES\\
+
+    %    Country\\
+    %    Date
+             
+    \end{center}
+\end{titlepage}
+
+\begin{document}
+\maketitle
+\newpage
+\input{chapters/abstract}
+
+\section*{Dedication}
+To mum, and dad
+
+\section*{Declaration}
+I declare that..
+
+\section*{Acknowledgements}
+I want to thank...
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\chapter{Introduction}
+\input{chapters/introduction}
+
+\chapter{Chapter Two Title}
+\input{chapters/chapter02}
+
+\chapter{Chapter Three Title}
+\input{chapters/chapter03}
+
+\chapter{Chapter Four Title}
+\input{chapters/chapter04}
+
+\chapter{Conclusion}
+\input{chapters/conclusion}
+
+\appendix
+\chapter{Appendix Title}
+\input{chapters/appendix}
+\end{document}

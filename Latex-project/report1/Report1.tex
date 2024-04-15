@@ -1,0 +1,172 @@
+%Waves Program Master Degree Template
+%Author: Viktoriia Boichenko
+%vik.boichenko@gmail.com
+
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = lualatex
+
+\documentclass[11pt]{article}
+
+% Language setting
+\usepackage[english]{babel}
+\usepackage{fontspec}
+% \setmainfont{Arial}
+% Set page size and margins
+\usepackage[letterpaper,top=2.54cm,bottom=2.54cm,left=3.27cm,right=3.27cm,marginparwidth=1.75cm]{geometry}
+% Set spacing between lines and sections
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{32pt}{20pt}
+\titlespacing*{\subsection}{0pt}{16pt}{20pt}
+\usepackage{setspace}
+\onehalfspacing
+%Adds space after paragraph
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{units}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{csquotes}
+\usepackage{float} %locate figures with [H]
+
+%Import the bibliography file
+\usepackage[backend=biber,style=ieee]{biblatex}
+\begin{document}
+% \addbibresource{../cites/bibliography.bib} 
+
+%setting the cover page
+\thispagestyle{empty}
+% \begin{minipage}{0.96\linewidth}
+% \includegraphics[width=1\linewidth]{figures/gandia-upv.png}
+% \end{minipage}
+
+\begin{center}
+{\large\text{Erasmus Mundus WAVES}}   
+
+
+\vspace*{4cm}
+{\Large\textbf{Report \\ }}   
+
+
+\vspace*{7cm}
+% {\LARGE\text{Group N.ºN}}\\\vspace*{0.1cm}
+ {\Large\text{Viktoriia Boichenko}} \\\vspace*{0.1cm}
+ % {\Large\text{NAME SURNAME}}\\
+
+\vspace*{2.3cm}
+{\large\text{Work developed in the scope of the course}\\\vspace*{0.1cm}
+\LARGE\textbf{COURSE NAME}}\\
+\vspace*{0.2cm}
+{\large\text{2023/2024}}   
+\end{center}
+
+\newpage
+
+\tableofcontents
+
+\section{Introduction}
+
+The following assignments were the main interest for exploration in order to progress the current state of the work:
+
+\begin{itemize}
+    \item reconstruction of the bubble frequency response from the received signal
+    \item simple version of the multiple scattering between bubbles
+    \item research on the available mesurement procedures within the literature of the bubble experiments
+    % \item configuration of the latex environment in the vscode
+\end{itemize}
+
+\section{Theoretical part}
+
+\subsection*{Reconstruction of the bubble frequency response from the received signal}
+
+It will allow demonstrating the ability to invert the model to find individual bubble contributions from compund analysis.
+The following equation \ref{eq:reconstruction_bubble} was the base of the calculations:
+\begin{equation}\label{eq:reconstruction_bubble}
+    R = T \times H + N
+\end{equation}
+where R is a received signal, T is a transmitted signal by sonar, H is frequency response of the bubble, N is an added background noise.
+
+
+\subsection*{Simple version of the multiple scattering }
+
+The concept lies in considering each bubble as a source when it scatters an incident wave. 
+Therefore, each bubble will have an influence on another, and also receives a sum of all scatterrings from 
+other bubbles. 
+
+Bubbles have to be sufficiently far from each other in order not to be dependent on each others bubble frequency response.
+
+\subsection*{Research on the available mesurement procedures within the literature of the bubble experiments}
+
+\begin{itemize}
+    \item  Sound signal: narrow band pulse, chirp, noise
+    \item Sonar position: from top, vertical, horizontal
+    \item Bubbles location: in the center of the experimental pool
+   \item Bubble characteristics: emitting a single bubble of the specified radius; a row of bubbles; 
+   creating a bubble flare;
+\end{itemize}
+Other things which are important for taking into account are:
+\begin{itemize}
+    \item Response of the transducer can influence the received signal
+    \item Near field radiation implementation for measurements with a spherical radiation against the plane wave in a far field
+\end{itemize}
+
+Further set of things which are required to perform the experiment are the setup of the equipment required for performing our measurements. 
+Essentially, it will include the sonar, a bubble generator, processing unit as a laptop/computer.
+
+
+% The principle of the experiment to be conducted is … (a physical law applied to an analytical method) 
+% the equation (mathematical form of the relationship between physical quantities), 
+% the parameters (physical quantities kept constant during the experiment) 
+% the variables of the experiment 
+% the values of physical constants in their respective units of measurement or calculation diagram to aid in understanding
+
+\section{Calculation}
+
+% The following calculations were performed … (equation, substituting variables and consts, result in units)
+
+% The mathematical development of calculations is presented below in symbolic form …
+
+% Diagram of the experiment
+
+% The following diagram is used to identify each element of the setup. It includes representations of measuring instruments, and the geometry of the setup. 
+
+% List of the equipment used
+% The used setup during the experiment was …
+
+\section{Results}
+% graphs, tables, or any other type of figures that address the  issue. 
+
+% Figures should be accompanied by a title and an explanatory legend, similar to tables. 
+
+% Don't forget to specify the nature and units. 
+% Use a scale that maximizes the use of the surface area.
+
+
+\section{Interpretation}
+
+% The uncertainties associated with measurements were ..
+
+% Influencing factors, relationships between variables on the results were …
+
+% We have also performed the necessary calculations to validate our hypotheses which consisted of finding the values of …
+
+
+% Following the lab instructions we have obtained …
+
+\section{Conclusion}
+
+% The hypotheses of … were validated. 
+
+% The proposed solution to the posed problem was …
+
+% The objective of the work .. was achieved …
+
+% Comparing results from our simulation and calculations with the one obtained from literature are …
+
+% The difference between them can be explained with … (due to a manipulation error, protocol design, or the experimental principle) 
+\printbibliography
+\end{document}

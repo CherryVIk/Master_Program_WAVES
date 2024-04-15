@@ -189,12 +189,13 @@ geoSpreadLoss = 3;
 % Max rx. sequence length (signal duration + max propagation time)
 nRxSeqLength = nSig + ceil(max(tPropagationTime(:)));
 rx = zeros(nRxSeqLength, NRx);
+rx_multi = zeros(nRxSeqLength, NRx);
 
 %% Background noise
 noise_level_dB = -60;
 noise_level_linear = 10^(noise_level_dB/10);
 noise_add = randn(nRxSeqLength, NRx) * noise_level_linear; 
-rx = rx + noise_add;
+% rx = rx + noise_add;
 
 %% Radius of bubbles
 % Generate values from a normal distribution with mean and standard deviation
@@ -246,7 +247,8 @@ for iTx = 1:NTx
             mixed_resp = sum(mixed_resp(1:nSig,:),2);
 %             idea: to add phase shift (imag part of the Tx to the mixed
 %             freq resp)
-            rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + mixedResponsesTime_init(:,iTar) + mixed_resp;
+            rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + mixedResponsesTime_init(:,iTar);
+            rx_multi(iStart:iEnd, iRx) = rx_multi(iStart:iEnd, iRx) + mixedResponsesTime_init(:,iTar) + mixed_resp;
             % rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + mixed_resp(1:nSig, iTx);
 
   
@@ -256,8 +258,11 @@ end
 %% Reconstruction of the signal
 Y = fft(rx, NFFT);
 Y = Y(1:NBins, :);
+Y_multi = fft(rx_multi, NFFT);
+Y_multi = Y_multi(1:NBins, :);
 
 H_hat = abs(Y(:,10)) ./ abs(Tx(:,1));
+H_multi_hat = abs(Y_multi(:,10)) ./ abs(Tx(:,1));
 
 figure;
 hold on

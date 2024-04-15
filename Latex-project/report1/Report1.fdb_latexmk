@@ -4,9 +4,9 @@
   (generated)
   "Report1.pdf"
   (rewritten before read)
-["xelatex"] 1713178892 "/home/vboichenko/Documents/MATLAB/Master_Program_WAVES/Latex-project/report1/Report1.tex" "Report1.xdv" "Report1" 1713178894 2
+["xelatex"] 1713190573 "/home/vboichenko/Documents/MATLAB/Master_Program_WAVES/Latex-project/report1/Report1.tex" "Report1.xdv" "Report1" 1713190574 2
   "/etc/texmf/web2c/texmf.cnf" 1707842525 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/vboichenko/Documents/MATLAB/Master_Program_WAVES/Latex-project/report1/Report1.tex" 1713178890 6102 b7f8752194fff76a295526ff5bb3a73a ""
+  "/home/vboichenko/Documents/MATLAB/Master_Program_WAVES/Latex-project/report1/Report1.tex" 1713190572 8213 b8e8ad23a35a7f8831eac89b2ef612f8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/share/texlive/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
@@ -82,8 +82,8 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1693172360 40357 c95f5d5e031b5c7040b426833c11f2e0 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1693172360 40357 c95f5d5e031b5c7040b426833c11f2e0 ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1710778479 8824401 7e89d51e858f71da33ce2e571c074e80 ""
-  "Report1.aux" 1713178892 32 3985256e7290058c681f74d7a3565a19 "xelatex"
-  "Report1.tex" 1713178890 6102 b7f8752194fff76a295526ff5bb3a73a ""
+  "Report1.aux" 1713190573 32 3985256e7290058c681f74d7a3565a19 "xelatex"
+  "Report1.tex" 1713190572 8213 b8e8ad23a35a7f8831eac89b2ef612f8 ""
   "biblatex.sty" 0 -1 0 ""
   (generated)
   "Report1.aux"

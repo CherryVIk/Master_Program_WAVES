@@ -3,7 +3,7 @@
 %vik.boichenko@gmail.com
 
 % !TEX encoding = UTF-8 Unicode
-% !TEX program = lualatex
+% ! TEX program = lualatex
 
 \documentclass[11pt]{article}
 
@@ -58,8 +58,8 @@
  % {\Large\text{NAME SURNAME}}\\
 
 \vspace*{2.3cm}
-{\large\text{Work developed in the scope of the course}\\\vspace*{0.1cm}
-\LARGE\textbf{COURSE NAME}}\\
+% {\large\text{Work developed in the scope of the course}\\\vspace*{0.1cm}
+% \LARGE\textbf{COURSE NAME}}\\
 \vspace*{0.2cm}
 {\large\text{2023/2024}}   
 \end{center}
@@ -76,6 +76,8 @@ The following assignments were the main interest for exploration in order to pro
     \item reconstruction of the bubble frequency response from the received signal
     \item simple version of the multiple scattering between bubbles
     \item research on the available mesurement procedures within the literature of the bubble experiments
+    \item Wiener filter noise deconstruction
+    \item sonar equation implementation
     % \item configuration of the latex environment in the vscode
 \end{itemize}
 
@@ -117,6 +119,31 @@ Other things which are important for taking into account are:
 Further set of things which are required to perform the experiment are the setup of the equipment required for performing our measurements. 
 Essentially, it will include the sonar, a bubble generator, processing unit as a laptop/computer.
 
+\subsection*{Wiener filter noise deconstruction}
+
+It is one o the signal processing filters which allow us to denoise the signal. Main feature of the Wiener filter is 
+that unlike simpler filters that may only suppress noise or attenuate certain frequency components, the Wiener filter operates on a statistical model of the signal and noise, effectively balancing the trade-off between signal fidelity and noise reduction.
+
+subsection*{Sonar equation }
+The Sonar equation is a fundamental tool in underwater acoustics used to predict the performance of sonar systems. 
+The basic form of the Sonar equation is:
+\begin{equation}
+    SNR=SL-TL+TS-NL
+\end{equation}
+
+Where
+SNR is the signal-to-noise ratio,
+SL is the source level,
+TL is the transmission loss,
+TS is the target strength, and
+NL is the noise level.
+
+To implement the Sonar equation, one needs to calculate or estimate each of these parameters. 
+Source level (SL) represents the acoustic power radiated by the sonar system, which can be determined based on the characteristics of the sonar transducer and the electrical input power. 
+Transmission loss (TL) accounts for the attenuation of sound energy as it propagates through the water, considering factors such as spreading loss, absorption, and bottom and surface reflections. 
+Target strength (TS) quantifies the amount of sound energy reflected or scattered by the target, which depends on its size, shape, and composition. 
+Noise level (NL) encompasses all sources of ambient noise in the environment, including thermal noise, wind-generated noise, biological noise, and anthropogenic noise.
+
 
 % The principle of the experiment to be conducted is … (a physical law applied to an analytical method) 
 % the equation (mathematical form of the relationship between physical quantities), 
@@ -125,6 +152,18 @@ Essentially, it will include the sonar, a bubble generator, processing unit as a
 % the values of physical constants in their respective units of measurement or calculation diagram to aid in understanding
 
 \section{Calculation}
+
+\subsection*{Sonar equation implementation}
+\begin{enumerate}
+    \item Calculate the transmission loss from SONAR to 1m in front of target
+    \item Calculate TL from 1m in front of target to target 
+    \item Calculate TS from filtering with frequency response of target
+    \item Add transmission loss from target to 1 m in front of target
+    
+    Combine these for total target strength
+\end{enumerate}
+
+
 
 % The following calculations were performed … (equation, substituting variables and consts, result in units)
 

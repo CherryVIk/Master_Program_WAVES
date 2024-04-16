@@ -6,28 +6,8 @@ function sigma_bs = anderson_model(f_range,a_range, Range, rho_w, rho_b, Theta, 
 % from an incident plane wave impinging upon a fluid sphere following
 % Anderson, V. C., "Sound scattering from a fluid sphere", 
 % J. Acoust. Soc. America, 22 (4), pp 426-431, July 1950
-
-% f_range = linspace(0.1,300,1000)*1000;
-% a_range = 3e-3; % bubble radius (m)
-% Range = 1;
-% rho_w = 1025; % density of liquid (kg/m^3) [water]
-% Theta = 1.571;
-% c_w = 1500; % speed of sound in water (m/s)
-% rho_c = rho_w * c_w;
-% 
-% rhoG0 = 0.66; % atmospheric methan density
-% P_atm = 101.325e3; % atmospheric pressure
-% g = 9.81; % gravitational acceleration (m/s^2)
-% d = 20; % water depth (m)
-% Pst=P_atm+rho_w*g*d; % static pressure (Pa)
-% tau = 74.5e-3; % surface tension of the gas bubbles (N/m)
-% gamma = 1.299; % heat ratio
-% rho_b = rhoG0 * (1 + 2*tau / (Pst * a_range))*(1 + 0.1 * a_range);
-% c_b = sqrt(gamma*Pst/rho_b); % speed of sound inside bubble (m/s)
-
 TS = zeros(length(f_range),length(a_range));
 sigma_bs = zeros(length(f_range),length(a_range));
-
 
 for ff = 1:length(f_range)
 for aa = 1:length(a_range)
@@ -45,7 +25,6 @@ ka_p = K_int * a;
 % Limits
 lim_conv = 1e-10;
 maxCount = 200;
-
 
 g = rho_b(aa) / rho_w; % relative density
 h = c_b(aa) / c_w; % relative velocity

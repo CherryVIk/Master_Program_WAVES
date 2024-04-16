@@ -1,4 +1,4 @@
-function sigma_bs = church(f_range,a_range, rho_w, c_w)
+function sigma_bs = church_model(f_range,a_range, rho_w, c_w)
 
 % f_range = linspace(10e3,1e6,1000); % echosounder freq (Hz=1/s)
 % a_range = linspace(1e-6,30e-3,1000);  % Oscillations, bubble radius (m)
@@ -52,16 +52,20 @@ omegaSquared= (3/(rho_w*a^2))* (Gamma*P_gas - ((2*tau)/(3*a)));
 
 w_0 = sqrt(real(omegaSquared));
 
-b_th = imag(omegaSquared)/(2*w);
+% b_th = imag(omegaSquared)/(2*w);
 b_vis = 2*mu_liq/(rho_w*a^2);
 
-b_0 = b_th + b_vis;
+% b_0 = b_th + b_vis;
 
 sigma_denom2 = 2*b_vis/w;
 sigma_denom1=((w_0^2/w^2)-1)^2;
 
+% sigma_num1=(sin(k*a)/(k*a))^2;
+% sigma_num2= 1+(k*a)^2;
 
-sigma_bs(ff, aa) = 4*pi*a^2/(sigma_denom1+sigma_denom2);
+% sigma_bs(ff, aa) = (a^2/(sigma_denom1+sigma_denom2))*(sigma_num1 / sigma_num2);
+
+sigma_bs(ff, aa) = a^2/(sigma_denom1+sigma_denom2);
 
 % Target strength
 TS(ff, aa) = 10*log10(sigma_bs(ff, aa)); %dB re 1 m^2

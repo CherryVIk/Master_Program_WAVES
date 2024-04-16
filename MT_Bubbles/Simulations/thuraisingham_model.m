@@ -24,6 +24,7 @@ p_v = 872; % vapor pressure of water (Pa)
 R = 8.31; %gas constant (m^2.kg.s^-2.K^-1.mol^-1)
 C_p = 2191; % specific heat capacity at const pressure (kJ/kg.K)
 K_gas = 30.6e-2; % thermal conductivity of the gas (W/mK) 
+
 TS = zeros(length(f_range),length(a_range));
 sigma_bs = zeros(length(f_range),length(a_range));
 

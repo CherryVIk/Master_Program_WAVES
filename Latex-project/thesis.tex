@@ -1,0 +1,157 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = xelatex
+
+%Waves Program Master Degree Template
+%Author: Viktoriia Boichenko
+%vik.boichenko@gmail.com
+
+\documentclass[11pt]{article}
+
+% Language setting
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\setmainfont{Arial}
+% Set page size and margins
+\usepackage[letterpaper,top=2.54cm,bottom=2.54cm,left=2.85cm,right=2.85cm,marginparwidth=1.75cm]{geometry}
+% Set spacing between lines and sections
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{32pt}{20pt}
+\titlespacing*{\subsection}{0pt}{16pt}{20pt}
+\usepackage{setspace}
+\onehalfspacing
+%Adds space after paragraph
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{units}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{csquotes}
+\usepackage{float} %locate figures with [H]
+
+%Import the bibliography file
+\usepackage[style=ieee]{biblatex}
+\addbibresource{{cites/bibliography.bib}} 
+
+\graphicspath{ {figures/} }
+\begin{document}
+
+
+%setting the cover page
+\thispagestyle{empty}
+\begin{minipage}{0.96\linewidth}
+\includegraphics[width=1\linewidth]{figures/universities.png}
+\end{minipage}
+\vspace{20pt}
+\hrule
+\vspace{5pt}
+
+\begin{center}
+\vfill
+{
+\LARGE\text{Master WAVES}
+
+\vspace{0.5cm}
+\Large
+\text{(Waves, Waves, Acoustics, Vibrations, Engineering and Sound)}}   
+
+
+\vfill
+ 
+\Large{Viktoriia Boichenko}
+ 
+\vfill
+
+\LARGE\text{"Acoustic Frequency Response Modelling}
+
+\LARGE\text{of Multi-Bubble Compounds"}
+
+\Large
+\text{Subtitle}
+
+\end{center}
+
+\vfill
+
+\begin{minipage}[t]{0.5\linewidth}
+    \textsc{Supervised:} \medskip\\
+    \textsc{Tutor:} \medskip\\
+    \textsc{Academic supervisor:} \medskip\\
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+\end{minipage}
+
+\vfill
+
+\begin{minipage}[t]{0.5\linewidth}
+    \textsc{} \medskip\\
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+    \large\textsc{Place, month/2024}\medskip\\
+\end{minipage}
+
+% \right{
+%     
+% }   
+
+
+\newpage
+
+\section*{Abstract}
+
+\input{sections/abstract}
+
+\newpage
+
+\section*{Dedication}
+To mum, and dad, and two lovely cats
+
+\section*{Declaration}
+I declare that no cats have suffered during the experiments
+
+\section*{Acknowledgements}
+I want to thank all the people who didn't disturb me during this master thesis writing process
+
+\newpage
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\newpage
+
+% contextualize the study (project, industrial contract...)
+% describe the working environment (company, lab,...) and position the study in this context
+% allow you to understand the problematic treated, its constraints and the objectives sought,
+% describe the work you have done and the methodology you have developed to answer it
+% include a critical analysis of your results
+% do not include a listing of programs; in case where you want to disseminate your code developed during the internship, make a link to a public repository
+
+\section{Introduction}
+% o	introduction : presentation of the laboratory/structure, of your department, and the framework of the internship
+\input{sections/introduction}
+
+\section{Chapter Two Title}
+\input{sections/section02}
+
+\section{Chapter Three Title}
+\input{sections/section03}
+
+\section{Chapter Four Title}
+\input{sections/section04}
+
+\section{Conclusion}
+\input{sections/conclusion}
+
+\printbibliography[heading=bibintoc]
+
+\begin{appendix}
+% appendices : 10 pages maximum
+\input{sections/appendix}
+\end{appendix}
+
+\end{document}

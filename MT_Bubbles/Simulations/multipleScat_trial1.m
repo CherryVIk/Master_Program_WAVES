@@ -1,5 +1,5 @@
 clear all;
-close all;
+% close all;
 %% SONAR Parameters
 % Speed of sound underwater
 cWater = 1500.0;
@@ -13,16 +13,17 @@ centerRx = [0 0 0];
 angles = -90:2:90;
 % Number of beams
 NBeams = length(angles);
-
-filename = 'MyAnimation.gif';
-% for move_ii = 100
+time_end = 1;
+bubbleTime = 0.2; % can be assumed as 0.1s
+bubbleVelocity = 1/bubbleTime; % v = 1m / 0.1s;
+for time_step = 1%:time_end 
 %% Signal Parameters
 % Sample frequency
 fs = 192000;
 % Signal bandwidth
 fB = 20000;
 % Center frequency
-fC = 85000;
+fC = 85900;
 % Min & max frequencies
 fMin = fC - fB/2;
 fMax = fC + fB/2;
@@ -79,11 +80,7 @@ Hd = design(h, 'cheby2');
 if strcmp(eSignalType, eSignalTypes.blNoise)
     % Generate Gaussian white noise
     tx = randn(nSig, NTx);
-    % an amplitude for that noise is 10% of the noise-free signal at every element.
-     % noise_add = 
-   
     tx = filter(Hd, tx);
-    % tx = tx + noise_add;
     %tx = filtfilt(Hd.sosMatrix, Hd.ScaleValues, tx);
     % Transform time to freq. domain signal
     Tx = fft(tx, NFFT);%NFFT
@@ -100,36 +97,71 @@ if strcmp(eSignalType, eSignalTypes.blNoise)
 end
 
 %% Plot transmit sequence
-figure(10);
-subplot(211);
-plot(t, tx(:,1));
-title("Time domain signal");
-grid on;
-subplot(212);
-logTx = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
-plot(f(end/2:end), logTx);
-title("Log. frequency spectrum ");
-grid on;
 
-%% Environment settings
+% fig=figure;
+% subplot(211);
+% grid on;
+% best_plot_ever(t, tx(:,1),"Time domain signal", fig)
+% subplot(212);
+% logTx = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
+% grid on;
+% best_plot_ever(f(end/2:end), logTx,"Log. frequency spectrum ", fig)
 
-% zcoord = -50 + move_ii;
-zcoord = 0;
-% posTar = [0 10 zcoord; 20 10 0]; 
-posTar = [0 40 0; -0.5 40 0; 0.5 40 0;];
+%% Bubble environment settings
+%  source location constrains a, b
+x_lims=[-1 1];
+y_lims=[50 51];
+z_lims=[0 0];
+Nbubbles=15;
+bubbleOsc_lims = [-1,1];
+% minRadius = 1000e-6;
+% minAllowableDistance = max([585e-6, 2 * maxRadius]);
+posTar = set_bubble_flare(x_lims, y_lims, z_lims, Nbubbles, bubbleVelocity, time_end, bubbleOsc_lims);
+% posTar2 = set_bubble_flare([50 51], [30 32], [10 11], Nbubbles, bubbleVelocity, time_end, bubbleOsc_lims);
+% posTar = [posTar1; posTar2];
+% if time_step == 1
+%     % Generate bubbles in some constrained space
+%     posTarNew = set_bubble_source(x_lims, y_lims, z_lims, Nbubbles);
+%     posTar = posTarNew;
+% else
+%     rng(time_step)
+%     % posTarNew = set_bubble_source(x_lims, y_lims, z_lims, Nbubbles);
+%     posTar(:,3) = posTar(:,3) + bubbleVelocity*ones(NTargets, 1);
+%     bubbleOscillations = bubbleOsc_lims(1) + (bubbleOsc_lims(2) - bubbleOsc_lims(1))*rand(NTargets,2);
+%     posTar(:,1:2) = posTar(:,1:2) + bubbleOscillations;
+%     posTar = [posTar; posTarNew];
+% end
 NTargets = size(posTar, 1);
 bDirectSound = 0;
 
+x = posTar(:,1);
+y = posTar(:,2);
+z = posTar(:,3);
+bubbles_mov = figure;
+% hold on
+plot3(x,y,z, '-ok',"MarkerEdgeColor" ,	"#4DBEEE")
+axis_x = x_lims+bubbleOsc_lims*time_end*bubbleVelocity;
+axis_y = y_lims+bubbleOsc_lims*time_end*bubbleVelocity;
+axis([axis_x   axis_y     0 time_end*bubbleVelocity])
+grid on
+% axis square
+% view([10  20])
+refreshdata
+drawnow
+Frame = getframe(bubbles_mov);
+% make_gif(Frame, time_step, "Bubble_mov2.gif");
 %% SONAR-sytem element positions (line arrays)
 % Uniform line array element equidistant element spacing 
 % around array center (spaced on x-axis)
 rxCenterElement = (NRx + 1) / 2;
 txCenterElement = (NTx + 1) / 2;
-turnRx = [cosd(0) sind(0) 0];
-turnTx = [cosd(0) sind(0) 0];
+turnRx = [cosd(0) sind(90) sind(0)];
+turnTx = [cosd(0) sind(0) sind(0)];
+% turnRx = [cosd(0) sind(0) sind(0)];
+% turnTx = [cosd(0) sind(0) sind(0)];
 posRx = (((1:NRx) - rxCenterElement) .* dRx)' .*turnRx+ centerRx;
 posTx = (((1:NTx) - txCenterElement) .* dTx)' .*turnTx+ centerTx;
-
+% figure;plot(posRx(:,1:2))
 %% Calculate propagation delays
 tPropagationDist = zeros(NTx, NTargets+bDirectSound, NRx);
 % Propagation distance: Tx -> target -> Rx
@@ -151,13 +183,30 @@ end
 tPropagationTime = tPropagationDist ./ cWater; % in seconds
 tPropagationTime = tPropagationTime .* fs; % in samples
 
+%% Calculate propagation delays between bubbles
+tBubblePropagationDist = zeros(NTargets, NTargets);
+% Propagation distance: Tx -> target -> Rx
+for iTx = 1:NTx
+for iTar1 = 1:NTargets
+    for iTar2 = iTar1+1:NTargets
+        dTar1ToTar2 = norm(posTar(iTar1, :) - posTar(iTar2, :));
+        tBubblePropagationDist(iTar1, iTar2) = dTar1ToTar2;
+    end
+end
+end
+tBubblePropagationDist=tBubblePropagationDist'+triu(tBubblePropagationDist',1)';
+% Propagation distance -> Propagation time
+tBubblePropagationTime = tBubblePropagationDist ./ cWater; % in seconds
+tBubblePropagationTime = tBubblePropagationTime .* fs; % in samples
+
 %% Calculate received signals
 % Geometric spreading loss damping
-geoSpreadLoss = 0;
-% geoSpreadLoss = 1/( norm(posTar(iTar, :) - posTx(iTx, :))^2 ); % 1/r^x power loss
+geoSpreadLoss = 1;
 % Max rx. sequence length (signal duration + max propagation time)
-nRxSeqLength = nSig + ceil(max(tPropagationTime(:)));
+nRxSeqLength = nSig + ceil(max(tPropagationTime(:))) + ceil(max(tBubblePropagationTime(:)));
+% nRxSeqLength_bub = nRxSeqLength + ceil(max(tBubblePropagationTime(:)));
 rx = zeros(nRxSeqLength, NRx);
+rx_multi = zeros(nRxSeqLength, NRx);
 
 %% Background noise
 noise_level_dB = -60;
@@ -165,93 +214,105 @@ noise_level_linear = 10^(noise_level_dB/10);
 noise_add = randn(nRxSeqLength, NRx) * noise_level_linear; 
 % rx = rx + noise_add;
 
-radius_b = 3e-3;%585e-6;% Oscillations, bubble radius (m)
-sigma_bs = bubble_response(f,radius_b);
+%% Radius of bubbles
+% Generate values from a normal distribution with mean and standard deviation
+% a_range = linspace(8e-6,1000e-6,NTargets);
+% a_range = linspace(585e-6,1000e-6,NTargets);
+radius_mean = 3e-2;
+radius_std = 1e-4;
+a_range = radius_mean + radius_std.*randn(1,NTargets);
+sigma_bs = bubble_response_model(f,a_range,1);
+%% Bubbles freq. response 
+f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins,:);
+theta = angle(Tx(:, iTx));
+mixedResponsesFreq_init = f_sigma_bs.*exp(i*theta);
+mixedResponsesTime_init = ifft(mixedResponsesFreq_init, NFFT,'symmetric');
+mixedResponsesTime_init = mixedResponsesTime_init(1:nSig,:);
+%% Matrix of distances from sonar to target
+%% Matrix of distances between targets
 %% 
 % Plot --------------------------------------------------------------------
-f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins);
-res_temp = f_sigma_bs./abs(Tx(:, iTx));
-figure(21);
-
-figure(20);
+f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins,:);
+fig = figure; 
 subplot(211);
-logBs = 10*log10(sigma_bs(1:NBins,1));
-plot(f(end/2:end), logBs);
-ylim([-200 0])
-hold on
-logRes_s = 10*log10(res_temp(1:NBins,1));
-plot(f(end/2:end), logRes_s);
-title("Log. frequency spectrum, bubble");
-grid on;
+for sb_i = 1: NTargets
+    hold on 
+    logBs = 10*log10(sigma_bs(1:NBins,sb_i));
+    best_plot_ever(f(end/2:end), logBs,"Log. frequency spectrum, only bubble", fig)
+    ylim([-200 0])
+    hold off
+end
 subplot(212);
-logFs = 10*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
-plot(f(end/2:end),logFs)
+% fig = figure; 
+logFs = 20*log10(abs(f_sigma_bs(:,sb_i))./max(abs(f_sigma_bs(:,sb_i))));
+% ylim([-200 0])
+best_plot_ever(f(end/2:end), logFs,"Log. frequency spectrum, with bubble", fig)
 ylim([-200 0])
-title("Log. frequency spectrum, with bubble ");
-grid on;
-%%
-% sigma_bs=ones(NBins,NTx);
+%% Add bubble response to the received signal
 for iTx = 1:NTx
     for iRx = 1:NRx
         for iTar = 1:NTargets + bDirectSound
             iStart = floor(tPropagationTime(iTx, iTar, iRx))+1;
             iEnd = floor(iStart + length(tx(:, iTx))) - 1;
+%% Custom freq. response here! 
             % Add reflected tx-signal at delay time to rx_-
-%             rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) +  tx(:, iTx);
-            f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins);
-            theta = angle(Tx(:, iTx));
-            mixed_resp = f_sigma_bs.*exp(i*theta);
-            mixed_resp = mixed_resp.^NTargets;% multiple scattering code
-            mixed_resp = ifft(mixed_resp, NFFT,'symmetric');
-            mixed_resp = mixed_resp(1:nSig);
+            % rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) +  tx(:, iTx);
+            tarList = 1:NTargets;
+            tarList(iTar) = [];
+            for iTar2 = iTar+1:NTargets
+                iStartBubble = floor(tPropagationTime(iTx, iTar, iRx)+tBubblePropagationTime(iTar, iTar2))+1;
+                iEndBubble = floor(iStart + length(tx(:, iTx))) - 1;
+                mixed_resp = f_sigma_bs(:,iTar).*mixedResponsesFreq_init(:,iTar2);
+                mixed_resp = ifft(mixed_resp, NFFT,'symmetric');
+                mixed_resp=mixed_resp(1:nSig,:);
+                rx_multi(iStartBubble:iEndBubble, iRx) = rx_multi(iStartBubble:iEndBubble, iRx) + mixed_resp;
+            end
 %             idea: to add phase shift (imag part of the Tx to the mixed
 %             freq resp)
-%           rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + tx(1:nSig, iTx);
-            rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + mixed_resp(1:nSig, iTx);
+            rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + mixedResponsesTime_init(:,iTar);
+            rx_multi(iStart:iEnd, iRx) = rx_multi(iStart:iEnd, iRx) + mixedResponsesTime_init(:,iTar);
+            % rx(iStart:iEnd, iRx) = rx(iStart:iEnd, iRx) + mixed_resp(1:nSig, iTx);
 
-            
-
-%% Insert custom freq. response here!   
-% As of now, the transmission signal is simply added to the receive signal
-% but as the reflection at the object happens, in the time domain, the transmit sequence is
-% convolved with the impulse response of the target. In the
-% frequency domain, the spectrum of the transmission signal is multiplied
-% with the frequency response of the target.
-
-%  filter your Tx signal with this frequency response for a given bubble radius
-
-%% Insert custom freq. response here!   
+  
         end
     end
 end
-
 %% Reconstruction of the signal
 Y = fft(rx, NFFT);
 Y = Y(1:NBins, :);
-H_hat = zeros(NBins,1);
-H_hat = abs(Y(:,1)) ./ abs(Tx(:,1));
+Y_multi = fft(rx_multi, NFFT);
+Y_multi = Y_multi(1:NBins, :);
+
+H_hat = abs(Y(:,10)) ./ abs(Tx(:,1));
+H_multi_hat = abs(Y_multi(:,10)) ./ abs(Tx(:,1));
+
+figure;
+hold on
+% plot(abs(Y(:,1)))
+% plot(abs(Tx(:,1)))
+plot(f(end/2:end), 20*log10(abs(H_hat(:,1))./max(abs(H_hat(:,1)))));
+plot(f(end/2:end), 20*log10(abs(H_multi_hat(:,1))./max(abs(H_multi_hat(:,1)))));
+legend('H_{hat}', 'H_{multi hat}')
+% plot(abs(H_multi_hat))
+%% 
 % H_hat = abs(H_hat);
 
 figure;
 subplot(311)
-% logRx_noB = X(:,1);
 logTx_noB = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
 plot(f(end/2:end), logTx_noB(:, 1));
 grid on;
-title('Target signal, freq');
+title('Transmitted signal, freq');
 subplot(312)
-% logRx_withB = Y(:,1);
 logRx_withB = 20*log10(abs(Y(:,1))./max(abs(Y(:,1))));
 plot(f(end/2:end), logRx_withB(:, 1));
 grid on;
 hold on
-title('Target-bubble signal, freq');
+title('Received signal, freq');
 subplot(313)
-logH_hat = H_hat(:,1);
 logH_hat = 20*log10(abs(H_hat(:,1))./max(abs(H_hat(:,1))));
 plot(f(end/2:end), logH_hat(:, 1));
 title('Extracted bubble signal, freq');
-
 %% Apply damping: 1/r (linear), 1/r^2 (cylindrical), 1/r^3 (spherical)
 propagationTimesPerSample = (0:nRxSeqLength)./ fs;
 propagationDistancePerSample = propagationTimesPerSample * cWater;
@@ -272,8 +333,8 @@ tLagInMeters = tLag(nRxSeqLength:end)./fs.*cWater;
 locShortest = min(squeeze(tPropagationTime(round(NTx/2), :, round(NRx/2))));
 % Calculate time vector
 tSim = linspace(0, nRxSeqLength/fs, nRxSeqLength);
-% Plot --------------------------------------------------------------------
-figure(50);
+%% Plot --------------------------------------------------------------------
+figure;
 subplot(211);
 plot(tSim, rx(:, 1));
 grid on;
@@ -287,6 +348,7 @@ title('Crosscorrelation: Transmit- & receive signal');
 
 %% Beamforming: Calculate array manifold vector (AMV)
 NFFT = 2^nextpow2(2 * nRxSeqLength); 
+% NFFT = nSig;
 % Frequency support vector: freq = bin*fs/FFT_size
 NBins = NFFT / 2 + 1; % FFT-bins of pos. frequencies
 bins = 0:NBins-1; % Freq. bin support vector
@@ -346,7 +408,7 @@ end
 
 %% Plot results as PPI (plan position indicator) plot
 % Log of correlated output
-sonar_fig=figure(100);
+sonar_fig=figure;
 ppi = 20*log10(abs(mfbfsmall)+eps);
 ppi(ppi<-40) = -40;
 % Maximum distance (single path) = Half of max sequence travel distance
@@ -360,6 +422,10 @@ colormap('jet');
 view(0,90);
 xlabel('x [m]');
 ylabel('y [m]');
+% axis_limit = 110;
+% clim([-40 0])
+% xlim([-axis_limit axis_limit]); 
+% ylim([0 axis_limit])
 daspect([1 1 1]);
 axis tight
 shading interp;
@@ -370,16 +436,54 @@ set(gcf, 'units', 'pixels', 'position', [100 40 1500 900]);
 hold on;
 hold off;
  % Capture the plot as an image 
+filename = 'Sonar_Animation2.gif';
 Frame = getframe(sonar_fig);
-% make_gif(Frame, move_ii, filename)
-% end
+% make_gif(Frame, time_step, filename);
+end
 
 %% Functions
+function best_plot_ever(x,y,titlename, fig)
+    plot(x,y);
+    title(titlename);
+    font = 20;
+    a = 36; % set this parameter and keep it forever
+    b = 0.55; % feel free to play with this ratio
+    set(gca,'FontSize',font)
+    set(findall(fig,'-property','Box'),'Box','off') % optional
+    set(findall(fig,'-property','Interpreter'),'Interpreter','latex')
+    set(findall(fig,'-property','TickLabelInterpreter'),'TickLabelInterpreter','latex')
+    set(fig,'Units','centimeters','Position',[3 3 a b*a])
+    pos = get(fig,'Position');
+    set(fig,'PaperPositionMode','Auto','PaperUnits','centimeters','PaperSize',[pos(3), pos(4)])
+    set(gca, 'XDir', 'normal', 'YDir', 'normal');
+    grid on
+end
+function posTar = set_bubble_source(x_lims, y_lims, z_lims, Nbubbles)
+    posTarX = x_lims(1) + (x_lims(2)-x_lims(1))*rand(Nbubbles,1);
+    posTarY = y_lims(1) + (y_lims(2)-y_lims(1))*rand(Nbubbles,1);
+    posTarZ = z_lims(1) + (z_lims(2)-z_lims(1))*rand(Nbubbles,1);
+    posTar = [posTarX posTarY posTarZ];
+end
+function posTar = set_bubble_flare(x_lims, y_lims, z_lims, Nbubbles, bubbleVelocity, time_end, bubbleOsc_lims)
+    for tt =1:time_end
+        rng(tt)
+        if tt == 1
+            posTarNew = set_bubble_source(x_lims, y_lims, z_lims, Nbubbles);
+            posTar = posTarNew;
+        else
+            NTargets = size(posTar, 1);
+            posTar(:,3) = posTar(:,3) + bubbleVelocity*ones(NTargets, 1);
+            bubbleOscillations = bubbleOsc_lims(1) + (bubbleOsc_lims(2) - bubbleOsc_lims(1))*rand(NTargets,2);
+            posTar(:,1:2) = posTar(:,1:2) + bubbleOscillations;
+            posTar = [posTar; posTarNew];
+        end
+    end
+end
 function make_gif(Frame, ii, filename)
     im = frame2im(Frame); 
     [imind, CM] = rgb2ind(im,256); 
     % Write the animation to the gif File: MYGIF 
-    if ii == 0 
+    if ii == 1 
       imwrite(imind, CM,filename,'gif', 'Loopcount',inf); 
     else 
       imwrite(imind, CM,filename,'gif','WriteMode','append'); 

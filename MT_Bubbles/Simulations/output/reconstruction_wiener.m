@@ -37,7 +37,7 @@ tSim = linspace(0, nRxSeqLength/fs, nRxSeqLength);
 
 figure;
 subplot(211)
-plot(tSim(end-nSig+1:end), rx_nonoise(end-nSig+1:end, 1));
+plot(tSim, rx_noise(:,1));
 grid on;
 title('Received signal, time');
 subplot(212)
@@ -45,13 +45,23 @@ plot(t, tx(:, 1));
 grid on;
 title('Emitted signal, time');
 
+figure;
+subplot(211)
+plot(tSim, rx_noise(:,1));
+grid on;
+title('Received signal noise, time');
+subplot(212)
+plot(tSim, rx_nonoise(:,1));
+grid on;
+title('Received signal no noise, time');
+
 
 f = linspace(0, fs/2, NBins);
 figure;
 subplot(311)
-plot(f, Rx_nonoise(:, 1));
+plot(f, Rx_noise(:, 1));
 grid on;
-title('Received non-noisy signal, freq');
+title('Received noisy signal, freq');
 subplot(312)
 plot(f, Tx(:, 1));
 grid on;
@@ -62,16 +72,13 @@ grid on;
 title('Bubble signal, freq');
 
 
-
-
-
 %% Goal: obtain the frequency response of the single bubble
 % y = rx(end-nSig+1:end, 1); 
 % x = tx; 
 y = rx_nonoise(:,1); x = rx_noise(:,1); 
 y = y(:); % reference signal
 x = x(:); % signal with additive Gaussian noise
-N = 7000; % filter order
+N = 1000; % filter order
 [xest,b,MSE] = wienerFilt(x,y,N);
 %% plot results
 
@@ -93,6 +100,10 @@ legend('residue signal')
 xlabel('time (s)')
 ylim([-1e-5,1e-5]);
 
+figure
+plot(tSim(N+1:end),xest,'k')
+ylim([-1e-5,1e-5]);
+legend('estimated signal')
 %% Functions
 % https://de.mathworks.com/matlabcentral/fileexchange/71440-signal-separation-with-wiener-filtering
    

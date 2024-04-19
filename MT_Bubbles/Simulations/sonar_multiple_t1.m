@@ -13,7 +13,7 @@ centerRx = [0 0 0];
 angles = -90:2:90;
 % Number of beams
 NBeams = length(angles);
-time_end = 10;
+time_end = 1;
 bubbleTime = 0.2; % can be assumed as 0.1s
 bubbleVelocity = 1/bubbleTime; % v = 1m / 0.1s;
 for time_step = 1%:time_end 

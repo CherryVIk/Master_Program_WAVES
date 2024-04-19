@@ -39,5 +39,5 @@ end
 %% 4. Add transmission loss from target to 1 m in front of target
 % - Combine these for total target strength
 function TL = TS_total(R, alpha_att, sigma_bs) 
-    TL = (TLsonar_to1m_tar + TLtar_to1m_tar) * 2 + 
+    TL = (TLsonar_to1m_tar + TLtar_to1m_tar) * 2; % +
 end

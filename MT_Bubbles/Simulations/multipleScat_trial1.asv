@@ -1,5 +1,5 @@
 clear all;
-% close all;
+close all;
 %% SONAR Parameters
 % Speed of sound underwater
 cWater = 1500.0;
@@ -23,7 +23,7 @@ fs = 192000;
 % Signal bandwidth
 fB = 20000;
 % Center frequency
-fC = 85900;
+fC = 47000;
 % Min & max frequencies
 fMin = fC - fB/2;
 fMax = fC + fB/2;
@@ -112,7 +112,7 @@ end
 x_lims=[-1 1];
 y_lims=[50 51];
 z_lims=[0 0];
-Nbubbles=15;
+Nbubbles=1;
 bubbleOsc_lims = [-1,1];
 % minRadius = 1000e-6;
 % minAllowableDistance = max([585e-6, 2 * maxRadius]);
@@ -201,7 +201,7 @@ tBubblePropagationTime = tBubblePropagationTime .* fs; % in samples
 
 %% Calculate received signals
 % Geometric spreading loss damping
-geoSpreadLoss = 1;
+geoSpreadLoss = 2;
 % Max rx. sequence length (signal duration + max propagation time)
 nRxSeqLength = nSig + ceil(max(tPropagationTime(:))) + ceil(max(tBubblePropagationTime(:)));
 % nRxSeqLength_bub = nRxSeqLength + ceil(max(tBubblePropagationTime(:)));
@@ -218,9 +218,10 @@ noise_add = randn(nRxSeqLength, NRx) * noise_level_linear;
 % Generate values from a normal distribution with mean and standard deviation
 % a_range = linspace(8e-6,1000e-6,NTargets);
 % a_range = linspace(585e-6,1000e-6,NTargets);
-radius_mean = 3e-2;
-radius_std = 1e-4;
+radius_mean = 8e-5;
+radius_std = 0.8e-5;
 a_range = radius_mean + radius_std.*randn(1,NTargets);
+% a_range = linspace(7e-5,9e-5,NTargets);  % Normal
 sigma_bs = bubble_response_model(f,a_range,1);
 %% Bubbles freq. response 
 f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins,:);
@@ -228,8 +229,6 @@ theta = angle(Tx(:, iTx));
 mixedResponsesFreq_init = f_sigma_bs.*exp(i*theta);
 mixedResponsesTime_init = ifft(mixedResponsesFreq_init, NFFT,'symmetric');
 mixedResponsesTime_init = mixedResponsesTime_init(1:nSig,:);
-%% Matrix of distances from sonar to target
-%% Matrix of distances between targets
 %% 
 % Plot --------------------------------------------------------------------
 f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins,:);
@@ -238,13 +237,13 @@ subplot(211);
 for sb_i = 1: NTargets
     hold on 
     logBs = 10*log10(sigma_bs(1:NBins,sb_i));
-    best_plot_ever(f(end/2:end), logBs,"Log. frequency spectrum, only bubble", fig)
+    best_plot_ever(f(end/2:end), logBs,"Log. frequency spectrum, only bubbles", fig)
     ylim([-200 0])
     hold off
 end
 subplot(212);
 % fig = figure; 
-logFs = 20*log10(abs(f_sigma_bs(:,sb_i))./max(abs(f_sigma_bs(:,sb_i))));
+logFs = 20*log10(abs(f_sigma_bs(:,:))./max(abs(f_sigma_bs(:,:))));
 % ylim([-200 0])
 best_plot_ever(f(end/2:end), logFs,"Log. frequency spectrum, with bubble", fig)
 ylim([-200 0])
@@ -287,12 +286,12 @@ H_hat = abs(Y(:,10)) ./ abs(Tx(:,1));
 H_multi_hat = abs(Y_multi(:,10)) ./ abs(Tx(:,1));
 
 figure;
-hold on
-% plot(abs(Y(:,1)))
-% plot(abs(Tx(:,1)))
+subplot(211)
 plot(f(end/2:end), 20*log10(abs(H_hat(:,1))./max(abs(H_hat(:,1)))));
+legend('H_{hat}');
+subplot(212)
 plot(f(end/2:end), 20*log10(abs(H_multi_hat(:,1))./max(abs(H_multi_hat(:,1)))));
-legend('H_{hat}', 'H_{multi hat}')
+legend('H_{multi hat}')
 % plot(abs(H_multi_hat))
 %% 
 % H_hat = abs(H_hat);
@@ -308,6 +307,8 @@ logRx_withB = 20*log10(abs(Y(:,1))./max(abs(Y(:,1))));
 plot(f(end/2:end), logRx_withB(:, 1));
 grid on;
 hold on
+plot(f(end/2:end), logFs);
+ylim
 title('Received signal, freq');
 subplot(313)
 logH_hat = 20*log10(abs(H_hat(:,1))./max(abs(H_hat(:,1))));
@@ -317,7 +318,9 @@ title('Extracted bubble signal, freq');
 propagationTimesPerSample = (0:nRxSeqLength)./ fs;
 propagationDistancePerSample = propagationTimesPerSample * cWater;
 damping = 1./propagationDistancePerSample.^geoSpreadLoss;
-
+% damping1 = repmat(damping, NRx,1);
+% rx = rx - damping1';
+% rx_multi = rx_multi - damping1';
 %% Test correlation
 % Calculate crosscorrelation between rx & tx signals
 % For mid rx-element

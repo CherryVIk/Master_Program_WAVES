@@ -56,3 +56,16 @@ legend('Thuraisingham','Anderson','Church')
 xlabel('log(ka)');ylabel('TS (dB re 1 m^2)')
 titlename = "Plot ka x TS. TS for a sphere with a=" + (a*100) + " cm";
 title(titlename)
+
+%% Plot ka x TS
+figure;
+% subplot(211)
+
+semilogx(ka(:,kk), TS_thur(:,kk))
+hold on
+semilogx(ka(:,kk), TS_and(:,kk))
+ylim([-100 0])
+legend('Thuraisingham','Anderson')
+xlabel('log(ka)');ylabel('TS (dB re 1 m^2)')
+titlename = "Plot ka x TS. TS for a sphere with a=" + (a*100) + " cm";
+title(titlename)

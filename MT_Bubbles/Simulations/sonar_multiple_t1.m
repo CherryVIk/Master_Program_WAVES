@@ -109,10 +109,10 @@ end
 
 %% Bubble environment settings
 %  source location constrains a, b
-x_lims=[-1 1];
-y_lims=[50 51];
+x_lims=[0 0];
+y_lims=[40 41];
 z_lims=[0 0];
-Nbubbles=5;
+Nbubbles=1;
 bubbleOsc_lims = [-1,1];
 % minRadius = 1000e-6;
 % minAllowableDistance = max([585e-6, 2 * maxRadius]);
@@ -269,6 +269,7 @@ hold on
 % plot(abs(Y(:,1)))
 % plot(abs(Tx(:,1)))
 plot(abs(H_hat))
+plot(abs(H_multi_hat))
 %% 
 % H_hat = abs(H_hat);
 

@@ -109,10 +109,10 @@ end
 
 %% Bubble environment settings
 %  source location constrains a, b
-x_lims=[0 1];
-y_lims=[50 52];
+x_lims=[-1 1];
+y_lims=[50 51];
 z_lims=[0 0];
-Nbubbles=10;
+Nbubbles=15;
 bubbleOsc_lims = [-1,1];
 % minRadius = 1000e-6;
 % minAllowableDistance = max([585e-6, 2 * maxRadius]);
@@ -221,7 +221,6 @@ rx = rx + noise_add;
 radius_mean = 8e-5;
 radius_std = 0.8e-5;
 a_range = radius_mean + radius_std.*randn(1,NTargets);
-% a_range = linspace(7e-5,9e-5,NTargets);  % Normal
 sigma_bs = bubble_response_model(f,a_range,1);
 %% Bubbles freq. response 
 f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins,:);

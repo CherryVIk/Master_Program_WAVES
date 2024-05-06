@@ -112,7 +112,7 @@ end
 x_lims=[-1 1];
 y_lims=[50 51];
 z_lims=[0 0];
-Nbubbles=1;
+Nbubbles=15;
 bubbleOsc_lims = [-1,1];
 % minRadius = 1000e-6;
 % minAllowableDistance = max([585e-6, 2 * maxRadius]);
@@ -155,7 +155,7 @@ Frame = getframe(bubbles_mov);
 % around array center (spaced on x-axis)
 rxCenterElement = (NRx + 1) / 2;
 txCenterElement = (NTx + 1) / 2;
-turnRx = [cosd(0) sind(90) sind(0)];
+turnRx = [cosd(0) sind(0) sind(0)];
 turnTx = [cosd(0) sind(0) sind(0)];
 % turnRx = [cosd(0) sind(0) sind(0)];
 % turnTx = [cosd(0) sind(0) sind(0)];
@@ -212,7 +212,7 @@ rx_multi = zeros(nRxSeqLength, NRx);
 noise_level_dB = -60;
 noise_level_linear = 10^(noise_level_dB/10);
 noise_add = randn(nRxSeqLength, NRx) * noise_level_linear; 
-% rx = rx + noise_add;
+rx = rx + noise_add;
 
 %% Radius of bubbles
 % Generate values from a normal distribution with mean and standard deviation
@@ -221,7 +221,6 @@ noise_add = randn(nRxSeqLength, NRx) * noise_level_linear;
 radius_mean = 8e-5;
 radius_std = 0.8e-5;
 a_range = radius_mean + radius_std.*randn(1,NTargets);
-% a_range = linspace(7e-5,9e-5,NTargets);  % Normal
 sigma_bs = bubble_response_model(f,a_range,1);
 %% Bubbles freq. response 
 f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins,:);
@@ -308,11 +307,15 @@ plot(f(end/2:end), logRx_withB(:, 1));
 grid on;
 hold on
 plot(f(end/2:end), logFs);
-ylim
+ylim([-100 0])
 title('Received signal, freq');
 subplot(313)
 logH_hat = 20*log10(abs(H_hat(:,1))./max(abs(H_hat(:,1))));
+logH_multihat = 20*log10(abs(H_multi_hat(:,1))./max(abs(H_multi_hat(:,1))));
 plot(f(end/2:end), logH_hat(:, 1));
+grid on;
+plot(f(end/2:end), logH_multihat(:, 1));
+hold on
 title('Extracted bubble signal, freq');
 %% Apply damping: 1/r (linear), 1/r^2 (cylindrical), 1/r^3 (spherical)
 propagationTimesPerSample = (0:nRxSeqLength)./ fs;
@@ -422,7 +425,7 @@ r = 0:dMax/size(ppi,2):dMax-1/size(ppi,2);
 [A,B] = pol2cart(THETA,RR);
 surf(A,B,ppi.');
 colormap('jet');
-view(0,90);
+view(,90);
 xlabel('x [m]');
 ylabel('y [m]');
 % axis_limit = 110;
@@ -492,3 +495,4 @@ function make_gif(Frame, ii, filename)
       imwrite(imind, CM,filename,'gif','WriteMode','append'); 
     end 
 end
+

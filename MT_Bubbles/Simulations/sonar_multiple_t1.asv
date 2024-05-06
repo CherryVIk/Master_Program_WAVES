@@ -269,7 +269,7 @@ H_hat = abs(Y(:,1)) ./ abs(Tx(:,1));
 figure;
 hold on
 % plot(abs(Y(:,1)))
-% plot(abs(Tx(:,1)))
+plot(abs(Tx(:,1)))
 plot(abs(H_hat))
 % plot(abs(H_multi_hat))
 %% 

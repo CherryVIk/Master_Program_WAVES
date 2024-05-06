@@ -8,7 +8,7 @@ AG = 20; % dB, array gain
 
 R = 40; % m, range, radius
 TLg = 20*log10(R);% spherical TL from geometrical spreading, one way
-alpha_att = 0.5; % dB/km, absorption coefficient
+alpha_att = 0.11; % dB/km, absorption coefficient
 TLl = alpha_att * R; % dB, attenuation ~ TL from dissipation
 TL = TLg + TLl; % dB, transmission loss 
 
@@ -18,6 +18,9 @@ NL = 60; % dB, noise level
 T = 0.1; % s, pulse length
 BW = 1/T; % bandwidth of the receiver
 NL_tot = NL + 10*log10(BW);
+
+f = 2000; % Hz=1/s , frequency
+c = 1500; % m/s, speed of sound in water
 
 SNR = SL - 2*TL + TS - (NL - AG); % signal to noise ration, active sonar equation 
 %% 1. Calculate the transmission loss from SONAR to 1m in front of target

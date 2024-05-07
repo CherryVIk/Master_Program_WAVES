@@ -110,10 +110,10 @@ end
 %% Bubble environment settings
 %  source location constrains a, b
 x_lims=[-1 1];
-y_lims=[50 51];
+y_lims=[50 50.5];
 z_lims=[0 0];
-Nbubbles=15;
-bubbleOsc_lims = [-1,1];
+Nbubbles=3;
+bubbleOsc_lims = [-0.5,0.5];
 % minRadius = 1000e-6;
 % minAllowableDistance = max([585e-6, 2 * maxRadius]);
 posTar = set_bubble_flare(x_lims, y_lims, z_lims, Nbubbles, bubbleVelocity, time_end, bubbleOsc_lims);
@@ -213,7 +213,7 @@ noise_level_dB = -60;
 noise_level_linear = 10^(noise_level_dB/10);
 noise_add = randn(nRxSeqLength, NRx) * noise_level_linear; 
 rx = rx + noise_add;
-
+rx_multi = rx_multi + noise_add;
 %% Radius of bubbles
 % Generate values from a normal distribution with mean and standard deviation
 % a_range = linspace(8e-6,1000e-6,NTargets);
@@ -259,7 +259,7 @@ for iTx = 1:NTx
             tarList(iTar) = [];
             for iTar2 = iTar+1:NTargets
                 iStartBubble = floor(tPropagationTime(iTx, iTar, iRx)+tBubblePropagationTime(iTar, iTar2))+1;
-                iEndBubble = floor(iStart + length(tx(:, iTx))) - 1;
+                iEndBubble = floor(iStart + length(tx(:, iTx))) - 1
                 mixed_resp = f_sigma_bs(:,iTar).*mixedResponsesFreq_init(:,iTar2);
                 mixed_resp = ifft(mixed_resp, NFFT,'symmetric');
                 mixed_resp=mixed_resp(1:nSig,:);
@@ -281,8 +281,18 @@ Y = Y(1:NBins, :);
 Y_multi = fft(rx_multi, NFFT);
 Y_multi = Y_multi(1:NBins, :);
 
+[~, ffmin] = min(abs(f(end/2:end)-fMin));
+[~, ffmax] = min(abs(f(end/2:end)-fMax));
+
+H_hat = zeros(length(Y(:,10)),1);
+H_multi_hat = zeros(length(Y(:,10)),1);
+
 H_hat = abs(Y(:,10)) ./ abs(Tx(:,1));
 H_multi_hat = abs(Y_multi(:,10)) ./ abs(Tx(:,1));
+
+% H_hat(ffmin:ffmax) = abs(Y(ffmin:ffmax,10)) ./ abs(Tx(ffmin:ffmax,1));
+% H_multi_hat(ffmin:ffmax) = abs(Y_multi(ffmin:ffmax,10)) ./ abs(Tx(ffmin:ffmax,1));
+
 
 figure;
 subplot(211)
@@ -310,13 +320,16 @@ plot(f(end/2:end), logFs);
 ylim([-100 0])
 title('Received signal, freq');
 subplot(313)
-logH_hat = 20*log10(abs(H_hat(:,1))./max(abs(H_hat(:,1))));
-logH_multihat = 20*log10(abs(H_multi_hat(:,1))./max(abs(H_multi_hat(:,1))));
-plot(f(end/2:end), logH_hat(:, 1));
+% logH_hat = 20*log10(abs(H_hat(:,1))./max(abs(H_hat(:,1))));
+logH_multihat = logRx_withB;
+logH_multihat(ffmin:ffmax) = 20*log10(abs(H_multi_hat(ffmin:ffmax,1))./max(abs(H_hat(ffmin:ffmax,1))));
+% plot(f(end/2:end), logH_hat(:, 1));
 grid on;
 plot(f(end/2:end), logH_multihat(:, 1));
-hold on
+% hold on
+ylim([-100 0])
 title('Extracted bubble signal, freq');
+stop
 %% Apply damping: 1/r (linear), 1/r^2 (cylindrical), 1/r^3 (spherical)
 propagationTimesPerSample = (0:nRxSeqLength)./ fs;
 propagationDistancePerSample = propagationTimesPerSample * cWater;

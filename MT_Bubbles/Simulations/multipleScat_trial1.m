@@ -112,7 +112,7 @@ end
 x_lims=[-1 1];
 y_lims=[50 50.5];
 z_lims=[0 0];
-Nbubbles=3;
+Nbubbles=15;
 bubbleOsc_lims = [-0.5,0.5];
 % minRadius = 1000e-6;
 % minAllowableDistance = max([585e-6, 2 * maxRadius]);
@@ -320,16 +320,33 @@ plot(f(end/2:end), logFs);
 ylim([-100 0])
 title('Received signal, freq');
 subplot(313)
+% logH_multihat = logRx_withB;
 % logH_hat = 20*log10(abs(H_hat(:,1))./max(abs(H_hat(:,1))));
-logH_multihat = logRx_withB;
-logH_multihat(ffmin:ffmax) = 20*log10(abs(H_multi_hat(ffmin:ffmax,1))./max(abs(H_hat(ffmin:ffmax,1))));
+logH_multihat = 20*log10(abs(H_multi_hat(:,1))./max(abs(H_multi_hat(:,1))));
+logH_multihat(ffmin:ffmax) = 20*log10(abs(H_multi_hat(ffmin:ffmax,1))./max(abs(H_multi_hat(ffmin:ffmax,1))));
 % plot(f(end/2:end), logH_hat(:, 1));
 grid on;
 plot(f(end/2:end), logH_multihat(:, 1));
 % hold on
 ylim([-100 0])
 title('Extracted bubble signal, freq');
-stop
+
+%
+figure
+subplot(211)
+logH_hat = 20*log10(abs(H_hat(:,1))./max(abs(H_hat(:,1))));
+logH_hat(ffmin:ffmax) = 20*log10(abs(H_hat(ffmin:ffmax,1))./max(abs(H_hat(ffmin:ffmax,1))));
+plot(f(end/2:end), logH_hat(:, 1));
+grid on;
+ylim([-100 0])
+title('Extracted bubble signal without multiple scattering, freq');
+
+subplot(212)
+plot(f(end/2:end), logH_multihat(:, 1));
+grid on;
+ylim([-100 0])
+title('Extracted bubble signal with multiple scattering, freq');
+
 %% Apply damping: 1/r (linear), 1/r^2 (cylindrical), 1/r^3 (spherical)
 propagationTimesPerSample = (0:nRxSeqLength)./ fs;
 propagationDistancePerSample = propagationTimesPerSample * cWater;

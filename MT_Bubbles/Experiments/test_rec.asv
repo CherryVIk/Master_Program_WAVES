@@ -21,22 +21,18 @@ subplot(2,1,1);plot(t,X)
 subplot(2,1,2);plot(f,logY) 
 title('Single-Sided Amplitude Spectrum of X(t)')
 xlabel('f (Hz)')
-ylabel('|Y(f)|')
+ylabel('|P1(f)|')
 figure
 spectrogram(X,1280,1200,1280,Fs,'yaxis');
  saveas(gcf,"internal_ppfHydIn_15"+".png");
 
-%% Range: [a,b] 
-% find at 33-34 s, 47-48, 47.2-47.3
-a = 47.2; b = 47.3;
+%% find at 33-34 s
+a = 33; b = 34;
 [x, tmin] = min(abs(t-a));
 [x, tmax] = min(abs(t-b));
 X_range = X(tmin:tmax);
 Y_range = fft(X_range);
-L_y = length(Y_range);
-Y_range = Y_range(1:L_y/2+1); 
-f_range = Fs*(0:(L_y/2))/L_y;
 
 figure;
-subplot(2,1,1);plot(t(tmin:tmax),X_range)
-subplot(2,1,2);plot(f_range,20*log10(abs(Y_range(:,1))./max(abs(Y_range(:,1))))) 
+subplot(2,1,1);plot(t,X_range)
+subplot(2,1,2);plot(f,20*log10(abs(Y_range(:,1))./max(abs(Y_range(:,1))))) 

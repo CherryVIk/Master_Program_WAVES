@@ -4,14 +4,15 @@
 clc; clear; close all
 
 % SL = 220; 
-SL = 0; % dB re 1mPa at 1m, source level
-DI = -25; % dB, directivity index
+P_ref = 10^5; % Pa, power at the ref. distance of 1m
+SL = 10*log10(P_ref*0.08/(0.67*1e-18)); % dB re 1mPa at 1m, source level
+DI = 10*log10(32); % dB, directivity index is the gain in SNR 
 AG = DI; % dB, array gain
-R = 40; % m, range
+R = 10; % m, range
 alpha_att = 0.11; % dB/km, absorption coefficient
 
 %% NL noise level
-NL = -50; % dB, noise level
+NL = 50; % dB, noise level
 T = 0.1; % s, pulse length
 BW = 1/T; % bandwidth of the receiver
 NL = NL + 10*log10(BW);
@@ -59,5 +60,5 @@ function TS_t = TS_total(R, alpha_att, sigma_bs)
     TL_t0 = -(TLsonar_to1m_tar(R, alpha_att) + TLtar_to1m_tar(alpha_att)) * 2
     TL_t = -TLsonar_gen(R, alpha_att) * 2
     TS = TS_tar(sigma_bs)
-    TS_t = TL_t + TS; 
+    TS_t = TL_t0 + TS; 
 end

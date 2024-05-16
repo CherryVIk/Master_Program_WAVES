@@ -9,9 +9,10 @@ X = a(:,1);
 Fs = 192000;
 Y = fft(X);
 L = length(Y);
-% P1 = abs(Y/L);
-Y = Y(1:L/2+1); 
-logY = 20*log10(abs(Y(:,1))./max(abs(Y(:,1))));
+Y = abs(Y/L);
+% Y = Y(1:L/2+1); 
+logY = Y(1:L/2+1);
+% logY = 20*log10(abs(Y(:,1))./max(abs(Y(:,1))));
 
 xlen = length(X);
 t = (0: xlen-1) / Fs;     
@@ -28,15 +29,21 @@ spectrogram(X,1280,1200,1280,Fs,'yaxis');
 
 %% Range: [a,b] 
 % find at 33-34 s, 47-48, 47.2-47.3
-a = 47.2; b = 47.3;
+a = 33; b = 34;
+% a = 47.2; b = 47.3;
 [x, tmin] = min(abs(t-a));
 [x, tmax] = min(abs(t-b));
 X_range = X(tmin:tmax);
 Y_range = fft(X_range);
 L_y = length(Y_range);
+Y_range = abs(Y_range/L);
 Y_range = Y_range(1:L_y/2+1); 
 f_range = Fs*(0:(L_y/2))/L_y;
 
 figure;
 subplot(2,1,1);plot(t(tmin:tmax),X_range)
-subplot(2,1,2);plot(f_range,20*log10(abs(Y_range(:,1))./max(abs(Y_range(:,1))))) 
+subplot(2,1,2);plot(f_range,Y_range)
+title('Single-Sided Amplitude Spectrum of X(t), ranged')
+xlabel('f (Hz)')
+ylabel('|Y(f)|')
+% subplot(2,1,2);plot(f_range,20*log10(abs(Y_range(:,1))./max(abs(Y_range(:,1))))) 

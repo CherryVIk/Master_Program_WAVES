@@ -1,31 +1,35 @@
-% !TEX encoding = UTF-8 Unicode
-% !TEX program = xelatex
-
 %Waves Program Master Degree Template
 %Author: Viktoriia Boichenko
 %vik.boichenko@gmail.com
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = lualatex
 
-\documentclass[11pt]{article}
+\documentclass[11pt]{report}
+
+% \usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\graphicspath{ figures/ }
 
 % Language setting
 \usepackage[english]{babel}
 \usepackage{fontspec}
-\setmainfont{Calibri}
+% \setmainfont{Calibri}
 % Set page size and margins
 \usepackage[letterpaper,top=2.54cm,bottom=2.54cm,left=2.85cm,right=2.85cm,marginparwidth=1.75cm]{geometry}
+
 % Set spacing between lines and sections
 \usepackage{titlesec}
 \titlespacing*{\section}{0pt}{32pt}{20pt}
 \titlespacing*{\subsection}{0pt}{16pt}{20pt}
 \usepackage{setspace}
 \onehalfspacing
+
 %Adds space after paragraph
 \usepackage{parskip}
 \setlength{\parindent}{0pt}
 
-% Useful packages
+% % Useful packages
 \usepackage{amsmath}
-\usepackage{graphicx}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage{units}
 \usepackage{multirow}
@@ -37,14 +41,21 @@
 \usepackage[style=ieee]{biblatex}
 \addbibresource{{cites/bibliography.bib}} 
 
-\graphicspath{ {figures/} }
+% \title{
+% {Acoustic Frequency Response Modelling} \\
+% {\large of Multi-Bubble Compounds}
+% }
+
+% \author{Viktoriia Boichenko}
+% \date{}
 \begin{document}
 
+% \maketitle
 
-%setting the cover page
+%%setting the cover page
 \thispagestyle{empty}
 \begin{minipage}{0.96\linewidth}
-\includegraphics[width=1\linewidth]{figures/universities.png}
+\includegraphics[width=\linewidth]{figures/universities.png}
 \end{minipage}
 \vspace{20pt}
 \hrule
@@ -53,11 +64,12 @@
 \begin{center}
 \vfill
 {
+
 \LARGE\text{Master WAVES}
 
 \vspace{0.5cm}
 \Large
-\text{(Waves, Waves, Acoustics, Vibrations, Engineering and Sound)}}   
+\text{(Waves, Acoustics, Vibrations, Engineering and Sound)}}   
 
 
 \vfill

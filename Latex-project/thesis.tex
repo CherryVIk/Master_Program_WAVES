@@ -4,7 +4,7 @@
 % !TEX encoding = UTF-8 Unicode
 % !TEX program = lualatex
 
-\documentclass[11pt]{report}
+\documentclass[a4paper,111pt]{article}
 
 % \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
@@ -13,7 +13,7 @@
 % Language setting
 \usepackage[english]{babel}
 \usepackage{fontspec}
-% \setmainfont{Calibri}
+% \setmainfont{Courier New}
 % Set page size and margins
 \usepackage[letterpaper,top=2.54cm,bottom=2.54cm,left=2.85cm,right=2.85cm,marginparwidth=1.75cm]{geometry}
 
@@ -23,7 +23,6 @@
 \titlespacing*{\subsection}{0pt}{16pt}{20pt}
 \usepackage{setspace}
 \onehalfspacing
-
 %Adds space after paragraph
 \usepackage{parskip}
 \setlength{\parindent}{0pt}
@@ -38,8 +37,8 @@
 \usepackage{float} %locate figures with [H]
 
 %Import the bibliography file
-\usepackage[style=ieee]{biblatex}
-\addbibresource{{cites/bibliography.bib}} 
+\usepackage[bibstyle=ieee]{biblatex}
+\addbibresource{/cites/bibliography.bib} 
 
 % \title{
 % {Acoustic Frequency Response Modelling} \\
@@ -50,11 +49,16 @@
 % \date{}
 \begin{document}
 
+
 % \maketitle
 
 %%setting the cover page
-\thispagestyle{empty}
+\begin{titlepage}
+
+% \fontfamily{stix}\selectfont
+% \thispagestyle{empty}
 \begin{minipage}{0.96\linewidth}
+\centering
 \includegraphics[width=\linewidth]{figures/universities.png}
 \end{minipage}
 \vspace{20pt}
@@ -62,37 +66,33 @@
 \vspace{5pt}
 
 \begin{center}
-\vfill
-{
+    \vfill
+    {
+        \LARGE\text{Master WAVES}
+        \vspace{0.5cm}
+        \Large
+        \text{(Waves, Acoustics, Vibrations, Engineering and Sound)}
+    }   
 
-\LARGE\text{Master WAVES}
 
-\vspace{0.5cm}
-\Large
-\text{(Waves, Acoustics, Vibrations, Engineering and Sound)}}   
+    \vfill
+    
+    \Large{Viktoriia Boichenko}
+    
+    \vfill
 
-
-\vfill
- 
-\Large{Viktoriia Boichenko}
- 
-\vfill
-
-\LARGE\text{"Acoustic Frequency Response Modelling}
-
-\LARGE\text{of Multi-Bubble Compounds"}
-
-\Large
-\text{Subtitle}
-
+    % \begin{minipage}[c]{0.5\linewidth}
+    \LARGE\textsc{"Acoustic Frequency Response Modelling of Multi-Bubble Compounds"}
+    % \end{minipage}
+    % \Large \text{Subtitle}
 \end{center}
 
 \vfill
 
 \begin{minipage}[t]{0.5\linewidth}
-    \textsc{Supervised:} \medskip\\
-    \textsc{Tutor:} \medskip\\
-    \textsc{Academic supervisor: Emilie Franceschini} \medskip\\
+    \text{Supervised: Jens Greinert} \medskip\\
+    \text{Tutor: Christian Kanarski} \medskip\\
+    \text{Academic supervisor: Emilie Franceschini} \medskip\\
 \end{minipage}
 \begin{minipage}[t]{0.5\linewidth}
 \end{minipage}
@@ -103,9 +103,10 @@
     \textsc{} \medskip\\
 \end{minipage}
 \begin{minipage}[t]{0.5\linewidth}
-    \large\textsc{Place, month/2024}\medskip\\
+    \large\textsc{Kiel, June/2024}\medskip\\
 \end{minipage}
 
+\end{titlepage}
 % \right{
 %     
 % }   
@@ -130,18 +131,11 @@ I want to thank all the people who didn't disturb me during this master thesis w
 
 \newpage
 
-\tableofcontents
-\listoffigures
-\listoftables
+% \tableofcontents
+% \listoffigures
+% \listoftables
 
-\newpage
-
-% contextualize the study (project, industrial contract...)
-% describe the working environment (company, lab,...) and position the study in this context
-% allow you to understand the problematic treated, its constraints and the objectives sought,
-% describe the work you have done and the methodology you have developed to answer it
-% include a critical analysis of your results
-% do not include a listing of programs; in case where you want to disseminate your code developed during the internship, make a link to a public repository
+% \newpage
 
 \section{Introduction}
 % o	introduction : presentation of the laboratory/structure, of your department, and the framework of the internship
@@ -159,6 +153,7 @@ I want to thank all the people who didn't disturb me during this master thesis w
 \section{Conclusion}
 \input{sections/conclusion}
 
+\nocite{*}
 \printbibliography[heading=bibintoc]
 
 \begin{appendix}

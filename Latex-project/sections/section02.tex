@@ -1,12 +1,113 @@
-Section 2 is devoted to the theoretical part of the master dissertation. Following concepts are to be covered:
+Section 2 is devoted to the theoretical part of this paper. The following assignments were the main interest for exploration in order to progress the current state of the work:
 \begin{itemize}
     \item beamforming
     \item cross-correlation, matched filtering
     \item sonar equation
     \item bubble backscattering, natural frequency, Thuraisingham and Anderson models
-    \item multiple backscattering
-    \item reconstruction filter
+    \item multiple backscattering, other models implementation
+    \item reconstruction of the bubble frequency response from the received signal
     \item sound propagation concepts
+    \item Wiener filter noise deconstruction
 \end{itemize}
 
 \subsection{Beamforming}
+
+
+\subsection{Reconstruction of the bubble frequency response from the received signal}
+
+It will allow demonstrating the ability to invert the model to find individual bubble contributions from compund analysis.
+The following equation \ref*{eqn:reconstruction_bubble} was the base of the calculations:
+\begin{equation}
+    \label{eqn:reconstruction_bubble}
+    R = T \times H + N
+\end{equation}
+where R is a received signal, T is a transmitted signal by sonar, H is frequency response of the bubble, N is an added background noise.
+
+
+\subsection{Simple version of the multiple scattering }
+
+The concept lies in considering each bubble as a source when it scatters an incident wave. 
+Therefore, each bubble will have an influence on another, and also receives a sum of all scatterrings from 
+other bubbles. 
+
+Bubbles have to be sufficiently far from each other in order not to be dependent on each others bubble frequency response.
+
+\subsection{Different single bubble models}
+\begin{itemize}
+    \item Anderson
+
+    Anderson model provides a modal solution and allows to model the backscattering cross-section of a single bubble for $ka > 1$ \cite{anderson_sound_2005}.
+
+    \item Thuraisingham
+
+    In this paper of Zhang et al. 2022 \cite{zhang_efficient_2022} modal solution is used when ka > 1, and Thuraisingham solution is preferred for the ka<1, as the first doesn't consider the bubble damping effect.  Such approach can be used for our multiple compund bubble simulation.
+
+    \item Church, Medwin,
+
+    Andreeva is for fish.
+
+
+\end{itemize}
+
+
+There is a general formula of the gas bubble's rising velocity based on the bubble's volume, which allows us not to consider the bubble shape and its change during the rising process.
+
+
+
+\subsection{Research on the available mesurement procedures within the literature of the bubble experiments}
+
+\begin{itemize}
+    \item  Sound signal: narrow band pulse, chirp, noise
+    \item Sonar position: from top, vertical, horizontal
+    \item Bubbles location: in the center of the experimental pool
+   \item Bubble characteristics: emitting a single bubble of the specified radius; a row of bubbles; 
+   creating a bubble flare;
+\end{itemize}
+Other things which are important for taking into account are:
+\begin{itemize}
+    \item Response of the transducer can influence the received signal
+    \item Near field radiation implementation for measurements with a spherical radiation against the plane wave in a far field
+\end{itemize}
+
+Further set of things which are required to perform the experiment are the setup of the equipment required for performing our measurements. 
+Essentially, it will include the sonar, a bubble generator, processing unit as a laptop/computer.
+
+There different papers which have conducted similar experiments on bubble investigation. 
+
+The Zhang et al. 2021 \cite{zhang_experimental_2021} paper contains description of the experiment for investigation bubble oscillations. In order to produce cavitaion bubbles the setup used a deionised water.
+
+In order to detect the acoustic radiation released by cavitation bubbles a fiber optic hydrophone was employed, which was calibrated and attached to oscilloscope.  
+Among possible things that could affect results were the cleanliness of sensor connector, water quality and wall reflection of the shock wave.
+
+Leblond paper provides a scheme of the vertical and horizontal observation of the acoustic bubble release \cite{leblond_acoustic_2014}. Vertical will allow to detect bubbles all along the acoustic beam, while for horizontal we will see only the crossing of the stream.
+
+Some unresolved interesting questions:
+\begin{itemize}
+    \item Measurement of the reverberation time of the water tank???
+\end{itemize}
+
+\subsection{Wiener filter noise deconstruction}
+
+It is one o the signal processing filters which allow us to denoise the signal. Main feature of the Wiener filter is that unlike simpler filters that may only suppress noise or attenuate certain frequency components, the Wiener filter operates on a statistical model of the signal and noise, effectively balancing the trade-off between signal fidelity and noise reduction.
+
+
+\subsection{Sonar equation }
+The Sonar equation is a fundamental tool in underwater acoustics used to predict the performance of sonar systems. 
+The basic form of the Sonar equation is:
+\begin{equation}
+    SNR=SL-TL+TS-NL
+\end{equation}
+
+Where
+SNR is the signal-to-noise ratio,
+SL is the source level,
+TL is the transmission loss,
+TS is the target strength, and
+NL is the noise level.
+
+To implement the Sonar equation, one needs to calculate or estimate each of these parameters. 
+Source level (SL) represents the acoustic power radiated by the sonar system, which can be determined based on the characteristics of the sonar transducer and the electrical input power. 
+Transmission loss (TL) accounts for the attenuation of sound energy as it propagates through the water, considering factors such as spreading loss, absorption, and bottom and surface reflections. 
+Target strength (TS) quantifies the amount of sound energy reflected or scattered by the target, which depends on its size, shape, and composition. 
+Noise level (NL) encompasses all sources of ambient noise in the environment, including thermal noise, wind-generated noise, biological noise, and anthropogenic noise.
+

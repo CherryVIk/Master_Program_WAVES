@@ -1,0 +1,15 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Literature review}{2}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Theoretical part}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Sound propagation}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}SONAR}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Beamforming}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Matched filtering}{5}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Scattering}{6}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Single bubble model}{6}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Calculation}{8}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Checking hypothesis}{8}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Implementing multiple bubbles distribution}{9}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Interpretation}{10}{section.4}%
+\contentsline {section}{\numberline {5}Conclusion}{10}{section.5}%

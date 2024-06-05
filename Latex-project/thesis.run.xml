@@ -58,8 +58,7 @@
       <file>numeric.bbx</file>
       <file>numeric-comp.bbx</file>
       <file>ieee.bbx</file>
-      <file>numeric-comp.cbx</file>
-      <file>ieee.cbx</file>
+      <file>numeric.cbx</file>
       <file>biblatex.cfg</file>
       <file>english.lbx</file>
     </requires>
@@ -83,7 +82,7 @@
       <file>thesis.bcf</file>
     </requires>
     <requires type="editable">
-      <file>{cites/bibliography.bib}</file>
+      <file>/cites/bibliography.bib</file>
     </requires>
   </external>
 </requests>

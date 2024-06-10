@@ -33,7 +33,12 @@ This laboratory project aims to connect theoretical concepts with empirical obse
     
     The sonar type is the SIMO-sonar, as we needed to start with a simple model of the current research. The experiments with a MIMO-sonar can be implemented for further research therefore expanding the complexity and variability of usages of the developed model, as [this type provides an improved resolution and enhances the signal-to-noise ratio of the received signal] (http://jset.sasapublications.com/wp-content/uploads/2017/09/6702529.pdf).
     
-	\item[Bubble flare] or whatever definition you want to add 
+	\item[Bubble flare] 
+
+    A continuous column of bubbles with the different radii which is emitted with a bubble generator. Minimum bubble size that the machine could produce were 
+	\item[] 
+    
+    %or whatever definition you want to add 
 \end{description} 
 
 \subsection{Experimental model}
@@ -49,10 +54,17 @@ The primary focus of the observation was the volume strength back scattering (Vs
 Our bubble experiment was conducted using a meticulously designed setup aimed at exploring the acoustic frequency response of the bubbles. The experimental arrangement included the following:
 \begin{itemize}
     \item \textbf{Bubble generator}: a set of the equipment which included
-    \item \textbf{Sonar}
+    \item \textbf{Sonar} it is a projector with 32 hydrophones in an array. The distance between elements is 0.0139 m.
     \item \textbf{Laptop with a processing software KiRAT, contains an inbuilt wave generator}
-    \item \textbf{Videocamera}: used for the experiment recordings
+    \item \textbf{Videocamera}: a mobilephone's camera was used for the experiment recordings
 \end{itemize}
+
+During the experiment different signal types (noise and chirp) and length (2 ms and 10 ms) were used for the analysis of the bubble flares. The emitted central frequency was 50 kHz with a bandwidth of 40 kHz. The sampling frequency was 192 kHz.
+\begin{itemize}
+    \item \textbf{Noise}: a white noise whose frequency is not dependent on the power spectral density \cite*{ainslie_principles_2010};  
+    \item \textbf{Chirp}: a hyperbolic frequency modulation upward signal 
+\end{itemize}
+
 
 % \begin{figure}[H]
 %     \includegraphics[width='0.7'\textwidth]{'setup/'}
@@ -76,11 +88,13 @@ Our bubble experiment was conducted using a meticulously designed setup aimed at
 \subsection{Experimental Data}
 
 
-After the pocessing the date of 23 recorded measurements, a few results as well as comparisons can be presented below.
+After the pocessing the date of 23 recorded measurements, a few results as well as comparisons can be presented below. 
 
 At the horizontal orientation samples 8 (noise, 10ms) and 11 (chirp, 10ms).
 
 At the vertical orientation sample 19 (noise) and 23 (chirp, 10ms) are seem to be good for comparison.
+
+\textbf{$H_{wall}$} can be extracted from the initial measurement, calculating an impulse response of the water tank and identifying the location of the walls with the sonar.
 
 % \begin{figure}[H]
 %     \includegraphics[width='0.7'\textwidth]{'experiments/anima22_2'}

@@ -20,9 +20,9 @@ filename = 'MyAnimation.gif';
 % Sample frequency
 fs = 192000;
 % Signal bandwidth
-fB = 20000;
+fB = 40000;
 % Center frequency
-fC = 75000;
+fC = 50000;
 % Min & max frequencies
 fMin = fC - fB/2;
 fMax = fC + fB/2;
@@ -100,16 +100,22 @@ if strcmp(eSignalType, eSignalTypes.blNoise)
 end
 
 %% Plot transmit sequence
-figure(10);
+fig=figure;
 subplot(211);
-plot(t, tx(:,1));
-title("Time domain signal");
 grid on;
+plot(t, tx(:,1));
+xlabel('Time, s')
+title("Time domain signal")
+best_plot_ever(fig)
+
 subplot(212);
 logTx = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
-plot(f(end/2:end), logTx);
-title("Log. frequency spectrum ");
 grid on;
+plot(f(end/2:end), logTx)
+xlabel('Frequency, Hz')
+title("Log. frequency spectrum ")
+best_plot_ever(fig)
+% saveas(gca, "transmitted_50kHz","png");
 
 %% Environment settings
 
@@ -160,35 +166,42 @@ nRxSeqLength = nSig + ceil(max(tPropagationTime(:)));
 rx = zeros(nRxSeqLength, NRx);
 
 %% Background noise
-noise_level_dB = -60;
+noise_level_dB = -80;
 noise_level_linear = 10^(noise_level_dB/10);
 noise_add = randn(nRxSeqLength, NRx) * noise_level_linear; 
-% rx = rx + noise_add;
+rx = rx + noise_add;
 
-radius_b = 0.5e-3;%585e-6;% Oscillations, bubble radius (m)
+radius_b = 1e-4;%585e-6;% Oscillations, bubble radius (m)
 sigma_bs = bubble_response(f,radius_b);
-%% 
+% sigma_bs = bubble_response_model(f,radius_b,1);
+%
 % Plot --------------------------------------------------------------------
 f_sigma_bs = abs(Tx(:, iTx)).*sigma_bs(1:NBins);
 res_temp = f_sigma_bs./abs(Tx(:, iTx));
-figure(21);
 
-figure(20);
+fig=figure;
 subplot(211);
 logBs = 10*log10(sigma_bs(1:NBins,1));
 plot(f(end/2:end), logBs);
-ylim([-200 0])
+xlim([0 f(end)])
+ylim([-100 0])
 hold on
 logRes_s = 10*log10(res_temp(1:NBins,1));
 plot(f(end/2:end), logRes_s);
-title("Log. frequency spectrum, bubble");
+title("Log. frequency spectrum, only bubble");
+xlabel("Frequency, Hz")
 grid on;
+best_plot_ever(fig)
 subplot(212);
 logFs = 10*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
 plot(f(end/2:end),logFs)
-ylim([-200 0])
-title("Log. frequency spectrum, with bubble ");
+ylim([-100 0])
+title("Log. frequency spectrum, transmitted and bubble ");
+xlabel("Frequency, Hz")
 grid on;
+best_plot_ever(fig)
+% saveas(gca, "bubbleResponse-set_50kHz","png");
+
 %%
 % sigma_bs=ones(NBins,NTx);
 for iTx = 1:NTx
@@ -235,31 +248,42 @@ Y = Y(1:NBins, :);
 % ff_s = 10000;
 % ff_e = 15000;
 % H_hat = R / T
-H_hat = zeros(NBins,1);
 % H_hat(ff_s:ff_e) = abs(Y(ff_s:ff_e,1)) ./ abs(Tx(ff_s:ff_e,1));
 H_hat = abs(Y(:,1)) ./ abs(Tx(:,1));
+H_hat = H_hat.*hamming(length(H_hat));
 % H_hat = abs(H_hat);
 
 
-figure;
+
+fig=figure;
 subplot(311)
 % logRx_noB = X(:,1);
 logTx_noB = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
 plot(f(end/2:end), logTx_noB(:, 1));
 grid on;
-title('Target signal, freq');
+title('Transmitted signal, freq');
+best_plot_ever(fig)
+
 subplot(312)
 % logRx_withB = Y(:,1);
 logRx_withB = 20*log10(abs(Y(:,1))./max(abs(Y(:,1))));
 plot(f(end/2:end), logRx_withB(:, 1));
 grid on;
 hold on
-title('Target-bubble signal, freq');
+title('Received signal, freq');
+best_plot_ever(fig)
+
 subplot(313)
+plot(f(end/2:end),logRes_s)
+hold on
 logH_hat = H_hat(:,1);
 logH_hat = 20*log10(abs(H_hat(:,1))./max(abs(H_hat(:,1))));
 plot(f(end/2:end), logH_hat(:, 1));
-title('Extracted bubble signal, freq');
+ylim([-100 0])
+legend("bubble", "reconstruction")
+title('Reconstructed signal, freq');
+best_plot_ever(fig)
+% saveas(gca, "reconstructed-set_50kHz","png");
 
 %% Apply damping: 1/r (linear), 1/r^2 (cylindrical), 1/r^3 (spherical)
 propagationTimesPerSample = (0:nRxSeqLength)./ fs;
@@ -282,17 +306,43 @@ locShortest = min(squeeze(tPropagationTime(round(NTx/2), :, round(NRx/2))));
 % Calculate time vector
 tSim = linspace(0, nRxSeqLength/fs, nRxSeqLength);
 % Plot --------------------------------------------------------------------
-figure(50);
+
+fig=figure;
 subplot(211);
 plot(tSim, rx(:, 1));
 grid on;
 title('Received signal');
+xlabel("Time, s")
+best_plot_ever(fig)
 subplot(212);
 semilogx(tLagInMeters, corr);
 hold on;
 semilogx(tLagInMeters(loc), pk, 'rx');
 grid on;
-title('Crosscorrelation: Transmit- & receive signal');
+xlabel("Distance, m")
+title('Crosscorrelation: Transmit- $\&$ receive signal');
+best_plot_ever(fig)
+% saveas(gca, "received_50kHz","png");
+%%
+fig=figure;
+subplot(211)
+subplot(211);
+plot(tSim, rx(:, 1));
+grid on;
+title('Received signal');
+xlabel("Time, s")
+best_plot_ever(fig)
+subplot(212)
+% logRx_withB = Y(:,1);
+logRx_withB = 20*log10(abs(Y(:,1))./max(abs(Y(:,1))));
+plot(f(end/2:end), logRx_withB(:, 1));
+grid on;
+hold on
+title('Received signal');
+xlabel("Frequency, Hz")
+best_plot_ever(fig)
+saveas(gca, "receivedNoise_time_freq_50kHz","png");
+% saveas(gca, "received_time_freq_50kHz","png");
 
 %% Beamforming: Calculate array manifold vector (AMV)
 NFFT = 2^nextpow2(2 * nRxSeqLength); 
@@ -355,7 +405,7 @@ end
 
 %% Plot results as PPI (plan position indicator) plot
 % Log of correlated output
-sonar_fig=figure(100);
+sonar_fig=figure;
 ppi = 20*log10(abs(mfbfsmall)+eps);
 ppi(ppi<-40) = -40;
 % Maximum distance (single path) = Half of max sequence travel distance
@@ -378,8 +428,11 @@ set(gca,'LooseInset',get(gca,'TightInset'));
 set(gcf, 'units', 'pixels', 'position', [100 40 1500 900]);
 hold on;
 hold off;
- % Capture the plot as an image 
-Frame = getframe(sonar_fig);
+best_plot_ever(sonar_fig)
+% saveas(gca, "sonarFig_50kHz","png");
+
+% Capture the plot as an image 
+% Frame = getframe(sonar_fig);
 % make_gif(Frame, move_ii, filename)
 % end
 
@@ -393,4 +446,20 @@ function make_gif(Frame, ii, filename)
     else 
       imwrite(imind, CM,filename,'gif','WriteMode','append'); 
     end 
+end
+
+%% Functions
+function best_plot_ever(fig)
+    font = 20;
+    a = 36; % set this parameter and keep it forever
+    b = 0.55; % feel free to play with this ratio
+    set(gca,'FontSize',font)
+    set(findall(fig,'-property','Box'),'Box','off') % optional
+    set(findall(fig,'-property','Interpreter'),'Interpreter','latex')
+    set(findall(fig,'-property','TickLabelInterpreter'),'TickLabelInterpreter','latex')
+    set(fig,'Units','centimeters','Position',[3 3 a b*a])
+    pos = get(fig,'Position');
+    set(fig,'PaperPositionMode','Auto','PaperUnits','centimeters','PaperSize',[pos(3), pos(4)])
+    set(gca, 'XDir', 'normal', 'YDir', 'normal');
+    grid on
 end

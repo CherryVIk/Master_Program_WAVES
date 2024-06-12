@@ -1,11 +1,11 @@
-function sigma_bs = bubble_response(f_range,a_range)
 % f_range = linspace(10e3,1e6,1000); % echosounder freq (Hz=1/s)
 % a_range = linspace(1e-6,30e-3,1000);  % Oscillations, bubble radius (m)
 %a_range = linspace(6e-6,2e-4,1000);  % Normal
 
 % [~, rr] = min(abs(a_range - radius));
 
-
+f_range = linspace(3.5e3,2e6,10000);
+a_range = linspace(6e-6,2e-2,10000); 
 c = 1500; % speed of sound (m/s)
 rho_liq = 1026; % density of liquid (kg/m^3) [water]
 rho_air = 1.21;
@@ -74,13 +74,17 @@ end
 figure;
 imagesc(f_range,a_range,TS);
 set(gca, 'YDir', 'normal');
+clim([-240,-40])
 colormap("jet")
 colorbar;
+title("Range a=["+num2str(a_range(1))+","+num2str(a_range(end))+"]")
+saveas(gca,"thurasingham_colormap","png")
 %% Plot ka x TS
 figure(56);
 ka = 2*pi/c*f_range'*a_range;
-kk = 1; % 30, at specific radius/freq
+kk = 400; % 30, at specific radius/freq
 semilogx(ka(:,kk), TS(:,kk));
 xlabel('ka');ylabel('TS (dB re 1 m^2)')
-title("Inside function:  ka x TS")
-end
+title("ka x TS")
+ylim([-180,-20])
+saveas(gca,"thurasinghamTs-ka","png")

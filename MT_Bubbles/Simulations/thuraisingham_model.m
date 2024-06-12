@@ -41,9 +41,9 @@ P_gas = Pst + (2*tau/a) - p_v; % gas pressure inside the bubble
 rho_gas = (Mm/(R*T))*P_gas;
 D_p = K_gas/(rho_gas*C_p); % thermal diffusivity
 
-% X = sqrt((2*w)/D_p)*a; % radius is inside or outside the square root???
+X = sqrt((2*w)/D_p)*a; % radius is inside or outside the square root???
 
-X = sqrt((2*w*a)/D_p); 
+% X = sqrt((2*w*a)/D_p); 
 Gamma_num1 = (1+1i) * X/2;
 Gamma_denum1 = tanh(Gamma_num1);
 Gamma_num2 = (6i * (gamma-1))/X^2;

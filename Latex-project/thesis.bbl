@@ -1,0 +1,980 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{ainslie_principles_2010}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=b781f9930a65ee4aef1cefefe6e5f7db}{%
+           family={Ainslie},
+           familyi={A\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{b781f9930a65ee4aef1cefefe6e5f7db}
+      \strng{fullhash}{b781f9930a65ee4aef1cefefe6e5f7db}
+      \strng{fullhashraw}{b781f9930a65ee4aef1cefefe6e5f7db}
+      \strng{bibnamehash}{b781f9930a65ee4aef1cefefe6e5f7db}
+      \strng{authorbibnamehash}{b781f9930a65ee4aef1cefefe6e5f7db}
+      \strng{authornamehash}{b781f9930a65ee4aef1cefefe6e5f7db}
+      \strng{authorfullhash}{b781f9930a65ee4aef1cefefe6e5f7db}
+      \strng{authorfullhashraw}{b781f9930a65ee4aef1cefefe6e5f7db}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-540-87661-8 978-3-540-87662-5}
+      \field{title}{Principles of {Sonar} {Performance} {Modelling}}
+      \field{urlday}{14}
+      \field{urlmonth}{1}
+      \field{urlyear}{2024}
+      \field{year}{2010}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.1007/978-3-540-87662-5
+      \endverb
+      \verb{file}
+      \verb Ainslie - 2010 - Principles of Sonar Performance Modelling.pdf:/Users/victoriaboichenko/Zotero/storage/XXL5M4JK/Ainslie - 2010 - Principles of Sonar Performance Modelling.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/10.1007/978-3-540-87662-5
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/10.1007/978-3-540-87662-5
+      \endverb
+      \keyw{notion,acoustics,modeling,Modelling,Ocean,Oceanography,Sonar,sound,Sound navigation,Underwater acoustics}
+    \endentry
+    \entry{ainslie_near_2009}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=7a3ea3be171ac6418f127b1c3de92208}{%
+           family={Ainslie},
+           familyi={A\bibinitperiod},
+           given={Michael\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=87151716731eda796a381744c9ac4810}{%
+           family={Leighton},
+           familyi={L\bibinitperiod},
+           given={Timothy\bibnamedelima G.},
+           giveni={T\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \strng{namehash}{fddbf5ce6e8823a10c765fb609134c8b}
+      \strng{fullhash}{fddbf5ce6e8823a10c765fb609134c8b}
+      \strng{fullhashraw}{fddbf5ce6e8823a10c765fb609134c8b}
+      \strng{bibnamehash}{fddbf5ce6e8823a10c765fb609134c8b}
+      \strng{authorbibnamehash}{fddbf5ce6e8823a10c765fb609134c8b}
+      \strng{authornamehash}{fddbf5ce6e8823a10c765fb609134c8b}
+      \strng{authorfullhash}{fddbf5ce6e8823a10c765fb609134c8b}
+      \strng{authorfullhashraw}{fddbf5ce6e8823a10c765fb609134c8b}
+      \field{extraname}{1}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The scattering cross-section σs of a gas bubble of equilibrium radius R0 in liquid can be written in the form σs=4{πR}02∕[(ω12∕ω2−1)2+δ2], where ω is the excitation frequency, ω1 is the resonance frequency, and δ is a frequency-dependent dimensionless damping coefficient. A persistent discrepancy in the frequency dependence of the contribution to δ from radiation damping, denoted δrad, is identified and resolved, as follows. Wildt’s [Physics of Sound in the Sea (Washington, {DC}, 1946), Chap. 28] pioneering derivation predicts a linear dependence of δrad on frequency, a result which Medwin [Ultrasonics 15, 7–13 (1977)] reproduces using a different method. Weston [Underwater Acoustics, {NATO} Advanced Study Institute Series Vol. {II}, 55–88 (1967)], using ostensibly the same method as Wildt, predicts the opposite relationship, i.e., that δrad is inversely proportional to frequency. Weston’s version of the derivation of the scattering cross-section is shown here to be the correct one, thus resolving the discrepancy. Further, a correction to Weston’s model is derived that amounts to a shift in the resonance frequency. A new, corrected, expression for the extinction cross-section is also derived. The magnitudes of the corrections are illustrated using examples from oceanography, volcanology, planetary acoustics, neutron spallation, and biomedical ultrasound. The corrections become significant when the bulk modulus of the gas is not negligible relative to that of the surrounding liquid.}
+      \field{day}{5}
+      \field{issn}{0001-4966}
+      \field{journaltitle}{The Journal of the Acoustical Society of America}
+      \field{month}{11}
+      \field{number}{5}
+      \field{shortjournal}{The Journal of the Acoustical Society of America}
+      \field{title}{Near resonant bubble acoustic cross-section corrections, including examples from oceanography, volcanology, and biomedical ultrasound}
+      \field{urlday}{14}
+      \field{urlmonth}{1}
+      \field{urlyear}{2024}
+      \field{volume}{126}
+      \field{year}{2009}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \field{pages}{2163\bibrangedash 2175}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1121/1.3180130
+      \endverb
+      \verb{file}
+      \verb ainslie2009.pdf:/home/vboichenko/Zotero/storage/LWUQHN6J/ainslie2009.pdf:application/pdf;Snapshot:/home/vboichenko/Zotero/storage/7IUF8954/Near-resonant-bubble-acoustic-cross-section.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1121/1.3180130
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1121/1.3180130
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{ainslie_review_2011}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=7a3ea3be171ac6418f127b1c3de92208}{%
+           family={Ainslie},
+           familyi={A\bibinitperiod},
+           given={Michael\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=87151716731eda796a381744c9ac4810}{%
+           family={Leighton},
+           familyi={L\bibinitperiod},
+           given={Timothy\bibnamedelima G.},
+           giveni={T\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \strng{namehash}{fddbf5ce6e8823a10c765fb609134c8b}
+      \strng{fullhash}{fddbf5ce6e8823a10c765fb609134c8b}
+      \strng{fullhashraw}{fddbf5ce6e8823a10c765fb609134c8b}
+      \strng{bibnamehash}{fddbf5ce6e8823a10c765fb609134c8b}
+      \strng{authorbibnamehash}{fddbf5ce6e8823a10c765fb609134c8b}
+      \strng{authornamehash}{fddbf5ce6e8823a10c765fb609134c8b}
+      \strng{authorfullhash}{fddbf5ce6e8823a10c765fb609134c8b}
+      \strng{authorfullhashraw}{fddbf5ce6e8823a10c765fb609134c8b}
+      \field{extraname}{2}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Perhaps the most familiar concepts when discussing acoustic scattering by bubbles are the resonance frequency for bubble pulsation, the bubbles’ damping, and their scattering and extinction cross-sections, all of which are used routinely in oceanography, sonochemistry, and biomedicine. The apparent simplicity of these concepts is illusory: there exist multiple, sometimes contradictory definitions for their components. This paper reviews expressions and definitions in the literature for acoustical cross-sections, resonance frequencies, and damping factors of a spherically pulsating gas bubble in an infinite liquid medium, deriving two expressions for “resonance frequency” that are compared and reconciled with two others from the reviewed literature. In order to prevent errors, care is needed by researchers when combining results from different publications that might have used internally correct but mutually inconsistent definitions. Expressions are presented for acoustical cross-sections associated with forced pulsations damped by liquid shear and (oft-neglected) bulk or dilatational viscosities, gas thermal diffusivity, and acoustic re-radiation. The concept of a dimensionless “damping coefficient” is unsuitable for radiation damping because different cross-sections would require different functional forms for this parameter. Instead, terms based on the ratio of bubble radius to acoustic wavelength are included explicitly in the cross-sections where needed.}
+      \field{day}{16}
+      \field{issn}{0001-4966}
+      \field{journaltitle}{The Journal of the Acoustical Society of America}
+      \field{month}{11}
+      \field{number}{5}
+      \field{shortjournal}{The Journal of the Acoustical Society of America}
+      \field{title}{Review of scattering and extinction cross-sections, damping factors, and resonance frequencies of a spherical gas bubble}
+      \field{urlday}{14}
+      \field{urlmonth}{1}
+      \field{urlyear}{2024}
+      \field{volume}{130}
+      \field{year}{2011}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \field{pages}{3184\bibrangedash 3208}
+      \range{pages}{25}
+      \verb{doi}
+      \verb 10.1121/1.3628321
+      \endverb
+      \verb{file}
+      \verb ainslie2011.pdf:/home/vboichenko/Zotero/storage/VR93EQMD/ainslie2011.pdf:application/pdf;Snapshot:/home/vboichenko/Zotero/storage/SDZHTXLT/Review-of-scattering-and-extinction-cross-sections.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1121/1.3628321
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1121/1.3628321
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{anderson_sound_2005}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=637da7aad67676fc84c9baa22af25422}{%
+           family={Anderson},
+           familyi={A\bibinitperiod},
+           given={Victor\bibnamedelima C.},
+           giveni={V\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{637da7aad67676fc84c9baa22af25422}
+      \strng{fullhash}{637da7aad67676fc84c9baa22af25422}
+      \strng{fullhashraw}{637da7aad67676fc84c9baa22af25422}
+      \strng{bibnamehash}{637da7aad67676fc84c9baa22af25422}
+      \strng{authorbibnamehash}{637da7aad67676fc84c9baa22af25422}
+      \strng{authornamehash}{637da7aad67676fc84c9baa22af25422}
+      \strng{authorfullhash}{637da7aad67676fc84c9baa22af25422}
+      \strng{authorfullhashraw}{637da7aad67676fc84c9baa22af25422}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The scattering of sound from a spherical fluid obstacle of size comparable to a wave‐length is considered, neglecting dissipation. Calculations of the acoustic pressure and the total energy in the scattered wave are presented graphically; sound velocities and densities of the sphere lie between 0.5 and 2.0 times that of the external medium. The limiting cases of Rayleigh scattering and scattering from a fixed rigid sphere are also shown for comparison. In the region where the diameter of the sphere is comparable to a wave‐length, the scattering is a complicated function of frequency, showing in some cases large maxima and minima. The amplitude of the scattered wave in the backward direction from a fluid sphere a few wave‐lengths in diameter exceeds twice that from a rigid sphere of the same size for the case of the sound velocity 0.8 and density equal to that of the surrounding medium.}
+      \field{issn}{0001-4966}
+      \field{journaltitle}{The Journal of the Acoustical Society of America}
+      \field{month}{6}
+      \field{number}{4}
+      \field{title}{Sound {Scattering} from a {Fluid} {Sphere}}
+      \field{urlday}{1}
+      \field{urlmonth}{2}
+      \field{urlyear}{2024}
+      \field{volume}{22}
+      \field{year}{2005}
+      \field{urldateera}{ce}
+      \field{pages}{426\bibrangedash 431}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1121/1.1906621
+      \endverb
+      \verb{file}
+      \verb Anderson - 2005 - Sound Scattering from a Fluid Sphere.pdf:/Users/victoriaboichenko/Zotero/storage/IRCET4JJ/Anderson - 2005 - Sound Scattering from a Fluid Sphere.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1121/1.1906621
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1121/1.1906621
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{feuillade_scattering_1995}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=350d8c14ef99a78e70f18caaa0131331}{%
+           family={Feuillade},
+           familyi={F\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{350d8c14ef99a78e70f18caaa0131331}
+      \strng{fullhash}{350d8c14ef99a78e70f18caaa0131331}
+      \strng{fullhashraw}{350d8c14ef99a78e70f18caaa0131331}
+      \strng{bibnamehash}{350d8c14ef99a78e70f18caaa0131331}
+      \strng{authorbibnamehash}{350d8c14ef99a78e70f18caaa0131331}
+      \strng{authornamehash}{350d8c14ef99a78e70f18caaa0131331}
+      \strng{authorfullhash}{350d8c14ef99a78e70f18caaa0131331}
+      \strng{authorfullhashraw}{350d8c14ef99a78e70f18caaa0131331}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A coupled oscillator method is used to describe collective acoustic resonances and scattering from multiple air bubbles in water. By recombining equations, the problem is decomposed into that of scattering from individual normal modes of the ensemble. Each mode has specific resonant properties. ‘‘Symmetric’’ modes, where the bubbles oscillate in phase with each other, typically show downward frequency shifts and increased damping. ‘‘Antisymmetric’’ modes, where some or all of the bubbles oscillate in antiphase, generally show upward frequency shifts and reduced damping. For two bubbles the method predicts frequency shifts which agree with experimental results. The resonance response functions predict that a two bubble system may become superresonant provided (a) the mode is antisymmetric, (b) the individual bubbles are primarily radiation damped, and (c) the bubbles are spaced such that the modal damping is small. Superresonant scattering is dipolar and propagates little energy in the far field, making the phenomenon difficult to observe experimentally. Scattering from a bubble reflected in a pressure release surface may show the phenomenon strongly. The antisymmetric modes of a triangular arrangement of three bubbles are degenerate and may also become superresonant. The damping of line ensembles of bubbles varies strongly with the bubble spacing.}
+      \field{day}{1}
+      \field{issn}{0001-4966}
+      \field{journaltitle}{The Journal of the Acoustical Society of America}
+      \field{month}{8}
+      \field{number}{2}
+      \field{shortjournal}{The Journal of the Acoustical Society of America}
+      \field{title}{Scattering from collective modes of air bubbles in water and the physical mechanism of superresonances}
+      \field{urlday}{27}
+      \field{urlmonth}{2}
+      \field{urlyear}{2024}
+      \field{volume}{98}
+      \field{year}{1995}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \field{pages}{1178\bibrangedash 1190}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1121/1.413616
+      \endverb
+      \verb{file}
+      \verb Snapshot:/home/vboichenko/Zotero/storage/K6QR4NUW/Scattering-from-collective-modes-of-air-bubbles-in.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1121/1.413616
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1121/1.413616
+      \endverb
+    \endentry
+    \entry{hodges_underwater_2011}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=e7da04c8004d228731f66b2cae0aa15e}{%
+           family={Hodges},
+           familyi={H\bibinitperiod},
+           given={Richard\bibnamedelima P.},
+           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{e7da04c8004d228731f66b2cae0aa15e}
+      \strng{fullhash}{e7da04c8004d228731f66b2cae0aa15e}
+      \strng{fullhashraw}{e7da04c8004d228731f66b2cae0aa15e}
+      \strng{bibnamehash}{e7da04c8004d228731f66b2cae0aa15e}
+      \strng{authorbibnamehash}{e7da04c8004d228731f66b2cae0aa15e}
+      \strng{authornamehash}{e7da04c8004d228731f66b2cae0aa15e}
+      \strng{authorfullhash}{e7da04c8004d228731f66b2cae0aa15e}
+      \strng{authorfullhashraw}{e7da04c8004d228731f66b2cae0aa15e}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Offering complete and comprehensive coverage of modern sonar spectrum system analysis, Underwater Acoustics: Analysis, Design and Performance of Sonar provides a state-of-the-art introduction to the subject and has been carefully structured to offer a much-needed update to the classic text by Urick. Expanded to included computational approaches to the topic, this book treads the line between the highly theoretical and mathematical texts and the more populist, non-mathematical books that characterize the existing literature in the field. The author compares and contrasts different techniques for sonar design, analysis and performance prediction and includes key experimental and theoretical results, pointing the reader towards further detail with extensive references. Practitioners in the field of sonar design, analysis and performance prediction as well as graduate students and researchers will appreciate this new reference as an invaluable and timely contribution to the field. Chapters include the sonar equation, radiated, self and ambient noise, active sonar sources, transmission loss, reverberation, transducers, active target strength, statistical detection theory, false alarms, contacts and targets, variability and uncertainty, modelling detections and tactical decision aids, cumulative probability of detection, tracking target motion analysis and localization, and design and evaluation of sonars}
+      \field{isbn}{978-1-119-95749-2}
+      \field{month}{6}
+      \field{note}{Google-Books-ID: 2O4f2ETpjm8C}
+      \field{shorttitle}{Underwater {Acoustics}}
+      \field{title}{Underwater {Acoustics}: {Analysis}, {Design} and {Performance} of {Sonar}}
+      \field{year}{2011}
+      \true{nocite}
+      \verb{file}
+      \verb Hodges - 2011 - Underwater Acoustics Analysis, Design and Perform.pdf:/Users/victoriaboichenko/Zotero/storage/FXH34PXJ/Hodges - 2011 - Underwater Acoustics Analysis, Design and Perform.pdf:application/pdf
+      \endverb
+      \keyw{notion,Science / Waves \& Wave Mechanics,Technology \& Engineering / Electrical,Technology \& Engineering / Electronics / General}
+    \endentry
+    \entry{leblond_acoustic_2014}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=ec5f9c37e679a08d4126dbdc7f07b22c}{%
+           family={Leblond},
+           familyi={L\bibinitperiod},
+           given={Isabelle},
+           giveni={I\bibinitperiod}}}%
+        {{hash=368ef9de0be1c73b7cf8a7005059de0e}{%
+           family={Scalabrin},
+           familyi={S\bibinitperiod},
+           given={Carla},
+           giveni={C\bibinitperiod}}}%
+        {{hash=2d5d7e2625ec26fb62fd857e5f50fd50}{%
+           family={Berger},
+           familyi={B\bibinitperiod},
+           given={Laurent},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \strng{fullhash}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \strng{fullhashraw}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \strng{bibnamehash}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \strng{authorbibnamehash}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \strng{authornamehash}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \strng{authorfullhash}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \strng{authorfullhashraw}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Three decades of continuous ocean exploration have led us to identify subsurface fluid related processes as a key phenomenon in marine earth science research. The number of seep areas located on the seafloor has been constantly increasing with the use of multi-scale imagery techniques. Due to recent advances in transducer technology and computer processing, multibeam echosounders are now commonly used to detect submarine gas seeps escaping from the seafloor into the water column. A growing number of en-route surveys shows that sites of gas emissions escaping from the seafloor are much more numerous than previously thought. Estimating the temporal variability of the gas flow rate and volumes escaping from the seafloor has thus become a challenge of relevant interest which could be addressed by sea-floor continuous acoustic monitoring. Here, we investigate the feasibility of estimating the volumetric flow rates of gas emissions from horizontal backscattered acoustic signals. Different models based on the acoustic backscattering theory of bubbles are presented. The forward volume backscattering strength and the inversion volumetric flow rate solutions were validated with acoustic measurements from artificial gas flow rates generated in controlled sea-water tank experiments. A sensitivity analysis was carried out to investigate the behavior of the 120-kHz forward solution with respect to model input parameters (horizontal distance between transducer and bubble stream, bubble size distribution and ascent rate). The most sensitive parameter was found to be the distance of the bubble stream which can affect the volume backscattering strength by 20 dB within the horizontal range of 0–200 m. Results were used to derive the detection probability of a bubble stream for a given volume backscattering strength threshold according to different bubble flow rates and horizontal distance.}
+      \field{issn}{1573-0581}
+      \field{journaltitle}{Marine Geophysical Research}
+      \field{month}{9}
+      \field{number}{3}
+      \field{shorttitle}{Acoustic monitoring of gas emissions from the seafloor. {Part} {I}}
+      \field{title}{Acoustic monitoring of gas emissions from the seafloor. {Part} {I}: quantifying the volumetric flow of bubbles}
+      \field{urlday}{5}
+      \field{urlmonth}{2}
+      \field{urlyear}{2024}
+      \field{volume}{35}
+      \field{year}{2014}
+      \field{urldateera}{ce}
+      \field{pages}{191\bibrangedash 210}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1007/s11001-014-9223-y
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:/Users/victoriaboichenko/Zotero/storage/CBSJDY2J/Leblond et al. - 2014 - Acoustic monitoring of gas emissions from the seaf.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s11001-014-9223-y
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s11001-014-9223-y
+      \endverb
+      \keyw{notion,Bubbles,Acoustic backscattering,Fisheries echosounders,Forward and inverse modeling,Gas emissions,Seafloor observatory,Water column acoustics,Water tank experiments}
+    \endentry
+    \entry{leighton_acoustic_2012}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=3ce021361b94c7d73924c32e26a85c00}{%
+           family={Leighton},
+           familyi={L\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Academic Press}%
+      }
+      \strng{namehash}{3ce021361b94c7d73924c32e26a85c00}
+      \strng{fullhash}{3ce021361b94c7d73924c32e26a85c00}
+      \strng{fullhashraw}{3ce021361b94c7d73924c32e26a85c00}
+      \strng{bibnamehash}{3ce021361b94c7d73924c32e26a85c00}
+      \strng{authorbibnamehash}{3ce021361b94c7d73924c32e26a85c00}
+      \strng{authornamehash}{3ce021361b94c7d73924c32e26a85c00}
+      \strng{authorfullhash}{3ce021361b94c7d73924c32e26a85c00}
+      \strng{authorfullhashraw}{3ce021361b94c7d73924c32e26a85c00}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The Acoustic Bubble describes the interaction of acoustic fields with bubbles in liquid. The book consists of five chapters. Chapter 1 provides a basic introduction to acoustics, including some of the more esoteric phenomena that can be seen when high-frequency high-intensity underwater sound is employed. Chapter 2 discusses the nucleation of cavitation and basic fluid dynamics, while Chapter 3 draws together the acoustics and bubble dynamics to discuss the free oscillation of a bubble and acoustic emissions from such activity. The acoustic probes that are often applied to study the behavior of a bubble when an externally-applied acoustic field drives it into oscillation is deliberated in Chapter 4. The last chapter outlines a variety of effects associated with acoustically-induced bubble activity. The bubble detection, sonoluminescence, sonochemistry, and pulse enhancement are also covered. This publication is a good reference for physics and engineering students and researchers intending to acquire knowledge of the acoustic interactions of acoustic fields with bubbles.}
+      \field{day}{2}
+      \field{isbn}{978-0-323-14413-1}
+      \field{langid}{english}
+      \field{month}{12}
+      \field{pagetotal}{641}
+      \field{title}{The Acoustic Bubble}
+      \field{year}{2012}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{file}
+      \verb [Leighton] The acoustic bubble.pdf:/home/vboichenko/Zotero/storage/HXYTF6VB/[Leighton] The acoustic bubble.pdf:application/pdf
+      \endverb
+      \keyw{notion,acoustic bubble,Science / Energy,Science / Mechanics / General,Science / Physics / General,Technology \& Engineering / Materials Science / General}
+    \endentry
+    \entry{li_broadband_2020}{article}{}{}
+      \name{author}{8}{}{%
+        {{hash=317333f698f6a8346a29be2a8fe7779a}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Jianghui},
+           giveni={J\bibinitperiod}}}%
+        {{hash=503232d04034389c46ed17d0177dc21c}{%
+           family={Roche},
+           familyi={R\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod}}}%
+        {{hash=65c77b45a2a8f667760aa7f94d4269e2}{%
+           family={Bull},
+           familyi={B\bibinitperiod},
+           given={Jonathan\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=92a75d6a5b13fef3e282033d8e8bfd13}{%
+           family={White},
+           familyi={W\bibinitperiod},
+           given={Paul\bibnamedelima R.},
+           giveni={P\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=87151716731eda796a381744c9ac4810}{%
+           family={Leighton},
+           familyi={L\bibinitperiod},
+           given={Timothy\bibnamedelima G.},
+           giveni={T\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=4d74b857f5a66c55c93e689933110f7a}{%
+           family={Provenzano},
+           familyi={P\bibinitperiod},
+           given={Giuseppe},
+           giveni={G\bibinitperiod}}}%
+        {{hash=54608a9839932072a2c68cd97d85f2e1}{%
+           family={Dewar},
+           familyi={D\bibinitperiod},
+           given={Marius},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f67b1f7e421ad16ecc576cfd26f8fe68}{%
+           family={Henstock},
+           familyi={H\bibinitperiod},
+           given={Timothy\bibnamedelima J.},
+           giveni={T\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{01c1fab239f711b417b4518bb46d531d}
+      \strng{fullhash}{ecfd87f1b41bcd4d21e4f66d9ef1e3fb}
+      \strng{fullhashraw}{ecfd87f1b41bcd4d21e4f66d9ef1e3fb}
+      \strng{bibnamehash}{01c1fab239f711b417b4518bb46d531d}
+      \strng{authorbibnamehash}{01c1fab239f711b417b4518bb46d531d}
+      \strng{authornamehash}{01c1fab239f711b417b4518bb46d531d}
+      \strng{authorfullhash}{ecfd87f1b41bcd4d21e4f66d9ef1e3fb}
+      \strng{authorfullhashraw}{ecfd87f1b41bcd4d21e4f66d9ef1e3fb}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The release of greenhouse gases from both natural and man-made sites has been identified as a major cause of global climate change. Extensive work has addressed quantifying gas seeps in the terrestrial setting while little has been done to refine accurate methods for determining gas flux emerging through the seabed into the water column. This paper investigates large-scale methane seepage from the Scanner Pockmark in the North Sea with a new methodology that integrates data from both multibeam and single-beam acoustics, with single-beam data covering a bandwidth (3.5 to 200 {kHz}) far wider than that used in previous studies, to quantify the rate of gas release from the seabed into the water column. The multibeam data imaged a distinct fork-shaped methane plume in the water column, the upper arm of which was consistently visible in the single-beam data, while the lower arm was only intermittently visible. Using a novel acoustic inversion method, we determine the depth-dependent gas bubble size distribution and the gas flux for each plume arm. Our results show that the upper plume arm comprises bubbles with radii ranging from 1 to 15 mm, while the lower arm consists of smaller bubbles with radii ranging from 0.01 to 0.15 mm. We extrapolate from these estimates to calculate the gas flux from the Scanner Pockmark as between 1.6 and 2.7 × 106 kg/year (272 to 456 L/min). This range was calculated by considering uncertainties together with Monte Carlo simulation. Our improved methodology allows more accurate quantification of natural and anthropogenic gas plumes in the water column.}
+      \field{issn}{2169-9291}
+      \field{journaltitle}{Journal of Geophysical Research: Oceans}
+      \field{langid}{english}
+      \field{note}{\_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1029/2020JC016360}
+      \field{number}{9}
+      \field{title}{Broadband Acoustic Inversion for Gas Flux Quantification—Application to a Methane Plume at Scanner Pockmark, Central North Sea}
+      \field{urlday}{7}
+      \field{urlmonth}{2}
+      \field{urlyear}{2024}
+      \field{volume}{125}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{e2020JC016360}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1029/2020JC016360
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:/home/vboichenko/Zotero/storage/GUQYYSLN/Li et al. - 2020 - Broadband Acoustic Inversion for Gas Flux Quantifi.pdf:application/pdf;Snapshot:/home/vboichenko/Zotero/storage/8LC4Y55D/2020JC016360.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1029/2020JC016360
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1029/2020JC016360
+      \endverb
+      \keyw{notion,broadband,bubble,gas,methane,sonar,underwater acoustics}
+    \endentry
+    \entry{lurton2002introduction}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=8a079acceed2192ef05bdab21ca22bd6}{%
+           family={Lurton},
+           familyi={L\bibinitperiod},
+           given={X},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{8a079acceed2192ef05bdab21ca22bd6}
+      \strng{fullhash}{8a079acceed2192ef05bdab21ca22bd6}
+      \strng{fullhashraw}{8a079acceed2192ef05bdab21ca22bd6}
+      \strng{bibnamehash}{8a079acceed2192ef05bdab21ca22bd6}
+      \strng{authorbibnamehash}{8a079acceed2192ef05bdab21ca22bd6}
+      \strng{authornamehash}{8a079acceed2192ef05bdab21ca22bd6}
+      \strng{authorfullhash}{8a079acceed2192ef05bdab21ca22bd6}
+      \strng{authorfullhashraw}{8a079acceed2192ef05bdab21ca22bd6}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Springer google schola}
+      \field{title}{An introduction to underwater acoustics: principles and applications}
+      \field{volume}{2}
+      \field{year}{2002}
+      \true{nocite}
+      \field{pages}{91\bibrangedash 99}
+      \range{pages}{9}
+    \endentry
+    \entry{manasseh_anisotropy_2004}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=d2a11664fefd66a9429683e298941b12}{%
+           family={Manasseh},
+           familyi={M\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=8289b3abe846c7dc6bc1c3dff0f35b47}{%
+           family={Nikolovska},
+           familyi={N\bibinitperiod},
+           given={Aneta},
+           giveni={A\bibinitperiod}}}%
+        {{hash=584a031d5ae20fac453b8c99fc17b1c2}{%
+           family={Ooi},
+           familyi={O\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+        {{hash=3524fb583a3fd26967fef9d89f9eeaed}{%
+           family={Yoshida},
+           familyi={Y\bibinitperiod},
+           given={Shizuo},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{e32cfa9cd864866a4b950f7c6d1eb002}
+      \strng{fullhash}{5f16d33a19fcb904aff8d8ac02792e0a}
+      \strng{fullhashraw}{5f16d33a19fcb904aff8d8ac02792e0a}
+      \strng{bibnamehash}{e32cfa9cd864866a4b950f7c6d1eb002}
+      \strng{authorbibnamehash}{e32cfa9cd864866a4b950f7c6d1eb002}
+      \strng{authornamehash}{e32cfa9cd864866a4b950f7c6d1eb002}
+      \strng{authorfullhash}{5f16d33a19fcb904aff8d8ac02792e0a}
+      \strng{authorfullhashraw}{5f16d33a19fcb904aff8d8ac02792e0a}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A vertical chain of rising bubbles represents a transition from individual to continuum behaviour in a compressible gas–liquid flow. Experiments on the distribution of acoustic pressure around a bubble chain revealed a strong anisotropy in the acoustic field in the frequency band generated by individual bubbles. Sound appeared to propagate much more efficiently along the chain than normal to it. A simple theoretical model using a linear coupled-oscillator approximation was developed to explain this result. Although comparison with experiments is inherently qualitative, the model clearly demonstrated the anisotropy. The model also reproduced the change in pulse waveform along the chain. The results suggest that the enhancement of sound intensity along the chain can to some extent be explained by bubbles acting as resonant amplifiers re-transmitting vibrations.}
+      \field{day}{22}
+      \field{issn}{0022-460X}
+      \field{journaltitle}{Journal of Sound and Vibration}
+      \field{month}{12}
+      \field{number}{4}
+      \field{shortjournal}{Journal of Sound and Vibration}
+      \field{title}{Anisotropy in the sound field generated by a bubble chain}
+      \field{urlday}{14}
+      \field{urlmonth}{2}
+      \field{urlyear}{2024}
+      \field{volume}{278}
+      \field{year}{2004}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{807\bibrangedash 823}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1016/j.jsv.2003.10.015
+      \endverb
+      \verb{file}
+      \verb ScienceDirect Snapshot:/home/vboichenko/Zotero/storage/L8BRJJF7/S0022460X03011751.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0022460X03011751
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0022460X03011751
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{thuraisingham_new_1997}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=f7b8b87b6a1433cd96221da951c9af05}{%
+           family={Thuraisingham},
+           familyi={T\bibinitperiod},
+           given={R.\bibnamedelimi A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{f7b8b87b6a1433cd96221da951c9af05}
+      \strng{fullhash}{f7b8b87b6a1433cd96221da951c9af05}
+      \strng{fullhashraw}{f7b8b87b6a1433cd96221da951c9af05}
+      \strng{bibnamehash}{f7b8b87b6a1433cd96221da951c9af05}
+      \strng{authorbibnamehash}{f7b8b87b6a1433cd96221da951c9af05}
+      \strng{authornamehash}{f7b8b87b6a1433cd96221da951c9af05}
+      \strng{authorfullhash}{f7b8b87b6a1433cd96221da951c9af05}
+      \strng{authorfullhashraw}{f7b8b87b6a1433cd96221da951c9af05}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Existing expressions for acoustic cross-sections of a single bubble based on monopole bubble theory depends on the approximation ka ⪡ 1, where k is the wavenumber and a the radius of the bubble. In this note, new expressions for acoustic cross-sections of a single bubble are obtained using monopole bubble theory valid for all ka.}
+      \field{day}{1}
+      \field{issn}{0041-624X}
+      \field{journaltitle}{Ultrasonics}
+      \field{month}{8}
+      \field{number}{5}
+      \field{shortjournal}{Ultrasonics}
+      \field{title}{New expressions of acoustic cross-sections of a single bubble in the monopole bubble theory}
+      \field{urlday}{14}
+      \field{urlmonth}{1}
+      \field{urlyear}{2024}
+      \field{volume}{35}
+      \field{year}{1997}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \field{pages}{407\bibrangedash 409}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1016/S0041-624X(97)00021-8
+      \endverb
+      \verb{file}
+      \verb ScienceDirect Snapshot:/home/vboichenko/Zotero/storage/8GNA7KUJ/S0041624X97000218.html:text/html;Thuraisingham1997.pdf:/home/vboichenko/Zotero/storage/2L3KYPPA/Thuraisingham1997.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0041624X97000218
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0041624X97000218
+      \endverb
+      \keyw{notion,Bubbles,Acoustic cross-section,Acoustic scattering}
+    \endentry
+    \entry{trees_optimum_2002}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=1e2889d06e4e3a9a60650691f3af7747}{%
+           family={Trees},
+           familyi={T\bibinitperiod},
+           given={Harry\bibnamedelimb L.\bibnamedelimi Van},
+           giveni={H\bibinitperiod\bibinitdelim L\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{1e2889d06e4e3a9a60650691f3af7747}
+      \strng{fullhash}{1e2889d06e4e3a9a60650691f3af7747}
+      \strng{fullhashraw}{1e2889d06e4e3a9a60650691f3af7747}
+      \strng{bibnamehash}{1e2889d06e4e3a9a60650691f3af7747}
+      \strng{authorbibnamehash}{1e2889d06e4e3a9a60650691f3af7747}
+      \strng{authornamehash}{1e2889d06e4e3a9a60650691f3af7747}
+      \strng{authorfullhash}{1e2889d06e4e3a9a60650691f3af7747}
+      \strng{authorfullhashraw}{1e2889d06e4e3a9a60650691f3af7747}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Array Processing ist eine wichtige Anwendung im Bereich der digitalen Signalverarbeitung. Eingesetzt wird sie u.a. in der Radar-, Sonar- und Kommuniktionstechnik, in der Seismologie und der Biomedizintechnik. Van Trees zweibändiges Werk 'Detection Estimation and Modulation Theory', das 1972 vom Wiley College Department herausgegeben wurde, war damals ein echter Klassiker. "Array Processing: Detection and Estimation Theory" ist das aktuellste und umfassendste Buch zu diesem Thema. Auf 1.400 Seiten wird die Array Signalverarbeitung umfassend und enzyklopädisch erläutert. Dabei werden auch alle modernen Anwendungen, von der Biomedizin bis hin zur drahtlosen Kommunikation berücksichtigt. Jedes Kapitel enthält eine Zusammenfassung, Beispiele und zahlreiche Problemstellungen. Der Stoff ist übersichtlich gegliedert und wird anschaulich und verständlich vermittelt. "Array Processing: Detection and Estimation Theory" ist ein topaktuelles Nachschlagewerk im Doppelpack: Zum Buch gehört die nachgedruckte Broschurausgabe des zweibändigen Vorgängertitels, der eine ideale Einführung in die komplexe Theorie bietet, die im aktuellen Band behandelt wird.}
+      \field{isbn}{978-0-471-09390-9}
+      \field{month}{4}
+      \field{note}{Google-Books-ID: J5TZDwAAQBAJ}
+      \field{shorttitle}{Optimum {Array} {Processing}}
+      \field{title}{Optimum {Array} {Processing}: {Part} {IV} of {Detection}, {Estimation}, and {Modulation} {Theory}}
+      \field{year}{2002}
+      \true{nocite}
+      \verb{file}
+      \verb Trees - 2002 - Optimum Array Processing Part IV of Detection, Es.pdf:/Users/victoriaboichenko/Zotero/storage/N8GG5ATK/Trees - 2002 - Optimum Array Processing Part IV of Detection, Es.pdf:application/pdf
+      \endverb
+      \keyw{notion,Technology \& Engineering / Electrical,Technology \& Engineering / Electronics / General,Technology \& Engineering / Signals \& Signal Processing}
+    \endentry
+    \entry{veloso_new_2015}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=b0058ea388891753a0ac1307a4b6baae}{%
+           family={Veloso},
+           familyi={V\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9d0055c3f3d6a26ec2d2d2f3921c723a}{%
+           family={Greinert},
+           familyi={G\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9fc0ec9216e2b40f574b2f01472b84ce}{%
+           family={Mienert},
+           familyi={M\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=8b4799f0fdfb82c8569a65e43dfd07c3}{%
+           family={De\bibnamedelima Batist},
+           familyi={D\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{a23c5b627f30a14c6deb91147aa410ff}
+      \strng{fullhash}{98de13193eab50437f0dfced4a7ef354}
+      \strng{fullhashraw}{98de13193eab50437f0dfced4a7ef354}
+      \strng{bibnamehash}{a23c5b627f30a14c6deb91147aa410ff}
+      \strng{authorbibnamehash}{a23c5b627f30a14c6deb91147aa410ff}
+      \strng{authornamehash}{a23c5b627f30a14c6deb91147aa410ff}
+      \strng{authorfullhash}{98de13193eab50437f0dfced4a7ef354}
+      \strng{authorfullhashraw}{98de13193eab50437f0dfced4a7ef354}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Quantifying marine methane fluxes of free gas (bubbles) from the seafloor into the water column is of importance for climate related studies, for example, in the Arctic, reliable methodologies are also of interest for studying man-made gas and oil leakage systems at hydrocarbon production sites. Hydroacoustic surveys with singlebeam and nowadays also multibeam systems have been proven to be a successful approach to detect bubble release from the seabed. A number of publications used singlebeam echosounder data to indirectly quantify free gas fluxes via empirical correlations between gas fluxes observed at the seafloor and the hydroacoustic response. Others utilize the hydroacoustic information in an inverse modeling approach to derive bubble fluxes. Here, we present an advanced methodology using data from splitbeam echosounder systems for analyzing gas release water depth ({>} 100 m). We introduce a new {MATLAB}-based software for processing and interactively editing data and we present how bubble-size distribution, bubble rising speed and the model used for calculating the backscatter response of single bubbles influence the final gas flow rate calculations. As a result, we highlight the need for further investigations on how large, wobbly bubbles, bubble clouds, and multi-scattering influence target strength. The results emphasize that detailed studies of bubble-size distributions and rising speeds need to be performed in parallel to hydroacoustic surveys to achieve realistic mediated methane flow rate and flux quantifications.}
+      \field{issn}{1541-5856}
+      \field{journaltitle}{Limnology and Oceanography: Methods}
+      \field{langid}{english}
+      \field{note}{\_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1002/lom3.10024}
+      \field{number}{6}
+      \field{shorttitle}{A new methodology for quantifying bubble flow rates in deep water using splitbeam echosounders}
+      \field{title}{A new methodology for quantifying bubble flow rates in deep water using splitbeam echosounders: Examples from the Arctic offshore {NW}-Svalbard}
+      \field{urlday}{5}
+      \field{urlmonth}{2}
+      \field{urlyear}{2024}
+      \field{volume}{13}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \field{pages}{267\bibrangedash 287}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1002/lom3.10024
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:/home/vboichenko/Zotero/storage/5QAJSNH4/Veloso et al. - 2015 - A new methodology for quantifying bubble flow rate.pdf:application/pdf;Snapshot:/home/vboichenko/Zotero/storage/BBYVR5TX/lom3.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/lom3.10024
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/lom3.10024
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{veloso-alarcon_quantitatively_2022}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=d58ef9540ca0e3cea798b1f03a76d47a}{%
+           family={Veloso-Alarcón},
+           familyi={V\bibinithyphendelim A\bibinitperiod},
+           given={Mario\bibnamedelima E.},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=64ed0e3e0c3510bba9452a7a7a80d7a8}{%
+           family={Urban},
+           familyi={U\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=2100a116f856d755d4676cbde0e879df}{%
+           family={Weiss},
+           familyi={W\bibinitperiod},
+           given={Tim},
+           giveni={T\bibinitperiod}}}%
+        {{hash=ee619f60604e14d8d00d5746bcdb642c}{%
+           family={Köser},
+           familyi={K\bibinitperiod},
+           given={Kevin},
+           giveni={K\bibinitperiod}}}%
+        {{hash=3636067333edc8018abaf0e4bc3f2c7e}{%
+           family={She},
+           familyi={S\bibinitperiod},
+           given={Mengkun},
+           giveni={M\bibinitperiod}}}%
+        {{hash=a04b73ca79b47fe5a39d942e17f3a2c3}{%
+           family={Greinert},
+           familyi={G\bibinitperiod},
+           given={Jens},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{74c0fa4294124ee996bd15ccbe4dc4b5}
+      \strng{fullhash}{5b2c59929786ec28cbc567f06479880e}
+      \strng{fullhashraw}{5b2c59929786ec28cbc567f06479880e}
+      \strng{bibnamehash}{74c0fa4294124ee996bd15ccbe4dc4b5}
+      \strng{authorbibnamehash}{74c0fa4294124ee996bd15ccbe4dc4b5}
+      \strng{authornamehash}{74c0fa4294124ee996bd15ccbe4dc4b5}
+      \strng{authorfullhash}{5b2c59929786ec28cbc567f06479880e}
+      \strng{authorfullhashraw}{5b2c59929786ec28cbc567f06479880e}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Two lander-based devices, the Bubble-Box and {GasQuant}-{II}, were used to investigate the spatial and temporal variability and total gas flow rates of a seep area offshore Oregon, United States. The Bubble-Box is a stereo camera–equipped lander that records bubbles inside a rising corridor with 80 Hz, allowing for automated image analyses of bubble size distributions and rising speeds. {GasQuant} is a hydroacoustic lander using a horizontally oriented multibeam swath to record the backscatter intensity of bubble streams passing the swath plain. The experimental set up at the Astoria Canyon site at a water depth of about 500 m aimed at calibrating the hydroacoustic {GasQuant} data with the visual Bubble-Box data for a spatial and temporal flow rate quantification of the site. For about 90 h in total, both systems were deployed simultaneously and pressure and temperature data were recorded using a {CTD} as well. Detailed image analyses show a Gaussian-like bubble size distribution of bubbles with a radius of 0.6–6 mm (mean 2.5 mm, std. dev. 0.25 mm); this is very similar to other measurements reported in the literature. Rising speeds ranged from 15 to 37 cm/s between 1- and 5-mm bubble sizes and are thus, in parts, slightly faster than reported elsewhere. Bubble sizes and calculated flow rates are rather constant over time at the two monitored bubble streams. Flow rates of these individual bubble streams are in the range of 544–1,278 mm3/s. One Bubble-Box data set was used to calibrate the acoustic backscatter response of the {GasQuant} data, enabling us to calculate a flow rate of the ensonified seep area (∼1,700 m2) that ranged from 4.98 to 8.33 L/min (5.38 × 106 to 9.01 × 106 {CH}4 mol/year). Such flow rates are common for seep areas of similar size, and as such, this location is classified as a normally active seep area. For deriving these acoustically based flow rates, the detailed data pre-processing considered echogram gridding methods of the swath data and bubble responses at the respective water depth. The described method uses the inverse gas flow quantification approach and gives an in-depth example of the benefits of using acoustic and optical methods in tandem.}
+      \field{issn}{2296-6463}
+      \field{journaltitle}{Frontiers in Earth Science}
+      \field{shorttitle}{Quantitatively Monitoring Bubble-Flow at a Seep Site Offshore Oregon}
+      \field{title}{Quantitatively Monitoring Bubble-Flow at a Seep Site Offshore Oregon: Field Trials and Methodological Advances for Parallel Optical and Hydroacoustical Measurements}
+      \field{urlday}{14}
+      \field{urlmonth}{1}
+      \field{urlyear}{2024}
+      \field{volume}{10}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \verb{file}
+      \verb Full Text PDF:/home/vboichenko/Zotero/storage/DTXPIYGN/Veloso-Alarcón et al. - 2022 - Quantitatively Monitoring Bubble-Flow at a Seep Si.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.frontiersin.org/articles/10.3389/feart.2022.858992
+      \endverb
+      \verb{url}
+      \verb https://www.frontiersin.org/articles/10.3389/feart.2022.858992
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{zhang_experimental_2021}{article}{}{}
+      \name{author}{7}{}{%
+        {{hash=3940c2b740f130e4552b4a9b6a52d72b}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Hongfeng},
+           giveni={H\bibinitperiod}}}%
+        {{hash=097a8e4b43a8825c5b3ecd929d579199}{%
+           family={Lu},
+           familyi={L\bibinitperiod},
+           given={Zhubi},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=037d9231a7dc2aa73e8e405e598bbaca}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Penghua},
+           giveni={P\bibinitperiod}}}%
+        {{hash=ea4a39c22ef4dea121ebf4c240d45dfa}{%
+           family={Gu},
+           familyi={G\bibinitperiod},
+           given={Jiayang},
+           giveni={J\bibinitperiod}}}%
+        {{hash=e18cd8d9d4990ea22ef599e1b860fe94}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={Chunhui},
+           giveni={C\bibinitperiod}}}%
+        {{hash=10fe1ac00b30248e1fbfb3f1d13fb894}{%
+           family={Tong},
+           familyi={T\bibinitperiod},
+           given={Yanqun},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=781da310187410d62ad75f4598e5acb2}{%
+           family={Ren},
+           familyi={R\bibinitperiod},
+           given={Xudong},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{a98992f6c1288c625affca1f474d5f40}
+      \strng{fullhash}{aee5eb58a4757bc8ed1759525cafad73}
+      \strng{fullhashraw}{aee5eb58a4757bc8ed1759525cafad73}
+      \strng{bibnamehash}{a98992f6c1288c625affca1f474d5f40}
+      \strng{authorbibnamehash}{a98992f6c1288c625affca1f474d5f40}
+      \strng{authornamehash}{a98992f6c1288c625affca1f474d5f40}
+      \strng{authorfullhash}{aee5eb58a4757bc8ed1759525cafad73}
+      \strng{authorfullhashraw}{aee5eb58a4757bc8ed1759525cafad73}
+      \field{extraname}{1}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper aims at introducing a novel forming technology named Cavitation Shotless Forming (CSF) and simulating the dynamics of cavitation bubble from initial expansion to collapse stages. The plasma shock wave and bubble collapse shock wave were detected under different laser energies. A wall reflection shock wave was detected by a hydrophone, which is consistent with the simulation result. The trajectory of the bubble was captured by Matlab software. The bubble moves towards the solid wall due to the Bjerknes force. The bubble shape, pressure field and velocity field distributions under different standoff distances were compared. The impinging time of micro-jet was prolonged when the standoff distance was small, and the jet speed and maximum pressure increases with the increasing of standoff distances. In addition, the water hammer pressure under different standoff distances and initial bubble pressures were analyzed. It increases with the increase of initial bubble pressure but decreases with the standoff distance. Finally, the experiments of CSF were carried out, and the specimens show typical morphologies under different standoff distances and the forming depth of specimen decreases with the increase in standoff distances.}
+      \field{issn}{0030-3992}
+      \field{journaltitle}{Optics \& Laser Technology}
+      \field{month}{6}
+      \field{title}{Experimental and numerical investigation of bubble oscillation and jet impact near a solid boundary}
+      \field{urlday}{30}
+      \field{urlmonth}{1}
+      \field{urlyear}{2024}
+      \field{volume}{138}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \field{pages}{106606}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.optlastec.2020.106606
+      \endverb
+      \verb{file}
+      \verb ScienceDirect Snapshot:/Users/victoriaboichenko/Zotero/storage/74SHQXQF/S0030399220312391.html:text/html;Zhang et al. - 2021 - Experimental and numerical investigation of bubble.pdf:/Users/victoriaboichenko/Zotero/storage/4SD8AM7C/Zhang et al. - 2021 - Experimental and numerical investigation of bubble.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0030399220312391
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0030399220312391
+      \endverb
+      \keyw{Bubble collapse shock wave,Cavitation shotless forming,Micro-jet,notion,Plasma shock wave,Water hammer pressure}
+    \endentry
+    \entry{zhang_efficient_2022}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=9bd2d7b3dd17c05bac3ee667f4f07251}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Wanyuan},
+           giveni={W\bibinitperiod}}}%
+        {{hash=b7c580a66fa1a8e148a3650ea5ed0442}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Tian},
+           giveni={T\bibinitperiod}}}%
+        {{hash=317333f698f6a8346a29be2a8fe7779a}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Jianghui},
+           giveni={J\bibinitperiod}}}%
+        {{hash=e51bd353d330d0203232b51fcbc2b64a}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Chao},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{9efd2b1eeb0a538b395b4ce070d03c36}
+      \strng{fullhash}{6ffbde77f99d3a8338d5d2215f53397f}
+      \strng{fullhashraw}{6ffbde77f99d3a8338d5d2215f53397f}
+      \strng{bibnamehash}{9efd2b1eeb0a538b395b4ce070d03c36}
+      \strng{authorbibnamehash}{9efd2b1eeb0a538b395b4ce070d03c36}
+      \strng{authornamehash}{9efd2b1eeb0a538b395b4ce070d03c36}
+      \strng{authorfullhash}{6ffbde77f99d3a8338d5d2215f53397f}
+      \strng{authorfullhashraw}{6ffbde77f99d3a8338d5d2215f53397f}
+      \field{extraname}{2}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In recent years, multibeam sonar has become the most effective and sensitive tool for the detection and quantitation of underwater gas leakage and its rise through the water column. Motivated by recent research, this paper presents an efficient method for the detection and quantitation of gas leakage based on a 300-{kHz} multibeam sonar. In the proposed gas leakage detection method based on multibeam sonar water column images, not only the backscattering strength of the gas bubbles but also the size and aspect ratio of a gas plume are used to isolate interference objects. This paper also presents a volume-scattering strength optimization model to estimate the gas flux. The bubble size distribution, volume, and flux of gas leaks are determined by matching the theoretical and measured values of the volume-scattering strength of the gas bubbles. The efficiency and effectiveness of the proposed method have been verified by a case study at the artificial gas leakage site in the northern South China Sea. The results show that the leaking gas flux is approximately between 29.39 L/min and 56.43 L/min under a bubble radius ranging from 1 mm to 12 mm. The estimated results are in good agreement with the recorded data (32–67 L/min) for gas leaks generated by an air compressor. The experimental results demonstrate that the proposed method can achieve effective and accurate detection and quantitation of gas leakages.}
+      \field{issn}{2072-4292}
+      \field{journaltitle}{Remote Sensing}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{note}{Number: 17 Publisher: Multidisciplinary Digital Publishing Institute}
+      \field{number}{17}
+      \field{title}{An Efficient Method for Detection and Quantitation of Underwater Gas Leakage Based on a 300-{kHz} Multibeam Sonar}
+      \field{urlday}{14}
+      \field{urlmonth}{1}
+      \field{urlyear}{2024}
+      \field{volume}{14}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{4301}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/rs14174301
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:/home/vboichenko/Zotero/storage/NCY4FI63/Zhang et al. - 2022 - An Efficient Method for Detection and Quantitation.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/2072-4292/14/17/4301
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/2072-4292/14/17/4301
+      \endverb
+      \keyw{notion,detection and quantitation,multibeam sonar,underwater gas leakage,water column image}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -1,3 +1,4 @@
+<<<<<<< HEAD:Latex-project/thesis.bbl-SAVE-ERROR
 % $ biblatex auxiliary file $
 <<<<<<< HEAD
 % $ biblatex bbl format version 3.2 $
@@ -1721,3 +1722,5 @@
 \endrefsection
 \endinput
 
+=======
+>>>>>>> parent of 6807142 (fixed bibliography appearence):Latex-project/thesis.bbl

@@ -1,101 +1,67 @@
-Section 2 is devoted to the theoretical part of this paper. The following assignments were the main interest for exploration in order to progress the current state of the work:
+Chapter 2 is devoted to the theoretical part of this paper. The following assignments were the main interest for exploration in order to progress the current state of the work:
 \begin{itemize}
-    \item beamforming
-    \item cross-correlation, matched filtering
-    \item sonar equation
+    \item sound propagation concepts
     \item bubble backscattering, natural frequency, Thuraisingham and Anderson models
     \item multiple backscattering, other models implementation
     \item reconstruction of the bubble frequency response from the received signal
-    \item sound propagation concepts
-    \item Wiener filter noise deconstruction
+    \item beamforming
+    \item cross-correlation, matched filtering
+    \item sonar equation
+    \item near and far field characteristics
+\end{itemize}
+\section{Sound propagation concepts}
+
+\section{Bubble models}
+% bubble backscattering, natural frequency, Thuraisingham and Anderson models
+\subsection{Single bubble model}
+
+There is a general formula of the gas bubble's rising velocity based on the bubble's volume, which allows us not to consider the bubble shape and its change during the rising process.
+
+
+\begin{itemize}
+    \item Anderson
+    Anderson model provides a modal solution and allows to model the backscattering cross-section of a single bubble for $ka > 1$\cite{anderson_sound_2005}.
+
+    \item Thuraisingham
+
+    In this paper of Zhang et al. 2022\cite{zhang_efficient_2022} modal solution is used when ka > 1, and Thuraisingham solution is preferred for the ka<1, as the first doesn't consider the bubble damping effect.  Such approach can be used for our multiple compund bubble simulation.
+
+    \item Church, Medwin,
+
+    Andreeva is for fish.
+
 \end{itemize}
 
-\subsection{Beamforming}
+\section{Multiple bubble model}
 
-% What is a beamforming? Why do we use it? How do we use it?
-A beamforming is a way of processing the received or transmitted signal, so that we can direct the directed and amplified signal from teh projector with multiple receivers or transmitters, therefore improving the SNR and eliminating unwanted interfering signals. Also, it can be referred as a spatial filtering.
+More bubbles are added
 
-Withing the scope of the work we have used beamforming in the sonar environment. A conventional beamformer in the form of the delay-and-sum was used. 
-
-\subsection{Reconstruction of the bubble frequency response from the received signal}
-
-It will allow demonstrating the ability to invert the model to find individual bubble contributions from compund analysis.
-The following equation \ref*{eqn:reconstruction_bubble} was the base of the calculations:
-\begin{equation}
-    \label{eqn:reconstruction_bubble}
-    R = T \times H + N
-\end{equation}
-where R is a received signal, T is a transmitted signal by sonar, H is frequency response of the bubble, N is an added background noise.
-
-
-\subsection{Simple version of the multiple scattering }
-
+\subsection{Multiple scattering }
+% Foldy paper equation explanation and concept of the multiple scattering
 The concept lies in considering each bubble as a source when it scatters an incident wave. 
 Therefore, each bubble will have an influence on another, and also receives a sum of all scatterrings from 
 other bubbles. 
 
 Bubbles have to be sufficiently far from each other in order not to be dependent on each others bubble frequency response.
 
-\subsection{Different single bubble models}
-\begin{itemize}
-    \item Anderson
+\section{Reconstruction of the bubble frequency response}
 
-    Anderson model provides a modal solution and allows to model the backscattering cross-section of a single bubble for $ka > 1$ \cite{anderson_sound_2005}.
+It will allow demonstrating the ability to invert the model to find individual bubble contributions from compund analysis.
+The following equation\ref{eqn:reconstruction_bubble} was the base of the calculations:
 
-    \item Thuraisingham
+\begin{equation}\label{eqn:reconstruction_bubble}
+    R = T \times H + N
+\end{equation}
+where R is a received signal, T is a transmitted signal by sonar, H is frequency response of the bubble, N is an added background noise.
 
-    In this paper of Zhang et al. 2022 \cite{zhang_efficient_2022} modal solution is used when ka > 1, and Thuraisingham solution is preferred for the ka<1, as the first doesn't consider the bubble damping effect.  Such approach can be used for our multiple compund bubble simulation.
+\section{Beamforming}
 
-    \item Church, Medwin,
+% What is a beamforming? Why do we use it? How do we use it?
+A beamforming is a way of processing the received or transmitted signal, so that we can direct the directed and amplified signal from teh projector with multiple receivers or transmitters, therefore improving the SNR and eliminating unwanted interfering signals. Also, it can be referred as a spatial filtering.
 
-    Andreeva is for fish.
+Withing the scope of the work we have used beamforming in the sonar environment. A conventional beamformer in the form of the delay-and-sum was used. 
 
-
-\end{itemize}
-
-
-There is a general formula of the gas bubble's rising velocity based on the bubble's volume, which allows us not to consider the bubble shape and its change during the rising process.
-
-
-
-\subsection{Research on the available mesurement procedures within the literature of the bubble experiments}
-
-\begin{itemize}
-    \item  Sound signal: narrow band pulse, chirp, noise
-    \item Sonar position: from top, vertical, horizontal
-    \item Bubbles location: in the center of the experimental pool
-   \item Bubble characteristics: emitting a single bubble of the specified radius; a row of bubbles; 
-   creating a bubble flare;
-\end{itemize}
-Other things which are important for taking into account are:
-\begin{itemize}
-    \item Response of the transducer can influence the received signal
-    \item Near field radiation implementation for measurements with a spherical radiation against the plane wave in a far field
-\end{itemize}
-
-Further set of things which are required to perform the experiment are the setup of the equipment required for performing our measurements. 
-Essentially, it will include the sonar, a bubble generator, processing unit as a laptop/computer.
-
-There different papers which have conducted similar experiments on bubble investigation. 
-
-The Zhang et al. 2021 \cite{zhang_experimental_2021} paper contains description of the experiment for investigation bubble oscillations. In order to produce cavitaion bubbles the setup used a deionised water.
-
-In order to detect the acoustic radiation released by cavitation bubbles a fiber optic hydrophone was employed, which was calibrated and attached to oscilloscope.  
-Among possible things that could affect results were the cleanliness of sensor connector, water quality and wall reflection of the shock wave.
-
-Leblond paper provides a scheme of the vertical and horizontal observation of the acoustic bubble release \cite{leblond_acoustic_2014}. Vertical will allow to detect bubbles all along the acoustic beam, while for horizontal we will see only the crossing of the stream.
-
-Some unresolved interesting questions:
-\begin{itemize}
-    \item Measurement of the reverberation time of the water tank???
-\end{itemize}
-
-\subsection{Wiener filter noise deconstruction}
-
-It is one o the signal processing filters which allow us to denoise the signal. Main feature of the Wiener filter is that unlike simpler filters that may only suppress noise or attenuate certain frequency components, the Wiener filter operates on a statistical model of the signal and noise, effectively balancing the trade-off between signal fidelity and noise reduction.
-
-
-\subsection{Sonar equation }
+\section{Sonar equation }
 The Sonar equation is a fundamental tool in underwater acoustics used to predict the performance of sonar systems. 
 The basic form of the Sonar equation is:
 \begin{equation}

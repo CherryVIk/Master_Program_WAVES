@@ -1,10 +1,4 @@
 %%% Introduction: presentation of the laboratory/structure, of your department, and the framework of the internship
-The internship was performed as a part of the project within the scope of the hydroacoustic study field of the research instute GEOMAR of the Marine Geology, DeepSeaMonitoring department (DSM) with a collaboration of Technical faculty of the Christian-Albert University in Kiel. 
-
-The framework within this internship was in a bubble acoustics, where a simulation work with an experimental measurements in the lab was done. 
-
-Initially it started with an available literature review on the current topic. After that the simulation of the acoustic frequency response of the bubble with a SIMO-sonar system was performed using a Thuraisingham model and parameters described in Li et al paper\cite{li_broadband_2020}. Different levels of the complexity of the model were done progressively. Starting from the single static bubble modelling, folllowing by adding more bubbles, exploring them in the dynamic state and changing the distribution as well as the location of the bubbles. Simulations of the bubble flares were compared with the emperical data obtained after measurements.
-
 
 % contextualize the study (project, industrial contract...)
 % describe the working environment (company, lab,...) and position the study in this context
@@ -13,7 +7,25 @@ Initially it started with an available literature review on the current topic. A
 % include a critical analysis of your results
 % do not include a listing of programs; in case where you want to disseminate your code developed during the internship, make a link to a public repository
 
-\subsection{Literature overview} 
+The internship was performed as a part of the project within the hydroacoustic study field of the research instute GEOMAR at the research unit of the Marine Geology, DeepSeaMonitoring group (DSM) with a collaboration of Technical faculty of the Christian-Albert University in Kiel. 
+
+This DSM group covers a wide range of scintific research and application-oriented development fields. Main problems are exploring the gas flows from the sea floor, its quantification, detection, and monitoring; seabed resources assessment with the help of habitat mapping, its organisms; and environmental monitoring of munitions dump sites delaboration\cite{noauthor_deepsea_nodate}.
+
+Within the technologies used in DSM are hydroacoustic, electromagnetic, and optical in the combination of calibration and post-processing techniques, as well as a geochemical analysis of the sea surface, the water column and atmosphere.
+
+The internship was aimed to build a theoretical model for the acoustic frequency response of multi-bubble compounds, such as gas bubble flares from natural reservoirs. The main objective is to validate and adapt this theoretical model using emperical data and new measurements, integrating it into existing simulation software for applications such as underwater column simulations and SONAR data generation for AI training purposes.
+
+The thesis is structured in the following way:
+\begin{itemize}
+    \item Chapter 1 gives the current state of art of the problem and available literature overview.
+    \item Chapter 2 overviews the basic theoretical concepts necessary for accomplishing goals of this internship.
+    \item Chapter 3 presents simulations of the acoustic frequency response of bubbles in different settings of the motion, quantity, and between bubble interaction. 
+    \item Chapter 4 shows the setup and the process of experiment of the bubble flare in the water tank. Also, it provides results of the comparison of the emperical and experimental data.
+    \item Chapter 5 concludes the overall results of the thesis and further steps in this research field direction.
+    \item Appendix contains static and animated plots of the results obtained from the simulations and experiment measurements.  
+\end{itemize}
+
+\section{Literature overview} 
 %  of the single/multiple bubble modelling
 
 In the paper of Foldy the mathematical background behind the scattering of the sphere has given a push to the further development of this property in bubbles.

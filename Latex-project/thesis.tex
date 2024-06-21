@@ -1,16 +1,12 @@
-<<<<<<< HEAD
-=======
 % !TEX encoding = UTF-8 Unicode
-% !TEX program = lualatex
->>>>>>> parent of 6807142 (fixed bibliography appearence)
 % Waves Program Master Degree Template
 % Author: Viktoriia Boichenko
 % vik.boichenko@gmail.com
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper,11pt]{report}
 
 % \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\graphicspath{ figures/ }
+\graphicspath{ {./figures/experiments/}{./figures/setup/}{./figures/simulations/}  }
 
 % Language setting
 \usepackage[english]{babel}
@@ -21,10 +17,10 @@
 
 % Set spacing between lines and sections
 \usepackage{titlesec}
-\titlespacing*{\section}{0pt}{32pt}{20pt}
+\titlespacing*{\chapter}{0pt}{32pt}{20pt}
 \titlespacing*{\subsection}{0pt}{16pt}{20pt}
-\usepackage{setspace}
-\onehalfspacing %Adds space after paragraph
+% \usepackage{setspace}
+% \onehalfspacing %Adds space after paragraph
 \usepackage{parskip}
 \setlength{\parindent}{0pt}
 
@@ -83,9 +79,10 @@
     \vfill
 
     % \begin{minipage}[c]{0.5\linewidth}
-    \LARGE\textsc{"Acoustic Frequency Response Modelling of Multi-Bubble Compounds"}
+    \LARGE\textsc{Acoustic Frequency Response Modelling of Multi-Bubble Compounds}
     % \end{minipage}
-    % \Large \text{Subtitle}
+    \vspace{0.5cm}
+    \Large \text{Master thesis in Acoustic Engineering}
 \end{center}
 
 \vfill
@@ -108,50 +105,56 @@
 \end{minipage}
 
 \end{titlepage}
-% \right{
-%     
-% }   
+   
 
 
 \newpage
 
-\section*{Abstract}
+\chapter*{Abstract}
 
 \input{sections/abstract}
 
 \newpage
 
-\section*{Dedication}
+\chapter*{Dedication}
 To mum, and dad, and two lovely cats
 
-\section*{Declaration}
-I declare that no cats have suffered during the experiments
+\chapter*{Declaration}
 
-\section*{Acknowledgements}
-I want to thank all the people who didn't disturb me during this master thesis writing process
+I hereby declare that this thesis is my own original work and has not been submitted previously for any degree or diploma at any institution. All sources of information and data used have been acknowledged, and I have followed all ethical guidelines in conducting this research.
+
+I confirm that the content of this thesis is the result of my own work, except where specifically stated otherwise in the text. Any assistance received has been duly acknowledged.
+
+\chapter*{Acknowledgements}
+I would like to express my sincere gratitude to my co-supervisors, Christian Kanarski and Jens Greinert, for their invaluable guidance, support, and expertise throughout this research project. Your insights and feedback have been crucial to the completion of this thesis.
+
+I am deeply grateful to the team at GEOMAR, especially the DSM-group, for providing the necessary resources and a conducive environment for my research. Special thanks to my colleagues for their collaboration and encouragement.
+
+I also extend my thanks to the technical faculty staff for their assistance with the experimental setups and measurements, and to all those who provided the empirical data used in this study.
+
+Lastly, I would like to thank my family and friends for their unwavering support, patience, and understanding throughout this journey. Your belief in me has been a constant source of motivation and strength.
+
+Thank you all for making this achievement possible.
 
 \newpage
 
 \tableofcontents
 % \listoffigures
 % \listoftables
-
-% \newpage
-
-\section{Introduction}
+\chapter{Introduction}
 % o	introduction : presentation of the laboratory/structure, of your department, and the framework of the internship
 \input{sections/introduction}
 
-\section{Theory}
+\chapter{Theory}
 \input{sections/section02}
 
-\section{Simulations \& Experiment}
+\chapter{Simulations \& Experiment}
 \input{sections/section03}
 
-\section{ }
+\chapter{ }
 \input{sections/section04}
 
-\section{Conclusion}
+\chapter{Conclusion}
 \input{sections/conclusion}
 
 \nocite{*}

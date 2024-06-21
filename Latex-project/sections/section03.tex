@@ -1,8 +1,8 @@
 This section will include the simulation and programming part of the work, experimental part
 
-\subsection{Simulation of bubble response}
+\section{Simulation of bubble response}
 
-\subsection{Experiment of measuring bubbles}
+\section{Experiment of measuring bubbles}
 
 
 \begin{center}
@@ -22,9 +22,11 @@ This section will include the simulation and programming part of the work, exper
 %	OBJECTIVE
 %----------------------------------------------------------------------------------------
 
-\subsection{Objective}
+\section{Objective}
 
-This laboratory project aims to connect theoretical concepts with empirical observations through the use of volume strength backscattering. The primary objective is to illustrate the practical applications of theoretical knowledge acquired during the internship and master’s thesis research. By leveraging volume strength backscattering as a key analytical tool, we will examine experimental data, providing insights into how theoretical abstractions translate into concrete experimental methodologies. This integration is designed to promote a comprehensive understanding of the reciprocal relationship between theory and practice, underscoring the significance of a multidimensional approach in scientific inquiry and engineering practice.
+This laboratory project aims to connect theoretical concepts with empirical observations through the use of volume strength backscattering. The primary objective is to illustrate the practical applications of theoretical knowledge acquired during the internship and master’s thesis research. 
+
+By leveraging volume strength backscattering as a key analytical tool, we will examine experimental data, providing insights into how theoretical abstractions translate into concrete experimental methodologies. This integration is designed to promote a comprehensive understanding of the reciprocal relationship between theory and practice, underscoring the significance of a multidimensional approach in scientific inquiry and engineering practice.
 
 \begin{description}
 	\item[Sonars] 
@@ -41,7 +43,7 @@ This laboratory project aims to connect theoretical concepts with empirical obse
     %or whatever definition you want to add 
 \end{description} 
 
-\subsection{Experimental model}
+\section{Experimental model}
 
 The experimental setup entails an experiment of bubbles flares detection with a sonar. They were emitted in a water with a bubble generator and observed with the help of the SIMO-sonar with an ultrasound in a laboratory conditions of the water tank. 
 
@@ -49,7 +51,7 @@ Preliminary tests of the water tank were performed in order to identify the impu
 
 The primary focus of the observation was the volume strength back scattering (Vs), chosen as the key parameter for assessing the acoustic bubble response with acoustic radiation in the high-frequency range. 
 
-\subsection{ The setup}
+\section{ The setup}
 
 Our bubble experiment was conducted using a meticulously designed setup aimed at exploring the acoustic frequency response of the bubbles. The experimental arrangement included the following:
 \begin{itemize}
@@ -61,31 +63,36 @@ Our bubble experiment was conducted using a meticulously designed setup aimed at
 
 During the experiment different signal types (noise and chirp) and length (2 ms and 10 ms) were used for the analysis of the bubble flares. The emitted central frequency was 50 kHz with a bandwidth of 40 kHz. The sampling frequency was 192 kHz.
 \begin{itemize}
-    \item \textbf{Noise}: a white noise whose frequency is not dependent on the power spectral density \cite*{ainslie_principles_2010};  
+    \item \textbf{Noise}: a white noise whose frequency is not dependent on the power spectral density\cite*{ainslie_principles_2010};  
     \item \textbf{Chirp}: a hyperbolic frequency modulation upward signal 
 \end{itemize}
 
+\begin{itemize}
+    \item  Sound signal: narrow band pulse, chirp, noise
+    \item Sonar position: from top, vertical, horizontal
+    \item Bubbles location: in the center of the experimental pool
+   \item Bubble characteristics: emitting a single bubble of the specified radius; a row of bubbles; 
+   creating a bubble flare;
+\end{itemize}
+Other things which are important for taking into account are:
+\begin{itemize}
+    \item Response of the transducer can influence the received signal
+    \item Near field radiation implementation for measurements with a spherical radiation against the plane wave in a far field
+\end{itemize}
 
-% \begin{figure}[H]
-%     \includegraphics[width='0.7'\textwidth]{'setup/'}
-%     \centering
-%     \caption*{'caption'}
-% \end{figure}
+Further set of things which are required to perform the experiment are the setup of the equipment required for performing our measurements. 
+Essentially, it will include the sonar, a bubble generator, processing unit as a laptop/computer.
 
+There different papers which have conducted similar experiments on bubble investigation. 
 
-% If you have more than one objective, uncomment the below:
-%\begin{description}
-%	\item[First Objective] \hfill \\
-%	Objective 1 text
-%	\item[Second Objective] \hfill \\
-%	Objective 2 text
-%\end{description}
- 
-%----------------------------------------------------------------------------------------
-%	EXPERIMENTAL DATA
-%----------------------------------------------------------------------------------------
+The Zhang et al. 2021\cite{zhang_experimental_2021} paper contains description of the experiment for investigation bubble oscillations. In order to produce cavitaion bubbles the setup used a deionised water.
 
-\subsection{Experimental Data}
+In order to detect the acoustic radiation released by cavitation bubbles a fiber optic hydrophone was employed, which was calibrated and attached to oscilloscope.  
+Among possible things that could affect results were the cleanliness of sensor connector, water quality and wall reflection of the shock wave.
+
+Leblond paper provides a scheme of the vertical and horizontal observation of the acoustic bubble release\cite{leblond_acoustic_2014}. Vertical will allow to detect bubbles all along the acoustic beam, while for horizontal we will see only the crossing of the stream.
+
+\section{Experimental Data}
 
 
 After the pocessing the date of 23 recorded measurements, a few results as well as comparisons can be presented below. 
@@ -96,18 +103,18 @@ At the vertical orientation sample 19 (noise) and 23 (chirp, 10ms) are seem to b
 
 \textbf{$H_{wall}$} can be extracted from the initial measurement, calculating an impulse response of the water tank and identifying the location of the walls with the sonar.
 
-% \begin{figure}[H]
-%     \includegraphics[width='0.7'\textwidth]{'experiments/anima22_2'}
-%     \centering
-%     \caption*{'Vertical orientation of the sonar, chirp'}
-%     \label{fig:V_chirp_2ms_anima}
-% \end{figure}
+\begin{figure}[H]
+    \includegraphics[width=0.7\textwidth]{reconstruction8_ping_001.png}
+    \centering
+    \caption*{'Horizontal orientation of the sonar, 10ms noise, sample 8'}
+    \label{fig:H_noise_10ms_plot}
+\end{figure}
 
 %----------------------------------------------------------------------------------------
 %	SAMPLE CALCULATION
 %----------------------------------------------------------------------------------------
 
-\subsection{Calculations}
+\section{Calculations}
 
 \begin{itemize}
     \item Vs from a single ping

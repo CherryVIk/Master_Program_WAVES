@@ -1,3 +1,4 @@
+% !TEX encoding = UTF-8 Unicode
 % Waves Program Master Degree Template
 % Author: Viktoriia Boichenko
 % vik.boichenko@gmail.com
@@ -33,8 +34,8 @@
 \usepackage{float} %locate figures with [H]
 
 %Import the bibliography file
-\usepackage[bibstyle=ieee]{biblatex}
-\addbibresource{/cites/bibliography.bib} 
+\usepackage[backend=biber]{biblatex}
+\addbibresource{cites/bibliography.bib} 
 
 % \title{
 % {Acoustic Frequency Response Modelling} \\
@@ -78,9 +79,9 @@
     \vfill
 
     % \begin{minipage}[c]{0.5\linewidth}
-    \LARGE\textsc{"Acoustic Frequency Response Modelling of Multi-Bubble Compounds"}
+    \LARGE\textbf{Acoustic Frequency Response Modelling of Multi-Bubble Compounds}
     % \end{minipage}
-    % \Large \text{Subtitle}
+     \Large \text{Master thesis in Acoustic Engineering}
 \end{center}
 
 \vfill
@@ -150,7 +151,7 @@ I want to thank all the people who didn't disturb me during this master thesis w
 \input{sections/conclusion}
 
 \nocite{*}
-\printbibliography[heading=bibintoc]
+\printbibliography
 
 \begin{appendix}
 % appendices : 10 pages maximum

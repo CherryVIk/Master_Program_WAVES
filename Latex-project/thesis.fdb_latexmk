@@ -1,6 +1,6 @@
 # Fdb version 4
-["latex"] 1718969972.12934 "/Users/victoriaboichenko/Library/CloudStorage/OneDrive-UniversidadedeCoimbra/Master_Program_WAVES/Latex-project/thesis.tex" "thesis.dvi" "thesis" 1718969972.51263 2
-  "/Users/victoriaboichenko/Library/CloudStorage/OneDrive-UniversidadedeCoimbra/Master_Program_WAVES/Latex-project/thesis.tex" 1718969509.36471 3342 6c66b6450c3ee1074f297387fe876032 ""
+["latex"] 1718971426.17067 "/Users/victoriaboichenko/Library/CloudStorage/OneDrive-UniversidadedeCoimbra/Master_Program_WAVES/Latex-project/thesis.tex" "thesis.dvi" "thesis" 1718971426.62054 2
+  "/Users/victoriaboichenko/Library/CloudStorage/OneDrive-UniversidadedeCoimbra/Master_Program_WAVES/Latex-project/thesis.tex" 1718971425.21984 3472 e72be91cce19bac7c9bd206b76df6034 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1136768653 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
   "/usr/local/texlive/2024/texmf-dist/tex/generic/babel-english/english.ldf" 1496785618 7008 9ff5fdcc865b01beca2b0fe4a46231d4 ""
@@ -23,8 +23,8 @@
   "/usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf" 1710714342 41663 c82a74d8036de408d74af2c8ae75c7e5 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/latex.fmt" 1712917367 8222981 6f6329510bcc361f5164e872cd598cf8 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "thesis.aux" 0 -1 0 "latex"
-  "thesis.tex" 1718969509.36471 3342 6c66b6450c3ee1074f297387fe876032 ""
+  "thesis.aux" 1718971426.16962 32 3985256e7290058c681f74d7a3565a19 "latex"
+  "thesis.tex" 1718971425.21984 3472 e72be91cce19bac7c9bd206b76df6034 ""
   (generated)
   "thesis.aux"
   "thesis.dvi"

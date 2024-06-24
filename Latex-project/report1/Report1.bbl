@@ -1,0 +1,278 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{anderson_sound_2005}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=637da7aad67676fc84c9baa22af25422}{%
+           family={Anderson},
+           familyi={A\bibinitperiod},
+           given={Victor\bibnamedelima C.},
+           giveni={V\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{637da7aad67676fc84c9baa22af25422}
+      \strng{fullhash}{637da7aad67676fc84c9baa22af25422}
+      \strng{fullhashraw}{637da7aad67676fc84c9baa22af25422}
+      \strng{bibnamehash}{637da7aad67676fc84c9baa22af25422}
+      \strng{authorbibnamehash}{637da7aad67676fc84c9baa22af25422}
+      \strng{authornamehash}{637da7aad67676fc84c9baa22af25422}
+      \strng{authorfullhash}{637da7aad67676fc84c9baa22af25422}
+      \strng{authorfullhashraw}{637da7aad67676fc84c9baa22af25422}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The scattering of sound from a spherical fluid obstacle of size comparable to a wave‐length is considered, neglecting dissipation. Calculations of the acoustic pressure and the total energy in the scattered wave are presented graphically; sound velocities and densities of the sphere lie between 0.5 and 2.0 times that of the external medium. The limiting cases of Rayleigh scattering and scattering from a fixed rigid sphere are also shown for comparison. In the region where the diameter of the sphere is comparable to a wave‐length, the scattering is a complicated function of frequency, showing in some cases large maxima and minima. The amplitude of the scattered wave in the backward direction from a fluid sphere a few wave‐lengths in diameter exceeds twice that from a rigid sphere of the same size for the case of the sound velocity 0.8 and density equal to that of the surrounding medium.}
+      \field{issn}{0001-4966}
+      \field{journaltitle}{The Journal of the Acoustical Society of America}
+      \field{month}{6}
+      \field{number}{4}
+      \field{title}{Sound {Scattering} from a {Fluid} {Sphere}}
+      \field{urlday}{1}
+      \field{urlmonth}{2}
+      \field{urlyear}{2024}
+      \field{volume}{22}
+      \field{year}{2005}
+      \field{urldateera}{ce}
+      \field{pages}{426\bibrangedash 431}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1121/1.1906621
+      \endverb
+      \verb{file}
+      \verb Anderson - 2005 - Sound Scattering from a Fluid Sphere.pdf:/Users/victoriaboichenko/Zotero/storage/IRCET4JJ/Anderson - 2005 - Sound Scattering from a Fluid Sphere.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1121/1.1906621
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1121/1.1906621
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{zhang_efficient_2022}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=9bd2d7b3dd17c05bac3ee667f4f07251}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Wanyuan},
+           giveni={W\bibinitperiod}}}%
+        {{hash=b7c580a66fa1a8e148a3650ea5ed0442}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Tian},
+           giveni={T\bibinitperiod}}}%
+        {{hash=317333f698f6a8346a29be2a8fe7779a}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Jianghui},
+           giveni={J\bibinitperiod}}}%
+        {{hash=e51bd353d330d0203232b51fcbc2b64a}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Chao},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{296bb65975956ba9ddaaad5af77d5bc0}
+      \strng{fullhash}{6ffbde77f99d3a8338d5d2215f53397f}
+      \strng{fullhashraw}{6ffbde77f99d3a8338d5d2215f53397f}
+      \strng{bibnamehash}{6ffbde77f99d3a8338d5d2215f53397f}
+      \strng{authorbibnamehash}{6ffbde77f99d3a8338d5d2215f53397f}
+      \strng{authornamehash}{296bb65975956ba9ddaaad5af77d5bc0}
+      \strng{authorfullhash}{6ffbde77f99d3a8338d5d2215f53397f}
+      \strng{authorfullhashraw}{6ffbde77f99d3a8338d5d2215f53397f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In recent years, multibeam sonar has become the most effective and sensitive tool for the detection and quantitation of underwater gas leakage and its rise through the water column. Motivated by recent research, this paper presents an efficient method for the detection and quantitation of gas leakage based on a 300-{kHz} multibeam sonar. In the proposed gas leakage detection method based on multibeam sonar water column images, not only the backscattering strength of the gas bubbles but also the size and aspect ratio of a gas plume are used to isolate interference objects. This paper also presents a volume-scattering strength optimization model to estimate the gas flux. The bubble size distribution, volume, and flux of gas leaks are determined by matching the theoretical and measured values of the volume-scattering strength of the gas bubbles. The efficiency and effectiveness of the proposed method have been verified by a case study at the artificial gas leakage site in the northern South China Sea. The results show that the leaking gas flux is approximately between 29.39 L/min and 56.43 L/min under a bubble radius ranging from 1 mm to 12 mm. The estimated results are in good agreement with the recorded data (32–67 L/min) for gas leaks generated by an air compressor. The experimental results demonstrate that the proposed method can achieve effective and accurate detection and quantitation of gas leakages.}
+      \field{issn}{2072-4292}
+      \field{journaltitle}{Remote Sensing}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{note}{Number: 17 Publisher: Multidisciplinary Digital Publishing Institute}
+      \field{number}{17}
+      \field{title}{An Efficient Method for Detection and Quantitation of Underwater Gas Leakage Based on a 300-{kHz} Multibeam Sonar}
+      \field{urlday}{14}
+      \field{urlmonth}{1}
+      \field{urlyear}{2024}
+      \field{volume}{14}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{4301}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/rs14174301
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:/home/vboichenko/Zotero/storage/NCY4FI63/Zhang et al. - 2022 - An Efficient Method for Detection and Quantitation.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/2072-4292/14/17/4301
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/2072-4292/14/17/4301
+      \endverb
+      \keyw{notion,detection and quantitation,multibeam sonar,underwater gas leakage,water column image}
+    \endentry
+    \entry{zhang_experimental_2021}{article}{}{}
+      \name{author}{7}{}{%
+        {{hash=3940c2b740f130e4552b4a9b6a52d72b}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Hongfeng},
+           giveni={H\bibinitperiod}}}%
+        {{hash=097a8e4b43a8825c5b3ecd929d579199}{%
+           family={Lu},
+           familyi={L\bibinitperiod},
+           given={Zhubi},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=037d9231a7dc2aa73e8e405e598bbaca}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Penghua},
+           giveni={P\bibinitperiod}}}%
+        {{hash=ea4a39c22ef4dea121ebf4c240d45dfa}{%
+           family={Gu},
+           familyi={G\bibinitperiod},
+           given={Jiayang},
+           giveni={J\bibinitperiod}}}%
+        {{hash=e18cd8d9d4990ea22ef599e1b860fe94}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={Chunhui},
+           giveni={C\bibinitperiod}}}%
+        {{hash=10fe1ac00b30248e1fbfb3f1d13fb894}{%
+           family={Tong},
+           familyi={T\bibinitperiod},
+           given={Yanqun},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=781da310187410d62ad75f4598e5acb2}{%
+           family={Ren},
+           familyi={R\bibinitperiod},
+           given={Xudong},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{b289837b9eedcaa632187cd408061353}
+      \strng{fullhash}{aee5eb58a4757bc8ed1759525cafad73}
+      \strng{fullhashraw}{aee5eb58a4757bc8ed1759525cafad73}
+      \strng{bibnamehash}{b289837b9eedcaa632187cd408061353}
+      \strng{authorbibnamehash}{b289837b9eedcaa632187cd408061353}
+      \strng{authornamehash}{b289837b9eedcaa632187cd408061353}
+      \strng{authorfullhash}{aee5eb58a4757bc8ed1759525cafad73}
+      \strng{authorfullhashraw}{aee5eb58a4757bc8ed1759525cafad73}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper aims at introducing a novel forming technology named Cavitation Shotless Forming (CSF) and simulating the dynamics of cavitation bubble from initial expansion to collapse stages. The plasma shock wave and bubble collapse shock wave were detected under different laser energies. A wall reflection shock wave was detected by a hydrophone, which is consistent with the simulation result. The trajectory of the bubble was captured by Matlab software. The bubble moves towards the solid wall due to the Bjerknes force. The bubble shape, pressure field and velocity field distributions under different standoff distances were compared. The impinging time of micro-jet was prolonged when the standoff distance was small, and the jet speed and maximum pressure increases with the increasing of standoff distances. In addition, the water hammer pressure under different standoff distances and initial bubble pressures were analyzed. It increases with the increase of initial bubble pressure but decreases with the standoff distance. Finally, the experiments of CSF were carried out, and the specimens show typical morphologies under different standoff distances and the forming depth of specimen decreases with the increase in standoff distances.}
+      \field{issn}{0030-3992}
+      \field{journaltitle}{Optics \& Laser Technology}
+      \field{month}{6}
+      \field{title}{Experimental and numerical investigation of bubble oscillation and jet impact near a solid boundary}
+      \field{urlday}{30}
+      \field{urlmonth}{1}
+      \field{urlyear}{2024}
+      \field{volume}{138}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \field{pages}{106606}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.optlastec.2020.106606
+      \endverb
+      \verb{file}
+      \verb ScienceDirect Snapshot:/Users/victoriaboichenko/Zotero/storage/74SHQXQF/S0030399220312391.html:text/html;Zhang et al. - 2021 - Experimental and numerical investigation of bubble.pdf:/Users/victoriaboichenko/Zotero/storage/4SD8AM7C/Zhang et al. - 2021 - Experimental and numerical investigation of bubble.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0030399220312391
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0030399220312391
+      \endverb
+      \keyw{Bubble collapse shock wave,Cavitation shotless forming,Micro-jet,notion,Plasma shock wave,Water hammer pressure}
+    \endentry
+    \entry{leblond_acoustic_2014}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=ec5f9c37e679a08d4126dbdc7f07b22c}{%
+           family={Leblond},
+           familyi={L\bibinitperiod},
+           given={Isabelle},
+           giveni={I\bibinitperiod}}}%
+        {{hash=368ef9de0be1c73b7cf8a7005059de0e}{%
+           family={Scalabrin},
+           familyi={S\bibinitperiod},
+           given={Carla},
+           giveni={C\bibinitperiod}}}%
+        {{hash=2d5d7e2625ec26fb62fd857e5f50fd50}{%
+           family={Berger},
+           familyi={B\bibinitperiod},
+           given={Laurent},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \strng{fullhash}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \strng{fullhashraw}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \strng{bibnamehash}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \strng{authorbibnamehash}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \strng{authornamehash}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \strng{authorfullhash}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \strng{authorfullhashraw}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Three decades of continuous ocean exploration have led us to identify subsurface fluid related processes as a key phenomenon in marine earth science research. The number of seep areas located on the seafloor has been constantly increasing with the use of multi-scale imagery techniques. Due to recent advances in transducer technology and computer processing, multibeam echosounders are now commonly used to detect submarine gas seeps escaping from the seafloor into the water column. A growing number of en-route surveys shows that sites of gas emissions escaping from the seafloor are much more numerous than previously thought. Estimating the temporal variability of the gas flow rate and volumes escaping from the seafloor has thus become a challenge of relevant interest which could be addressed by sea-floor continuous acoustic monitoring. Here, we investigate the feasibility of estimating the volumetric flow rates of gas emissions from horizontal backscattered acoustic signals. Different models based on the acoustic backscattering theory of bubbles are presented. The forward volume backscattering strength and the inversion volumetric flow rate solutions were validated with acoustic measurements from artificial gas flow rates generated in controlled sea-water tank experiments. A sensitivity analysis was carried out to investigate the behavior of the 120-kHz forward solution with respect to model input parameters (horizontal distance between transducer and bubble stream, bubble size distribution and ascent rate). The most sensitive parameter was found to be the distance of the bubble stream which can affect the volume backscattering strength by 20 dB within the horizontal range of 0–200 m. Results were used to derive the detection probability of a bubble stream for a given volume backscattering strength threshold according to different bubble flow rates and horizontal distance.}
+      \field{issn}{1573-0581}
+      \field{journaltitle}{Marine Geophysical Research}
+      \field{month}{9}
+      \field{number}{3}
+      \field{shorttitle}{Acoustic monitoring of gas emissions from the seafloor. {Part} {I}}
+      \field{title}{Acoustic monitoring of gas emissions from the seafloor. {Part} {I}: quantifying the volumetric flow of bubbles}
+      \field{urlday}{5}
+      \field{urlmonth}{2}
+      \field{urlyear}{2024}
+      \field{volume}{35}
+      \field{year}{2014}
+      \field{urldateera}{ce}
+      \field{pages}{191\bibrangedash 210}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1007/s11001-014-9223-y
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:/Users/victoriaboichenko/Zotero/storage/CBSJDY2J/Leblond et al. - 2014 - Acoustic monitoring of gas emissions from the seaf.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s11001-014-9223-y
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s11001-014-9223-y
+      \endverb
+      \keyw{notion,Bubbles,Acoustic backscattering,Fisheries echosounders,Forward and inverse modeling,Gas emissions,Seafloor observatory,Water column acoustics,Water tank experiments}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

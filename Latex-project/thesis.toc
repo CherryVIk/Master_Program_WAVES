@@ -1,25 +1,35 @@
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{6}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Literature overview}{7}{section.1.1}%
-\contentsline {chapter}{\numberline {2}Theory}{8}{chapter.2}%
+\contentsline {section}{\numberline {1.1}Internship environment}{6}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Bubble acoustics. Background}{6}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Outline}{7}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Theoretical framework}{8}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Sound propagation concepts}{8}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Bubble models}{8}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Single bubble model}{8}{subsection.2.2.1}%
-\contentsline {section}{\numberline {2.3}Multiple bubble model}{9}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Multiple scattering }{9}{subsection.2.3.1}%
-\contentsline {section}{\numberline {2.4}Reconstruction of the bubble frequency response}{9}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Beamforming}{9}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Sonar equation }{9}{section.2.6}%
-\contentsline {chapter}{\numberline {3}Simulations \& Experiment}{11}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Simulation of bubble response}{11}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Experiment of measuring bubbles}{11}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Objective}{11}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Experimental model}{12}{section.3.4}%
-\contentsline {section}{\numberline {3.5} The setup}{12}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Experimental Data}{13}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Calculations}{14}{section.3.7}%
-\contentsline {subsection}{\numberline {3.7.1}Results and Conclusions}{14}{subsection.3.7.1}%
-\contentsline {subsection}{\numberline {3.7.2}Discussion of Experimental Uncertainty}{14}{subsection.3.7.2}%
-\contentsline {chapter}{\numberline {4} }{15}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Conclusion}{16}{chapter.5}%
-\contentsline {chapter}{Bibliography}{17}{chapter*.7}%
+\contentsline {subsubsection}{Intensity}{8}{subsubsection*.6}%
+\contentsline {subsubsection}{Sound propagation loss}{9}{subsubsection*.7}%
+\contentsline {subsubsection}{Near- and far-field}{9}{subsubsection*.8}%
+\contentsline {section}{\numberline {2.2}Bubble models}{9}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Single bubble model}{9}{subsection.2.2.1}%
+\contentsline {subsubsection}{Anderson model}{9}{subsubsection*.9}%
+\contentsline {subsubsection}{Thuraisingham model}{10}{subsubsection*.10}%
+\contentsline {subsubsection}{Volume strength}{10}{subsubsection*.11}%
+\contentsline {subsection}{\numberline {2.2.2}Multiple bubble model}{10}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Multiple scattering }{10}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Reconstruction of the bubble frequency response}{10}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Signal Processing}{11}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Beamforming}{11}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}SONAR}{11}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Sonar equation }{11}{subsection.2.4.3}%
+\contentsline {chapter}{\numberline {3}Methodology: Simulations \& Experiment}{12}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Simulation of bubble response}{12}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Experiment of measuring bubbles}{12}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Objective}{12}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Experimental model}{13}{section.3.4}%
+\contentsline {section}{\numberline {3.5} The setup}{13}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Experimental Data}{14}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Calculations}{15}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Results and Conclusions}{15}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Discussion of Experimental Uncertainty}{15}{subsection.3.7.2}%
+\contentsline {chapter}{\numberline {4}Results and Analysis}{16}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Conclusion}{17}{chapter.5}%
+\contentsline {chapter}{Bibliography}{18}{chapter*.13}%

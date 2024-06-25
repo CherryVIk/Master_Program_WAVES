@@ -306,8 +306,8 @@
       \strng{authornamehash}{637da7aad67676fc84c9baa22af25422}
       \strng{authorfullhash}{637da7aad67676fc84c9baa22af25422}
       \strng{authorfullhashraw}{637da7aad67676fc84c9baa22af25422}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{The scattering of sound from a spherical fluid obstacle of size comparable to a wave‐length is considered, neglecting dissipation. Calculations of the acoustic pressure and the total energy in the scattered wave are presented graphically; sound velocities and densities of the sphere lie between 0.5 and 2.0 times that of the external medium. The limiting cases of Rayleigh scattering and scattering from a fixed rigid sphere are also shown for comparison. In the region where the diameter of the sphere is comparable to a wave‐length, the scattering is a complicated function of frequency, showing in some cases large maxima and minima. The amplitude of the scattered wave in the backward direction from a fluid sphere a few wave‐lengths in diameter exceeds twice that from a rigid sphere of the same size for the case of the sound velocity 0.8 and density equal to that of the surrounding medium.}
@@ -388,6 +388,68 @@
       \verb https://www.sciencedirect.com/science/article/pii/S0041624X97000218
       \endverb
       \keyw{notion,Bubbles,Acoustic cross-section,Acoustic scattering}
+    \endentry
+    \entry{leblond_acoustic_2014}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=ec5f9c37e679a08d4126dbdc7f07b22c}{%
+           family={Leblond},
+           familyi={L\bibinitperiod},
+           given={Isabelle},
+           giveni={I\bibinitperiod}}}%
+        {{hash=368ef9de0be1c73b7cf8a7005059de0e}{%
+           family={Scalabrin},
+           familyi={S\bibinitperiod},
+           given={Carla},
+           giveni={C\bibinitperiod}}}%
+        {{hash=2d5d7e2625ec26fb62fd857e5f50fd50}{%
+           family={Berger},
+           familyi={B\bibinitperiod},
+           given={Laurent},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{fc77d4c734a9ae4cc98ade33772155d7}
+      \strng{fullhash}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \strng{fullhashraw}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \strng{bibnamehash}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \strng{authorbibnamehash}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \strng{authornamehash}{fc77d4c734a9ae4cc98ade33772155d7}
+      \strng{authorfullhash}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \strng{authorfullhashraw}{a65e3d3bd12f144fd603c04bce4aa7c6}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Three decades of continuous ocean exploration have led us to identify subsurface fluid related processes as a key phenomenon in marine earth science research. The number of seep areas located on the seafloor has been constantly increasing with the use of multi-scale imagery techniques. Due to recent advances in transducer technology and computer processing, multibeam echosounders are now commonly used to detect submarine gas seeps escaping from the seafloor into the water column. A growing number of en-route surveys shows that sites of gas emissions escaping from the seafloor are much more numerous than previously thought. Estimating the temporal variability of the gas flow rate and volumes escaping from the seafloor has thus become a challenge of relevant interest which could be addressed by sea-floor continuous acoustic monitoring. Here, we investigate the feasibility of estimating the volumetric flow rates of gas emissions from horizontal backscattered acoustic signals. Different models based on the acoustic backscattering theory of bubbles are presented. The forward volume backscattering strength and the inversion volumetric flow rate solutions were validated with acoustic measurements from artificial gas flow rates generated in controlled sea-water tank experiments. A sensitivity analysis was carried out to investigate the behavior of the 120-kHz forward solution with respect to model input parameters (horizontal distance between transducer and bubble stream, bubble size distribution and ascent rate). The most sensitive parameter was found to be the distance of the bubble stream which can affect the volume backscattering strength by 20 dB within the horizontal range of 0–200 m. Results were used to derive the detection probability of a bubble stream for a given volume backscattering strength threshold according to different bubble flow rates and horizontal distance.}
+      \field{issn}{1573-0581}
+      \field{journaltitle}{Marine Geophysical Research}
+      \field{month}{9}
+      \field{number}{3}
+      \field{shorttitle}{Acoustic monitoring of gas emissions from the seafloor. {Part} {I}}
+      \field{title}{Acoustic monitoring of gas emissions from the seafloor. {Part} {I}: quantifying the volumetric flow of bubbles}
+      \field{urlday}{5}
+      \field{urlmonth}{2}
+      \field{urlyear}{2024}
+      \field{volume}{35}
+      \field{year}{2014}
+      \field{urldateera}{ce}
+      \field{pages}{191\bibrangedash 210}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1007/s11001-014-9223-y
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:/Users/victoriaboichenko/Zotero/storage/CBSJDY2J/Leblond et al. - 2014 - Acoustic monitoring of gas emissions from the seaf.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s11001-014-9223-y
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s11001-014-9223-y
+      \endverb
+      \keyw{notion,Bubbles,Acoustic backscattering,Fisheries echosounders,Forward and inverse modeling,Gas emissions,Seafloor observatory,Water column acoustics,Water tank experiments}
     \endentry
     \entry{ainslie_principles_2010}{book}{}{}
       \name{author}{1}{}{%
@@ -517,68 +579,6 @@
       \endverb
       \keyw{Bubble collapse shock wave,Cavitation shotless forming,Micro-jet,notion,Plasma shock wave,Water hammer pressure}
     \endentry
-    \entry{leblond_acoustic_2014}{article}{}{}
-      \name{author}{3}{}{%
-        {{hash=ec5f9c37e679a08d4126dbdc7f07b22c}{%
-           family={Leblond},
-           familyi={L\bibinitperiod},
-           given={Isabelle},
-           giveni={I\bibinitperiod}}}%
-        {{hash=368ef9de0be1c73b7cf8a7005059de0e}{%
-           family={Scalabrin},
-           familyi={S\bibinitperiod},
-           given={Carla},
-           giveni={C\bibinitperiod}}}%
-        {{hash=2d5d7e2625ec26fb62fd857e5f50fd50}{%
-           family={Berger},
-           familyi={B\bibinitperiod},
-           given={Laurent},
-           giveni={L\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {en}%
-      }
-      \strng{namehash}{fc77d4c734a9ae4cc98ade33772155d7}
-      \strng{fullhash}{a65e3d3bd12f144fd603c04bce4aa7c6}
-      \strng{fullhashraw}{a65e3d3bd12f144fd603c04bce4aa7c6}
-      \strng{bibnamehash}{a65e3d3bd12f144fd603c04bce4aa7c6}
-      \strng{authorbibnamehash}{a65e3d3bd12f144fd603c04bce4aa7c6}
-      \strng{authornamehash}{fc77d4c734a9ae4cc98ade33772155d7}
-      \strng{authorfullhash}{a65e3d3bd12f144fd603c04bce4aa7c6}
-      \strng{authorfullhashraw}{a65e3d3bd12f144fd603c04bce4aa7c6}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{shorttitle}
-      \field{abstract}{Three decades of continuous ocean exploration have led us to identify subsurface fluid related processes as a key phenomenon in marine earth science research. The number of seep areas located on the seafloor has been constantly increasing with the use of multi-scale imagery techniques. Due to recent advances in transducer technology and computer processing, multibeam echosounders are now commonly used to detect submarine gas seeps escaping from the seafloor into the water column. A growing number of en-route surveys shows that sites of gas emissions escaping from the seafloor are much more numerous than previously thought. Estimating the temporal variability of the gas flow rate and volumes escaping from the seafloor has thus become a challenge of relevant interest which could be addressed by sea-floor continuous acoustic monitoring. Here, we investigate the feasibility of estimating the volumetric flow rates of gas emissions from horizontal backscattered acoustic signals. Different models based on the acoustic backscattering theory of bubbles are presented. The forward volume backscattering strength and the inversion volumetric flow rate solutions were validated with acoustic measurements from artificial gas flow rates generated in controlled sea-water tank experiments. A sensitivity analysis was carried out to investigate the behavior of the 120-kHz forward solution with respect to model input parameters (horizontal distance between transducer and bubble stream, bubble size distribution and ascent rate). The most sensitive parameter was found to be the distance of the bubble stream which can affect the volume backscattering strength by 20 dB within the horizontal range of 0–200 m. Results were used to derive the detection probability of a bubble stream for a given volume backscattering strength threshold according to different bubble flow rates and horizontal distance.}
-      \field{issn}{1573-0581}
-      \field{journaltitle}{Marine Geophysical Research}
-      \field{month}{9}
-      \field{number}{3}
-      \field{shorttitle}{Acoustic monitoring of gas emissions from the seafloor. {Part} {I}}
-      \field{title}{Acoustic monitoring of gas emissions from the seafloor. {Part} {I}: quantifying the volumetric flow of bubbles}
-      \field{urlday}{5}
-      \field{urlmonth}{2}
-      \field{urlyear}{2024}
-      \field{volume}{35}
-      \field{year}{2014}
-      \field{urldateera}{ce}
-      \field{pages}{191\bibrangedash 210}
-      \range{pages}{20}
-      \verb{doi}
-      \verb 10.1007/s11001-014-9223-y
-      \endverb
-      \verb{file}
-      \verb Full Text PDF:/Users/victoriaboichenko/Zotero/storage/CBSJDY2J/Leblond et al. - 2014 - Acoustic monitoring of gas emissions from the seaf.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1007/s11001-014-9223-y
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1007/s11001-014-9223-y
-      \endverb
-      \keyw{notion,Bubbles,Acoustic backscattering,Fisheries echosounders,Forward and inverse modeling,Gas emissions,Seafloor observatory,Water column acoustics,Water tank experiments}
-    \endentry
     \entry{hodges_underwater_2011}{book}{}{}
       \name{author}{1}{}{%
         {{hash=e7da04c8004d228731f66b2cae0aa15e}{%
@@ -601,8 +601,8 @@
       \strng{authornamehash}{e7da04c8004d228731f66b2cae0aa15e}
       \strng{authorfullhash}{e7da04c8004d228731f66b2cae0aa15e}
       \strng{authorfullhashraw}{e7da04c8004d228731f66b2cae0aa15e}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Offering complete and comprehensive coverage of modern sonar spectrum system analysis, Underwater Acoustics: Analysis, Design and Performance of Sonar provides a state-of-the-art introduction to the subject and has been carefully structured to offer a much-needed update to the classic text by Urick. Expanded to included computational approaches to the topic, this book treads the line between the highly theoretical and mathematical texts and the more populist, non-mathematical books that characterize the existing literature in the field. The author compares and contrasts different techniques for sonar design, analysis and performance prediction and includes key experimental and theoretical results, pointing the reader towards further detail with extensive references. Practitioners in the field of sonar design, analysis and performance prediction as well as graduate students and researchers will appreciate this new reference as an invaluable and timely contribution to the field. Chapters include the sonar equation, radiated, self and ambient noise, active sonar sources, transmission loss, reverberation, transducers, active target strength, statistical detection theory, false alarms, contacts and targets, variability and uncertainty, modelling detections and tactical decision aids, cumulative probability of detection, tracking target motion analysis and localization, and design and evaluation of sonars}
@@ -649,8 +649,8 @@
       \strng{authornamehash}{a23c5b627f30a14c6deb91147aa410ff}
       \strng{authorfullhash}{98de13193eab50437f0dfced4a7ef354}
       \strng{authorfullhashraw}{98de13193eab50437f0dfced4a7ef354}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Quantifying marine methane fluxes of free gas (bubbles) from the seafloor into the water column is of importance for climate related studies, for example, in the Arctic, reliable methodologies are also of interest for studying man-made gas and oil leakage systems at hydrocarbon production sites. Hydroacoustic surveys with singlebeam and nowadays also multibeam systems have been proven to be a successful approach to detect bubble release from the seabed. A number of publications used singlebeam echosounder data to indirectly quantify free gas fluxes via empirical correlations between gas fluxes observed at the seafloor and the hydroacoustic response. Others utilize the hydroacoustic information in an inverse modeling approach to derive bubble fluxes. Here, we present an advanced methodology using data from splitbeam echosounder systems for analyzing gas release water depth ({>} 100 m). We introduce a new {MATLAB}-based software for processing and interactively editing data and we present how bubble-size distribution, bubble rising speed and the model used for calculating the backscatter response of single bubbles influence the final gas flow rate calculations. As a result, we highlight the need for further investigations on how large, wobbly bubbles, bubble clouds, and multi-scattering influence target strength. The results emphasize that detailed studies of bubble-size distributions and rising speeds need to be performed in parallel to hydroacoustic surveys to achieve realistic mediated methane flow rate and flux quantifications.}

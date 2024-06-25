@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.4.12)  24 JUN 2024 17:17
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.4.12)  25 JUN 2024 18:10
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/victoriaboichenko/Library/CloudStorage/OneDrive-UniversidadedeCoimbra/Master_Program_WAVES/Latex-project/thesis
@@ -923,67 +923,112 @@ Chapter 1.
 Chapter 2.
 (./sections/section02.tex [8
 
-] [9] [10]) [11]
+] [9]
+Package epstopdf Info: Source file: <./figures/theory/thur-and-models.eps>
+(epstopdf)                    date: 2024-04-25 09:52:35
+(epstopdf)                    size: 127113 bytes
+(epstopdf)             Output file: <./figures/theory/thur-and-models-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-06-25 16:18:44
+(epstopdf)                    size: 43841 bytes
+(epstopdf)             Command: <repstopdf --outfile=./figures/theory/thur-and-models-eps-converted-to.pdf ./figures/theory/thur-and-models.eps>
+(epstopdf)             \includegraphics on input line 85.
+Package epstopdf Info: Output file is already uptodate.
+<./figures/theory/thur-and-models-eps-converted-to.pdf, id=234, 562.1pt x 421.575pt>
+File: ./figures/theory/thur-and-models-eps-converted-to.pdf Graphic file (type pdf)
+<use ./figures/theory/thur-and-models-eps-converted-to.pdf>
+Package luatex.def Info: ./figures/theory/thur-and-models-eps-converted-to.pdf  used on input line 85.
+(luatex.def)             Requested size: 316.4784pt x 237.36049pt.
+
+
+Package caption Warning: \label without proper reference on input line 87.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:thur-anderson' on page 10 undefined on input line 90.
+
+[10<./figures/theory/thur-and-models-eps-converted-to.pdf>]
+<./figures/theory/multiple-scattering.png, id=258, 615.29875pt x 242.9075pt>
+File: ./figures/theory/multiple-scattering.png Graphic file (type png)
+<use ./figures/theory/multiple-scattering.png>
+Package luatex.def Info: ./figures/theory/multiple-scattering.png  used on input line 117.
+(luatex.def)             Requested size: 316.4784pt x 124.94122pt.
+ [11<./figures/theory/multiple-scattering.png>] [12]) [13]
 Chapter 3.
 (./sections/section03.tex
-Overfull \hbox (0.71233pt too wide) in paragraph at lines 27--28
+<./figures/experiments/reconstruction21_ping_001.png, id=281, 421.575pt x 316.0608pt>
+File: ./figures/experiments/reconstruction21_ping_001.png Graphic file (type png)
+<use ./figures/experiments/reconstruction21_ping_001.png>
+Package luatex.def Info: ./figures/experiments/reconstruction21_ping_001.png  used on input line 7.
+(luatex.def)             Requested size: 316.4784pt x 237.27168pt.
+
+Overfull \hbox (0.71233pt too wide) in paragraph at lines 33--34
 \TU/lmr/m/n/10.95 This lab-o-ra-tory project aims to con-nect the-o-ret-i-cal con-cepts with em-pir-i-cal ob-ser-va-tions through
  []
 
-[12
+[14
 
-] [13]
-<./figures/experiments/reconstruction8_ping_001.png, id=264, 421.575pt x 316.0608pt>
+<./figures/experiments/reconstruction21_ping_001.png>] [15]
+<./figures/setup/scheme-setup.png, id=292, 348.30125pt x 309.155pt>
+File: ./figures/setup/scheme-setup.png Graphic file (type png)
+<use ./figures/setup/scheme-setup.png>
+Package luatex.def Info: ./figures/setup/scheme-setup.png  used on input line 74.
+(luatex.def)             Requested size: 316.4784pt x 280.92107pt.
+ [16<./figures/setup/scheme-setup.png>]
+<./figures/experiments/reconstruction8_ping_001.png, id=304, 421.575pt x 316.0608pt>
 File: ./figures/experiments/reconstruction8_ping_001.png Graphic file (type png)
 <use ./figures/experiments/reconstruction8_ping_001.png>
-Package luatex.def Info: ./figures/experiments/reconstruction8_ping_001.png  used on input line 107.
+Package luatex.def Info: ./figures/experiments/reconstruction8_ping_001.png  used on input line 123.
 (luatex.def)             Requested size: 316.4784pt x 237.27168pt.
- [14]) [15<./figures/experiments/reconstruction8_ping_001.png>]
+ [17]) [18<./figures/experiments/reconstruction8_ping_001.png>]
 Chapter 4.
-(./sections/section04.tex) [16
+(./sections/section04.tex) [19
 
 ]
 Chapter 5.
-(./sections/conclusion.tex) [17
+(./sections/conclusion.tex) [20
 
 ]
 Overfull \hbox (12.68904pt too wide) in paragraph at lines 161--161
 \TU/lmr/m/n/10.95 [On-line]. Avail-able: [][]$\TU/lmtt/m/n/10.95 https : / / onlinelibrary . wiley . com / doi / abs / 10 . 1029 / 2020JC016360$[][]
  []
 
-[18
+[21
 
 ]
 Overfull \hbox (6.25777pt too wide) in paragraph at lines 161--161
 []\TU/lmr/m/n/10.95 X. Lur-ton, “  An in-tro-duc-tion to un-der-wa-ter acous-tics: Prin-ci-ples and ap-pli-ca-tions,” \TU/lmr/m/it/10.95 Springer
  []
 
-(./sections/appendix.tex) [19] (./thesis.aux)
+(./sections/appendix.tex) [22] (./thesis.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 591E710A9DD66D66F2E53DAEF8FC2860;4399.
+(rerunfilecheck)             Checksum: 3B32AD368A33B960A3E77C580BCC048A;4420.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 
 \openout1 = thesis.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 23626 strings out of 476435
+ 23689 strings out of 476435
  125086,1977958 words of node,token memory allocated
- 750 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 48 attribute, 70 glue_spec, 25 attribute_list, 1 write, 9 pdf_action nodes
-   avail lists: 1:2,2:1339,3:462,4:212,5:360,6:124,7:7156,8:67,9:450,10:19,11:470
- 45229 multiletter control sequences out of 65536+600000
+ 768 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 54 attribute, 70 glue_spec, 28 attribute_list, 1 write, 9 pdf_action nodes
+   avail lists: 1:2,2:1366,3:466,4:212,5:366,6:126,7:7154,8:67,9:450,10:19,11:612
+ 45272 multiletter control sequences out of 65536+600000
  63 fonts using 5088079 bytes
  79i,6n,89p,2410b,1832s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmromancaps10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on thesis.pdf (20 pages, 598079 bytes).
+</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmromancaps10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on thesis.pdf (23 pages, 802344 bytes).
 
-PDF statistics: 432 PDF objects out of 1000 (max. 8388607)
- 367 compressed objects within 4 object streams
- 80 named destinations out of 1000 (max. 131072)
+PDF statistics: 474 PDF objects out of 1000 (max. 8388607)
+ 397 compressed objects within 4 object streams
+ 88 named destinations out of 1000 (max. 131072)
  225 words of extra memory for PDF output out of 10000 (max. 100000000)
 

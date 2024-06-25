@@ -12,24 +12,24 @@
 \contentsline {subsection}{\numberline {2.2.1}Single bubble model}{9}{subsection.2.2.1}%
 \contentsline {subsubsection}{Anderson model}{9}{subsubsection*.9}%
 \contentsline {subsubsection}{Thuraisingham model}{10}{subsubsection*.10}%
-\contentsline {subsubsection}{Volume strength}{10}{subsubsection*.11}%
-\contentsline {subsection}{\numberline {2.2.2}Multiple bubble model}{10}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Multiple scattering }{10}{subsection.2.2.3}%
-\contentsline {section}{\numberline {2.3}Reconstruction of the bubble frequency response}{10}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Signal Processing}{11}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Beamforming}{11}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}SONAR}{11}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Sonar equation }{11}{subsection.2.4.3}%
-\contentsline {chapter}{\numberline {3}Methodology: Simulations \& Experiment}{12}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Simulation of bubble response}{12}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Experiment of measuring bubbles}{12}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Objective}{12}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Experimental model}{13}{section.3.4}%
-\contentsline {section}{\numberline {3.5} The setup}{13}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Experimental Data}{14}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Calculations}{15}{section.3.7}%
-\contentsline {subsection}{\numberline {3.7.1}Results and Conclusions}{15}{subsection.3.7.1}%
-\contentsline {subsection}{\numberline {3.7.2}Discussion of Experimental Uncertainty}{15}{subsection.3.7.2}%
-\contentsline {chapter}{\numberline {4}Results and Analysis}{16}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Conclusion}{17}{chapter.5}%
-\contentsline {chapter}{Bibliography}{18}{chapter*.13}%
+\contentsline {subsection}{\numberline {2.2.2}Multiple bubble model}{11}{subsection.2.2.2}%
+\contentsline {subsubsection}{Volume-scattering strength}{11}{subsubsection*.12}%
+\contentsline {subsection}{\numberline {2.2.3}Multiple scattering }{11}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Reconstruction of the bubble frequency response}{12}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Signal Processing}{12}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Beamforming}{12}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}SONAR}{13}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Sonar equation }{13}{subsection.2.4.3}%
+\contentsline {chapter}{\numberline {3}Methodology: Simulations \& Experiment}{14}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Simulation of bubble response}{14}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Experiment of measuring bubbles}{14}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Objective}{15}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Experimental model}{15}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3} The setup}{15}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Experimental Data}{17}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Calculations}{18}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Results and Conclusions}{18}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Discussion of Experimental Uncertainty}{18}{subsection.3.4.2}%
+\contentsline {chapter}{\numberline {4}Results and Analysis}{19}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Conclusion}{20}{chapter.5}%
+\contentsline {chapter}{Bibliography}{21}{chapter*.17}%

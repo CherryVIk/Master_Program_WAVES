@@ -2,8 +2,14 @@ This section will include the simulation and programming part of the work, exper
 
 \section{Simulation of bubble response}
 
-\section{Experiment of measuring bubbles}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{reconstruction21_ping_001.png}
+    \caption*{some simulation}
+    \label{fig:some-simulation}
+\end{figure}
 
+\section{Experiment of measuring bubbles}
 
 \begin{center}
 	\begin{tabular}{l r}
@@ -22,7 +28,7 @@ This section will include the simulation and programming part of the work, exper
 %	OBJECTIVE
 %----------------------------------------------------------------------------------------
 
-\section{Objective}
+\subsection{Objective}
 
 This laboratory project aims to connect theoretical concepts with empirical observations through the use of volume strength backscattering. The primary objective is to illustrate the practical applications of theoretical knowledge acquired during the internship and master’s thesis research. 
 
@@ -43,7 +49,7 @@ By leveraging volume strength backscattering as a key analytical tool, we will e
     %or whatever definition you want to add 
 \end{description} 
 
-\section{Experimental model}
+\subsection{Experimental model}
 
 The experimental setup entails an experiment of bubbles flares detection with a sonar. They were emitted in a water with a bubble generator and observed with the help of the SIMO-sonar with an ultrasound in a laboratory conditions of the water tank. 
 
@@ -51,15 +57,25 @@ Preliminary tests of the water tank were performed in order to identify the impu
 
 The primary focus of the observation was the volume strength back scattering (Vs), chosen as the key parameter for assessing the acoustic bubble response with acoustic radiation in the high-frequency range. 
 
-\section{ The setup}
+\subsection{ The setup}
 
-Our bubble experiment was conducted using a meticulously designed setup aimed at exploring the acoustic frequency response of the bubbles. The experimental arrangement included the following:
+Our bubble experiment was conducted using a predesigned setup aimed at exploring the acoustic frequency response of the bubbles, which can be seen at Figure \ref*{fig:scheme-setup}. The experimental arrangement included the following:
 \begin{itemize}
     \item \textbf{Bubble generator}: a set of the equipment which included
     \item \textbf{Sonar} it is a projector with 32 hydrophones in an array. The distance between elements is 0.0139 m.
     \item \textbf{Laptop with a processing software KiRAT, contains an inbuilt wave generator}
+    \item \textbf{Soundcards} for the signal conversion from the analog to digital and vice versa.
+    \item \textbf{Water tank} is a 5x5x5 m$^3$ concrete open box-like construction filled with water. The filtration system was turned off during experiment conduction to avoid the creation of additional bubbles and noise of the system.
     \item \textbf{Videocamera}: a mobilephone's camera was used for the experiment recordings
 \end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{scheme-setup.png}
+    \caption{The scheme of the setup}
+    \label{fig:scheme-setup}
+\end{figure}
+
 
 During the experiment different signal types (noise and chirp) and length (2 ms and 10 ms) were used for the analysis of the bubble flares. The emitted central frequency was 50 kHz with a bandwidth of 40 kHz. The sampling frequency was 192 kHz.
 \begin{itemize}

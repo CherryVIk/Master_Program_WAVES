@@ -1,20 +1,23 @@
-Chapter 2 is devoted to the theoretical part of this paper. It presents main underwater acoustics concepts, basic definitions of bubble acoustics  and signal processing techniques. Also, it contains an introduction to bubble model and an explanation of the chosen approaches.
+Chapter 2 is devoted to the theoretical part of this paper. It presents main underwater acoustics concepts, basic definitions of bubble acoustics and signal processing techniques. Also, it contains an introduction to bubble model and an explanation of the chosen approaches.
 
-\section{Sound propagation concepts}
-\begin{itemize}
-    \item bubble backscattering, natural frequency, Thuraisingham and Anderson models
-    \item multiple backscattering, other models implementation
-    \item near and far field characteristics
-\end{itemize}
+\section{Sound Propagation Concepts}
+% \begin{itemize}
+%     \item bubble backscattering, natural frequency, Thuraisingham and Anderson models
+%     \item multiple backscattering, other models implementation
+%     \item near and far field characteristics
+% \end{itemize}
 The sound represents the transmission of the mechanical energy that  propagates through the medium and relies on its properties \cite[p.1]{leighton_acoustic_2012}.
-
-Often used relation of the speed of the sound $c$ to angular frequency $\omega$ and a wavenumber $k$. 
- \[c = \omega / k\]
-
-\subsubsection{Intensity} 
+\subsubsection*{Wavenumber}
+\begin{equation}
+    k = \frac{c}{f} \; \text{[m/s]/[1/s] = m}
+\end{equation}
+\subsubsection*{Speed of sound}
+    Often used relation of the speed of the sound $c$ to angular frequency $\omega$ and a wavenumber $k$. 
+    \[c = \omega / k\]
+\subsubsection*{Intensity} 
 It is how much energy gets through the area perpendicular to the direction of the emitted wave \cite[p.18]{leighton_acoustic_2012}. The formula of acoustic intensity for a plane wave can be written in the following form:%a rate of energy in the wave crosses a unit area perpendicular to the direction of propagation
 \[I = \frac{P_A^2}{2\rho c}\]
-
+\subsubsection*{Intensity level}
 Intensity level is a measure over some area, which is a ratio of the sound intensity $I$ to some reference intensity $I_{ref}$ \cite[p.19]{leighton_acoustic_2012}:
 \[IL = 10\log_{10}(\frac{I}{I_{ref}})\]
 $I_{ref}=10^{-12} \text{W m}^{-2}$ in air.
@@ -22,16 +25,10 @@ $I_{ref}=10^{-12} \text{W m}^{-2}$ in air.
 As the pressure amplitude is proportional to the square root of intensity, we can write down sound pressure level in the form:
 \[SPL = 20\log_{10}(\frac{P}{P_{ref}})\]
 
-\subsubsection{Sound propagation loss} 
+\subsubsection*{Sound propagation loss} 
 
 It is an amount of the transmitted sound signal received back by a receiver.
 
-\subsubsection{Near- and far-field}
-The phase difference that comes from the path difference is proportional to the ration of the path to the wavelength \cite[p.30]{leighton_acoustic_2012}.
-
-\[D_\text{Near to far field} = L_s^2/\lambda\] 
-where $L_s$ is the spacing between receivers
-% find an image of hydrophones lobes with near and far field comparison
 
 
 
@@ -39,6 +36,9 @@ where $L_s$ is the spacing between receivers
 Bubble's acoustic frequency response can depend on multiple factors. Among them are a bubble radius, water pressure, ensonification frequency.
 
 For the simplicity, in most studies the bubble shape is assumed to be spherical, as the optical equipment at long distances can't provide an accurate estimation of the bubble's shape and size \cite[p.2]{zhang_efficient_2022}. 
+
+\textbf{Resonance frequency}
+Due to the mass-spring system which appears from the interaction of the incoming wave with a bubble. The gas inside and the surface tension in the bubble with the liquid   
 
 
 \textbf{Target strength} is the measure of the single object's (e.g. bubble) reflection of the transmitted signal. %my words , find justification
@@ -80,6 +80,7 @@ Where $a$ is a bubble radius, $k$ is a wavenumber in the water, $\delta$ is a da
 
 This model applies over all values of $ka$. After that a model was optimised by Li et al. \cite[]{li_broadband_2020} for the omnidirectional breathing mode. As the impact of the last factor decreases with the increase of the $ka$-value, we require more adaptable model to different modes. In this paper Li et al. have used for $ka << 1$ a Thuraisingham formula and for $ka>1$ was used an adjusted modal solution.
 
+% my plots are better to be placed to the section of "my simulations". Here I propose to insert pictures from papers/books
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{thur-and-models.eps}
@@ -127,7 +128,6 @@ Hazard and Cassier paper provides a mathematical point of view at the multiple s
 
 - Multiple Scattering of Acoustic Waves by Small Sound-Soft Obstacles in Two Dimensions: Mathematical Justification of the Foldy–Lax Model, Hazard and Cassier
 
-
 \section{Reconstruction of the bubble frequency response}
 
 It will allow demonstrating the ability to invert the model to find individual bubble contributions from compund analysis.
@@ -138,7 +138,7 @@ The following equation\ref{eqn:reconstruction_bubble} was the base of the calcul
 \end{equation}
 where R is a received signal, T is a transmitted signal by sonar, H is frequency response of the bubble, N is an added background noise.
 
-\section{Signal Processing}
+\section*{Signal Processing Concepts}
 \subsection{Beamforming}
 \begin{itemize}
     \item reconstruction of the bubble frequency response from the received signal
@@ -150,8 +150,10 @@ where R is a received signal, T is a transmitted signal by sonar, H is frequency
 A beamforming is a way of processing the received or transmitted signal, so that we can direct the directed and amplified signal from teh projector with multiple receivers or transmitters, therefore improving the SNR and eliminating unwanted interfering signals. Also, it can be referred as a spatial filtering.
 
 Withing the scope of the work we have used beamforming in the sonar environment. A conventional beamformer in the form of the delay-and-sum was used. 
+
 \subsection{SONAR}
-\subsection{Sonar equation }
+
+\subsection{Sonar Equation }
 The Sonar equation is a fundamental tool in underwater acoustics used to predict the performance of sonar systems. 
 The basic form of the Sonar equation is:
 \begin{equation}
@@ -171,3 +173,10 @@ Transmission loss (TL) accounts for the attenuation of sound energy as it propag
 Target strength (TS) quantifies the amount of sound energy reflected or scattered by the target, which depends on its size, shape, and composition. 
 Noise level (NL) encompasses all sources of ambient noise in the environment, including thermal noise, wind-generated noise, biological noise, and anthropogenic noise.
 
+
+\subsubsection{Near- and far-field}
+The phase difference that comes from the path difference is proportional to the ration of the path to the wavelength \cite[p.30]{leighton_acoustic_2012}.
+
+\[D_\text{Near to far field} = L_s^2/\lambda\] 
+where $L_s$ is the spacing between receivers
+% find an image of hydrophones lobes with near and far field comparison

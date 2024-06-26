@@ -1,17 +1,17 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
 [0] Config.pm:311> INFO - Logfile is '/Users/victoriaboichenko/Library/CloudStorage/OneDrive-UniversidadedeCoimbra/Master_Program_WAVES/Latex-project/thesis.blg'
-[62] biber-darwin:340> INFO - === Tue Jun 25, 2024, 18:09:58
+[62] biber-darwin:340> INFO - === Wed Jun 26, 2024, 17:22:45
 [77] Biber.pm:420> INFO - Reading '/Users/victoriaboichenko/Library/CloudStorage/OneDrive-UniversidadedeCoimbra/Master_Program_WAVES/Latex-project/thesis.bcf'
 [149] Biber.pm:991> INFO - Using all citekeys in bib section 0
 [161] Biber.pm:4463> INFO - Processing section 0
 [169] Biber.pm:4654> INFO - Looking for bibtex file '/cites/bibliography.bib' for section 0
 [174] bibtex.pm:1713> INFO - LaTeX decoding ...
-[206] bibtex.pm:1519> INFO - Found BibTeX data source '/Users/victoriaboichenko/Library/CloudStorage/OneDrive-UniversidadedeCoimbra/Master_Program_WAVES/Latex-project//cites/bibliography.bib'
-[344] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[344] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[344] Biber.pm:4283> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
-[344] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
-[358] bbl.pm:676> INFO - Writing '/Users/victoriaboichenko/Library/CloudStorage/OneDrive-UniversidadedeCoimbra/Master_Program_WAVES/Latex-project/thesis.bbl' with encoding 'UTF-8'
-[368] bbl.pm:779> INFO - Output to /Users/victoriaboichenko/Library/CloudStorage/OneDrive-UniversidadedeCoimbra/Master_Program_WAVES/Latex-project/thesis.bbl
-[368] Biber.pm:131> WARN - ISBN '978-3-540-87661-8 978-3-540-87662-5' in entry 'ainslie_principles_2010' is invalid - run biber with '--validate_datamodel' for details.
-[368] Biber.pm:133> INFO - WARNINGS: 1
+[209] bibtex.pm:1519> INFO - Found BibTeX data source '/Users/victoriaboichenko/Library/CloudStorage/OneDrive-UniversidadedeCoimbra/Master_Program_WAVES/Latex-project//cites/bibliography.bib'
+[350] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[351] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[351] Biber.pm:4283> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
+[351] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[366] bbl.pm:676> INFO - Writing '/Users/victoriaboichenko/Library/CloudStorage/OneDrive-UniversidadedeCoimbra/Master_Program_WAVES/Latex-project/thesis.bbl' with encoding 'UTF-8'
+[377] bbl.pm:779> INFO - Output to /Users/victoriaboichenko/Library/CloudStorage/OneDrive-UniversidadedeCoimbra/Master_Program_WAVES/Latex-project/thesis.bbl
+[377] Biber.pm:131> WARN - ISBN '978-3-540-87661-8 978-3-540-87662-5' in entry 'ainslie_principles_2010' is invalid - run biber with '--validate_datamodel' for details.
+[377] Biber.pm:133> INFO - WARNINGS: 1

@@ -18,7 +18,11 @@
     % Final model incorporation into simulation software, such as KiRAT.
     % Demonstration of the model's application as a digital twin for underwater column simulations and SONAR data generation to train AI systems.
 
-\section{Internship environment}
+The underwater acoustics with bubbles has been under a lively discussion for a while. Starting from the cavitation bubbles getting created on the rotating ship propellers, an ultrasonic detection of bubble in blood, continuing  with fish bladders filled with air, gas seapages being emitted in deep waters, or bubble curtains being used as a method for the decreasing the loudness of the installation of windmill pillars.
+
+Getting back to the basics there is arising question for the acoustic frequency response of the bubbles in large quantities. Multiple properties can be extracted from the bubble bacckscattering the emitted signal underwater, such as the diameter, dynamics. Therefore, the models for the single bubble acoustic frequency response were created by calculating their backscattering cross-section, among which Anderson and Thuraisingham's models are of the most use.
+
+\section{Internship Environment}
 The internship was performed as a part of the project within the hydroacoustic study field of the research instute GEOMAR at the research unit of the Marine Geology, DeepSeaMonitoring group (DSM) with a collaboration of Technical faculty of the Christian-Albert University in Kiel. 
 
 This DSM group covers a wide range of scintific research and application-oriented development fields. Main problems are exploring the gas flows from the sea floor, its quantification, detection, and monitoring; seabed resources assessment with the help of habitat mapping, its organisms; and environmental monitoring of munitions dump sites delaboration\cite{noauthor_deepsea_nodate}.
@@ -29,13 +33,18 @@ The internship was aimed to build a theoretical model for the acoustic frequency
 
 
 
-\section{Bubble acoustics. Background} 
+\section{Literature Overview} 
 % Literature background overview
 %  of the single/multiple bubble modelling
+% grade: 3/10, place it in a chronological order
 
-In the paper of Foldy the mathematical background behind the scattering of the sphere has given a push to the further development of this property in bubbles.
+In 1950s the paper of Foldy the mathematical background behind backscattering cross-section and the multiple scattering of the sphere has given a push to the further development of the bubbles research.
 
-The book of Ainslie has provided fundamentals for the sonar modelling which were essential for understanding while working with a sonar simulation. 
+After that the Lax model was provided \cite[]{lax_multiple_1951} for the generalised view of multiple scattering of waves.
+
+In the following years, some papers provided an extended view of previous papers, such as Kaczer and Gemperle paper \cite[.]{kaczer_bubble_1977} where they highlighted a mathematical point of view at the multiple scattering with a justification of the Foldy-Lax model.
+
+An extensive and fundamental knowledge about the bubble acoustics has been provided with the book of Leighton \cite[]{leighton_acoustic_2012}
 
 (Manasseh et al. 2004\cite{manasseh_anisotropy_2004}) Bubbles produce an acoustic signal owing to compression of the gas in the bubble. The ‘spring’ of the compressible gas and the mass of liquid around the bubble create a natural oscillator, sending a pressure oscillation through the liquid and interacting with the neighbouring bubbles
 
@@ -44,6 +53,8 @@ The book of Ainslie has provided fundamentals for the sonar modelling which were
 It identifies three parameters: two in probability density function of gas leakage bubble sizes and the total number of bubbles inside the sample volume N0. Direct method was used for obtaining parameters.
 
 (Li et al. 2020\cite{li_broadband_2020}) Mentions theory regarding the bubble size distribution and provides the data for the backscattering cross-section of a single bubble. The model of the bubble plume’s acoustic backscattering consists of the model of the single bubble, distribution of size of the bubbles and computation of the volume scattering strength.
+
+Regarding the signal processing an important part has played the book of Ainslie \cite[]{ainslie_principles_2010}. It has provided fundamentals for the sonar modelling which were essential for understanding while working with a sonar simulation. 
 
 \section{Outline}
 The thesis is structured in the following way:

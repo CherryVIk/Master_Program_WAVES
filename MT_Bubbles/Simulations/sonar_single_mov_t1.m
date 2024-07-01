@@ -30,7 +30,7 @@ fMax = fC + fB/2;
 tPing = 1.0; % in seconds
 nPing = tPing * fs; % in samples
 % Signal duration
-tSig = 0.05; % in seconds
+tSig = 0.01; % in seconds
 nSig = tSig * fs; % in samples
 t = linspace(0, tSig, nSig);
 % Signal types
@@ -122,7 +122,7 @@ best_plot_ever(fig)
 % zcoord = -50 + move_ii;
 zcoord = 0;
 % posTar = [0 10 zcoord; 20 10 0]; 
-posTar = [0 40 0];
+posTar = [0 2 0];
 NTargets = size(posTar, 1);
 bDirectSound = 0;
 
@@ -166,10 +166,10 @@ nRxSeqLength = nSig + ceil(max(tPropagationTime(:)));
 rx = zeros(nRxSeqLength, NRx);
 
 %% Background noise
-noise_level_dB = -80;
+noise_level_dB = -70;
 noise_level_linear = 10^(noise_level_dB/10);
 noise_add = randn(nRxSeqLength, NRx) * noise_level_linear; 
-rx = rx + noise_add;
+% rx = rx + noise_add;
 
 radius_b = 1e-4;%585e-6;% Oscillations, bubble radius (m)
 sigma_bs = bubble_response(f,radius_b);
@@ -192,9 +192,11 @@ title("Log. frequency spectrum, only bubble");
 xlabel("Frequency, Hz")
 grid on;
 best_plot_ever(fig)
+
 subplot(212);
 logFs = 10*log10(abs(f_sigma_bs(:,1))./max(abs(f_sigma_bs(:,1))));
 plot(f(end/2:end),logFs)
+xlim([0 f(end)])
 ylim([-100 0])
 title("Log. frequency spectrum, transmitted and bubble ");
 xlabel("Frequency, Hz")
@@ -403,6 +405,103 @@ for iResize = NResized:-1:1
         ),[],2);
 end
 
+%% Reconstruction of the correlated signal
+Y = Mf;
+H_hat = abs(Y(:,1)) ./ abs(Tx(:,1));
+% Normalize to max
+logH_hat = 20*log10(abs(H_hat(:,1))./max(abs(H_hat(:,1))));
+% H_hat = H_hat.*hamming(length(H_hat));
+
+f = linspace(-fs/2, fs/2, NFFT);
+f_half =  f(end/2:end);
+%% Identify the resonance peak
+% Find max peaks
+[pk, loc] = findpeaks(logH_hat,'MinPeakHeight', -1e-4);
+
+tSim = linspace(0, nRxSeqLength/fs, nRxSeqLength);
+% Plot --------------------------------------------------------------------
+
+fig=figure;
+subplot(211);
+plot(tSim, rx(:, 1));
+grid on;
+title('Received signal');
+xlabel("Time, s")
+best_plot_ever(fig)
+subplot(212);
+plot(f_half, logH_hat);
+% ylim([0 3e-4])
+hold on;
+semilogx(f_half(loc), pk,'rx');
+grid on;
+xlabel("Frequency, Hz")
+title('Reconstructed correlated signal, linear plot');
+best_plot_ever(fig)
+% saveas(gca, "received_50kHz","png");
+%% Find the frequency resonance:
+f_res = f_half(loc)
+
+w_res = 2*pi*f_res;
+gamma = 1.299; % a specific heat ratio
+P_atm = 101.325e3; % atmospheric pressure
+g = 9.8; % gravitational acceleration (m/s^2)
+d = 5; % water depth (m)
+rho_w = 1026; % a liquid density
+P_liq =P_atm+rho_w*g*d; % static pressure (Pa)
+
+f_res2 = 1/radius_b * sqrt(3*gamma*P_liq/rho_w)
+r_0 = 1/w_res * sqrt(3*gamma*P_liq/rho_w)
+%% Find the bubble radius
+% P_gas = Pst + (2*tau/a) - p_v;
+% 
+% rho_gas = (Mm/(R*T))*P_gas;
+% D_p = K_gas/(rho_gas*C_p);
+% 
+% X = sqrt((2*w)/D_p)*a;
+% 
+% Gamma_num1 = (1+1i) * X/2;
+% Gamma_denum1 = tanh(Gamma_num1);
+% Gamma_num2 = (6i * (gamma-1))/X^2;
+% Gamma = gamma/(1-((Gamma_num1/Gamma_denum1)-1)*Gamma_num2);
+% 
+% omegaSquared= (3/(rho_liq*a^2))* (Gamma*P_gas - ((2*tau)/(3*a)));
+% 
+% w_0 = sqrt(real(omegaSquared));
+%% Find the bubble response
+c = 1500; % speed of sound (m/s)
+sigma_bs = bubble_response(f,radius_b);
+logBs = 10*log10(sigma_bs(1:NBins,1));
+
+f = linspace(-fs/2, fs/2, NFFT);
+fig=figure;
+subplot(311)
+% logRx_noB = X(:,1);
+logTx_noB = 20*log10(abs(Tx(:,1))./max(abs(Tx(:,1))));
+plot(f(end/2:end), logTx_noB(:, 1));
+grid on;
+title('Transmitted signal, freq');
+best_plot_ever(fig)
+
+subplot(312)
+% logRx_withB = Y(:,1);
+logRx_withB = 20*log10(abs(Y(:,1))./max(abs(Y(:,1))));
+plot(f(end/2:end), logRx_withB(:, 1));
+grid on;
+hold on
+title('Received correlated signal, freq');
+best_plot_ever(fig)
+
+subplot(313)
+plot(2*pi/c*f(end/2:end)*radius_b, logBs);
+hold on
+logH_hat = 20*log10(abs(H_hat(:,1))./max(abs(H_hat(:,1))));
+% plot(2*pi/c*f(end/2:end)*radius_b, logH_hat(:, 1));
+plot(2*pi/c*f(end/2:end)*radius_b, abs(H_hat(:,1)));
+ylim([-100 0])
+legend("bubble", "reconstruction")
+title('Reconstructed correlated signal, freq');
+best_plot_ever(fig)
+% saveas(gca, "reconstructed-set_50kHz","png");
 %% Plot results as PPI (plan position indicator) plot
 % Log of correlated output
 sonar_fig=figure;

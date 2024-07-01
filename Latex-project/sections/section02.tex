@@ -1,4 +1,4 @@
-Chapter 2 is devoted to the theoretical part of this paper. It presents main underwater acoustics concepts, basic definitions of bubble acoustics and signal processing techniques. Also, it contains an introduction to bubble model and an explanation of the chosen approaches.
+Chapter 2 is devoted to the theoretical part of this paper of undewater acoustics and signal processing essentials. It presents main concepts, basic definitions of bubble acoustics and signal processing techniques. An explanation of the chosen terms and approaches is provided below.
 
 % \begin{itemize}
 %     \item bubble backscattering, natural frequency, Thuraisingham and Anderson models
@@ -57,13 +57,6 @@ The process of absorbtion and scattering of the sound can be defined as an atten
 
 It is an amount of the transmitted sound signal received back by a receiver.
 
-\subsubsection{Scattering cross-section} 
-
-The amount of energy transmitted sound wave being reflected by the small object in the direction of the receiving system is evaluated with a scattering cross-section, the ratio of the total scattered power from the object to incident plane wave intencity \cite[p. 40]{hodges_underwater_2011}:
-\begin{equation}
-    \sigma_{bs}=\frac{W}{I_{inc}}
-\end{equation}
-We often want to determine exactly how much of an incident acoustic beam's energy is scattered by a bubble, rather than being lost through thermal and viscous dissipation.
 
 \section{Signal Processing Concepts}
 % \begin{itemize}
@@ -114,106 +107,11 @@ The phase difference that comes from the path difference is proportional to the 
 
 \[D_\text{Near to far field} = L_s^2/\lambda\] 
 where $L_s$ is the spacing between receivers
-% find an image of hydrophones lobes with near and far field comparison
-
-\section{Bubble models}
-Bubble's acoustic frequency response can depend on multiple factors. Among them are a bubble radius, water pressure, ensonification frequency.
-
-For the simplicity, in most studies the bubble shape is assumed to be spherical, as the optical equipment at long distances can't provide an accurate estimation of the bubble's shape and size \cite[p.2]{zhang_efficient_2022}. 
-
-\textbf{Bubble flare} A continuous column of bubbles with the different radii which is emitted with a bubble generator. Minimum bubble size that the machine could produce were 
-
-\subsubsection{Resonance frequency}
-Due to the mass-spring system which appears from the interaction of the incoming wave with a bubble. The gas inside and the surface tension in the bubble with the liquid   
-
-
-\subsubsection{Target strength} 
-It is the measure of the single object's (e.g. bubble) reflection of the transmitted signal. %my words , find justification
-% bubble backscattering, natural frequency, Thuraisingham and Anderson models
-\subsection{Single bubble model}
-
-Single bubbles can be used as comparison to the fish in the water as they have bludders filled with an air, and this is usually a typical reflective surface recorded with a sonar.
-
-\begin{itemize}
-    \item Anderson
-    Anderson model provides a modal solution and allows to model the backscattering cross-section of a single bubble for $ka > 1$ \cite{anderson_sound_2005}.
-
-    \item Thuraisingham
-
-    In this paper of Zhang et al. 2022 \cite{zhang_efficient_2022} modal solution is used when ka > 1, and Thuraisingham solution is preferred for the ka<1, as the first doesn't consider the bubble damping effect.  Such approach can be used for our multiple compund bubble simulation.
-
-    \item Church, Medwin,
-
-    Andreeva is for fish.
-
-\end{itemize}
-
-% There is a general formula of the gas bubble's rising velocity based on the bubble's volume, which allows us not to consider the bubble shape and its change during the rising process????(whose citation)
-\subsubsection{Anderson model}
-The process of establishing the model for the acoustic frequency response of the bubble dates back to the paper of Anderson in 1950 \cite{anderson_sound_2005}. Initially, the theory of Rayleigh scattering has provided a big input into the scatterers which are comparable to a wavelength. While this work presented spheres with medium-like acoustic properties, and dimensions are as a couple  wavelengths. Using provided calculation we can obtain the pressure and the total energy in the scattered wave.
-
-The following limitation of this model which should be considered is when ka approaches 0. That which means that the radius of sphere becomes less than a wavelength. For the cases when ka <1 or >1 there are no limitations.
-
-This paper results can be used for comparison with other models available nowadays. The implementation in Matlab has allowed us to see how the peak at resonance frequency corresponds to the one of Thuraisingham model. However, at higher frequencies we can observes additional peaks, which indicate other modes of the fluid sphere, when $ka$ is closer or over 1.
-% We can express cross-section scattering using a relation of the reflectivity and a measure of the amount of power scatterer diverting from the original wave. That allows to obtain the total 
-
-\subsubsection{Thuraisingham model}
-The scattering cross-section $\sigma_s$ of a single bubble is a ratio of the energy loss averaged over time while being scattered from the bubble to the intensity of incident signal \cite[p.408]{thuraisingham_new_1997}. Thuraisingham formula for the scattering cross-section with the condition of a spherical pulsation of the bubble was presented in this form: 
-
-\begin{equation}\label{eq:thuraisingham}
-    \sigma_s=\frac{4\pi a^2}{\delta^2 + (\frac{\omega_r^2}{\omega^2}-1)^2}\frac{(\frac{\sin ka}{ka})^2}{1+(ka)^2}
+In the near field the delay-and-sum equation for an array would look like:
+\begin{equation}
+    \label{eqn:far-field-DAS}
 \end{equation}
-Where $a$ is a bubble radius, $k$ is a wavenumber in the water, $\delta$ is a damping constant ,$\omega_r$  is the resonance frequency, $\omega$  is the angular frequency.
-
-This model applies over all values of $ka$. After that a model was optimised by Li et al. \cite[]{li_broadband_2020} for the omnidirectional breathing mode. As the impact of the last factor decreases with the increase of the $ka$-value, we require more adaptable model to different modes. In this paper Li et al. have used for $ka << 1$ a Thuraisingham formula and for $ka>1$ was used an adjusted modal solution.
-
-% my plots are better to be placed to the section of "my simulations". Here I propose to insert pictures from papers/books
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{thur-and-models.eps}
-    \caption*{Target strength over $ka$-values for a Thuraisingham and Anderson solutions of a single bubble of radius a = 0.3 cm}
-    \label{fig:thur-anderson}
-\end{figure}
-
-Figure \ref*{fig:thur-anderson} shows a plot of the single bubble target strength against  $ka << 1$, and significantly larger values $ka > 1$. The highes peak corresponds to the resonance frequency of the bubble, following smaller peaks of the modal solution might correspond to the normal modes of the bubble, which occur as a resulting oscillations. Yet it doesn't take into account the damping effect present in a bubble.
-
-
-\subsection{Multiple bubble model}
-
-For more than one bubble we can add various scenarious for bubbles' location in space, distance between each other, their dimensions, dynamics, and interactions. Those new properties pose more challenges in constructing a valid model for multiple bubbles.
-
-Among the possible real-world applications are gas seapages underwater, bubble curtains which play role of sound attenuators.
-
-% math assumptions and formulations
-
-\subsubsection{Volume-scattering strength} 
-In case we have more than one bubble, where we were describing it with a target strength, the volume backscattering strength should be used instead.
-\[s_v = \int\sigma_{bs}n(a)\]
-\[S_v = 10\log_{10}(s_v)(dB\;re\;1m^2)\]
-
-% More bubbles are added
-
-\subsection{Multiple scattering }
-
-Leblond et al. paper states that for multiple discrete bubbles, we can neglect the effect of the multiple scattering \cite[]{leblond_acoustic_2014}. 
-\textcolor{red}{Foldy paper equation explanation and concept of the multiple scattering}
-
-When the signal is emitted, the scatterer removes from the wave a specific amount of flux which is equal to the its extintion cross section multiplied by flux per unit area. This amount is partially absorbed and scattered. The next step lies in adding up all the scattering from the received transmitted signal scatterer to other bubbles, then repeating the procedure in the regard of other bubbles, till all scatterers in the close enough vicinity of each other got an interaction with each other.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{multiple-scattering.png}
-    \caption*{The scheme of the multiple scattering}
-    \label{fig:multiple-scattering}
-\end{figure}
-
-But this concept is applicable when amount of scatterers is sufficiently small, otherwise they start interacting with each other and no longer act as a scatter independently. %source????? Foldy or Hazard?
-
-Hazard and Cassier paper provides a mathematical point of view at the multiple scattering with a justification of the Foldy-Lax model. This model help to get an approximation of scattered waves in a deterministic as well as in a random media. Also, local error estimates for circular objects in 2D problem were obtained in the scope of results of this paper.
-
-- Foldy, Leslie L. ‘The Multiple Scattering of Waves. I. General Theory of Isotropic Scattering by Randomly Distributed Scatterers’. Physical Review 67, no. 3–4 (1 February 1945): 107–19. https://doi.org/10.1103/PhysRev.67.107.
-
-- Multiple Scattering of Acoustic Waves by Small Sound-Soft Obstacles in Two Dimensions: Mathematical Justification of the Foldy–Lax Model, Hazard and Cassier
+% find an image of hydrophones lobes with near and far field comparison
 
 \section{Reconstruction of the bubble frequency response}
 

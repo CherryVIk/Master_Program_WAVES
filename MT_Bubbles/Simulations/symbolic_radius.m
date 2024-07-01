@@ -1,10 +1,4 @@
-function sigma_bs = bubble_response(f_range,a_range)
-% f_range = linspace(10e3,1e6,1000); % echosounder freq (Hz=1/s)
-% a_range = linspace(1e-6,30e-3,1000);  % Oscillations, bubble radius (m)
-%a_range = linspace(6e-6,2e-4,1000);  % Normal
-
-% [~, rr] = min(abs(a_range - radius));
-
+syms f_range, a_range
 
 c = 1500; % speed of sound (m/s)
 rho_liq = 1026; % density of liquid (kg/m^3) [water]
@@ -65,22 +59,8 @@ sigma_num1=(sin(k*a)/(k*a))^2;
 sigma_num2= 1+(k*a)^2;
 
 sigma_bs(ff, aa) = (a^2/(sigma_denom1+sigma_denom2))*(sigma_num1 / sigma_num2);
-
-% Target strength
 TS(ff, aa) = 10*log10(sigma_bs(ff, aa)); %dB re 1 m^2
 end
 end
-%% Plot imagesc: freq x bubble radius x TS
-% figure;
-% imagesc(f_range,a_range,TS);
-% set(gca, 'YDir', 'normal');
-% colormap("jet")
-% colorbar;
-%% Plot ka x TS
-figure(56);
-ka = 2*pi/c*f_range'*a_range;
-kk = 1; % 30, at specific radius/freq
-semilogx(ka(:,kk), TS(:,kk));
-xlabel('ka');ylabel('TS (dB re 1 m^2)')
-title("Inside function:  ka x TS")
-end
+
+solve()

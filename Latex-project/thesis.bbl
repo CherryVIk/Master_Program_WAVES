@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.3 $
+% $ biblatex bbl format version 3.2 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,8 +18,8 @@
 
 
 \refsection{0}
-  \datalist[entry]{none/global//global/global/global}
-    \entry{noauthor_deepsea_nodate}{online}{}{}
+  \datalist[entry]{none/global//global/global}
+    \entry{noauthor_deepsea_nodate}{online}{}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
@@ -35,7 +35,7 @@
       \verb https://www.geomar.de/en/deepsea-monitoring
       \endverb
     \endentry
-    \entry{lax_multiple_1951}{article}{}{}
+    \entry{lax_multiple_1951}{article}{}
       \name{author}{1}{}{%
         {{hash=bc6a8bd75ac85b8fee992e1e3cdd0c4b}{%
            family={Lax},
@@ -48,12 +48,10 @@
       }
       \strng{namehash}{bc6a8bd75ac85b8fee992e1e3cdd0c4b}
       \strng{fullhash}{bc6a8bd75ac85b8fee992e1e3cdd0c4b}
-      \strng{fullhashraw}{bc6a8bd75ac85b8fee992e1e3cdd0c4b}
       \strng{bibnamehash}{bc6a8bd75ac85b8fee992e1e3cdd0c4b}
       \strng{authorbibnamehash}{bc6a8bd75ac85b8fee992e1e3cdd0c4b}
       \strng{authornamehash}{bc6a8bd75ac85b8fee992e1e3cdd0c4b}
       \strng{authorfullhash}{bc6a8bd75ac85b8fee992e1e3cdd0c4b}
-      \strng{authorfullhashraw}{bc6a8bd75ac85b8fee992e1e3cdd0c4b}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -84,7 +82,7 @@
       \verb https://link.aps.org/doi/10.1103/RevModPhys.23.287
       \endverb
     \endentry
-    \entry{kaczer_bubble_1977}{article}{}{}
+    \entry{kaczer_bubble_1977}{article}{}
       \name{author}{2}{}{%
         {{hash=459057b86089c5d5e2ec6577697f951c}{%
            family={Kaczér},
@@ -99,12 +97,10 @@
       }
       \strng{namehash}{c83733747c08c118184cd151f6e1568b}
       \strng{fullhash}{c83733747c08c118184cd151f6e1568b}
-      \strng{fullhashraw}{c83733747c08c118184cd151f6e1568b}
       \strng{bibnamehash}{c83733747c08c118184cd151f6e1568b}
       \strng{authorbibnamehash}{c83733747c08c118184cd151f6e1568b}
       \strng{authornamehash}{c83733747c08c118184cd151f6e1568b}
       \strng{authorfullhash}{c83733747c08c118184cd151f6e1568b}
-      \strng{authorfullhashraw}{c83733747c08c118184cd151f6e1568b}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
@@ -135,7 +131,7 @@
       \verb https://www.sciencedirect.com/science/article/pii/0378436377908944
       \endverb
     \endentry
-    \entry{leighton_acoustic_2012}{book}{}{}
+    \entry{leighton_acoustic_2012}{book}{}
       \name{author}{1}{}{%
         {{hash=3ce021361b94c7d73924c32e26a85c00}{%
            family={Leighton},
@@ -148,12 +144,10 @@
       }
       \strng{namehash}{3ce021361b94c7d73924c32e26a85c00}
       \strng{fullhash}{3ce021361b94c7d73924c32e26a85c00}
-      \strng{fullhashraw}{3ce021361b94c7d73924c32e26a85c00}
       \strng{bibnamehash}{3ce021361b94c7d73924c32e26a85c00}
       \strng{authorbibnamehash}{3ce021361b94c7d73924c32e26a85c00}
       \strng{authornamehash}{3ce021361b94c7d73924c32e26a85c00}
       \strng{authorfullhash}{3ce021361b94c7d73924c32e26a85c00}
-      \strng{authorfullhashraw}{3ce021361b94c7d73924c32e26a85c00}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
@@ -172,7 +166,7 @@
       \endverb
       \keyw{notion,acoustic bubble,Science / Energy,Science / Mechanics / General,Science / Physics / General,Technology \& Engineering / Materials Science / General}
     \endentry
-    \entry{manasseh_anisotropy_2004}{article}{}{}
+    \entry{manasseh_anisotropy_2004}{article}{}
       \name{author}{4}{}{%
         {{hash=d2a11664fefd66a9429683e298941b12}{%
            family={Manasseh},
@@ -197,12 +191,10 @@
       }
       \strng{namehash}{e32cfa9cd864866a4b950f7c6d1eb002}
       \strng{fullhash}{5f16d33a19fcb904aff8d8ac02792e0a}
-      \strng{fullhashraw}{5f16d33a19fcb904aff8d8ac02792e0a}
       \strng{bibnamehash}{5f16d33a19fcb904aff8d8ac02792e0a}
       \strng{authorbibnamehash}{5f16d33a19fcb904aff8d8ac02792e0a}
       \strng{authornamehash}{e32cfa9cd864866a4b950f7c6d1eb002}
       \strng{authorfullhash}{5f16d33a19fcb904aff8d8ac02792e0a}
-      \strng{authorfullhashraw}{5f16d33a19fcb904aff8d8ac02792e0a}
       \field{sortinit}{5}
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
@@ -238,7 +230,7 @@
       \endverb
       \keyw{notion}
     \endentry
-    \entry{zhang_efficient_2022}{article}{}{}
+    \entry{zhang_efficient_2022}{article}{}
       \name{author}{4}{}{%
         {{hash=9bd2d7b3dd17c05bac3ee667f4f07251}{%
            family={Zhang},
@@ -263,12 +255,10 @@
       }
       \strng{namehash}{9efd2b1eeb0a538b395b4ce070d03c36}
       \strng{fullhash}{6ffbde77f99d3a8338d5d2215f53397f}
-      \strng{fullhashraw}{6ffbde77f99d3a8338d5d2215f53397f}
       \strng{bibnamehash}{6ffbde77f99d3a8338d5d2215f53397f}
       \strng{authorbibnamehash}{6ffbde77f99d3a8338d5d2215f53397f}
       \strng{authornamehash}{9efd2b1eeb0a538b395b4ce070d03c36}
       \strng{authorfullhash}{6ffbde77f99d3a8338d5d2215f53397f}
-      \strng{authorfullhashraw}{6ffbde77f99d3a8338d5d2215f53397f}
       \field{extraname}{1}
       \field{sortinit}{6}
       \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
@@ -305,7 +295,7 @@
       \endverb
       \keyw{notion,detection and quantitation,multibeam sonar,underwater gas leakage,water column image}
     \endentry
-    \entry{li_broadband_2020}{article}{}{}
+    \entry{li_broadband_2020}{article}{}
       \name{author}{8}{}{%
         {{hash=317333f698f6a8346a29be2a8fe7779a}{%
            family={Li},
@@ -350,12 +340,10 @@
       }
       \strng{namehash}{01c1fab239f711b417b4518bb46d531d}
       \strng{fullhash}{ecfd87f1b41bcd4d21e4f66d9ef1e3fb}
-      \strng{fullhashraw}{ecfd87f1b41bcd4d21e4f66d9ef1e3fb}
       \strng{bibnamehash}{01c1fab239f711b417b4518bb46d531d}
       \strng{authorbibnamehash}{01c1fab239f711b417b4518bb46d531d}
       \strng{authornamehash}{01c1fab239f711b417b4518bb46d531d}
       \strng{authorfullhash}{ecfd87f1b41bcd4d21e4f66d9ef1e3fb}
-      \strng{authorfullhashraw}{ecfd87f1b41bcd4d21e4f66d9ef1e3fb}
       \field{sortinit}{7}
       \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
@@ -390,7 +378,7 @@
       \endverb
       \keyw{notion,broadband,bubble,gas,methane,sonar,underwater acoustics}
     \endentry
-    \entry{ainslie_principles_2010}{book}{}{}
+    \entry{ainslie_principles_2010}{book}{}
       \name{author}{1}{}{%
         {{hash=b781f9930a65ee4aef1cefefe6e5f7db}{%
            family={Ainslie},
@@ -409,12 +397,10 @@
       }
       \strng{namehash}{b781f9930a65ee4aef1cefefe6e5f7db}
       \strng{fullhash}{b781f9930a65ee4aef1cefefe6e5f7db}
-      \strng{fullhashraw}{b781f9930a65ee4aef1cefefe6e5f7db}
       \strng{bibnamehash}{b781f9930a65ee4aef1cefefe6e5f7db}
       \strng{authorbibnamehash}{b781f9930a65ee4aef1cefefe6e5f7db}
       \strng{authornamehash}{b781f9930a65ee4aef1cefefe6e5f7db}
       \strng{authorfullhash}{b781f9930a65ee4aef1cefefe6e5f7db}
-      \strng{authorfullhashraw}{b781f9930a65ee4aef1cefefe6e5f7db}
       \field{sortinit}{8}
       \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
@@ -440,7 +426,7 @@
       \endverb
       \keyw{notion,acoustics,modeling,Modelling,Ocean,Oceanography,Sonar,sound,Sound navigation,Underwater acoustics}
     \endentry
-    \entry{hodges_underwater_2011}{book}{}{}
+    \entry{hodges_underwater_2011}{book}{}
       \name{author}{1}{}{%
         {{hash=e7da04c8004d228731f66b2cae0aa15e}{%
            family={Hodges},
@@ -456,12 +442,10 @@
       }
       \strng{namehash}{e7da04c8004d228731f66b2cae0aa15e}
       \strng{fullhash}{e7da04c8004d228731f66b2cae0aa15e}
-      \strng{fullhashraw}{e7da04c8004d228731f66b2cae0aa15e}
       \strng{bibnamehash}{e7da04c8004d228731f66b2cae0aa15e}
       \strng{authorbibnamehash}{e7da04c8004d228731f66b2cae0aa15e}
       \strng{authornamehash}{e7da04c8004d228731f66b2cae0aa15e}
       \strng{authorfullhash}{e7da04c8004d228731f66b2cae0aa15e}
-      \strng{authorfullhashraw}{e7da04c8004d228731f66b2cae0aa15e}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -478,7 +462,62 @@
       \endverb
       \keyw{notion,Science / Waves \& Wave Mechanics,Technology \& Engineering / Electrical,Technology \& Engineering / Electronics / General}
     \endentry
-    \entry{anderson_sound_2005}{article}{}{}
+    \entry{ainslie_review_2011}{article}{}
+      \name{author}{2}{}{%
+        {{hash=7a3ea3be171ac6418f127b1c3de92208}{%
+           family={Ainslie},
+           familyi={A\bibinitperiod},
+           given={Michael\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=87151716731eda796a381744c9ac4810}{%
+           family={Leighton},
+           familyi={L\bibinitperiod},
+           given={Timothy\bibnamedelima G.},
+           giveni={T\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \strng{namehash}{fddbf5ce6e8823a10c765fb609134c8b}
+      \strng{fullhash}{fddbf5ce6e8823a10c765fb609134c8b}
+      \strng{bibnamehash}{fddbf5ce6e8823a10c765fb609134c8b}
+      \strng{authorbibnamehash}{fddbf5ce6e8823a10c765fb609134c8b}
+      \strng{authornamehash}{fddbf5ce6e8823a10c765fb609134c8b}
+      \strng{authorfullhash}{fddbf5ce6e8823a10c765fb609134c8b}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Perhaps the most familiar concepts when discussing acoustic scattering by bubbles are the resonance frequency for bubble pulsation, the bubbles’ damping, and their scattering and extinction cross-sections, all of which are used routinely in oceanography, sonochemistry, and biomedicine. The apparent simplicity of these concepts is illusory: there exist multiple, sometimes contradictory definitions for their components. This paper reviews expressions and definitions in the literature for acoustical cross-sections, resonance frequencies, and damping factors of a spherically pulsating gas bubble in an infinite liquid medium, deriving two expressions for “resonance frequency” that are compared and reconciled with two others from the reviewed literature. In order to prevent errors, care is needed by researchers when combining results from different publications that might have used internally correct but mutually inconsistent definitions. Expressions are presented for acoustical cross-sections associated with forced pulsations damped by liquid shear and (oft-neglected) bulk or dilatational viscosities, gas thermal diffusivity, and acoustic re-radiation. The concept of a dimensionless “damping coefficient” is unsuitable for radiation damping because different cross-sections would require different functional forms for this parameter. Instead, terms based on the ratio of bubble radius to acoustic wavelength are included explicitly in the cross-sections where needed.}
+      \field{day}{16}
+      \field{issn}{0001-4966}
+      \field{journaltitle}{The Journal of the Acoustical Society of America}
+      \field{month}{11}
+      \field{number}{5}
+      \field{shortjournal}{The Journal of the Acoustical Society of America}
+      \field{title}{Review of scattering and extinction cross-sections, damping factors, and resonance frequencies of a spherical gas bubble}
+      \field{urlday}{14}
+      \field{urlmonth}{1}
+      \field{urlyear}{2024}
+      \field{volume}{130}
+      \field{year}{2011}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{3184\bibrangedash 3208}
+      \range{pages}{25}
+      \verb{doi}
+      \verb 10.1121/1.3628321
+      \endverb
+      \verb{file}
+      \verb ainslie2011.pdf:/home/vboichenko/Zotero/storage/VR93EQMD/ainslie2011.pdf:application/pdf;Snapshot:/home/vboichenko/Zotero/storage/SDZHTXLT/Review-of-scattering-and-extinction-cross-sections.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1121/1.3628321
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1121/1.3628321
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{anderson_sound_2005}{article}{}
       \name{author}{1}{}{%
         {{hash=637da7aad67676fc84c9baa22af25422}{%
            family={Anderson},
@@ -488,12 +527,10 @@
       }
       \strng{namehash}{637da7aad67676fc84c9baa22af25422}
       \strng{fullhash}{637da7aad67676fc84c9baa22af25422}
-      \strng{fullhashraw}{637da7aad67676fc84c9baa22af25422}
       \strng{bibnamehash}{637da7aad67676fc84c9baa22af25422}
       \strng{authorbibnamehash}{637da7aad67676fc84c9baa22af25422}
       \strng{authornamehash}{637da7aad67676fc84c9baa22af25422}
       \strng{authorfullhash}{637da7aad67676fc84c9baa22af25422}
-      \strng{authorfullhashraw}{637da7aad67676fc84c9baa22af25422}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -526,7 +563,7 @@
       \endverb
       \keyw{notion}
     \endentry
-    \entry{thuraisingham_new_1997}{article}{}{}
+    \entry{thuraisingham_new_1997}{article}{}
       \name{author}{1}{}{%
         {{hash=f7b8b87b6a1433cd96221da951c9af05}{%
            family={Thuraisingham},
@@ -536,14 +573,12 @@
       }
       \strng{namehash}{f7b8b87b6a1433cd96221da951c9af05}
       \strng{fullhash}{f7b8b87b6a1433cd96221da951c9af05}
-      \strng{fullhashraw}{f7b8b87b6a1433cd96221da951c9af05}
       \strng{bibnamehash}{f7b8b87b6a1433cd96221da951c9af05}
       \strng{authorbibnamehash}{f7b8b87b6a1433cd96221da951c9af05}
       \strng{authornamehash}{f7b8b87b6a1433cd96221da951c9af05}
       \strng{authorfullhash}{f7b8b87b6a1433cd96221da951c9af05}
-      \strng{authorfullhashraw}{f7b8b87b6a1433cd96221da951c9af05}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Existing expressions for acoustic cross-sections of a single bubble based on monopole bubble theory depends on the approximation ka ⪡ 1, where k is the wavenumber and a the radius of the bubble. In this note, new expressions for acoustic cross-sections of a single bubble are obtained using monopole bubble theory valid for all ka.}
@@ -577,7 +612,7 @@
       \endverb
       \keyw{notion,Bubbles,Acoustic cross-section,Acoustic scattering}
     \endentry
-    \entry{leblond_acoustic_2014}{article}{}{}
+    \entry{leblond_acoustic_2014}{article}{}
       \name{author}{3}{}{%
         {{hash=ec5f9c37e679a08d4126dbdc7f07b22c}{%
            family={Leblond},
@@ -600,12 +635,10 @@
       }
       \strng{namehash}{fc77d4c734a9ae4cc98ade33772155d7}
       \strng{fullhash}{a65e3d3bd12f144fd603c04bce4aa7c6}
-      \strng{fullhashraw}{a65e3d3bd12f144fd603c04bce4aa7c6}
       \strng{bibnamehash}{a65e3d3bd12f144fd603c04bce4aa7c6}
       \strng{authorbibnamehash}{a65e3d3bd12f144fd603c04bce4aa7c6}
       \strng{authornamehash}{fc77d4c734a9ae4cc98ade33772155d7}
       \strng{authorfullhash}{a65e3d3bd12f144fd603c04bce4aa7c6}
-      \strng{authorfullhashraw}{a65e3d3bd12f144fd603c04bce4aa7c6}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -639,7 +672,7 @@
       \endverb
       \keyw{notion,Bubbles,Acoustic backscattering,Fisheries echosounders,Forward and inverse modeling,Gas emissions,Seafloor observatory,Water column acoustics,Water tank experiments}
     \endentry
-    \entry{zhang_experimental_2021}{article}{}{}
+    \entry{zhang_experimental_2021}{article}{}
       \name{author}{7}{}{%
         {{hash=3940c2b740f130e4552b4a9b6a52d72b}{%
            family={Zhang},
@@ -679,12 +712,10 @@
       }
       \strng{namehash}{a98992f6c1288c625affca1f474d5f40}
       \strng{fullhash}{aee5eb58a4757bc8ed1759525cafad73}
-      \strng{fullhashraw}{aee5eb58a4757bc8ed1759525cafad73}
       \strng{bibnamehash}{a98992f6c1288c625affca1f474d5f40}
       \strng{authorbibnamehash}{a98992f6c1288c625affca1f474d5f40}
       \strng{authornamehash}{a98992f6c1288c625affca1f474d5f40}
       \strng{authorfullhash}{aee5eb58a4757bc8ed1759525cafad73}
-      \strng{authorfullhashraw}{aee5eb58a4757bc8ed1759525cafad73}
       \field{extraname}{2}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
@@ -717,7 +748,7 @@
       \endverb
       \keyw{Bubble collapse shock wave,Cavitation shotless forming,Micro-jet,notion,Plasma shock wave,Water hammer pressure}
     \endentry
-    \entry{veloso_new_2015}{article}{}{}
+    \entry{veloso_new_2015}{article}{}
       \name{author}{4}{}{%
         {{hash=b0058ea388891753a0ac1307a4b6baae}{%
            family={Veloso},
@@ -742,12 +773,10 @@
       }
       \strng{namehash}{a23c5b627f30a14c6deb91147aa410ff}
       \strng{fullhash}{98de13193eab50437f0dfced4a7ef354}
-      \strng{fullhashraw}{98de13193eab50437f0dfced4a7ef354}
       \strng{bibnamehash}{98de13193eab50437f0dfced4a7ef354}
       \strng{authorbibnamehash}{98de13193eab50437f0dfced4a7ef354}
       \strng{authornamehash}{a23c5b627f30a14c6deb91147aa410ff}
       \strng{authorfullhash}{98de13193eab50437f0dfced4a7ef354}
-      \strng{authorfullhashraw}{98de13193eab50437f0dfced4a7ef354}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
@@ -784,7 +813,7 @@
       \endverb
       \keyw{notion}
     \endentry
-    \entry{feuillade_scattering_1995}{article}{}{}
+    \entry{feuillade_scattering_1995}{article}{}
       \name{author}{1}{}{%
         {{hash=350d8c14ef99a78e70f18caaa0131331}{%
            family={Feuillade},
@@ -794,12 +823,10 @@
       }
       \strng{namehash}{350d8c14ef99a78e70f18caaa0131331}
       \strng{fullhash}{350d8c14ef99a78e70f18caaa0131331}
-      \strng{fullhashraw}{350d8c14ef99a78e70f18caaa0131331}
       \strng{bibnamehash}{350d8c14ef99a78e70f18caaa0131331}
       \strng{authorbibnamehash}{350d8c14ef99a78e70f18caaa0131331}
       \strng{authornamehash}{350d8c14ef99a78e70f18caaa0131331}
       \strng{authorfullhash}{350d8c14ef99a78e70f18caaa0131331}
-      \strng{authorfullhashraw}{350d8c14ef99a78e70f18caaa0131331}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
@@ -835,7 +862,7 @@
       \verb https://doi.org/10.1121/1.413616
       \endverb
     \endentry
-    \entry{ainslie_review_2011}{article}{}{}
+    \entry{ainslie_near_2009}{article}{}
       \name{author}{2}{}{%
         {{hash=7a3ea3be171ac6418f127b1c3de92208}{%
            family={Ainslie},
@@ -850,70 +877,10 @@
       }
       \strng{namehash}{fddbf5ce6e8823a10c765fb609134c8b}
       \strng{fullhash}{fddbf5ce6e8823a10c765fb609134c8b}
-      \strng{fullhashraw}{fddbf5ce6e8823a10c765fb609134c8b}
       \strng{bibnamehash}{fddbf5ce6e8823a10c765fb609134c8b}
       \strng{authorbibnamehash}{fddbf5ce6e8823a10c765fb609134c8b}
       \strng{authornamehash}{fddbf5ce6e8823a10c765fb609134c8b}
       \strng{authorfullhash}{fddbf5ce6e8823a10c765fb609134c8b}
-      \strng{authorfullhashraw}{fddbf5ce6e8823a10c765fb609134c8b}
-      \field{extraname}{1}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Perhaps the most familiar concepts when discussing acoustic scattering by bubbles are the resonance frequency for bubble pulsation, the bubbles’ damping, and their scattering and extinction cross-sections, all of which are used routinely in oceanography, sonochemistry, and biomedicine. The apparent simplicity of these concepts is illusory: there exist multiple, sometimes contradictory definitions for their components. This paper reviews expressions and definitions in the literature for acoustical cross-sections, resonance frequencies, and damping factors of a spherically pulsating gas bubble in an infinite liquid medium, deriving two expressions for “resonance frequency” that are compared and reconciled with two others from the reviewed literature. In order to prevent errors, care is needed by researchers when combining results from different publications that might have used internally correct but mutually inconsistent definitions. Expressions are presented for acoustical cross-sections associated with forced pulsations damped by liquid shear and (oft-neglected) bulk or dilatational viscosities, gas thermal diffusivity, and acoustic re-radiation. The concept of a dimensionless “damping coefficient” is unsuitable for radiation damping because different cross-sections would require different functional forms for this parameter. Instead, terms based on the ratio of bubble radius to acoustic wavelength are included explicitly in the cross-sections where needed.}
-      \field{day}{16}
-      \field{issn}{0001-4966}
-      \field{journaltitle}{The Journal of the Acoustical Society of America}
-      \field{month}{11}
-      \field{number}{5}
-      \field{shortjournal}{The Journal of the Acoustical Society of America}
-      \field{title}{Review of scattering and extinction cross-sections, damping factors, and resonance frequencies of a spherical gas bubble}
-      \field{urlday}{14}
-      \field{urlmonth}{1}
-      \field{urlyear}{2024}
-      \field{volume}{130}
-      \field{year}{2011}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \true{nocite}
-      \field{pages}{3184\bibrangedash 3208}
-      \range{pages}{25}
-      \verb{doi}
-      \verb 10.1121/1.3628321
-      \endverb
-      \verb{file}
-      \verb ainslie2011.pdf:/home/vboichenko/Zotero/storage/VR93EQMD/ainslie2011.pdf:application/pdf;Snapshot:/home/vboichenko/Zotero/storage/SDZHTXLT/Review-of-scattering-and-extinction-cross-sections.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1121/1.3628321
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1121/1.3628321
-      \endverb
-      \keyw{notion}
-    \endentry
-    \entry{ainslie_near_2009}{article}{}{}
-      \name{author}{2}{}{%
-        {{hash=7a3ea3be171ac6418f127b1c3de92208}{%
-           family={Ainslie},
-           familyi={A\bibinitperiod},
-           given={Michael\bibnamedelima A.},
-           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=87151716731eda796a381744c9ac4810}{%
-           family={Leighton},
-           familyi={L\bibinitperiod},
-           given={Timothy\bibnamedelima G.},
-           giveni={T\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
-      }
-      \strng{namehash}{fddbf5ce6e8823a10c765fb609134c8b}
-      \strng{fullhash}{fddbf5ce6e8823a10c765fb609134c8b}
-      \strng{fullhashraw}{fddbf5ce6e8823a10c765fb609134c8b}
-      \strng{bibnamehash}{fddbf5ce6e8823a10c765fb609134c8b}
-      \strng{authorbibnamehash}{fddbf5ce6e8823a10c765fb609134c8b}
-      \strng{authornamehash}{fddbf5ce6e8823a10c765fb609134c8b}
-      \strng{authorfullhash}{fddbf5ce6e8823a10c765fb609134c8b}
-      \strng{authorfullhashraw}{fddbf5ce6e8823a10c765fb609134c8b}
       \field{extraname}{2}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
@@ -951,7 +918,7 @@
       \endverb
       \keyw{notion}
     \endentry
-    \entry{veloso-alarcon_quantitatively_2022}{article}{}{}
+    \entry{veloso-alarcon_quantitatively_2022}{article}{}
       \name{author}{6}{}{%
         {{hash=d58ef9540ca0e3cea798b1f03a76d47a}{%
            family={Veloso-Alarcón},
@@ -986,12 +953,10 @@
       }
       \strng{namehash}{74c0fa4294124ee996bd15ccbe4dc4b5}
       \strng{fullhash}{5b2c59929786ec28cbc567f06479880e}
-      \strng{fullhashraw}{5b2c59929786ec28cbc567f06479880e}
       \strng{bibnamehash}{5b2c59929786ec28cbc567f06479880e}
       \strng{authorbibnamehash}{5b2c59929786ec28cbc567f06479880e}
       \strng{authornamehash}{74c0fa4294124ee996bd15ccbe4dc4b5}
       \strng{authorfullhash}{5b2c59929786ec28cbc567f06479880e}
-      \strng{authorfullhashraw}{5b2c59929786ec28cbc567f06479880e}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
@@ -1020,7 +985,7 @@
       \endverb
       \keyw{notion}
     \endentry
-    \entry{lurton2002introduction}{article}{}{}
+    \entry{lurton2002introduction}{article}{}
       \name{author}{1}{}{%
         {{hash=8a079acceed2192ef05bdab21ca22bd6}{%
            family={Lurton},
@@ -1030,12 +995,10 @@
       }
       \strng{namehash}{8a079acceed2192ef05bdab21ca22bd6}
       \strng{fullhash}{8a079acceed2192ef05bdab21ca22bd6}
-      \strng{fullhashraw}{8a079acceed2192ef05bdab21ca22bd6}
       \strng{bibnamehash}{8a079acceed2192ef05bdab21ca22bd6}
       \strng{authorbibnamehash}{8a079acceed2192ef05bdab21ca22bd6}
       \strng{authornamehash}{8a079acceed2192ef05bdab21ca22bd6}
       \strng{authorfullhash}{8a079acceed2192ef05bdab21ca22bd6}
-      \strng{authorfullhashraw}{8a079acceed2192ef05bdab21ca22bd6}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
@@ -1048,7 +1011,7 @@
       \field{pages}{91\bibrangedash 99}
       \range{pages}{9}
     \endentry
-    \entry{trees_optimum_2002}{book}{}{}
+    \entry{trees_optimum_2002}{book}{}
       \name{author}{1}{}{%
         {{hash=1e2889d06e4e3a9a60650691f3af7747}{%
            family={Trees},
@@ -1064,12 +1027,10 @@
       }
       \strng{namehash}{1e2889d06e4e3a9a60650691f3af7747}
       \strng{fullhash}{1e2889d06e4e3a9a60650691f3af7747}
-      \strng{fullhashraw}{1e2889d06e4e3a9a60650691f3af7747}
       \strng{bibnamehash}{1e2889d06e4e3a9a60650691f3af7747}
       \strng{authorbibnamehash}{1e2889d06e4e3a9a60650691f3af7747}
       \strng{authornamehash}{1e2889d06e4e3a9a60650691f3af7747}
       \strng{authorfullhash}{1e2889d06e4e3a9a60650691f3af7747}
-      \strng{authorfullhashraw}{1e2889d06e4e3a9a60650691f3af7747}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}

@@ -440,6 +440,44 @@
       \endverb
       \keyw{notion,acoustics,modeling,Modelling,Ocean,Oceanography,Sonar,sound,Sound navigation,Underwater acoustics}
     \endentry
+    \entry{hodges_underwater_2011}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=e7da04c8004d228731f66b2cae0aa15e}{%
+           family={Hodges},
+           familyi={H\bibinitperiod},
+           given={Richard\bibnamedelima P.},
+           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{e7da04c8004d228731f66b2cae0aa15e}
+      \strng{fullhash}{e7da04c8004d228731f66b2cae0aa15e}
+      \strng{fullhashraw}{e7da04c8004d228731f66b2cae0aa15e}
+      \strng{bibnamehash}{e7da04c8004d228731f66b2cae0aa15e}
+      \strng{authorbibnamehash}{e7da04c8004d228731f66b2cae0aa15e}
+      \strng{authornamehash}{e7da04c8004d228731f66b2cae0aa15e}
+      \strng{authorfullhash}{e7da04c8004d228731f66b2cae0aa15e}
+      \strng{authorfullhashraw}{e7da04c8004d228731f66b2cae0aa15e}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Offering complete and comprehensive coverage of modern sonar spectrum system analysis, Underwater Acoustics: Analysis, Design and Performance of Sonar provides a state-of-the-art introduction to the subject and has been carefully structured to offer a much-needed update to the classic text by Urick. Expanded to included computational approaches to the topic, this book treads the line between the highly theoretical and mathematical texts and the more populist, non-mathematical books that characterize the existing literature in the field. The author compares and contrasts different techniques for sonar design, analysis and performance prediction and includes key experimental and theoretical results, pointing the reader towards further detail with extensive references. Practitioners in the field of sonar design, analysis and performance prediction as well as graduate students and researchers will appreciate this new reference as an invaluable and timely contribution to the field. Chapters include the sonar equation, radiated, self and ambient noise, active sonar sources, transmission loss, reverberation, transducers, active target strength, statistical detection theory, false alarms, contacts and targets, variability and uncertainty, modelling detections and tactical decision aids, cumulative probability of detection, tracking target motion analysis and localization, and design and evaluation of sonars}
+      \field{isbn}{978-1-119-95749-2}
+      \field{month}{6}
+      \field{note}{Google-Books-ID: 2O4f2ETpjm8C}
+      \field{shorttitle}{Underwater {Acoustics}}
+      \field{title}{Underwater {Acoustics}: {Analysis}, {Design} and {Performance} of {Sonar}}
+      \field{year}{2011}
+      \verb{file}
+      \verb Hodges - 2011 - Underwater Acoustics Analysis, Design and Perform.pdf:/Users/victoriaboichenko/Zotero/storage/FXH34PXJ/Hodges - 2011 - Underwater Acoustics Analysis, Design and Perform.pdf:application/pdf
+      \endverb
+      \keyw{notion,Science / Waves \& Wave Mechanics,Technology \& Engineering / Electrical,Technology \& Engineering / Electronics / General}
+    \endentry
     \entry{anderson_sound_2005}{article}{}{}
       \name{author}{1}{}{%
         {{hash=637da7aad67676fc84c9baa22af25422}{%
@@ -568,8 +606,8 @@
       \strng{authornamehash}{fc77d4c734a9ae4cc98ade33772155d7}
       \strng{authorfullhash}{a65e3d3bd12f144fd603c04bce4aa7c6}
       \strng{authorfullhashraw}{a65e3d3bd12f144fd603c04bce4aa7c6}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Three decades of continuous ocean exploration have led us to identify subsurface fluid related processes as a key phenomenon in marine earth science research. The number of seep areas located on the seafloor has been constantly increasing with the use of multi-scale imagery techniques. Due to recent advances in transducer technology and computer processing, multibeam echosounders are now commonly used to detect submarine gas seeps escaping from the seafloor into the water column. A growing number of en-route surveys shows that sites of gas emissions escaping from the seafloor are much more numerous than previously thought. Estimating the temporal variability of the gas flow rate and volumes escaping from the seafloor has thus become a challenge of relevant interest which could be addressed by sea-floor continuous acoustic monitoring. Here, we investigate the feasibility of estimating the volumetric flow rates of gas emissions from horizontal backscattered acoustic signals. Different models based on the acoustic backscattering theory of bubbles are presented. The forward volume backscattering strength and the inversion volumetric flow rate solutions were validated with acoustic measurements from artificial gas flow rates generated in controlled sea-water tank experiments. A sensitivity analysis was carried out to investigate the behavior of the 120-kHz forward solution with respect to model input parameters (horizontal distance between transducer and bubble stream, bubble size distribution and ascent rate). The most sensitive parameter was found to be the distance of the bubble stream which can affect the volume backscattering strength by 20 dB within the horizontal range of 0–200 m. Results were used to derive the detection probability of a bubble stream for a given volume backscattering strength threshold according to different bubble flow rates and horizontal distance.}
@@ -679,45 +717,6 @@
       \endverb
       \keyw{Bubble collapse shock wave,Cavitation shotless forming,Micro-jet,notion,Plasma shock wave,Water hammer pressure}
     \endentry
-    \entry{hodges_underwater_2011}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=e7da04c8004d228731f66b2cae0aa15e}{%
-           family={Hodges},
-           familyi={H\bibinitperiod},
-           given={Richard\bibnamedelima P.},
-           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {en}%
-      }
-      \list{publisher}{1}{%
-        {John Wiley \& Sons}%
-      }
-      \strng{namehash}{e7da04c8004d228731f66b2cae0aa15e}
-      \strng{fullhash}{e7da04c8004d228731f66b2cae0aa15e}
-      \strng{fullhashraw}{e7da04c8004d228731f66b2cae0aa15e}
-      \strng{bibnamehash}{e7da04c8004d228731f66b2cae0aa15e}
-      \strng{authorbibnamehash}{e7da04c8004d228731f66b2cae0aa15e}
-      \strng{authornamehash}{e7da04c8004d228731f66b2cae0aa15e}
-      \strng{authorfullhash}{e7da04c8004d228731f66b2cae0aa15e}
-      \strng{authorfullhashraw}{e7da04c8004d228731f66b2cae0aa15e}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{shorttitle}
-      \field{abstract}{Offering complete and comprehensive coverage of modern sonar spectrum system analysis, Underwater Acoustics: Analysis, Design and Performance of Sonar provides a state-of-the-art introduction to the subject and has been carefully structured to offer a much-needed update to the classic text by Urick. Expanded to included computational approaches to the topic, this book treads the line between the highly theoretical and mathematical texts and the more populist, non-mathematical books that characterize the existing literature in the field. The author compares and contrasts different techniques for sonar design, analysis and performance prediction and includes key experimental and theoretical results, pointing the reader towards further detail with extensive references. Practitioners in the field of sonar design, analysis and performance prediction as well as graduate students and researchers will appreciate this new reference as an invaluable and timely contribution to the field. Chapters include the sonar equation, radiated, self and ambient noise, active sonar sources, transmission loss, reverberation, transducers, active target strength, statistical detection theory, false alarms, contacts and targets, variability and uncertainty, modelling detections and tactical decision aids, cumulative probability of detection, tracking target motion analysis and localization, and design and evaluation of sonars}
-      \field{isbn}{978-1-119-95749-2}
-      \field{month}{6}
-      \field{note}{Google-Books-ID: 2O4f2ETpjm8C}
-      \field{shorttitle}{Underwater {Acoustics}}
-      \field{title}{Underwater {Acoustics}: {Analysis}, {Design} and {Performance} of {Sonar}}
-      \field{year}{2011}
-      \true{nocite}
-      \verb{file}
-      \verb Hodges - 2011 - Underwater Acoustics Analysis, Design and Perform.pdf:/Users/victoriaboichenko/Zotero/storage/FXH34PXJ/Hodges - 2011 - Underwater Acoustics Analysis, Design and Perform.pdf:application/pdf
-      \endverb
-      \keyw{notion,Science / Waves \& Wave Mechanics,Technology \& Engineering / Electrical,Technology \& Engineering / Electronics / General}
-    \endentry
     \entry{veloso_new_2015}{article}{}{}
       \name{author}{4}{}{%
         {{hash=b0058ea388891753a0ac1307a4b6baae}{%
@@ -749,8 +748,8 @@
       \strng{authornamehash}{a23c5b627f30a14c6deb91147aa410ff}
       \strng{authorfullhash}{98de13193eab50437f0dfced4a7ef354}
       \strng{authorfullhashraw}{98de13193eab50437f0dfced4a7ef354}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Quantifying marine methane fluxes of free gas (bubbles) from the seafloor into the water column is of importance for climate related studies, for example, in the Arctic, reliable methodologies are also of interest for studying man-made gas and oil leakage systems at hydrocarbon production sites. Hydroacoustic surveys with singlebeam and nowadays also multibeam systems have been proven to be a successful approach to detect bubble release from the seabed. A number of publications used singlebeam echosounder data to indirectly quantify free gas fluxes via empirical correlations between gas fluxes observed at the seafloor and the hydroacoustic response. Others utilize the hydroacoustic information in an inverse modeling approach to derive bubble fluxes. Here, we present an advanced methodology using data from splitbeam echosounder systems for analyzing gas release water depth ({>} 100 m). We introduce a new {MATLAB}-based software for processing and interactively editing data and we present how bubble-size distribution, bubble rising speed and the model used for calculating the backscatter response of single bubbles influence the final gas flow rate calculations. As a result, we highlight the need for further investigations on how large, wobbly bubbles, bubble clouds, and multi-scattering influence target strength. The results emphasize that detailed studies of bubble-size distributions and rising speeds need to be performed in parallel to hydroacoustic surveys to achieve realistic mediated methane flow rate and flux quantifications.}
